@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Ball
+  - Water
+  - UI
+  - OutHole
+  - Ramp1
+  - Ramp2
+  - Post-Processing
+  - Paddle
+  - Ramp3
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Ball
+    uniqueID: 4191562119
+    locked: 0
+  - name: Ramp
+    uniqueID: 1494791313
+    locked: 0
+  - name: Tunnel
+    uniqueID: 315082729
+    locked: 0
+  - name: BallOnRamp
+    uniqueID: 3797029325
+    locked: 0
+  - name: MainUI
+    uniqueID: 1139214617
+    locked: 0
+  - name: UpgradeUI
+    uniqueID: 1701461599
+    locked: 0

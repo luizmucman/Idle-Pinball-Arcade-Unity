@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72220aa3d2c98024caecf408d3df09bc, type: 3}
+  m_Name: TicketDatabase
+  m_EditorClassIdentifier: 
+  database:
+  - {fileID: 4149940640115425591, guid: 73f401ff777e806449f438209ea0fb8e, type: 3}
+  - {fileID: 5849921513041967695, guid: d7877ddf08e025b4780a0d605b5f90d9, type: 3}
+  - {fileID: 1149417704628044287, guid: 4aa4a561536603545bebfe2c2be446f1, type: 3}
+  - {fileID: 6961437494945483587, guid: 91325a0fbed8db14fa304cd64e5a3329, type: 3}
+  - {fileID: 6479410260890179430, guid: ac5ce4e26ebe9c246be06ef72d8cd2f0, type: 3}
+  - {fileID: -9179817488438467517, guid: f1ce4c89244fded48bd8cafba9641207, type: 3}
+  - {fileID: 7142845548989718960, guid: f26ca6c4be2c87c42bb7085577b46467, type: 3}
+  - {fileID: 3970602494974466609, guid: 6bd004ab33ac71c40bd8cfc58fd65d1a, type: 3}
+  - {fileID: 3908773100254757997, guid: e4325aae3b32dfe4bb562c7a2671e237, type: 3}
+  - {fileID: 7095381794710370021, guid: 1eb93d4d4f99a7d4dbd9f3a4f6b5ba8c, type: 3}

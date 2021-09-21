@@ -1,0 +1,9 @@
+2D Horizontal Fit is perfect solution for keeping horizontal screen ratio same per any resolution.
+
+Usage:
+1. Setup camera projection to fit your needs.
+2. Add CameraSizeHandler script to the camera.
+3. Press Set Projection Size button.
+4. Done.
+
+Because off changing camera projection to fit horizontal aspect, it's vertical aspect will change too. This will couse problems with vertical objects position, so Keep Bottom Position toggle should be true to avoid this.

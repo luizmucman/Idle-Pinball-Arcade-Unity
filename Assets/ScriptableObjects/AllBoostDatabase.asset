@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8bff0a88787edb469102dc1bc546061, type: 3}
+  m_Name: AllBoostDatabase
+  m_EditorClassIdentifier: 
+  database:
+  - boostID: BOO001
+    boostImg: {fileID: 21300000, guid: bb6467941bbaf3d4c9be3b2b813d2d6a, type: 3}
+    boostAmt: 2
+    boostLength: 0
+    inUse: 0
+    qtyOwned: 0
+  - boostID: BOO002
+    boostImg: {fileID: 21300000, guid: 4824ca2c350782e49b654671a25781d4, type: 3}
+    boostAmt: 4
+    boostLength: 0
+    inUse: 0
+    qtyOwned: 0
+  - boostID: BOO003
+    boostImg: {fileID: 21300000, guid: f8b18272bb2696d4b903f6aa09a428ae, type: 3}
+    boostAmt: 5
+    boostLength: 0
+    inUse: 0
+    qtyOwned: 0
+  - boostID: BOO004
+    boostImg: {fileID: 21300000, guid: 1b5debb0fd0d144498857d6e6b9804f6, type: 3}
+    boostAmt: 10
+    boostLength: 0
+    inUse: 1
+    qtyOwned: 0
+  - boostID: BOO005
+    boostImg: {fileID: 21300000, guid: 384f0621c7df4ca47a39e298b0895a1e, type: 3}
+    boostAmt: 20
+    boostLength: 0
+    inUse: 0
+    qtyOwned: 0
+  - boostID: BOO006
+    boostImg: {fileID: 21300000, guid: 31cff1da35b80e04fa38a20a682dc15b, type: 3}
+    boostAmt: 50
+    boostLength: 0
+    inUse: 0
+    qtyOwned: 0
+  - boostID: BOO007
+    boostImg: {fileID: 21300000, guid: 68924deee41fb4f419de2a9228c177cd, type: 3}
+    boostAmt: 100
+    boostLength: 0
+    inUse: 0
+    qtyOwned: 0
+  - boostID: BOO008
+    boostImg: {fileID: 21300000, guid: a44f7634106746d40a73226335de1be3, type: 3}
+    boostAmt: 500
+    boostLength: 0
+    inUse: 0
+    qtyOwned: 0
+  - boostID: BOO009
+    boostImg: {fileID: 21300000, guid: f078f073bdfe53e499878119c0721f01, type: 3}
+    boostAmt: 1000
+    boostLength: 0
+    inUse: 0
+    qtyOwned: 0

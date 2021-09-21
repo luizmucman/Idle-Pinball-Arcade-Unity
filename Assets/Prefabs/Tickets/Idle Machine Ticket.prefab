@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6961437494945483586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6961437494945483588}
+  - component: {fileID: 6961437494945483587}
+  m_Layer: 0
+  m_Name: Idle Machine Ticket
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6961437494945483588
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6961437494945483586}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.7178535, y: -0.19097915, z: 475.5871}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6961437494945483587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6961437494945483586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f747d8f3b7d0644e9a4a57dd3c285e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData:
+    GUID: TI001
+    rank: 3
+    exp: 0
+  GUID: TI001
+  itemIcon: {fileID: 21300000, guid: 1becaa3a728f9ed4db370ea41dcd14bb, type: 3}
+  itemName: Idle Machine
+  itemDescription: Increase all idle income by (Value)
+  currRankDescription: Increase all idle income by 125%
+  nextRankDescription: Increase all idle income by 150%
+  rank: 3
+  itemType: 2
+  image: {fileID: 21300000, guid: 1becaa3a728f9ed4db370ea41dcd14bb, type: 3}
+  idleMultipliers:
+  - 0.5
+  - 0.75
+  - 1
+  - 1.25
+  - 1.5
