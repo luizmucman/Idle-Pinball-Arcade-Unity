@@ -9,8 +9,9 @@ public class Coin : InteractableObject
     private ulong machineCPS;
     private bool isHit;
 
-    private void Start()
+    public override void Start()
     {
+        base.Start();
         isHit = true;
         Invoke(nameof(Activate), 1f);
     }

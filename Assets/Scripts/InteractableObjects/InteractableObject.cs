@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class InteractableObject : MonoBehaviour
 {
-    //public UpgradeData upgradeData;
+    public SoundsManager soundsManager;
 
     // Object Components
     [HideInInspector] public Rigidbody2D theRB;
@@ -16,6 +16,11 @@ public abstract class InteractableObject : MonoBehaviour
         theRB = GetComponent<Rigidbody2D>();
         theCollider = GetComponent<Collider2D>();
         theAnimator = GetComponent<Animator>();
+    }
+
+    public virtual void Start()
+    {
+        soundsManager = PlayerManager.instance.GetComponent<SoundsManager>();
     }
 
     public virtual void ResetTarget()

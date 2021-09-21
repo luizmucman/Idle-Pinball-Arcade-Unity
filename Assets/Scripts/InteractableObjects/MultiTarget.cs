@@ -10,11 +10,11 @@ public class MultiTarget : InteractableObject
     private bool isHit;
 
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
+        base.Start();
         manager = GetComponentInParent<MultiTargetManager>();
         connectedLight = GetComponentInChildren<MultiTargetLight>();
-
     }
 
     public void Win()

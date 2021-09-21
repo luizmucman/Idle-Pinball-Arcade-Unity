@@ -17,6 +17,7 @@ public class TeleporterBumper : InteractableObject
     public override void BallHit(Ball ball, Collision2D collision)
     {
         base.BallHit(ball, collision);
+        soundsManager.PlaySound("bumperhit");
         ball.theRB.AddForce(collision.GetContact(0).normal * bumperForce, ForceMode2D.Impulse);
         manager.Payout(ball, 1);
     }

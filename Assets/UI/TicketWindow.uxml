@@ -1,0 +1,20 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="USS/WindowContainers.uss" />
+    <ui:VisualElement name="ticket-window-container" class="window-container">
+        <ui:Label text="TICKETS" display-tooltip-when-elided="true" name="ticket-title" class="window-title" />
+        <ui:VisualElement name="ticket-content-container" style="flex-grow: 1; width: 100%; flex-direction: row;">
+            <ui:VisualElement name="tickets-left-container" style="width: 50%;">
+                <ui:Label text="Equipped&#10;" display-tooltip-when-elided="true" name="tickets-equipped-text" style="-unity-text-align: upper-center; -unity-font: url(&apos;/Assets/Fonts/Eathoma Sans.ttf&apos;); font-size: 45px; color: rgba(255, 255, 255, 255);" />
+                <ui:ScrollView name="tickets-equipped-scroll" style="width: 100%; height: 100%;">
+                    <ui:VisualElement name="tickets-equipped-container" style="flex-grow: 0; height: 100%;" />
+                </ui:ScrollView>
+            </ui:VisualElement>
+            <ui:VisualElement name="tickets-right-container" style="height: 100%; width: 50%;">
+                <ui:Label text="OWNED&#10;" display-tooltip-when-elided="true" name="tickets-owned-text" style="-unity-text-align: upper-center; -unity-font: url(&apos;/Assets/Fonts/Eathoma Sans.ttf&apos;); font-size: 45px; color: rgb(255, 255, 255);" />
+                <ui:ScrollView name="tickets-owned-scroll" style="width: 100%; height: 100%;">
+                    <ui:VisualElement name="tickets-owned-container" style="flex-grow: 0; height: 100%;" />
+                </ui:ScrollView>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

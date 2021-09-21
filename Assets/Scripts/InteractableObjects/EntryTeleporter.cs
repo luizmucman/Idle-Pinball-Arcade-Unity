@@ -7,8 +7,9 @@ public class EntryTeleporter : InteractableObject
     private TeleporterManager teleporterManager;
 
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
+        base.Start();
         teleporterManager = GetComponentInParent<TeleporterManager>();
     }
 

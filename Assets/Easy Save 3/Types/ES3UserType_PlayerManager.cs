@@ -4,7 +4,7 @@ using UnityEngine;
 namespace ES3Types
 {
 	[UnityEngine.Scripting.Preserve]
-	[ES3PropertiesAttribute("playerSettingsData", "isAdFree", "is2xAllIncome", "is2xIdleIncome", "globalCoinMultiplier", "boostDatabase", "boostInventory", "playerCoins", "playerGems", "ballInventory", "ticketInventory", "ticketSlotCount", "equippedTickets")]
+	[ES3PropertiesAttribute("playerSettingsData", "tutorialFinished", "isAdFree", "is2xAllIncome", "is2xIdleIncome", "globalCoinMultiplier", "boostDatabase", "boostInventory", "playerCoins", "playerGems", "ballInventory", "ticketInventory", "ticketSlotCount", "equippedTickets")]
 	public class ES3UserType_PlayerManager : ES3ComponentType
 	{
 		public static ES3Type Instance = null;
@@ -17,6 +17,7 @@ namespace ES3Types
 			var instance = (PlayerManager)obj;
 			
 			writer.WriteProperty("playerSettingsData", instance.playerSettingsData, ES3Internal.ES3TypeMgr.GetES3Type(typeof(PlayerSettingsData)));
+			writer.WriteProperty("tutorialFinished", instance.tutorialFinished, ES3Type_bool.Instance);
 			writer.WriteProperty("isAdFree", instance.isAdFree, ES3Type_bool.Instance);
 			writer.WriteProperty("is2xAllIncome", instance.is2xAllIncome, ES3Type_bool.Instance);
 			writer.WriteProperty("is2xIdleIncome", instance.is2xIdleIncome, ES3Type_bool.Instance);
@@ -41,6 +42,9 @@ namespace ES3Types
 					
 					case "playerSettingsData":
 						instance.playerSettingsData = reader.Read<PlayerSettingsData>();
+						break;
+					case "tutorialFinished":
+						instance.tutorialFinished = reader.Read<System.Boolean>(ES3Type_bool.Instance);
 						break;
 					case "isAdFree":
 						instance.isAdFree = reader.Read<System.Boolean>(ES3Type_bool.Instance);

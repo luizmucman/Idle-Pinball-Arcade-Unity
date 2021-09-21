@@ -29,8 +29,7 @@ public class UITicketManager : MonoBehaviour
 
         foreach (ItemData ticketData in playerManager.ticketInventory)
         {
-            UITicketButton currTicket = Instantiate(ticketButtonPrefab, ownedList.transform);
-            currTicket.SetTicket(ticketData);
+            AddNewTicketOwned(ticketData);
         }
 
         foreach (ItemData ticketData in playerManager.equippedTickets)
@@ -115,5 +114,11 @@ public class UITicketManager : MonoBehaviour
     {
         equippedList.SetActive(false);
         equippedList.SetActive(true);
+    }
+
+    public void AddNewTicketOwned(ItemData ticketData)
+    {
+        UITicketButton currTicket = Instantiate(ticketButtonPrefab, ownedList.transform);
+        currTicket.SetTicket(ticketData);
     }
 }

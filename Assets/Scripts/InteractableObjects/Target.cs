@@ -7,8 +7,9 @@ public class Target : InteractableObject
     private TargetManager manager;
 
     // Start is called before the first frame update
-    public void Start()
+    public override void Start()
     {
+        base.Start();
         manager = GetComponentInParent<TargetManager>();
     }
 

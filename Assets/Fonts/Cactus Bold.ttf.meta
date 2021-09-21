@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 5e45e5ed507b75941acbf82ff8b2436c
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - cactus
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a13931da716ad3c4c811cff619896cb0, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

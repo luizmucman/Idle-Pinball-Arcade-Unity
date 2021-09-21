@@ -62,8 +62,6 @@ public class Ball : Item
         // Check if collided object is interactable
         if(hitObject.GetComponent<InteractableObject>() != null)
         {
-            //soundsManager.PlaySound("objecthit1");
-
             PlayerManager.instance.AddSeasonPassHit();
             hitObject.GetComponent<InteractableObject>().BallHit(this, other);
             particle.Play();

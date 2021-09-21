@@ -99,8 +99,9 @@ public class UIBallManager : MonoBehaviour
     {
         foreach(UIBallContainer container in ballContainers)
         {
-            ballContainers.Remove(container);
             Destroy(container.gameObject);
+            ballContainers.Remove(container);
+
         }
 
         foreach (ItemData ballData in PlayerManager.instance.ballInventory)
@@ -108,7 +109,18 @@ public class UIBallManager : MonoBehaviour
             UIBallContainer currBallContainer = Instantiate(ballContainerPrefab, BallContent.transform);
 
             currBallContainer.SetRow(ballData);
+
             ballContainers.Add(currBallContainer);
         }
+    }
+
+    public void AddNewBallUI(ItemData ballData)
+    {
+        UIBallContainer currBallContainer = Instantiate(ballContainerPrefab, BallContent.transform);
+
+        currBallContainer.SetRow(ballData);
+
+        ballContainers.Add(currBallContainer);
+        currBallContainer.UpdateCount();
     }
 }

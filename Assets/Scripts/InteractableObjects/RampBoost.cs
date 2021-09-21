@@ -8,13 +8,15 @@ public class RampBoost : InteractableObject
 
     public GameObject boostDirection;
 
-    public void Start()
+    public override void Start()
     {
+        base.Start();
         manager = GetComponentInParent<RampManager>();
     }
 
     public override void BallHit(Ball ball, Collider2D collision)
     {
+        soundsManager.PlaySound("ramphit");
         ball.gameObject.layer = manager.gameObject.layer;
         ball.GetComponent<SpriteRenderer>().sortingLayerName = manager.ramp.GetComponent<SpriteRenderer>().sortingLayerName;
         ball.GetComponent<SpriteRenderer>().sortingOrder = manager.ramp.GetComponent<SpriteRenderer>().sortingOrder + 1;

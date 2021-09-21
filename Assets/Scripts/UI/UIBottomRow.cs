@@ -22,7 +22,7 @@ public class UIBottomRow : MonoBehaviour
 
         foreach(UIMenuButton menuButton in menuButtons)
         {
-            menuButton.GetComponent<Image>().sprite = menuButtonUnselected;
+            menuButton.GetComponent<Image>().sprite = menuButton.notSelected;
             menuButton.isClicked = false;
         }
     }
@@ -35,7 +35,7 @@ public class UIBottomRow : MonoBehaviour
             UIManager.instance.ShowOverlay();
             windows[button.windowID].SetActive(true);
             button.isClicked = true;
-            button.GetComponent<Image>().sprite = menuButtonSelected;
+            button.GetComponent<Image>().sprite = button.isSelected;
         }
         else
         {

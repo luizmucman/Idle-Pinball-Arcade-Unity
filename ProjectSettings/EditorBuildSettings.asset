@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Machines/LOADINGSCENE.unity
     guid: 59658d59626fbe8469d0cc639260bae0
   - enabled: 1
-    path: Assets/Machines/Main/001-PinballMachine/MA001.unity
+    path: Assets/Machines/Main/001-ClassicMachine/MA001.unity
     guid: 73b63749e4946ee4c8623fe1b24951b1
   - enabled: 1
     path: Assets/Machines/Main/002-OceanMachine/MA002.unity

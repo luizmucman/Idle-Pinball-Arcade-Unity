@@ -6,8 +6,9 @@ public class DropTarget : InteractableObject
 {
     private DropTargetManager manager;
 
-    private void Start()
+    public override void Start()
     {
+        base.Start();
         manager = GetComponentInParent<DropTargetManager>();    
     }
 

@@ -38,6 +38,12 @@ public abstract class ObjectManager : MonoBehaviour
         PlayerManager.instance.currentMachine.coinsPerSecondCounter += (ulong)(upgradeData.currentCoinProduction);
     }
 
+    public virtual void Payout(float multiplier)
+    {
+        PlayerManager.instance.AddCoins((ulong)(upgradeData.currentCoinProduction));
+        PlayerManager.instance.currentMachine.coinsPerSecondCounter += (ulong)(upgradeData.currentCoinProduction);
+    }
+
     public void EnableUpgradeCanvas()
     {
         if (dependentManager != null)

@@ -15,6 +15,9 @@ public class PlayerManager : MonoBehaviour
     // Player Settings
     public PlayerSettingsData playerSettingsData;
 
+    // Tutorial Data
+    public bool tutorialFinished;
+
     // Player Purchases
     public bool isAdFree;
     public bool is2xAllIncome;
@@ -73,12 +76,9 @@ public class PlayerManager : MonoBehaviour
         else
         {
             instance = this;
-            playerCoins = 100000000;
-            playerGems = 10000;
             if (ES3.KeyExists("playerManager"))
             {
                 LoadPlayerData();
-
             }
             else
             {

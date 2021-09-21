@@ -7,6 +7,10 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
 
+    public TutorialManager tutorialManager;
+
+    private Camera cam;
+
     [Header("UI Managers")]
     public UIBallManager uiBallManager;
     public UIUpgradeManager uiUpgradeManager;
@@ -22,6 +26,8 @@ public class UIManager : MonoBehaviour
     // Top Bar
     public Text playerCoinText;
     public Text playerGemText;
+    public Image coinImage;
+    public Vector2 coinPos;
 
     [Header("Overlay")]
     public GameObject overlay;
@@ -34,8 +40,10 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        cam = Camera.main;
         playerCoinText.text = PlayerManager.instance.numFormat.Format(PlayerManager.instance.playerCoins);
         playerGemText.text = PlayerManager.instance.playerGems.ToString();
+        coinPos = cam.ScreenToWorldPoint(coinImage.rectTransform.position);
     }
 
     public void ShowOverlay()

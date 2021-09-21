@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Paddle : MonoBehaviour
 {
     private SoundsManager soundsManager;
+    private PaddleManager paddleManager;
 
     // Variables
     public bool isAuto;
@@ -28,6 +29,7 @@ public class Paddle : MonoBehaviour
         motor = hinge.motor;
         cooldown = 0;
         soundsManager = PlayerManager.instance.GetComponent<SoundsManager>();
+        paddleManager = GetComponentInParent<PaddleManager>();
     }
 
     private void Update()
@@ -39,6 +41,7 @@ public class Paddle : MonoBehaviour
     {
         if (cooldown >= 0.2f)
         {
+            paddleManager.Payout(1);
             soundsManager.PlaySound("flipper");
             hinge.useMotor = true;
             cooldown = 0;

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9092899560367458445}
   - component: {fileID: 9092899560367458434}
   - component: {fileID: 9092899560367458447}
+  - component: {fileID: 2338324687339776875}
   m_Layer: 5
   m_Name: TicketButton
   m_TagString: Untagged
@@ -149,5 +150,20 @@ MonoBehaviour:
   ticketData:
     GUID: 
     rank: 0
+    exp: 0
   ticket: {fileID: 0}
   isEquipped: 0
+--- !u!114 &2338324687339776875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9092899560367458432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f25e4e9b3bcef8f41aebbc05194dc9d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorialManager: {fileID: 0}
+  btn: {fileID: 0}

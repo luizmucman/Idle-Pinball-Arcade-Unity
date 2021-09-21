@@ -9,6 +9,9 @@ public class UIMenuButton : MonoBehaviour
     public int windowID;
     public bool isClicked;
 
+    public Sprite notSelected;
+    public Sprite isSelected;
+
     private void Start()
     {
         rowManager = GetComponentInParent<UIBottomRow>();

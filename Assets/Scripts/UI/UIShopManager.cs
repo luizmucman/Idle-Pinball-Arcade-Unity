@@ -378,9 +378,9 @@ public class UIShopManager : MonoBehaviour
 
         buyPopup.SetPopup(chosenItem);
 
-        if(itemType == ShopItemType.Ball)
+        if(itemType == ShopItemType.Ball && !isDupe)
         {
-            UIManager.instance.uiBallManager.ResetBallUI();
+            UIManager.instance.uiBallManager.AddNewBallUI(itemData);
         }
     }
 
