@@ -16,6 +16,7 @@ public class Target : InteractableObject
     public override void BallHit(Ball ball, Collision2D collision)
     {
         base.BallHit(ball, collision);
+        manager.Payout(ball, 1);
         manager.AddHit(ball);
     }
 }

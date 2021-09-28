@@ -18,7 +18,7 @@ public class MachineManager : MonoBehaviour
     private List<Ball> instantiatedNormalBalls;
 
     // Machine Info
-
+    public bool testBalance;
     [HideInInspector] public string machineSceneName;
     [HideInInspector] public float cpsMinuteCounter;
     [HideInInspector] public ulong coinsPerSecondCounter;
@@ -59,6 +59,11 @@ public class MachineManager : MonoBehaviour
 
     private void Start()
     {
+        if(testBalance)
+        {
+            Time.timeScale = 50;
+        }
+
         PlayerManager.instance.currentMachine = this;
         uiManager = UIManager.instance;
         CheckAutoPaddles();

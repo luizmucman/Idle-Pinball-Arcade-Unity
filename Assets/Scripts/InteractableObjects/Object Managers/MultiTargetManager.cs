@@ -25,7 +25,7 @@ public class MultiTargetManager : ObjectManager
                 target.Win();
             }
             targetHP = multiTargets.Length;
-            Payout(ball, jackpotMultiplier);
+            Payout(ball, upgradeData.jackpotMultiplier);
         }
     }
 }

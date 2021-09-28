@@ -23,6 +23,7 @@ public class RampBoost : InteractableObject
         ball.gameObject.transform.position = gameObject.transform.position;
         ball.theRB.velocity = Vector2.zero;
         ball.theRB.AddForce((boostDirection.transform.position - ball.transform.position) * 20, ForceMode2D.Impulse);
+        manager.Payout(ball, 1f);
         manager.AddHit(ball);
     }
 }

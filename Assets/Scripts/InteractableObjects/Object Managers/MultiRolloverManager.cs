@@ -18,7 +18,7 @@ public class MultiRolloverManager : ObjectManager
         targetHitCount++;
         if(targetHitCount >= targets.Length)
         {
-            Payout(ball, jackpotMultiplier);
+            Payout(ball, upgradeData.jackpotMultiplier);
             targetHitCount = 0;
             foreach(MultiRolloverTarget target in targets)
             {

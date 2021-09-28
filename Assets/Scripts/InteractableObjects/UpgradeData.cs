@@ -11,33 +11,46 @@ public class UpgradeData
     public string objectName;
     public string upgradeDesc;
 
-    [Header("Base values")]
+    [Header("Set Values")]
     // Base Values
     public ulong baseCoinProduction;
     public ulong baseCost;
-
-    [Header("Multiplier Rates")]
     public float upgradeCostGrowthRate;
-    public float cpsMultiplier;
+    public float jackpotMultiplier;
 
     [Header("Current Values")]
     public int level;
     public ulong currentCoinProduction;
     public ulong currentCost;
-    public ulong currentCPS;
 
-    [Header("Physics Values")]
-    public float bounceForce;
+    [Header("UnlockData")]
+    public ManagerUnlocks unlockLevelData;
+    public int currentUnlockStage;
+    public ulong currentUnlockMultiplier;
 
     public void SetData()
     {
+        if (currentUnlockMultiplier == 0)
+        {
+            currentUnlockMultiplier = 1;
+        }
         currentCoinProduction = GetProductionValue(level);
         currentCost = (ulong)(baseCost * Mathf.Pow(upgradeCostGrowthRate, (float)level));
-        currentCPS = (ulong) (currentCoinProduction * cpsMultiplier);
     }
 
     public ulong GetProductionValue(int level)
     {
-        return baseCoinProduction * (ulong)level;
+        return baseCoinProduction * (ulong)level * currentUnlockMultiplier;
+    }
+
+    public void LevelUp(int upgradeAmt)
+    {
+        level += upgradeAmt;
+        while(level > unlockLevelData.unlocks[currentUnlockStage].level)
+        {
+            currentUnlockMultiplier *= unlockLevelData.unlocks[currentUnlockStage].multiplier;
+            currentUnlockStage++;
+        }
+        SetData();
     }
 }

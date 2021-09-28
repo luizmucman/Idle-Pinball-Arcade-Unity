@@ -33,6 +33,7 @@ public class MultiTarget : InteractableObject
         {
             isHit = true;
             base.BallHit(ball, collision);
+            manager.Payout(ball, 1f);
             if (connectedLight != null)
             {
                 connectedLight.PlayLitAnim();

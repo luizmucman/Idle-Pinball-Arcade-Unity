@@ -7,6 +7,7 @@ public class Paddle : MonoBehaviour
 {
     private SoundsManager soundsManager;
     private PaddleManager paddleManager;
+    [HideInInspector] public ParticleSystem particle;
 
     // Variables
     public bool isAuto;
@@ -30,6 +31,7 @@ public class Paddle : MonoBehaviour
         cooldown = 0;
         soundsManager = PlayerManager.instance.GetComponent<SoundsManager>();
         paddleManager = GetComponentInParent<PaddleManager>();
+        particle = GetComponentInChildren<ParticleSystem>();
     }
 
     private void Update()
@@ -39,10 +41,11 @@ public class Paddle : MonoBehaviour
 
     public void EnablePaddle()
     {
-        if (cooldown >= 0.2f)
+        if (cooldown >= 0.1f)
         {
             paddleManager.Payout(1);
-            soundsManager.PlaySound("flipper");
+            particle.Play();
+            //soundsManager.PlaySound("flipper");
             hinge.useMotor = true;
             cooldown = 0;
         }

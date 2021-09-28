@@ -50,6 +50,7 @@ MonoBehaviour:
     bgmMuted: 0
     sfxMuted: 0
     notificationsEnabled: 0
+  tutorialFinished: 1
   isAdFree: 0
   is2xAllIncome: 0
   is2xIdleIncome: 0
@@ -203,22 +204,10 @@ MonoBehaviour:
   globalCoinMultiplier: 1
   boostDatabase: {fileID: 11400000, guid: b1e044ea2fcc511429c196ee0892721a, type: 2}
   boostInventory: []
-  playerCoins: 10000000000
+  playerCoins: 0
   playerGems: 100000
-  ballInventory:
-  - GUID: BA001
-    rank: 0
-    exp: 0
-  - GUID: BA002
-    rank: 0
-    exp: 0
-  ticketInventory:
-  - GUID: TI001
-    rank: 3
-    exp: 0
-  - GUID: TI002
-    rank: 2
-    exp: 0
+  ballInventory: []
+  ticketInventory: []
   ticketSlotCount: 1
   equippedTickets: []
   playerTicketBuffs:
@@ -240,7 +229,7 @@ MonoBehaviour:
   - machineGUID: MA001
     machineName: Classic
     machineCost: 0
-    isUnlocked: 1
+    isUnlocked: 0
     isPlaying: 0
     isCurrentEvent: 0
     coinsPerSecond: 0
@@ -249,7 +238,7 @@ MonoBehaviour:
   - machineGUID: MA002
     machineName: Under The Sea
     machineCost: 0
-    isUnlocked: 1
+    isUnlocked: 0
     isPlaying: 0
     isCurrentEvent: 0
     coinsPerSecond: 16534
@@ -258,7 +247,7 @@ MonoBehaviour:
   - machineGUID: MA003
     machineName: Nature
     machineCost: 0
-    isUnlocked: 1
+    isUnlocked: 0
     isPlaying: 0
     isCurrentEvent: 0
     coinsPerSecond: 0
@@ -268,7 +257,7 @@ MonoBehaviour:
   - machineGUID: EV001
     machineName: Sweet Treats
     machineCost: 0
-    isUnlocked: 1
+    isUnlocked: 0
     isPlaying: 0
     isCurrentEvent: 1
     coinsPerSecond: 0

@@ -194,7 +194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: 5ff7de9b7e0e3a349a87f051d6720615, type: 3}
-    objectName: 
+    objectName: Flower Path
     upgradeDesc: 
     baseCoinProduction: 0
     baseCost: 0
@@ -205,8 +205,11 @@ MonoBehaviour:
     currentCost: 0
     currentCPS: 0
     bounceForce: 0
-  jackpotMultiplier: 0
-  dependentManager: {fileID: 0}
+  jackpotMultiplier: 5
+  dependentManager: {fileID: 1918647558787215267}
+  timePassed: 0
+  timesHit: 0
+  timesJackpot: 0
 --- !u!1 &162519039591344002
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,7 +258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: 11d5a24c8468f6a45836eab3fa5b878c, type: 3}
-    objectName: 
+    objectName: Beehive Target
     upgradeDesc: 
     baseCoinProduction: 0
     baseCost: 0
@@ -266,8 +269,11 @@ MonoBehaviour:
     currentCost: 0
     currentCPS: 0
     bounceForce: 0
-  jackpotMultiplier: 0
-  dependentManager: {fileID: 0}
+  jackpotMultiplier: 5
+  dependentManager: {fileID: 7364661186286567884}
+  timePassed: 0
+  timesHit: 0
+  timesJackpot: 0
 --- !u!1 &169223884644130545
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,6 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ba2e9223e012dc469c17f0873d4c119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundsManager: {fileID: 0}
   theRB: {fileID: 0}
   theCollider: {fileID: 0}
   theAnimator: {fileID: 0}
@@ -1080,6 +1087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1082a8d9358899549b78ab3de7c84e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundsManager: {fileID: 0}
   theRB: {fileID: 0}
   theCollider: {fileID: 0}
   theAnimator: {fileID: 0}
@@ -1133,7 +1141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: 9c00ccbf0c6c69e40b13da9cc709e170, type: 3}
-    objectName: 
+    objectName: Secret Rose Bumpers
     upgradeDesc: 
     baseCoinProduction: 0
     baseCost: 0
@@ -1145,7 +1153,10 @@ MonoBehaviour:
     currentCPS: 0
     bounceForce: 0
   jackpotMultiplier: 0
-  dependentManager: {fileID: 1607117750335460415}
+  dependentManager: {fileID: 3475616462341531785}
+  timePassed: 0
+  timesHit: 0
+  timesJackpot: 0
 --- !u!1 &981754543608907749
 GameObject:
   m_ObjectHideFlags: 0
@@ -1309,6 +1320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a78d1278bd61ab4f80a80af5e3b3e6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundsManager: {fileID: 0}
   theRB: {fileID: 0}
   theCollider: {fileID: 0}
   theAnimator: {fileID: 0}
@@ -1659,6 +1671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1082a8d9358899549b78ab3de7c84e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundsManager: {fileID: 0}
   theRB: {fileID: 0}
   theCollider: {fileID: 0}
   theAnimator: {fileID: 0}
@@ -1875,7 +1888,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: acf86ec801df76942b5d62720724122d, type: 3}
-    objectName: 
+    objectName: Secret Red Lights
     upgradeDesc: 
     baseCoinProduction: 0
     baseCost: 0
@@ -1886,8 +1899,11 @@ MonoBehaviour:
     currentCost: 0
     currentCPS: 0
     bounceForce: 0
-  jackpotMultiplier: 0
+  jackpotMultiplier: 5
   dependentManager: {fileID: 1607117750335460415}
+  timePassed: 0
+  timesHit: 0
+  timesJackpot: 0
 --- !u!1 &1654748972923786300
 GameObject:
   m_ObjectHideFlags: 0
@@ -1937,7 +1953,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: 1c4c2e433e7cc7242a413c6f79ec548e, type: 3}
-    objectName: 
+    objectName: Mushroom Lights
     upgradeDesc: 
     baseCoinProduction: 0
     baseCost: 0
@@ -1948,8 +1964,11 @@ MonoBehaviour:
     currentCost: 0
     currentCPS: 0
     bounceForce: 0
-  jackpotMultiplier: 0
-  dependentManager: {fileID: 0}
+  jackpotMultiplier: 5
+  dependentManager: {fileID: 3875549110029562376}
+  timePassed: 0
+  timesHit: 0
+  timesJackpot: 0
 --- !u!1 &1692189457716866434
 GameObject:
   m_ObjectHideFlags: 0
@@ -2152,6 +2171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1082a8d9358899549b78ab3de7c84e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundsManager: {fileID: 0}
   theRB: {fileID: 0}
   theCollider: {fileID: 0}
   theAnimator: {fileID: 0}
@@ -2361,6 +2381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1082a8d9358899549b78ab3de7c84e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundsManager: {fileID: 0}
   theRB: {fileID: 0}
   theCollider: {fileID: 0}
   theAnimator: {fileID: 0}
@@ -2418,6 +2439,7 @@ MonoBehaviour:
   currentBallCount: 0
   maxEquippedBalls: 1
   instantiatedBalls: []
+  testBalance: 1
   machineSceneName: 
   cpsMinuteCounter: 0
   coinsPerSecondCounter: 0
@@ -2789,6 +2811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1082a8d9358899549b78ab3de7c84e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundsManager: {fileID: 0}
   theRB: {fileID: 0}
   theCollider: {fileID: 0}
   theAnimator: {fileID: 0}
@@ -3124,6 +3147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612feacca4b751549bbf2240f7f813cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundsManager: {fileID: 0}
   theRB: {fileID: 0}
   theCollider: {fileID: 0}
   theAnimator: {fileID: 0}
@@ -3459,6 +3483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612feacca4b751549bbf2240f7f813cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundsManager: {fileID: 0}
   theRB: {fileID: 0}
   theCollider: {fileID: 0}
   theAnimator: {fileID: 0}
@@ -4035,6 +4060,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a78d1278bd61ab4f80a80af5e3b3e6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundsManager: {fileID: 0}
   theRB: {fileID: 0}
   theCollider: {fileID: 0}
   theAnimator: {fileID: 0}
@@ -4269,6 +4295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1082a8d9358899549b78ab3de7c84e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundsManager: {fileID: 0}
   theRB: {fileID: 0}
   theCollider: {fileID: 0}
   theAnimator: {fileID: 0}
@@ -4726,6 +4753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a78d1278bd61ab4f80a80af5e3b3e6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundsManager: {fileID: 0}
   theRB: {fileID: 0}
   theCollider: {fileID: 0}
   theAnimator: {fileID: 0}
@@ -4934,6 +4962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1082a8d9358899549b78ab3de7c84e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundsManager: {fileID: 0}
   theRB: {fileID: 0}
   theCollider: {fileID: 0}
   theAnimator: {fileID: 0}
@@ -4988,7 +5017,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: 2fe1834d1c93f914eb02ec54febb8f15, type: 3}
-    objectName: 
+    objectName: Secret Teleporter
     upgradeDesc: 
     baseCoinProduction: 0
     baseCost: 0
@@ -5000,7 +5029,10 @@ MonoBehaviour:
     currentCPS: 0
     bounceForce: 0
   jackpotMultiplier: 0
-  dependentManager: {fileID: 0}
+  dependentManager: {fileID: 7476046648508035428}
+  timePassed: 0
+  timesHit: 0
+  timesJackpot: 0
 --- !u!1 &3624587127358233039
 GameObject:
   m_ObjectHideFlags: 0
@@ -5494,6 +5526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1082a8d9358899549b78ab3de7c84e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundsManager: {fileID: 0}
   theRB: {fileID: 0}
   theCollider: {fileID: 0}
   theAnimator: {fileID: 0}
@@ -5632,6 +5665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a78d1278bd61ab4f80a80af5e3b3e6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundsManager: {fileID: 0}
   theRB: {fileID: 0}
   theCollider: {fileID: 0}
   theAnimator: {fileID: 0}
@@ -5820,6 +5854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612feacca4b751549bbf2240f7f813cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundsManager: {fileID: 0}
   theRB: {fileID: 0}
   theCollider: {fileID: 0}
   theAnimator: {fileID: 0}
@@ -6059,6 +6094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1082a8d9358899549b78ab3de7c84e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundsManager: {fileID: 0}
   theRB: {fileID: 0}
   theCollider: {fileID: 0}
   theAnimator: {fileID: 0}
@@ -6826,6 +6862,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4976195522086068648}
+  - {fileID: 3239035606771647420}
   m_Father: {fileID: 3823524737828015772}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7055,6 +7092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a633c8d021c6da4fafe87977c09d91e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particle: {fileID: 0}
   isAuto: 1
   buttonUnpressed: {fileID: 0}
   buttonPressed: {fileID: 0}
@@ -7221,6 +7259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a78d1278bd61ab4f80a80af5e3b3e6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundsManager: {fileID: 0}
   theRB: {fileID: 0}
   theCollider: {fileID: 0}
   theAnimator: {fileID: 0}
@@ -8085,6 +8124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1082a8d9358899549b78ab3de7c84e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundsManager: {fileID: 0}
   theRB: {fileID: 0}
   theCollider: {fileID: 0}
   theAnimator: {fileID: 0}
@@ -8291,6 +8331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1082a8d9358899549b78ab3de7c84e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundsManager: {fileID: 0}
   theRB: {fileID: 0}
   theCollider: {fileID: 0}
   theAnimator: {fileID: 0}
@@ -8791,6 +8832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1082a8d9358899549b78ab3de7c84e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundsManager: {fileID: 0}
   theRB: {fileID: 0}
   theCollider: {fileID: 0}
   theAnimator: {fileID: 0}
@@ -9739,6 +9781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1030f013533d2646b621540d9f3e3f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundsManager: {fileID: 0}
   theRB: {fileID: 0}
   theCollider: {fileID: 0}
   theAnimator: {fileID: 0}
@@ -10044,6 +10087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612feacca4b751549bbf2240f7f813cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundsManager: {fileID: 0}
   theRB: {fileID: 0}
   theCollider: {fileID: 0}
   theAnimator: {fileID: 0}
@@ -10385,7 +10429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: 2d528b98ba8b1594a99f5c6e536fa046, type: 3}
-    objectName: 
+    objectName: Tree Targets
     upgradeDesc: 
     baseCoinProduction: 0
     baseCost: 0
@@ -10396,8 +10440,11 @@ MonoBehaviour:
     currentCost: 0
     currentCPS: 0
     bounceForce: 0
-  jackpotMultiplier: 0
-  dependentManager: {fileID: 0}
+  jackpotMultiplier: 5
+  dependentManager: {fileID: 776196041681570708}
+  timePassed: 0
+  timesHit: 0
+  timesJackpot: 0
 --- !u!1 &5939869373801297574
 GameObject:
   m_ObjectHideFlags: 0
@@ -10597,6 +10644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1082a8d9358899549b78ab3de7c84e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundsManager: {fileID: 0}
   theRB: {fileID: 0}
   theCollider: {fileID: 0}
   theAnimator: {fileID: 0}
@@ -11078,6 +11126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612feacca4b751549bbf2240f7f813cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundsManager: {fileID: 0}
   theRB: {fileID: 0}
   theCollider: {fileID: 0}
   theAnimator: {fileID: 0}
@@ -11131,7 +11180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: f4cd5d807edf8eb48825b83241629ca1, type: 3}
-    objectName: 
+    objectName: Lily Bumpers
     upgradeDesc: 
     baseCoinProduction: 0
     baseCost: 0
@@ -11144,6 +11193,9 @@ MonoBehaviour:
     bounceForce: 0
   jackpotMultiplier: 0
   dependentManager: {fileID: 0}
+  timePassed: 0
+  timesHit: 0
+  timesJackpot: 0
 --- !u!1 &6358070921188206278
 GameObject:
   m_ObjectHideFlags: 0
@@ -11205,6 +11257,9 @@ MonoBehaviour:
     bounceForce: 0
   jackpotMultiplier: 0
   dependentManager: {fileID: 0}
+  timePassed: 0
+  timesHit: 0
+  timesJackpot: 0
 --- !u!1 &6670407039266471787
 GameObject:
   m_ObjectHideFlags: 0
@@ -11599,6 +11654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a78d1278bd61ab4f80a80af5e3b3e6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundsManager: {fileID: 0}
   theRB: {fileID: 0}
   theCollider: {fileID: 0}
   theAnimator: {fileID: 0}
@@ -11787,6 +11843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612feacca4b751549bbf2240f7f813cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundsManager: {fileID: 0}
   theRB: {fileID: 0}
   theCollider: {fileID: 0}
   theAnimator: {fileID: 0}
@@ -12168,6 +12225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1082a8d9358899549b78ab3de7c84e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundsManager: {fileID: 0}
   theRB: {fileID: 0}
   theCollider: {fileID: 0}
   theAnimator: {fileID: 0}
@@ -12220,7 +12278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: 362ad1ac381f0064cbbb5caa754da0e4, type: 3}
-    objectName: 
+    objectName: Fruit Bar
     upgradeDesc: 
     baseCoinProduction: 0
     baseCost: 0
@@ -12231,8 +12289,11 @@ MonoBehaviour:
     currentCost: 0
     currentCPS: 0
     bounceForce: 0
-  jackpotMultiplier: 0
-  dependentManager: {fileID: 0}
+  jackpotMultiplier: 5
+  dependentManager: {fileID: 1183819991696802267}
+  timePassed: 0
+  timesHit: 0
+  timesJackpot: 0
 --- !u!1 &7455606535266897488
 GameObject:
   m_ObjectHideFlags: 0
@@ -12644,7 +12705,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: dcf8a49accbc8fc44b98ed62dd22914e, type: 3}
-    objectName: 
+    objectName: Spider Web
     upgradeDesc: 
     baseCoinProduction: 0
     baseCost: 0
@@ -12655,8 +12716,11 @@ MonoBehaviour:
     currentCost: 0
     currentCPS: 0
     bounceForce: 0
-  jackpotMultiplier: 0
-  dependentManager: {fileID: 0}
+  jackpotMultiplier: 5
+  dependentManager: {fileID: 2690680087929652271}
+  timePassed: 0
+  timesHit: 0
+  timesJackpot: 0
 --- !u!1 &7914757339184661595
 GameObject:
   m_ObjectHideFlags: 0
@@ -13295,6 +13359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1082a8d9358899549b78ab3de7c84e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundsManager: {fileID: 0}
   theRB: {fileID: 0}
   theCollider: {fileID: 0}
   theAnimator: {fileID: 0}
@@ -13637,6 +13702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1082a8d9358899549b78ab3de7c84e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundsManager: {fileID: 0}
   theRB: {fileID: 0}
   theCollider: {fileID: 0}
   theAnimator: {fileID: 0}
@@ -13998,6 +14064,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5687808421374788742}
+  - {fileID: 4201758919207285802}
   m_Father: {fileID: 3823524737828015772}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14220,6 +14287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a633c8d021c6da4fafe87977c09d91e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particle: {fileID: 0}
   isAuto: 1
   buttonUnpressed: {fileID: 0}
   buttonPressed: {fileID: 0}
@@ -14369,6 +14437,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ead0761bf4018fe42967015c4ba59e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &33892750499433111
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2027175775529759227}
+    m_Modifications:
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156151016843113993, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_Name
+      value: CoinParticle
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+--- !u!4 &4201758919207285802 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+  m_PrefabInstance: {fileID: 33892750499433111}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &389726484264313621
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14488,11 +14618,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09164ff7bb8568a44bf14ee7c5d09146, type: 3}
---- !u!4 &7684002238783501200 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7255263556191592636, guid: 09164ff7bb8568a44bf14ee7c5d09146, type: 3}
-  m_PrefabInstance: {fileID: 1012413336322315052}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5380720066602564906 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4945226121214258694, guid: 09164ff7bb8568a44bf14ee7c5d09146, type: 3}
@@ -14504,6 +14629,73 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb92194f9b658f24f8bb88f4434a32dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &7684002238783501200 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7255263556191592636, guid: 09164ff7bb8568a44bf14ee7c5d09146, type: 3}
+  m_PrefabInstance: {fileID: 1012413336322315052}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1640596170837359873
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8753398708191969768}
+    m_Modifications:
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156151016843113993, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_Name
+      value: CoinParticle
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+--- !u!4 &3239035606771647420 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+  m_PrefabInstance: {fileID: 1640596170837359873}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2796688774649143692
 PrefabInstance:
   m_ObjectHideFlags: 0

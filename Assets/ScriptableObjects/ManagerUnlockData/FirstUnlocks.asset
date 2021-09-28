@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c41cc906beadfd428ad6c2c6e5ece00, type: 3}
+  m_Name: FirstUnlocks
+  m_EditorClassIdentifier: 
+  unlocks:
+  - level: 25
+    multiplier: 2
+  - level: 50
+    multiplier: 2
+  - level: 100
+    multiplier: 2
+  - level: 200
+    multiplier: 2
+  - level: 300
+    multiplier: 2
+  - level: 400
+    multiplier: 2
+  - level: 500
+    multiplier: 4
+  - level: 600
+    multiplier: 4
+  - level: 700
+    multiplier: 4
+  - level: 800
+    multiplier: 4
+  - level: 900
+    multiplier: 4
+  - level: 1000
+    multiplier: 5
+  - level: 1100
+    multiplier: 4
+  - level: 1200
+    multiplier: 4
+  - level: 1300
+    multiplier: 4
+  - level: 1400
+    multiplier: 4
+  - level: 1500
+    multiplier: 4
+  - level: 1600
+    multiplier: 4
+  - level: 1700
+    multiplier: 4
+  - level: 1800
+    multiplier: 4
+  - level: 1900
+    multiplier: 4
+  - level: 2000
+    multiplier: 5
+  - level: 2250
+    multiplier: 2
+  - level: 2500
+    multiplier: 2
+  - level: 2750
+    multiplier: 2
+  - level: 3000
+    multiplier: 5
+  - level: 3250
+    multiplier: 2
+  - level: 3500
+    multiplier: 2
+  - level: 3750
+    multiplier: 2
+  - level: 4000
+    multiplier: 5
+  - level: 4250
+    multiplier: 2
+  - level: 2500
+    multiplier: 2
+  - level: 4750
+    multiplier: 2
+  - level: 5000
+    multiplier: 5
+  - level: 5250
+    multiplier: 3
+  - level: 5500
+    multiplier: 3
+  - level: 5750
+    multiplier: 3
+  - level: 6000
+    multiplier: 5
+  - level: 6250
+    multiplier: 3
+  - level: 6500
+    multiplier: 3
+  - level: 6750
+    multiplier: 3
+  - level: 7000
+    multiplier: 5
+  - level: 7250
+    multiplier: 3
+  - level: 7500
+    multiplier: 3
+  - level: 8000
+    multiplier: 5
+  - level: 8200
+    multiplier: 3
+  - level: 8400
+    multiplier: 3
+  - level: 8600
+    multiplier: 3
+  - level: 8800
+    multiplier: 3
+  - level: 9000
+    multiplier: 3
+  - level: 9100
+    multiplier: 3
+  - level: 9200
+    multiplier: 3
+  - level: 9300
+    multiplier: 3
+  - level: 9400
+    multiplier: 3
+  - level: 9500
+    multiplier: 3
+  - level: 9600
+    multiplier: 3
+  - level: 9700
+    multiplier: 3
+  - level: 9800
+    multiplier: 3
+  - level: 9900
+    multiplier: 3
+  - level: 10000
+    multiplier: 5

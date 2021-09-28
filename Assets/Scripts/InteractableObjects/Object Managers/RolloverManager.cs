@@ -27,7 +27,7 @@ public class RolloverManager : ObjectManager
                     light.PlayWinAnim();
                 }
                 hitCount = 0;
-                Payout(ball, jackpotMultiplier);
+                Payout(ball, upgradeData.jackpotMultiplier);
             }
         }
     }

@@ -17,5 +17,6 @@ public class EntryTeleporter : InteractableObject
     public override void BallHit(Ball ball, Collider2D collision)
     {
         teleporterManager.TeleportBall(ball, collision);
+        teleporterManager.Payout(ball, 1f);
     }
 }

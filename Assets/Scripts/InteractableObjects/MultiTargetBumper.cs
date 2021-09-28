@@ -9,7 +9,5 @@ public class MultiTargetBumper : MultiTarget
         base.BallHit(ball, collision);
         ball.theRB.AddForce(collision.GetContact(0).normal * 10, ForceMode2D.Impulse);
         manager.Payout(ball, 1);
-
-        Debug.Log("targetbumper");
     }
 }

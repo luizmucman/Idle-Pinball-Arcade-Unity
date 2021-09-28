@@ -32,7 +32,7 @@ public class RampManager : ObjectManager
                 }
                 ramp.PlayWin();
                 hitCount = 0;
-                Payout(ball, jackpotMultiplier);
+                Payout(ball, upgradeData.jackpotMultiplier);
             }
         }
     }

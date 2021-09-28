@@ -1883,6 +1883,7 @@ MonoBehaviour:
   currentBallCount: 0
   maxEquippedBalls: 1
   instantiatedBalls: []
+  testBalance: 1
   machineSceneName: 
   cpsMinuteCounter: 0
   coinsPerSecondCounter: 0
@@ -1955,7 +1956,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: 838cdc67aaaaf5244a45d4661e40526b, type: 3}
-    objectName: 
+    objectName: Arrow Path 3
     upgradeDesc: 
     baseCoinProduction: 0
     baseCost: 0
@@ -1966,8 +1967,11 @@ MonoBehaviour:
     currentCost: 0
     currentCPS: 0
     bounceForce: 0
-  jackpotMultiplier: 0
-  dependentManager: {fileID: 0}
+  jackpotMultiplier: 5
+  dependentManager: {fileID: 7412599569221360222}
+  timePassed: 0
+  timesHit: 0
+  timesJackpot: 0
 --- !u!1 &1827683357660765529
 GameObject:
   m_ObjectHideFlags: 0
@@ -2163,7 +2167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: d9cf7ac587709764a9de54e5c9a08d54, type: 3}
-    objectName: 
+    objectName: Shell Lights
     upgradeDesc: 
     baseCoinProduction: 0
     baseCost: 0
@@ -2174,8 +2178,11 @@ MonoBehaviour:
     currentCost: 0
     currentCPS: 0
     bounceForce: 0
-  jackpotMultiplier: 0
-  dependentManager: {fileID: 0}
+  jackpotMultiplier: 5
+  dependentManager: {fileID: 7412599569221360220}
+  timePassed: 0
+  timesHit: 0
+  timesJackpot: 0
 --- !u!1 &1988870093035862427
 GameObject:
   m_ObjectHideFlags: 0
@@ -2296,7 +2303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: 30e1951fc8fb3b240a866939b4baad60, type: 3}
-    objectName: 
+    objectName: Arrow Path 2
     upgradeDesc: 
     baseCoinProduction: 0
     baseCost: 0
@@ -2307,8 +2314,11 @@ MonoBehaviour:
     currentCost: 0
     currentCPS: 0
     bounceForce: 0
-  jackpotMultiplier: 0
-  dependentManager: {fileID: 0}
+  jackpotMultiplier: 5
+  dependentManager: {fileID: 7412599569221360209}
+  timePassed: 0
+  timesHit: 0
+  timesJackpot: 0
 --- !u!1 &2179109608266430634
 GameObject:
   m_ObjectHideFlags: 0
@@ -2363,7 +2373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: c405e83370047f546abbf665b5883736, type: 3}
-    objectName: 
+    objectName: Jellyfish Targets
     upgradeDesc: 
     baseCoinProduction: 0
     baseCost: 0
@@ -2374,8 +2384,11 @@ MonoBehaviour:
     currentCost: 0
     currentCPS: 0
     bounceForce: 0
-  jackpotMultiplier: 0
-  dependentManager: {fileID: 0}
+  jackpotMultiplier: 5
+  dependentManager: {fileID: 7412599569221360218}
+  timePassed: 0
+  timesHit: 0
+  timesJackpot: 0
 --- !u!1 &2240685668719270095
 GameObject:
   m_ObjectHideFlags: 0
@@ -2626,7 +2639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: a813347c00d6234418ac028e0740dd3d, type: 3}
-    objectName: 
+    objectName: Arrow Path 4
     upgradeDesc: 
     baseCoinProduction: 0
     baseCost: 0
@@ -2637,8 +2650,11 @@ MonoBehaviour:
     currentCost: 0
     currentCPS: 0
     bounceForce: 0
-  jackpotMultiplier: 0
-  dependentManager: {fileID: 0}
+  jackpotMultiplier: 5
+  dependentManager: {fileID: 7412599569221360223}
+  timePassed: 0
+  timesHit: 0
+  timesJackpot: 0
 --- !u!1 &2488622284415765238
 GameObject:
   m_ObjectHideFlags: 0
@@ -2833,7 +2849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: 2b1d729804e22e141b9170b780c97995, type: 3}
-    objectName: 
+    objectName: Light Blue Ramp
     upgradeDesc: 
     baseCoinProduction: 0
     baseCost: 0
@@ -2844,8 +2860,11 @@ MonoBehaviour:
     currentCost: 0
     currentCPS: 0
     bounceForce: 0
-  jackpotMultiplier: 0
-  dependentManager: {fileID: 0}
+  jackpotMultiplier: 5
+  dependentManager: {fileID: 7412599569221360216}
+  timePassed: 0
+  timesHit: 0
+  timesJackpot: 0
   ramp: {fileID: 0}
 --- !u!1 &2655814260005152886
 GameObject:
@@ -3026,8 +3045,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7820402234484092906}
-  m_Father: {fileID: 8181527735248795589}
-  m_RootOrder: 0
+  - {fileID: 4426327299342646305}
+  m_Father: {fileID: 9117416880951348862}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &995350772775305417
 SpriteRenderer:
@@ -3233,6 +3253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a633c8d021c6da4fafe87977c09d91e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particle: {fileID: 0}
   isAuto: 1
   buttonUnpressed: {fileID: 0}
   buttonPressed: {fileID: 0}
@@ -3469,8 +3490,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 9026322717187178140}
+  m_Children: []
   m_Father: {fileID: 6676974423497745232}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3942,6 +3962,7 @@ Transform:
   m_Children:
   - {fileID: 9005448646658971159}
   - {fileID: 7138449777673500285}
+  - {fileID: 9026322717187178140}
   - {fileID: 5051296249207173913}
   m_Father: {fileID: 6676974423497745232}
   m_RootOrder: 6
@@ -3973,6 +3994,9 @@ MonoBehaviour:
     bounceForce: 0
   jackpotMultiplier: 0
   dependentManager: {fileID: 0}
+  timePassed: 0
+  timesHit: 0
+  timesJackpot: 0
 --- !u!1 &3502645879300263770
 GameObject:
   m_ObjectHideFlags: 0
@@ -6068,7 +6092,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: 10cd02b13174df54e84f6854575bd8eb, type: 3}
-    objectName: 
+    objectName: Arrow Path 1
     upgradeDesc: 
     baseCoinProduction: 0
     baseCost: 0
@@ -6079,8 +6103,11 @@ MonoBehaviour:
     currentCost: 0
     currentCPS: 0
     bounceForce: 0
-  jackpotMultiplier: 0
-  dependentManager: {fileID: 0}
+  jackpotMultiplier: 5
+  dependentManager: {fileID: 7412599569221360211}
+  timePassed: 0
+  timesHit: 0
+  timesJackpot: 0
 --- !u!1 &5401589416161026277
 GameObject:
   m_ObjectHideFlags: 0
@@ -7878,7 +7905,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: c1ca27b31d3ba884993948c8a362e621, type: 3}
-    objectName: 
+    objectName: Dark Blue Ramp
     upgradeDesc: 
     baseCoinProduction: 0
     baseCost: 0
@@ -7889,8 +7916,11 @@ MonoBehaviour:
     currentCost: 0
     currentCPS: 0
     bounceForce: 0
-  jackpotMultiplier: 0
-  dependentManager: {fileID: 0}
+  jackpotMultiplier: 5
+  dependentManager: {fileID: 7412599569221360221}
+  timePassed: 0
+  timesHit: 0
+  timesJackpot: 0
   ramp: {fileID: 0}
 --- !u!1 &6250264857434280476
 GameObject:
@@ -8379,7 +8409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: 7651ab985b5697d46a4ab1a381082c8d, type: 3}
-    objectName: 
+    objectName: Bubble Bumpers
     upgradeDesc: 
     baseCoinProduction: 0
     baseCost: 0
@@ -8392,6 +8422,9 @@ MonoBehaviour:
     bounceForce: 0
   jackpotMultiplier: 0
   dependentManager: {fileID: 0}
+  timePassed: 0
+  timesHit: 0
+  timesJackpot: 0
 --- !u!1 &6403379767574498010
 GameObject:
   m_ObjectHideFlags: 0
@@ -8635,6 +8668,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7820402234700689670}
+  - {fileID: 1107775190087565549}
   m_Father: {fileID: 9117416880951348862}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8857,6 +8891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a633c8d021c6da4fafe87977c09d91e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particle: {fileID: 0}
   isAuto: 1
   buttonUnpressed: {fileID: 0}
   buttonPressed: {fileID: 0}
@@ -9941,6 +9976,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1179800076050657332}
+  - {fileID: 7228725766533618750}
   m_Father: {fileID: 9117416880951348862}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10170,6 +10206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a633c8d021c6da4fafe87977c09d91e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particle: {fileID: 0}
   isAuto: 1
   buttonUnpressed: {fileID: 0}
   buttonPressed: {fileID: 0}
@@ -13408,7 +13445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: 77fd1e5f72ad6a34cb01e2126503412c, type: 3}
-    objectName: 
+    objectName: Starfish Targets
     upgradeDesc: 
     baseCoinProduction: 0
     baseCost: 0
@@ -13419,8 +13456,11 @@ MonoBehaviour:
     currentCost: 0
     currentCPS: 0
     bounceForce: 0
-  jackpotMultiplier: 0
-  dependentManager: {fileID: 0}
+  jackpotMultiplier: 5
+  dependentManager: {fileID: 7412599569221360208}
+  timePassed: 0
+  timesHit: 0
+  timesJackpot: 0
 --- !u!1 &8893858601019359554
 GameObject:
   m_ObjectHideFlags: 0
@@ -14046,6 +14086,24 @@ MonoBehaviour:
   theCollider: {fileID: 0}
   theAnimator: {fileID: 0}
   manager: {fileID: 0}
+--- !u!1001 &529934941031072412
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 9026322717187178140}
+    m_Modifications:
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+--- !u!4 &4426327299342646305 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+  m_PrefabInstance: {fileID: 529934941031072412}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2320931332715208110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14067,7 +14125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7362353966968073911, guid: 4519c1427ed8f2649b5498a6cfb829f6, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7362353966968073911, guid: 4519c1427ed8f2649b5498a6cfb829f6, type: 3}
       propertyPath: m_AnchorMax.x
@@ -14147,6 +14205,130 @@ PrefabInstance:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7362353966968073911, guid: 4519c1427ed8f2649b5498a6cfb829f6, type: 3}
   m_PrefabInstance: {fileID: 2320931332715208110}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3848422182321274448
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7138449777673500285}
+    m_Modifications:
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156151016843113993, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_Name
+      value: CoinParticle
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+--- !u!4 &1107775190087565549 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+  m_PrefabInstance: {fileID: 3848422182321274448}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6802225400620786307
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 9005448646658971159}
+    m_Modifications:
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156151016843113993, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: m_Name
+      value: CoinParticle
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+--- !u!4 &7228725766533618750 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+  m_PrefabInstance: {fileID: 6802225400620786307}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7412599567797705374
 PrefabInstance:
@@ -17197,6 +17379,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09164ff7bb8568a44bf14ee7c5d09146, type: 3}
+--- !u!4 &175930430346851379 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7255263556191592636, guid: 09164ff7bb8568a44bf14ee7c5d09146, type: 3}
+  m_PrefabInstance: {fileID: 7412599569808249999}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2485460311802854025 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4945226121214258694, guid: 09164ff7bb8568a44bf14ee7c5d09146, type: 3}
@@ -17208,8 +17395,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb92194f9b658f24f8bb88f4434a32dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &175930430346851379 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7255263556191592636, guid: 09164ff7bb8568a44bf14ee7c5d09146, type: 3}
-  m_PrefabInstance: {fileID: 7412599569808249999}
-  m_PrefabAsset: {fileID: 0}

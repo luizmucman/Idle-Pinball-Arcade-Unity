@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public abstract class ObjectManager : MonoBehaviour
 {
 
+    private MachineManager machineManager;
+
     // Upgrade Data
     public UpgradeData upgradeData;
 
@@ -15,9 +17,13 @@ public abstract class ObjectManager : MonoBehaviour
     // Interactable Objects List
     private InteractableObject[] iObjects;
 
-    public float jackpotMultiplier;
-
     public ObjectManager dependentManager;
+
+    // Balance Checks
+    [HideInInspector] public float timePassed;
+    [HideInInspector] public int timesHit;
+    [HideInInspector] public int timesJackpot;
+
 
     public virtual void Awake()
     {
@@ -25,21 +31,72 @@ public abstract class ObjectManager : MonoBehaviour
         upgradeBtnCanvas = GetComponentInChildren<Canvas>();
         upgradeBtnCanvas.enabled = false;
         iObjects = GetComponentsInChildren<InteractableObject>();
+        machineManager = GetComponentInParent<MachineManager>();
     }
 
     public void Start()
     {
         CheckIfObjectOwned();
+        timePassed = 0;
+        timesHit = 0;
+        timesJackpot = 0;
+    }
+
+    private void Update()
+    {
+        if (machineManager.testBalance)
+        {
+            timePassed += Time.deltaTime;
+            if (timePassed >= 3600)
+            {
+                PrintBalanceTest();
+                timePassed = 0;
+                timesHit = 0;
+                timesJackpot = 0;
+            }
+        }
+
+    }
+
+    public void PrintBalanceTest()
+    {
+        Debug.Log(upgradeData.objectName + " Hit Number: " + timesHit);
+        if (upgradeData.jackpotMultiplier > 0)
+        {
+            Debug.Log(upgradeData.objectName + " Times Jackpot: " + timesJackpot);
+        }
     }
 
     public virtual void Payout(Ball ball, float multiplier)
     {
+        if (machineManager.testBalance)
+        {
+            if (multiplier > 1f)
+            {
+                timesJackpot++;
+            } 
+            else 
+            {
+                timesHit++;
+            }
+        }
         PlayerManager.instance.AddCoins((ulong)(upgradeData.currentCoinProduction));
         PlayerManager.instance.currentMachine.coinsPerSecondCounter += (ulong)(upgradeData.currentCoinProduction);
     }
 
     public virtual void Payout(float multiplier)
     {
+        if (machineManager.testBalance && multiplier > 1f)
+        {
+            if (multiplier > 1f)
+            {
+                timesJackpot++;
+            }
+            else
+            {
+                timesHit++;
+            }
+        }
         PlayerManager.instance.AddCoins((ulong)(upgradeData.currentCoinProduction));
         PlayerManager.instance.currentMachine.coinsPerSecondCounter += (ulong)(upgradeData.currentCoinProduction);
     }

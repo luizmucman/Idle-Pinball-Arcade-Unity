@@ -131,12 +131,12 @@ public class PlayerManager : MonoBehaviour
     {
         if (currentMachine.machineData.isCurrentEvent)
         {
-            eventCoins += (ulong)(coins * playerTicketBuffs.coinBuff * UIManager.instance.uiBoostsManager.totalBoostAmt * currentMachine.paddleMultiplier);
+            eventCoins += (ulong)(coins * playerTicketBuffs.coinBuff * UIManager.instance.uiBoostsManager.totalBoostAmt);
             UIManager.instance.playerCoinText.text = numFormat.Format(eventCoins);
         }
         else
         {
-            playerCoins += (ulong)(coins * playerTicketBuffs.coinBuff * UIManager.instance.uiBoostsManager.totalBoostAmt * currentMachine.paddleMultiplier);
+            playerCoins += (ulong)(coins * playerTicketBuffs.coinBuff * UIManager.instance.uiBoostsManager.totalBoostAmt);
             UIManager.instance.playerCoinText.text = numFormat.Format(playerCoins);
         }
 
@@ -146,12 +146,12 @@ public class PlayerManager : MonoBehaviour
     {
         if (currentMachine.machineData.isCurrentEvent)
         {
-            eventCoins -= (ulong)(coins * playerTicketBuffs.coinBuff * UIManager.instance.uiBoostsManager.totalBoostAmt * currentMachine.paddleMultiplier);
+            eventCoins -= (ulong)(coins);
             UIManager.instance.playerCoinText.text = numFormat.Format(eventCoins);
         }
         else
         {
-            playerCoins -= (ulong)(coins * playerTicketBuffs.coinBuff * UIManager.instance.uiBoostsManager.totalBoostAmt * currentMachine.paddleMultiplier);
+            playerCoins -= (ulong)(coins);
             UIManager.instance.playerCoinText.text = numFormat.Format(playerCoins);
         }
     }

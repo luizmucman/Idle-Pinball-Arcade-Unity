@@ -50,9 +50,9 @@ public class UIUpgradeManager : MonoBehaviour
 
         icon.sprite = manager.upgradeData.upgradeIcon;
         title.text = manager.upgradeData.objectName;
-        description.text = manager.upgradeData.upgradeDesc;
+        description.text = manager.upgradeData.upgradeDesc.Replace("{JackpotMultiplier}", selectedUpgrade.jackpotMultiplier.ToString() + "x");
 
-        topLevel.text = "LEVEL " + manager.upgradeData.level.ToString();
+        topLevel.text = "LEVEL " + manager.upgradeData.level.ToString() + "/" + manager.upgradeData.unlockLevelData.unlocks[manager.upgradeData.currentUnlockStage].level;
         currLvl.text = manager.upgradeData.level.ToString();
         currCPH.text = PlayerManager.instance.numFormat.Format(selectedUpgrade.GetProductionValue(selectedUpgrade.level));
 
@@ -118,15 +118,11 @@ public class UIUpgradeManager : MonoBehaviour
             }
 
             PlayerManager.instance.RemoveCoins(currentCost);
-            selectedUpgrade.level += upgradeAmt;
-            selectedUpgrade.SetData();
-            topLevel.text = "LEVEL" + selectedUpgrade.level.ToString();
+            selectedUpgrade.LevelUp(upgradeAmt);
+            topLevel.text = "LEVEL " + objectManager.upgradeData.level.ToString() + "/" + objectManager.upgradeData.unlockLevelData.unlocks[objectManager.upgradeData.currentUnlockStage].level;
             currLvl.text = selectedUpgrade.level.ToString();
             currCPH.text = PlayerManager.instance.numFormat.Format(selectedUpgrade.GetProductionValue(selectedUpgrade.level));
             SetCostByAmount(upgradeAmt);
-
-
-            //ES3AutoSaveMgr.Current.Save();
         }
     }
 }
