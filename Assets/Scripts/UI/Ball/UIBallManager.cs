@@ -78,13 +78,8 @@ public class UIBallManager : MonoBehaviour
         }
         else if (currMachine.maxEquippedBalls < 50)
         {
-            // Cost Calculations
-            float currentLevel = Mathf.Pow(costMultiplier, currMachine.maxEquippedBalls);
-            float numToBuy = (Mathf.Pow(costMultiplier, 1) - 1);
-            float topNum = currentLevel * numToBuy;
-            float bottomNum = costMultiplier - 1;
 
-            currentCost = (ulong)(ballBaseCost * (topNum / bottomNum));
+            currentCost = (ulong)(ballBaseCost * (Mathf.Pow(costMultiplier, currMachine.maxEquippedBalls)));
             maxBallUpgradeCostText.text = PlayerManager.instance.numFormat.Format(currentCost);
         }
     }

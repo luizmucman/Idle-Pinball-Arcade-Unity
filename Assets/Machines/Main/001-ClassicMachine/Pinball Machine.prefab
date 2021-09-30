@@ -4064,8 +4064,8 @@ Transform:
   - {fileID: 7119182088996803737}
   - {fileID: 8451542890478768390}
   - {fileID: 7617637640192682422}
-  - {fileID: 6887631914880825284}
   - {fileID: 33985441413788238}
+  - {fileID: 6887631914880825284}
   - {fileID: 2146747196632775188}
   - {fileID: 6483039613057927253}
   - {fileID: 4165321998694591564}
@@ -9233,7 +9233,7 @@ MonoBehaviour:
     unlockLevelData: {fileID: 11400000, guid: eb981fcd033e3324985e68d974a51c6d, type: 2}
     currentUnlockStage: 0
     currentUnlockMultiplier: 0
-  dependentManager: {fileID: 923422972528512254}
+  dependentManager: {fileID: 923422972528512998}
   timePassed: 0
   timesHit: 0
   timesJackpot: 0
@@ -14707,7 +14707,7 @@ Transform:
   - {fileID: 1847082941092474428}
   - {fileID: 7709315533221346972}
   m_Father: {fileID: 6699215921457361863}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &923422972528512998
 MonoBehaviour:
@@ -14727,7 +14727,7 @@ MonoBehaviour:
     upgradeDesc: Super bouncy targets. Gain coins for every hit and {JackpotMultiplier}
       coins for jackpot.
     baseCoinProduction: 2065
-    baseCost: 103680
+    baseCost: 1244160
     upgradeCostGrowthRate: 1.12
     jackpotMultiplier: 5
     level: 0
@@ -14736,7 +14736,7 @@ MonoBehaviour:
     unlockLevelData: {fileID: 11400000, guid: eb981fcd033e3324985e68d974a51c6d, type: 2}
     currentUnlockStage: 0
     currentUnlockMultiplier: 0
-  dependentManager: {fileID: 923422972528512255}
+  dependentManager: {fileID: 923422972528512254}
   timePassed: 0
   timesHit: 0
   timesJackpot: 0
@@ -15126,7 +15126,7 @@ Transform:
   - {fileID: 7709315532815363159}
   - {fileID: 5866545347110433660}
   m_Father: {fileID: 6699215921457361863}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &923422972528512254
 MonoBehaviour:
@@ -15146,7 +15146,7 @@ MonoBehaviour:
     upgradeDesc: A special teleporter to reset your ball back to your flipper. Gain
       coins for every teleport.
     baseCoinProduction: 27640
-    baseCost: 1244160
+    baseCost: 103680
     upgradeCostGrowthRate: 1.11
     jackpotMultiplier: 0
     level: 0
@@ -15155,7 +15155,7 @@ MonoBehaviour:
     unlockLevelData: {fileID: 11400000, guid: eb981fcd033e3324985e68d974a51c6d, type: 2}
     currentUnlockStage: 0
     currentUnlockMultiplier: 0
-  dependentManager: {fileID: 923422972528512998}
+  dependentManager: {fileID: 923422972528512255}
   timePassed: 0
   timesHit: 0
   timesJackpot: 0
@@ -17354,11 +17354,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2499716364762991636, guid: 4519c1427ed8f2649b5498a6cfb829f6, type: 3}
   m_PrefabInstance: {fileID: 923422973423363540}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &7709315532960582499 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7362353966968073911, guid: 4519c1427ed8f2649b5498a6cfb829f6, type: 3}
-  m_PrefabInstance: {fileID: 923422973423363540}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4570753723152276255 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3728483538448465611, guid: 4519c1427ed8f2649b5498a6cfb829f6, type: 3}
@@ -17370,6 +17365,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &7709315532960582499 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7362353966968073911, guid: 4519c1427ed8f2649b5498a6cfb829f6, type: 3}
+  m_PrefabInstance: {fileID: 923422973423363540}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &923422973550473979
 PrefabInstance:
   m_ObjectHideFlags: 0
