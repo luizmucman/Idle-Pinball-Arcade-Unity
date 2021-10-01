@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance;
 
+    public MachineData currMachineData;
     public MachineManager currentMachine;
     public NumericalFormatter numFormat;
 
@@ -82,6 +83,7 @@ public class PlayerManager : MonoBehaviour
             }
             else
             {
+                currMachineData = mainMachines[0];
                 SceneManager.LoadScene("MA001");
             }
             DontDestroyOnLoad(this);
@@ -318,7 +320,6 @@ public class PlayerManager : MonoBehaviour
 
     private void LoadPlayerData()
     {
-        MachineData playedMachine = null;
         ES3.LoadInto<PlayerManager>("playerManager", gameObject);
         ES3.LoadInto<PlayerManager>("boostDatabase", boostDatabase);
         foreach (MachineData machineData in mainMachines)
@@ -326,7 +327,7 @@ public class PlayerManager : MonoBehaviour
             machineData.LoadMachine();
             if (machineData.isPlaying)
             {
-                playedMachine = machineData;
+                currMachineData = machineData;
             }
         }
 
@@ -335,7 +336,7 @@ public class PlayerManager : MonoBehaviour
             machineData.LoadMachine();
             if (machineData.isPlaying)
             {
-                playedMachine = machineData;
+                currMachineData = machineData;
             }
 
             if (machineData.isCurrentEvent)
@@ -344,9 +345,9 @@ public class PlayerManager : MonoBehaviour
             }
         }
 
-        if (playedMachine != null)
+        if (currMachineData != null)
         {
-            SceneManager.LoadScene(playedMachine.machineGUID);
+            SceneManager.LoadScene(currMachineData.machineGUID);
         }
         else
         {

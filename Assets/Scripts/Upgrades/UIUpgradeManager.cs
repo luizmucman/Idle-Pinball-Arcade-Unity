@@ -33,13 +33,27 @@ public class UIUpgradeManager : MonoBehaviour
 
     private void Update()
     {
-        if (PlayerManager.instance.playerCoins < currentCost)
+        if(PlayerManager.instance.currentMachine.machineData.isCurrentEvent)
         {
-            upgradeButton.interactable = false;
+            if (PlayerManager.instance.eventCoins < currentCost)
+            {
+                upgradeButton.interactable = false;
+            }
+            else
+            {
+                upgradeButton.interactable = true;
+            }
         }
         else
         {
-            upgradeButton.interactable = true;
+            if (PlayerManager.instance.playerCoins < currentCost)
+            {
+                upgradeButton.interactable = false;
+            }
+            else
+            {
+                upgradeButton.interactable = true;
+            }
         }
     }
 
@@ -57,6 +71,29 @@ public class UIUpgradeManager : MonoBehaviour
         currCPH.text = PlayerManager.instance.numFormat.Format(selectedUpgrade.GetProductionValue(selectedUpgrade.level));
 
         SetSelectedButton(1, oneXButton);
+
+        if (PlayerManager.instance.currentMachine.machineData.isCurrentEvent)
+        {
+            if (PlayerManager.instance.eventCoins < currentCost)
+            {
+                upgradeButton.interactable = false;
+            }
+            else
+            {
+                upgradeButton.interactable = true;
+            }
+        }
+        else
+        {
+            if (PlayerManager.instance.playerCoins < currentCost)
+            {
+                upgradeButton.interactable = false;
+            }
+            else
+            {
+                upgradeButton.interactable = true;
+            }
+        }
 
         upgradeContainer.enabled = true;
     }
@@ -110,19 +147,16 @@ public class UIUpgradeManager : MonoBehaviour
 
     public void BuyUpgrade()
     {
-        if (PlayerManager.instance.playerCoins > currentCost)
+        if (selectedUpgrade.level == 0)
         {
-            if (selectedUpgrade.level == 0)
-            {
-                objectManager.ShowObjects();
-            }
-
-            PlayerManager.instance.RemoveCoins(currentCost);
-            selectedUpgrade.LevelUp(upgradeAmt);
-            topLevel.text = "LEVEL " + objectManager.upgradeData.level.ToString() + "/" + objectManager.upgradeData.unlockLevelData.unlocks[objectManager.upgradeData.currentUnlockStage].level;
-            currLvl.text = selectedUpgrade.level.ToString();
-            currCPH.text = PlayerManager.instance.numFormat.Format(selectedUpgrade.GetProductionValue(selectedUpgrade.level));
-            SetCostByAmount(upgradeAmt);
+            objectManager.ShowObjects();
         }
+
+        PlayerManager.instance.RemoveCoins(currentCost);
+        selectedUpgrade.LevelUp(upgradeAmt);
+        topLevel.text = "LEVEL " + objectManager.upgradeData.level.ToString() + "/" + objectManager.upgradeData.unlockLevelData.unlocks[objectManager.upgradeData.currentUnlockStage].level;
+        currLvl.text = selectedUpgrade.level.ToString();
+        currCPH.text = PlayerManager.instance.numFormat.Format(selectedUpgrade.GetProductionValue(selectedUpgrade.level));
+        SetCostByAmount(upgradeAmt);
     }
 }

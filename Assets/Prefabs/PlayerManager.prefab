@@ -45,6 +45,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c8afbebfbcbddd4180502de5d8e4ba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currMachineData:
+    machineGUID: 
+    machineName: 
+    machineCost: 0
+    isUnlocked: 0
+    isPlaying: 0
+    isEvent: 0
+    isCurrentEvent: 0
+    coinsPerSecond: 0
+    accumulatedCoins: 0
+    machineImage: {fileID: 0}
   currentMachine: {fileID: 0}
   playerSettingsData:
     bgmMuted: 0
@@ -57,7 +68,7 @@ MonoBehaviour:
   eventCoins: 0
   seasonPassData:
     isPremium: 0
-    seasonPassPoints: 35
+    seasonPassPoints: 50
     seasonPassLvl: 1
     seasonPassTiers:
     - containsFreeReward: 0
@@ -229,36 +240,40 @@ MonoBehaviour:
   - machineGUID: MA001
     machineName: Classic
     machineCost: 0
-    isUnlocked: 0
-    isPlaying: 0
+    isUnlocked: 1
+    isPlaying: 1
+    isEvent: 0
     isCurrentEvent: 0
     coinsPerSecond: 0
     accumulatedCoins: 0
-    machineImage: {fileID: 21300000, guid: 0fc4d60fd21897048afbdfd792d2fcd6, type: 3}
-  - machineGUID: MA002
-    machineName: Under The Sea
-    machineCost: 0
-    isUnlocked: 0
-    isPlaying: 0
-    isCurrentEvent: 0
-    coinsPerSecond: 16534
-    accumulatedCoins: 0
-    machineImage: {fileID: 21300000, guid: ffa54b0c53cc18d43a1bb69003ba530a, type: 3}
-  - machineGUID: MA003
-    machineName: Nature
-    machineCost: 0
-    isUnlocked: 0
-    isPlaying: 0
-    isCurrentEvent: 0
-    coinsPerSecond: 0
-    accumulatedCoins: 0
-    machineImage: {fileID: 21300000, guid: 0fc4d60fd21897048afbdfd792d2fcd6, type: 3}
+    machineImage: {fileID: 21300000, guid: 2873cf9d4a318ad45bc5fae4eabf942d, type: 3}
   eventMachines:
   - machineGUID: EV001
-    machineName: Sweet Treats
-    machineCost: 0
+    machineName: All Natural
+    machineCost: 500
     isUnlocked: 0
     isPlaying: 0
+    isEvent: 1
+    isCurrentEvent: 0
+    coinsPerSecond: 0
+    accumulatedCoins: 0
+    machineImage: {fileID: 21300000, guid: 0fc4d60fd21897048afbdfd792d2fcd6, type: 3}
+  - machineGUID: EV002
+    machineName: Under The Sea
+    machineCost: 500
+    isUnlocked: 0
+    isPlaying: 0
+    isEvent: 1
+    isCurrentEvent: 0
+    coinsPerSecond: 0
+    accumulatedCoins: 0
+    machineImage: {fileID: 21300000, guid: ffa54b0c53cc18d43a1bb69003ba530a, type: 3}
+  - machineGUID: EV003
+    machineName: Sweet Treats
+    machineCost: 500
+    isUnlocked: 0
+    isPlaying: 0
+    isEvent: 1
     isCurrentEvent: 1
     coinsPerSecond: 0
     accumulatedCoins: 0
@@ -269,6 +284,7 @@ MonoBehaviour:
     machineCost: 0
     isUnlocked: 0
     isPlaying: 0
+    isEvent: 0
     isCurrentEvent: 0
     coinsPerSecond: 0
     accumulatedCoins: 0

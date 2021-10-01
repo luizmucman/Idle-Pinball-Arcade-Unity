@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 59.740005}
+  m_AnchoredPosition: {x: 0, y: 47.7}
   m_SizeDelta: {x: 0, y: 119.48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1168313954850172193
@@ -267,12 +267,18 @@ MonoBehaviour:
     machineName: 
     machineCost: 0
     isUnlocked: 0
+    isPlaying: 0
+    isEvent: 0
+    isCurrentEvent: 0
     coinsPerSecond: 0
     accumulatedCoins: 0
     machineImage: {fileID: 0}
   machineName: {fileID: 1168313954850172192}
   machineButton: {fileID: 1168313954977173689}
   costButton: {fileID: 1168313955293358798}
+  costIcon: {fileID: 1168313955868678656}
+  coinIcon: {fileID: 21300000, guid: b42c8a4ddb7c6134c90a4988f9b6ae13, type: 3}
+  gemIcon: {fileID: 21300000, guid: 3b72121a6bc73fd47a3f83afc8dba5c1, type: 3}
 --- !u!1 &1168313955293358792
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,8 +347,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 16adb07fd9891cd4f8f1a036e8dd718c, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: a7317e037d69e0e4a8a8f43a81c49442, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -419,7 +425,7 @@ GameObject:
   - component: {fileID: 1168313955868678657}
   - component: {fileID: 1168313955868678656}
   m_Layer: 5
-  m_Name: Coin
+  m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -540,7 +546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

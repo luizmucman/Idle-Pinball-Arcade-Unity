@@ -35,7 +35,7 @@ public class MachineManager : MonoBehaviour
 
 
     [Header("Set In Inspector")]
-    public bool isEvent;
+    //public bool isEvent;
     public Shooter shooter;
     public Paddle rightPaddle;
     public Paddle leftPaddle;
@@ -89,28 +89,41 @@ public class MachineManager : MonoBehaviour
             ShootNormalBall();
         }
 
-        if (isEvent)
-        {
-            foreach (MachineData data in PlayerManager.instance.eventMachines)
-            {
-                if (data.machineGUID.Equals(SceneManager.GetActiveScene().name))
-                {
-                    machineData = data;
-                    break;
-                }
-            }
-        }
-        else
-        {
-            foreach (MachineData data in PlayerManager.instance.mainMachines)
-            {
-                if (data.machineGUID.Equals(SceneManager.GetActiveScene().name))
-                {
-                    machineData = data;
-                    break;
-                }
-            }
-        }
+        machineData = PlayerManager.instance.currMachineData;
+
+        // Old assignment of machinedata to machine.
+
+        //if (isEvent)
+        //{
+        //    foreach (MachineData data in PlayerManager.instance.eventMachines)
+        //    {
+        //        if (data.machineGUID.Equals(SceneManager.GetActiveScene().name))
+        //        {
+        //            machineData = data;
+        //            if(machineData.isCurrentEvent)
+        //            {
+        //                UIManager.instance.uiSeasonPassManager.ShowSeasonPassButton();
+        //            } 
+        //            else
+        //            {
+        //                UIManager.instance.uiSeasonPassManager.HideSeasonPassButton();
+        //            }
+        //            break;
+        //        }
+        //    }
+        //}
+        //else
+        //{
+        //    UIManager.instance.uiSeasonPassManager.HideSeasonPassButton();
+        //    foreach (MachineData data in PlayerManager.instance.mainMachines)
+        //    {
+        //        if (data.machineGUID.Equals(SceneManager.GetActiveScene().name))
+        //        {
+        //            machineData = data;
+        //            break;
+        //        }
+        //    }
+        //}
 
         machineData.isPlaying = true;
         RewardAway();

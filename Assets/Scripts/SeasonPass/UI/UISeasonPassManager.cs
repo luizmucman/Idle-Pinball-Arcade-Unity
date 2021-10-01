@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UISeasonPassManager : MonoBehaviour
 {
+    public GameObject seasonPassButton;
     public GameObject seasonPassWindow;
 
     // Season Data
@@ -78,5 +79,15 @@ public class UISeasonPassManager : MonoBehaviour
     public void CloseSeasonPassWindow()
     {
         seasonPassWindow.SetActive(false);
+    }
+
+    public void HideSeasonPassButton()
+    {
+        seasonPassButton.gameObject.SetActive(false);
+    }
+
+    public void ShowSeasonPassButton()
+    {
+        seasonPassButton.gameObject.SetActive(true);
     }
 }

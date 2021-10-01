@@ -11,17 +11,13 @@ public class UIMachineButton : MonoBehaviour
     public Text machineName;
     public Button machineButton;
     public Button costButton;
+    public Image costIcon;
+    public Sprite coinIcon;
+    public Sprite gemIcon;
 
     private void Update()
     {
-        if(costButton.isActiveAndEnabled && PlayerManager.instance.playerCoins >= machineData.machineCost)
-        {
-            costButton.interactable = true;
-        }
-        else
-        {
-            costButton.interactable = false;
-        }
+        CheckAfford();
     }
 
     public void SetMachine(MachineData data)
@@ -42,18 +38,36 @@ public class UIMachineButton : MonoBehaviour
             machineButton.interactable = true;
             costButton.gameObject.SetActive(false);
         }
+
+        if(machineData.isEvent)
+        {
+            costIcon.sprite = gemIcon;
+        }
+        else
+        {
+            costIcon.sprite = coinIcon;
+        }
     }
 
     public void LoadMachine()
     {
         PlayerManager.instance.currentMachine.SaveMachine();
         PlayerManager.instance.currentMachine.machineData.isPlaying = false;
+        PlayerManager.instance.currMachineData = machineData;
         SceneManager.LoadScene(machineData.machineGUID);
     }
 
     public void BuyMachine()
     {
-        PlayerManager.instance.RemoveCoins(machineData.machineCost);
+        if (machineData.isEvent)
+        {
+            PlayerManager.instance.RemoveGems((int) machineData.machineCost);
+        }
+        else
+        {
+            PlayerManager.instance.RemoveCoins(machineData.machineCost);
+        }
+
         UnlockMachine();
     }
 
@@ -61,5 +75,31 @@ public class UIMachineButton : MonoBehaviour
     {
         machineData.isUnlocked = true;
         SetMachine(machineData);
+    }
+
+    private void CheckAfford()
+    {
+        if (machineData.isEvent)
+        {
+            if (costButton.isActiveAndEnabled && PlayerManager.instance.playerGems >= (int)machineData.machineCost)
+            {
+                costButton.interactable = true;
+            }
+            else
+            {
+                costButton.interactable = false;
+            }
+        }
+        else
+        {
+            if (costButton.isActiveAndEnabled && PlayerManager.instance.playerCoins >= machineData.machineCost)
+            {
+                costButton.interactable = true;
+            }
+            else
+            {
+                costButton.interactable = false;
+            }
+        }
     }
 }

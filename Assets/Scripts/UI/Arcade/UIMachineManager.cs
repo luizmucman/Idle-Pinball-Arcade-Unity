@@ -29,12 +29,28 @@ public class UIMachineManager : MonoBehaviour
             mainMachineButtons.Add(currMachine);
         }
 
+        UIMachineButton currEvent = null;
+
         foreach (MachineData machine in PlayerManager.instance.eventMachines)
         {
             UIMachineButton currMachine = Instantiate(machinePrefab, eventContainer.transform);
             currMachine.SetMachine(machine);
             eventMachineButtons.Add(currMachine);
+            if(machine.isUnlocked)
+            {
+                currMachine.gameObject.transform.SetAsFirstSibling();
+            }
+            if(machine.isCurrentEvent)
+            {
+                currEvent = currMachine;
+            }
         }
+
+        if(currEvent != null)
+        {
+            currEvent.gameObject.transform.SetAsFirstSibling();
+        }
+
     }
 
     public void TabClicked(UIMachineTab tabButton)

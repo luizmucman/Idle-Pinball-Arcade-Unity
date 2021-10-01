@@ -13,6 +13,7 @@ public class MachineData
     public ulong machineCost;
     public bool isUnlocked;
     public bool isPlaying;
+    public bool isEvent;
     public bool isCurrentEvent;
 
     // Coin stats
