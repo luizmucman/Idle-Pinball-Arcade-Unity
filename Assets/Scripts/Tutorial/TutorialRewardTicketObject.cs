@@ -12,7 +12,7 @@ public class TutorialRewardTicketObject : TutorialObject
         ItemData ticketData = new ItemData();
         ticketData.GUID = rewardedTicket.GUID;
         ticketData.rank = 0;
-        PlayerManager.instance.ballInventory.Add(ticketData);
+        PlayerManager.instance.ticketInventory.Add(ticketData);
         UIManager.instance.uiTicketManager.AddNewTicketOwned(ticketData);
         UIManager.instance.uiShopManager.buyPopup.SetPopup(rewardedTicket);
     }

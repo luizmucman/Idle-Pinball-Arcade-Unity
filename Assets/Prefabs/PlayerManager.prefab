@@ -61,7 +61,7 @@ MonoBehaviour:
     bgmMuted: 0
     sfxMuted: 0
     notificationsEnabled: 0
-  tutorialFinished: 1
+  tutorialFinished: 0
   isAdFree: 0
   is2xAllIncome: 0
   is2xIdleIncome: 0
@@ -215,8 +215,8 @@ MonoBehaviour:
   globalCoinMultiplier: 1
   boostDatabase: {fileID: 11400000, guid: b1e044ea2fcc511429c196ee0892721a, type: 2}
   boostInventory: []
-  playerCoins: 0
-  playerGems: 100000
+  playerCoins: 550
+  playerGems: 0
   ballInventory: []
   ticketInventory: []
   ticketSlotCount: 1

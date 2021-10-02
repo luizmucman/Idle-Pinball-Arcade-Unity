@@ -91,41 +91,16 @@ public class MachineManager : MonoBehaviour
 
         machineData = PlayerManager.instance.currMachineData;
 
-        // Old assignment of machinedata to machine.
-
-        //if (isEvent)
-        //{
-        //    foreach (MachineData data in PlayerManager.instance.eventMachines)
-        //    {
-        //        if (data.machineGUID.Equals(SceneManager.GetActiveScene().name))
-        //        {
-        //            machineData = data;
-        //            if(machineData.isCurrentEvent)
-        //            {
-        //                UIManager.instance.uiSeasonPassManager.ShowSeasonPassButton();
-        //            } 
-        //            else
-        //            {
-        //                UIManager.instance.uiSeasonPassManager.HideSeasonPassButton();
-        //            }
-        //            break;
-        //        }
-        //    }
-        //}
-        //else
-        //{
-        //    UIManager.instance.uiSeasonPassManager.HideSeasonPassButton();
-        //    foreach (MachineData data in PlayerManager.instance.mainMachines)
-        //    {
-        //        if (data.machineGUID.Equals(SceneManager.GetActiveScene().name))
-        //        {
-        //            machineData = data;
-        //            break;
-        //        }
-        //    }
-        //}
-
         machineData.isPlaying = true;
+        if (machineData.isCurrentEvent)
+        {
+            UIManager.instance.uiSeasonPassManager.ShowSeasonPassButton();
+        }
+        else
+        {
+            UIManager.instance.uiSeasonPassManager.HideSeasonPassButton();
+        }
+
         RewardAway();
     }
 
@@ -281,7 +256,7 @@ public class MachineManager : MonoBehaviour
     {
         TimeSpan span = DateTime.Now - machineData.awayCheckPoint;
 
-        if (span.TotalMinutes > 5)
+        if (machineData.accumulatedCoins > 0 && span.TotalMinutes > 5)
         {
             uiManager.uiAwayPopupManager.SetMachine(machineData);
         }

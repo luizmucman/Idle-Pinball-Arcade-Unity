@@ -15,10 +15,14 @@ public class TutorialObject : MonoBehaviour
     public virtual void NextTutorial()
     {
         gameObject.SetActive(false);
-        if (tutorialManager.currTutIndex < tutorialManager.tutObjects.Length)
+        if (tutorialManager.currTutIndex < tutorialManager.tutObjects.Length - 1)
         {
             tutorialManager.tutObjects[tutorialManager.currTutIndex + 1].StartTutorial();
             tutorialManager.currTutIndex++;
+        }
+        else
+        {
+            PlayerManager.instance.tutorialFinished = true;
         }
     }
 

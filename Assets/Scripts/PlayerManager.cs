@@ -299,6 +299,14 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    public void AddSeasonPassHit()
+    {
+        if (currentMachine.machineData.isCurrentEvent)
+        {
+            seasonPassData.AddSeasonPoints(1);
+        }
+    }
+
     public void SavePlayerData()
     {
         ES3.Save("playerManager", gameObject);
@@ -357,11 +365,8 @@ public class PlayerManager : MonoBehaviour
         seasonPassData.LoadSeasonPassData();
     }
 
-    public void AddSeasonPassHit()
+    private void SavePlayerManagerInfo()
     {
-        if(currentMachine.machineData.isCurrentEvent)
-        {
-            seasonPassData.AddSeasonPoints(1);
-        }
+
     }
 }

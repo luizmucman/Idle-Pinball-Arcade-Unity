@@ -15,6 +15,9 @@ public class UIBallContainer : MonoBehaviour
     // Static UI Data
     public Image icon;
     public Text title;
+    public Text ballDesc;
+    public Text maxEquipped;
+    public Text cooldown;
 
     // Bottom Row
     public Button minusButton;
@@ -28,6 +31,7 @@ public class UIBallContainer : MonoBehaviour
         icon.sprite = ball.ballIcon;
         ball.rank = data.rank;
         title.text = ball.itemName;
+        ballDesc.text = ball.itemDescription;
     }
 
     public void UpdateCount()

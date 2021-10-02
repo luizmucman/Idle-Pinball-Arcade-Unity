@@ -28,15 +28,16 @@ public class UIMachineButton : MonoBehaviour
         machineButton.image.sprite = machineData.machineImage;
 
 
-        if(!data.isUnlocked)
-        {
-            machineButton.interactable = false;
-            costButton.gameObject.SetActive(true);
-        }
-        else
+        if (data.isUnlocked || data.isCurrentEvent)
         {
             machineButton.interactable = true;
             costButton.gameObject.SetActive(false);
+
+        }
+        else
+        {
+            machineButton.interactable = false;
+            costButton.gameObject.SetActive(true);
         }
 
         if(machineData.isEvent)
@@ -79,26 +80,30 @@ public class UIMachineButton : MonoBehaviour
 
     private void CheckAfford()
     {
-        if (machineData.isEvent)
+        if (costButton.isActiveAndEnabled)
         {
-            if (costButton.isActiveAndEnabled && PlayerManager.instance.playerGems >= (int)machineData.machineCost)
+            if (machineData.isEvent)
             {
-                costButton.interactable = true;
+
+                if (PlayerManager.instance.playerGems >= (int)machineData.machineCost)
+                {
+                    costButton.interactable = true;
+                }
+                else
+                {
+                    costButton.interactable = false;
+                }
             }
             else
             {
-                costButton.interactable = false;
-            }
-        }
-        else
-        {
-            if (costButton.isActiveAndEnabled && PlayerManager.instance.playerCoins >= machineData.machineCost)
-            {
-                costButton.interactable = true;
-            }
-            else
-            {
-                costButton.interactable = false;
+                if (PlayerManager.instance.playerCoins >= machineData.machineCost)
+                {
+                    costButton.interactable = true;
+                }
+                else
+                {
+                    costButton.interactable = false;
+                }
             }
         }
     }
