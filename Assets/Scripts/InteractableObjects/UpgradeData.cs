@@ -53,4 +53,17 @@ public class UpgradeData
         }
         SetData();
     }
+
+    public void SaveData(string machineSceneName)
+    {
+        ES3.Save(machineSceneName + objectName + "-level", level);
+    }
+
+    public void LoadData(string machineSceneName)
+    {
+        if (ES3.KeyExists(machineSceneName + objectName + "-level"))
+        {
+            level = ES3.Load(machineSceneName + objectName + "-level", 0);
+        }
+    }
 }

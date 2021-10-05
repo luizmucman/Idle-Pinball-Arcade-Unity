@@ -77,7 +77,7 @@ public class PlayerManager : MonoBehaviour
         else
         {
             instance = this;
-            if (ES3.KeyExists("playerManager"))
+            if (ES3.KeyExists("playerCoins"))
             {
                 LoadPlayerData();
             }
@@ -309,9 +309,24 @@ public class PlayerManager : MonoBehaviour
 
     public void SavePlayerData()
     {
-        ES3.Save("playerManager", gameObject);
-        ES3.Save("boostDatabase", boostDatabase);
+        SavePlayerManager();
+        boostDatabase.SaveBoostDatabase();
+        SaveMachineData();
 
+        seasonPassData.SaveSeasonPassData();
+    }
+
+    private void LoadPlayerData()
+    {
+        LoadPlayerManager();
+        boostDatabase.LoadBoostDatabase();
+        LoadMachineData();
+
+        seasonPassData.LoadSeasonPassData();
+    }
+
+    private void SaveMachineData()
+    {
         foreach (MachineData machineData in mainMachines)
         {
             machineData.SaveMachine();
@@ -321,15 +336,10 @@ public class PlayerManager : MonoBehaviour
         {
             machineData.SaveMachine();
         }
-
-        seasonPassData.SaveSeasonPassData();
     }
 
-
-    private void LoadPlayerData()
+    private void LoadMachineData()
     {
-        ES3.LoadInto<PlayerManager>("playerManager", gameObject);
-        ES3.LoadInto<PlayerManager>("boostDatabase", boostDatabase);
         foreach (MachineData machineData in mainMachines)
         {
             machineData.LoadMachine();
@@ -361,12 +371,46 @@ public class PlayerManager : MonoBehaviour
         {
             SceneManager.LoadScene("MA001");
         }
-
-        seasonPassData.LoadSeasonPassData();
     }
 
-    private void SavePlayerManagerInfo()
+    private void SavePlayerManager()
     {
+        ES3.Save("playerTutorialFinished", tutorialFinished);
+        ES3.Save("playerIsAdFree", isAdFree);
+        ES3.Save("playerHas2xIncome", is2xAllIncome);
+        ES3.Save("playerHas2xIdleIncome", is2xIdleIncome);
 
+        ES3.Save("playerGlobalCoinMultiplier", globalCoinMultiplier);
+        ES3.Save("playerBoostDatabase", boostDatabase);
+        ES3.Save("playerBoostInventory", boostInventory);
+
+        ES3.Save("playerCoins", playerCoins);
+        ES3.Save("playerGems", playerGems);
+        ES3.Save("playerBallInventory", ballInventory);
+        ES3.Save("playerTicketInventory", ticketInventory);
+        ES3.Save("playerTicketSlotCount", ticketSlotCount);
+        ES3.Save("playerEquippedTickets", equippedTickets);
+    }
+
+    private void LoadPlayerManager()
+    {
+        if(ES3.KeyExists("playerCoins"))
+        {
+            tutorialFinished = ES3.Load("playerTutorialFinished", tutorialFinished);
+            isAdFree = ES3.Load("playerIsAdFree", isAdFree);
+            is2xAllIncome = ES3.Load("playerHas2xIncome", is2xAllIncome);
+            is2xIdleIncome = ES3.Load("playerHas2xIdleIncome", is2xIdleIncome);
+
+            globalCoinMultiplier = ES3.Load("playerGlobalCoinMultiplier", globalCoinMultiplier);
+            boostDatabase = ES3.Load("playerBoostDatabase", boostDatabase);
+            boostInventory = ES3.Load("playerBoostInventory", boostInventory);
+
+            playerCoins = ES3.Load("playerCoins", playerCoins);
+            playerGems = ES3.Load("playerGems", playerGems);
+            ballInventory = ES3.Load("playerBallInventory", ballInventory);
+            ticketInventory = ES3.Load("playerTicketInventory", ticketInventory);
+            ticketSlotCount = ES3.Load("playerTicketSlotCount", ticketSlotCount);
+            equippedTickets = ES3.Load("playerEquippedTickets", equippedTickets);
+        }
     }
 }

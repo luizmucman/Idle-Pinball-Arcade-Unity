@@ -125,19 +125,6 @@ public abstract class ObjectManager : MonoBehaviour
         upgradeBtnCanvas.enabled = false;
     }
 
-    public void SaveManager(string machineName)
-    {
-        ES3.Save(machineName + gameObject.name, upgradeData);
-    }
-
-    public void LoadManager(string machineName)
-    {
-        if(ES3.KeyExists(machineName + gameObject.name))
-        {
-            ES3.LoadInto(machineName + gameObject.name, upgradeData);
-        }
-    }
-
     public void CheckIfObjectOwned()
     {
         
@@ -177,5 +164,16 @@ public abstract class ObjectManager : MonoBehaviour
                 currGo.SetActive(false);
             }
         }
+    }
+
+
+    public void SaveManager(string machineName)
+    {
+        upgradeData.SaveData(machineName);
+    }
+
+    public void LoadManager(string machineName)
+    {
+        upgradeData.LoadData(machineName);
     }
 }

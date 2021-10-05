@@ -50,7 +50,7 @@ MonoBehaviour:
   GUID: TI009
   itemIcon: {fileID: 21300000, guid: be19c0d826010854ab7aa33621de2bf2, type: 3}
   itemName: Better Bumpers
-  itemDescription: All coins gained from Bumpers increased by (Value)%
+  itemDescription: All coins gained from Bumpers increased by {Value}%
   currRankDescription: 
   nextRankDescription: 
   rank: 0

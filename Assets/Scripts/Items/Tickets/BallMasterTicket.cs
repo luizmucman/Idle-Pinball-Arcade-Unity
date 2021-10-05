@@ -10,8 +10,8 @@ public class BallMasterTicket : Ticket
     {
         base.SetItemData(item);
 
-        currRankDescription = itemDescription.Replace("(Value)", (ballCD[rank]).ToString());
-        nextRankDescription = itemDescription.Replace("(Value)", (ballCD[rank + 1]).ToString());
+        currRankDescription = itemDescription.Replace("{Value}", (ballCD[rank]).ToString());
+        nextRankDescription = itemDescription.Replace("{Value}", (ballCD[rank + 1]).ToString());
 
     }
 

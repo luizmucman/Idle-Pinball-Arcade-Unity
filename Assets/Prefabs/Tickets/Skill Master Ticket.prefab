@@ -50,7 +50,7 @@ MonoBehaviour:
   GUID: TI005
   itemIcon: {fileID: 21300000, guid: 2517d77e8936a4f49b3593c418f147ba, type: 3}
   itemName: Skill Master
-  itemDescription: Increase length of all ball skills by (Value) seconds.
+  itemDescription: Increase length of all ball skills by {Value} seconds.
   currRankDescription: 
   nextRankDescription: 
   rank: 0

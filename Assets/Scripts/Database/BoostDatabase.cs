@@ -19,4 +19,20 @@ public class BoostDatabase : ScriptableObject
 
         return null;
     }
+
+    public void SaveBoostDatabase()
+    {
+        foreach(BoostData boostData in database)
+        {
+            boostData.SaveBoostDatabase();
+        }
+    }
+
+    public void LoadBoostDatabase()
+    {
+        foreach (BoostData boostData in database)
+        {
+            boostData.LoadBoostDatabase();
+        }
+    }
 }

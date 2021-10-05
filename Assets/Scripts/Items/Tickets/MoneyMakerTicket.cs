@@ -10,8 +10,8 @@ public class MoneyMakerTicket : Ticket
     {
         base.SetItemData(item);
 
-        currRankDescription = itemDescription.Replace("(Value)", (coinMultipliers[rank] * 100).ToString() + "%");
-        nextRankDescription = itemDescription.Replace("(Value)", (coinMultipliers[rank + 1] * 100).ToString() + "%");
+        currRankDescription = itemDescription.Replace("{Value}", (coinMultipliers[rank] * 100).ToString() + "%");
+        nextRankDescription = itemDescription.Replace("{Value}", (coinMultipliers[rank + 1] * 100).ToString() + "%");
 
     }
 

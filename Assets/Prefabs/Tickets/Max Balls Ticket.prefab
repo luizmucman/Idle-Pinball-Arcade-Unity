@@ -50,7 +50,7 @@ MonoBehaviour:
   GUID: TI006
   itemIcon: {fileID: 21300000, guid: 2cf62ecefeebf0b4ca73c60c2569af6e, type: 3}
   itemName: Max Balls
-  itemDescription: Increase max balls on all machines by (Value)
+  itemDescription: Increase max balls on all machines by {Value}
   currRankDescription: Increase max balls on all machines by 4
   nextRankDescription: Increase max balls on all machines by 6
   rank: 1

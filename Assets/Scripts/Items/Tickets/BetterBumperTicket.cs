@@ -10,8 +10,8 @@ public class BetterBumperTicket : Ticket
     {
         base.SetItemData(item);
 
-        currRankDescription = itemDescription.Replace("(Value)", (bumperMultiplier[rank] * 100).ToString() + "%");
-        nextRankDescription = itemDescription.Replace("(Value)", (bumperMultiplier[rank + 1] * 100).ToString() + "%");
+        currRankDescription = itemDescription.Replace("{Value}", (bumperMultiplier[rank] * 100).ToString() + "%");
+        nextRankDescription = itemDescription.Replace("{Value}", (bumperMultiplier[rank + 1] * 100).ToString() + "%");
     }
 
     public override void EquipTicket()

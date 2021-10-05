@@ -50,7 +50,7 @@ MonoBehaviour:
   GUID: TI008
   itemIcon: {fileID: 21300000, guid: 04dc4e58b02676846a91833c1d5019ba, type: 3}
   itemName: Coin Maker
-  itemDescription: All balls constantly spawn a coin worth (Value) of CPS.
+  itemDescription: All balls constantly spawn a coin worth {Value} of CPS.
   currRankDescription: 
   nextRankDescription: 
   rank: 0

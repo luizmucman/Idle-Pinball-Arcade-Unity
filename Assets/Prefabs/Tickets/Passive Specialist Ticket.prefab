@@ -50,7 +50,7 @@ MonoBehaviour:
   GUID: TI010
   itemIcon: {fileID: 21300000, guid: e88781fd319bf254e894603bed082228, type: 3}
   itemName: Passive Specialist
-  itemDescription: Increase CPS on all machines by (Value)
+  itemDescription: Increase CPS on all machines by {Value}
   currRankDescription: 
   nextRankDescription: 
   rank: 0

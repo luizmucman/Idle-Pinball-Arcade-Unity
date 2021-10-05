@@ -10,8 +10,8 @@ public class SkillLengthTicket : Ticket
     {
         base.SetItemData(item);
 
-        currRankDescription = itemDescription.Replace("(Value)", (ballSkillLength[rank]).ToString());
-        nextRankDescription = itemDescription.Replace("(Value)", (ballSkillLength[rank + 1]).ToString());
+        currRankDescription = itemDescription.Replace("{Value}", (ballSkillLength[rank]).ToString());
+        nextRankDescription = itemDescription.Replace("{Value}", (ballSkillLength[rank + 1]).ToString());
 
     }
 

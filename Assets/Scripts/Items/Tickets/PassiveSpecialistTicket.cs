@@ -10,8 +10,8 @@ public class PassiveSpecialistTicket : Ticket
     {
         base.SetItemData(item);
 
-        currRankDescription = itemDescription.Replace("(Value)", (cpsMultiplier[rank] * 100).ToString() + "%");
-        nextRankDescription = itemDescription.Replace("(Value)", (cpsMultiplier[rank + 1] * 100).ToString() + "%");
+        currRankDescription = itemDescription.Replace("{Value}", (cpsMultiplier[rank] * 100).ToString() + "%");
+        nextRankDescription = itemDescription.Replace("{Value}", (cpsMultiplier[rank + 1] * 100).ToString() + "%");
     }
 
     public override void EquipTicket()

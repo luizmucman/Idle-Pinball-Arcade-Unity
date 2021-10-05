@@ -10,8 +10,8 @@ public class SpeedTicket : Ticket
     {
         base.SetItemData(item);
 
-        currRankDescription = itemDescription.Replace("(Value)", (speedMultipliers[rank] * 100).ToString() + "%");
-        nextRankDescription = itemDescription.Replace("(Value)", (speedMultipliers[rank + 1] * 100).ToString() + "%");
+        currRankDescription = itemDescription.Replace("{Value}", (speedMultipliers[rank] * 100).ToString() + "%");
+        nextRankDescription = itemDescription.Replace("{Value}", (speedMultipliers[rank + 1] * 100).ToString() + "%");
 
     }
 

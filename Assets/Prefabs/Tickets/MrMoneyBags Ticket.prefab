@@ -50,7 +50,7 @@ MonoBehaviour:
   GUID: TI007
   itemIcon: {fileID: 21300000, guid: 59ca99a513be2fd4db41e25ae6726c65, type: 3}
   itemName: MrMoneyBags
-  itemDescription: Constantly spawn moneybags on machines worth (Value) of CPS
+  itemDescription: Constantly spawn moneybags on machines worth {Value} of CPS
   currRankDescription: 
   nextRankDescription: 
   rank: 0

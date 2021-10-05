@@ -45,15 +45,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemData:
     GUID: TI002
-    rank: 3
-    exp: 1
+    rank: 0
+    exp: 0
   GUID: TI002
   itemIcon: {fileID: 21300000, guid: 917efc22c003cff41b2935360a45dce3, type: 3}
   itemName: Money Maker
-  itemDescription: Increase income from ALL sources by (Value)
-  currRankDescription: Increase income from ALL sources by 100%
-  nextRankDescription: Increase income from ALL sources by 125%
-  rank: 3
+  itemDescription: Increase income from ALL sources by {Value}
+  currRankDescription: Increase income from ALL sources by (Value)
+  nextRankDescription: Increase income from ALL sources by (Value)
+  rank: 0
   itemType: 2
   image: {fileID: 21300000, guid: 917efc22c003cff41b2935360a45dce3, type: 3}
   coinMultipliers:

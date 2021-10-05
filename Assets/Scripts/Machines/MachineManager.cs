@@ -13,7 +13,7 @@ public class MachineManager : MonoBehaviour
     [HideInInspector] public List<int> equippedBallCount;
     [HideInInspector] public int normalBallCount;
     [HideInInspector] public int currentBallCount;
-     public int maxEquippedBalls;
+    public int maxEquippedBalls;
     [HideInInspector] public List<Ball> instantiatedBalls;
     private List<Ball> instantiatedNormalBalls;
 
@@ -243,15 +243,6 @@ public class MachineManager : MonoBehaviour
         }
     }
 
-    public void SaveMachine()
-    {
-        for (int i = 0; i < objectManagers.Length; i++)
-        {
-            objectManagers[i].SaveManager(machineSceneName);
-        }
-        ES3.Save(machineSceneName, gameObject);
-    }
-
     public void RewardAway()
     {
         TimeSpan span = DateTime.Now - machineData.awayCheckPoint;
@@ -276,5 +267,28 @@ public class MachineManager : MonoBehaviour
         {
             paddleMultiplier = 1;
         }
+    }
+
+    public void SaveMachine()
+    {
+        for (int i = 0; i < objectManagers.Length; i++)
+        {
+            objectManagers[i].SaveManager(machineSceneName);
+        }
+        ES3.Save(machineSceneName, gameObject);
+
+        ES3.Save(machineSceneName + "-maxEquippedBalls", maxEquippedBalls);
+        ES3.Save(machineSceneName + "-equippedBallCount", equippedBallCount);
+    }
+
+    public void LoadMachine()
+    {
+        maxEquippedBalls = ES3.Load(machineSceneName + "-maxEquippedBalls", 1);
+
+        if(ES3.KeyExists(machineSceneName + "-equippedBallCount"))
+        {
+            equippedBallCount = ES3.Load(machineSceneName + "-equippedBallCount", new List<int>());
+        }
+
     }
 }

@@ -71,4 +71,19 @@ public class BoostData
         }
         return boostLengthText;
     }
+
+    public void SaveBoostDatabase()
+    {
+        ES3.Save(boostID + "-database-endTime", endTime);
+        ES3.Save(boostID + "-database-inUse", inUse);
+    }
+
+    public void LoadBoostDatabase()
+    {
+        if(ES3.KeyExists(boostID + "-database-endTime"))
+        {
+            endTime = ES3.Load(boostID + "-database-endTime", endTime);
+            inUse = ES3.Load(boostID + "-database-inUse", inUse);
+        }
+    }
 }

@@ -10,8 +10,8 @@ public class CoinMakerTicket : Ticket
     {
         base.SetItemData(item);
 
-        currRankDescription = itemDescription.Replace("(Value)", (coinDropMultiplier[rank] * 100).ToString() + "%");
-        nextRankDescription = itemDescription.Replace("(Value)", (coinDropMultiplier[rank + 1] * 100).ToString() + "%");
+        currRankDescription = itemDescription.Replace("{Value}", (coinDropMultiplier[rank] * 100).ToString() + "%");
+        nextRankDescription = itemDescription.Replace("{Value}", (coinDropMultiplier[rank + 1] * 100).ToString() + "%");
     }
 
     public override void EquipTicket()

@@ -10,8 +10,8 @@ public class MaxBallsTicket : Ticket
     {
         base.SetItemData(item);
 
-        currRankDescription = itemDescription.Replace("(Value)", (maxBalls[rank]).ToString());
-        nextRankDescription = itemDescription.Replace("(Value)", (maxBalls[rank + 1]).ToString());
+        currRankDescription = itemDescription.Replace("{Value}", (maxBalls[rank]).ToString());
+        nextRankDescription = itemDescription.Replace("{Value}", (maxBalls[rank + 1]).ToString());
 
     }
 
