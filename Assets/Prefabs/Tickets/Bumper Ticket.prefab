@@ -50,15 +50,15 @@ MonoBehaviour:
   GUID: TI009
   itemIcon: {fileID: 21300000, guid: be19c0d826010854ab7aa33621de2bf2, type: 3}
   itemName: Better Bumpers
-  itemDescription: All coins gained from Bumpers increased by {Value}%
+  itemDescription: All coins gained from Bumpers increased by {Value}x
   currRankDescription: 
   nextRankDescription: 
   rank: 0
   itemType: 2
   image: {fileID: 21300000, guid: be19c0d826010854ab7aa33621de2bf2, type: 3}
-  bumperMultiplier:
-  - 1
+  ticketStats:
+  - 1.25
+  - 1.5
+  - 1.75
   - 2
-  - 3
-  - 4
-  - 5
+  - 2.25

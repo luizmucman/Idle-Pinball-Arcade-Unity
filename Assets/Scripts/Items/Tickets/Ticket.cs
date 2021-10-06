@@ -7,6 +7,17 @@ public abstract class Ticket : Item
 {
     public Sprite image;
 
+    public List<float> ticketStats;
+
+    public override void SetItemData(ItemData item)
+    {
+        base.SetItemData(item);
+
+        currRankDescription = itemDescription.Replace("{Value}", (ticketStats[rank]).ToString());
+        nextRankDescription = itemDescription.Replace("{Value}", (ticketStats[rank + 1]).ToString());
+
+    }
+
     public virtual void EquipTicket()
     {
         if(!PlayerManager.instance.equippedTickets.Contains(itemData))

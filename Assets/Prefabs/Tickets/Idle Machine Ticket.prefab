@@ -53,12 +53,12 @@ MonoBehaviour:
   itemDescription: Increase all idle income by {Value}
   currRankDescription: Increase all idle income by 125%
   nextRankDescription: Increase all idle income by 150%
-  rank: 3
+  rank: 0
   itemType: 2
   image: {fileID: 21300000, guid: 1becaa3a728f9ed4db370ea41dcd14bb, type: 3}
-  idleMultipliers:
-  - 0.5
-  - 0.75
-  - 1
+  ticketStats:
   - 1.25
   - 1.5
+  - 1.75
+  - 2
+  - 2.25

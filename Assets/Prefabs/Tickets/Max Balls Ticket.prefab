@@ -56,4 +56,9 @@ MonoBehaviour:
   rank: 1
   itemType: 2
   image: {fileID: 21300000, guid: 2cf62ecefeebf0b4ca73c60c2569af6e, type: 3}
-  maxBalls: 020000000400000006000000080000000a000000
+  ticketStats:
+  - 4
+  - 6
+  - 8
+  - 10
+  - 12

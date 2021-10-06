@@ -43,7 +43,7 @@ public class Paddle : MonoBehaviour
     {
         if (cooldown >= 0.1f)
         {
-            paddleManager.Payout(1);
+            paddleManager.Payout(PlayerManager.instance.playerTicketBuffs.paddleBuff);
             particle.Play();
             //soundsManager.PlaySound("flipper");
             hinge.useMotor = true;

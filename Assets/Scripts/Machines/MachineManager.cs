@@ -84,7 +84,7 @@ public class MachineManager : MonoBehaviour
         uiManager.uiBallManager.NewMachine();
 
         // Instantiate the normal balls until max balls for machine is reached
-        while (normalBallCount + currentBallCount < maxEquippedBalls)
+        while (normalBallCount + currentBallCount < maxEquippedBalls + PlayerManager.instance.playerTicketBuffs.maxBalls)
         {
             ShootNormalBall();
         }
@@ -95,10 +95,12 @@ public class MachineManager : MonoBehaviour
         if (machineData.isCurrentEvent)
         {
             UIManager.instance.uiSeasonPassManager.ShowSeasonPassButton();
+            UIManager.instance.playerCoinText.text = PlayerManager.instance.numFormat.Format(PlayerManager.instance.eventCoins);
         }
         else
         {
             UIManager.instance.uiSeasonPassManager.HideSeasonPassButton();
+            UIManager.instance.playerCoinText.text = PlayerManager.instance.numFormat.Format(PlayerManager.instance.playerCoins);
         }
 
         RewardAway();
@@ -132,7 +134,7 @@ public class MachineManager : MonoBehaviour
     {
         if(coinsPerSecondCounter > machineData.coinsPerSecond)
         {
-            machineData.coinsPerSecond = coinsPerSecondCounter / 60;
+            machineData.coinsPerSecond = (ulong) (coinsPerSecondCounter / 60 * PlayerManager.instance.playerTicketBuffs.cpsBuff);
             coinsPerSecondCounter = 0;
             cpsMinuteCounter = 0;
         }

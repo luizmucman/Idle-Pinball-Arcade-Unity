@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4dc668e7ca63ab141ba17b03e7a136dc, type: 3}
-  m_Color: {r: 0, g: 0.33599758, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.5813668, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -180,6 +180,7 @@ MonoBehaviour:
   ballID: 0
   ballCD: 0
   ballCDCount: 0
+  accumulatedCoins: 0
   theRB: {fileID: 0}
   theCollider: {fileID: 0}
   machine: {fileID: 0}

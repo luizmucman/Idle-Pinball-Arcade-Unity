@@ -57,6 +57,7 @@ MonoBehaviour:
     accumulatedCoins: 0
     machineImage: {fileID: 0}
   currentMachine: {fileID: 0}
+  soundsManager: {fileID: 0}
   playerSettingsData:
     bgmMuted: 0
     sfxMuted: 0
@@ -222,18 +223,16 @@ MonoBehaviour:
   ticketSlotCount: 1
   equippedTickets: []
   playerTicketBuffs:
-    coinBuff: 1
     idleCoinBuff: 1
-    speedBuff: 1
+    coinBuff: 1
+    seasonPassBuff: 1
     ballCD: 0
-    ballSkillLength: 0
+    maxIdleTimeLength: 0
     maxBalls: 0
-    bumperMultiplier: 1
-    cpsMultiplier: 1
-    isMoneyBag: 0
-    moneyBagMultiplier: 1
-    isCoinDrop: 0
-    coinDropMultiplier: 1
+    paddleBuff: 1
+    activeBuff: 1
+    bumperBuff: 1
+    cpsBuff: 1
   ballDatabase: {fileID: 11400000, guid: 7c075cdf5d043ca4f9c9657e663ee725, type: 2}
   ticketDatabase: {fileID: 11400000, guid: d2691e477f5353747bb165413ec1814c, type: 2}
   mainMachines:
@@ -315,6 +314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sfxMixerGroup: {fileID: -4969735508171477609, guid: 6153a1d05eec61c48b7006d6e663e5d9, type: 2}
+  bgmMixerGroup: {fileID: -8842869875884718368, guid: 6153a1d05eec61c48b7006d6e663e5d9, type: 2}
   sfxSounds:
   - name: flipper
     clip: {fileID: 8300000, guid: b7a916698a483af41a23a8a4b221f86a, type: 3}
@@ -357,4 +357,12 @@ MonoBehaviour:
     pitch: 1.11
     pitchLow: 1
     pitchHigh: 1.3
+    source: {fileID: 0}
+  bgmSounds:
+  - name: bgmMain
+    clip: {fileID: 8300000, guid: bed368727ad23704f97087d0990770ab, type: 3}
+    volume: 0.05
+    pitch: 1
+    pitchLow: 0
+    pitchHigh: 0
     source: {fileID: 0}

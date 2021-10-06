@@ -15,6 +15,7 @@ public class Ball : Item
     [HideInInspector] public int ballID;
     [HideInInspector] public int ballCD;
     [HideInInspector] public int ballCDCount;
+    [HideInInspector] public ulong accumulatedCoins;
 
     // Ball Components
     [HideInInspector] public Rigidbody2D theRB;
@@ -34,7 +35,7 @@ public class Ball : Item
         ballID =  int.Parse(GUID.Substring(3));
     }
 
-    private void Start()
+    public virtual void Start()
     {
         soundsManager = PlayerManager.instance.GetComponent<SoundsManager>();
     }
@@ -47,7 +48,7 @@ public class Ball : Item
 
     public virtual void SetBallStats()
     {
-        ballCD = ballStats[itemData.rank].ballCD;
+        ballCD = ballStats[itemData.rank].ballCD - PlayerManager.instance.playerTicketBuffs.ballCD;
     }
 
     public virtual void BallSkill()
@@ -55,7 +56,7 @@ public class Ball : Item
         ballCDCount = 0;
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    public void OnCollisionEnter2D(Collision2D other)
     {
         GameObject hitObject = other.gameObject;
 
@@ -76,7 +77,7 @@ public class Ball : Item
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public virtual void OnTriggerEnter2D(Collider2D other)
     {
         GameObject hitObject = other.gameObject;
         PlayerManager.instance.AddSeasonPassHit();

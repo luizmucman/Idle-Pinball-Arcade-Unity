@@ -12,6 +12,7 @@ public class PlayerManager : MonoBehaviour
     public MachineData currMachineData;
     public MachineManager currentMachine;
     public NumericalFormatter numFormat;
+    public SoundsManager soundsManager;
 
     // Player Settings
     public PlayerSettingsData playerSettingsData;
@@ -90,6 +91,7 @@ public class PlayerManager : MonoBehaviour
         }
 
         numFormat = new NumericalFormatter();
+        soundsManager = GetComponent<SoundsManager>();
         //playerTicketBuffs = new PlayerTicketBuffs();
         AddMachineAwayCoins();
 
@@ -127,6 +129,11 @@ public class PlayerManager : MonoBehaviour
     private void OnApplicationQuit()
     {
         SavePlayerData();
+    }
+
+    private void Start()
+    {
+        soundsManager.PlayMusic("bgmMain");
     }
 
     public void AddCoins(ulong coins)
@@ -213,7 +220,7 @@ public class PlayerManager : MonoBehaviour
                 TimeSpan difference = DateTime.Now - machineData.awayCheckPoint;
                 if (difference.TotalHours < maxIdleTime)
                 {
-                    machineData.accumulatedCoins += machineData.coinsPerSecond;
+                    machineData.accumulatedCoins += (ulong) (machineData.coinsPerSecond * playerTicketBuffs.idleCoinBuff);
                 } 
             }
         }
@@ -234,11 +241,11 @@ public class PlayerManager : MonoBehaviour
                 TimeSpan idleLimitCheck = DateTime.Now - machineData.awayCheckPoint;
                 if (idleLimitCheck.TotalHours > maxIdleTime)
                 {
-                    machineData.accumulatedCoins = (ulong)(machineData.coinsPerSecond * (3600 * maxIdleTime));
+                    machineData.accumulatedCoins = (ulong)(machineData.coinsPerSecond * (3600 * (maxIdleTime + playerTicketBuffs.maxIdleTimeLength)) * playerTicketBuffs.idleCoinBuff);
                 }
                 else
                 {
-                    machineData.accumulatedCoins = (ulong)(machineData.coinsPerSecond * idleLimitCheck.TotalSeconds);
+                    machineData.accumulatedCoins = (ulong)(machineData.coinsPerSecond * idleLimitCheck.TotalSeconds * playerTicketBuffs.idleCoinBuff);
                 }
             }
         }

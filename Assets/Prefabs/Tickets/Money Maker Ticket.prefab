@@ -56,9 +56,9 @@ MonoBehaviour:
   rank: 0
   itemType: 2
   image: {fileID: 21300000, guid: 917efc22c003cff41b2935360a45dce3, type: 3}
-  coinMultipliers:
-  - 0.25
-  - 0.5
-  - 0.75
-  - 1
-  - 1.25
+  ticketStats:
+  - 1.2
+  - 1.4
+  - 1.6
+  - 1.8
+  - 2

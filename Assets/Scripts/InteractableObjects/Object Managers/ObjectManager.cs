@@ -82,6 +82,7 @@ public abstract class ObjectManager : MonoBehaviour
         }
         PlayerManager.instance.AddCoins((ulong)(upgradeData.currentCoinProduction));
         PlayerManager.instance.currentMachine.coinsPerSecondCounter += (ulong)(upgradeData.currentCoinProduction);
+        ball.accumulatedCoins += upgradeData.currentCoinProduction;
     }
 
     public virtual void Payout(float multiplier)

@@ -5,18 +5,16 @@ using UnityEngine;
 public class SpeedBall : Ball
 {
     public List<float> speedBoost;
-    public float skillLength;
+
+    public override void Start()
+    {
+        base.Start();
+        theRB.mass = (float) 1.0 - speedBoost[rank];
+    }
 
     public override void BallSkill()
     {
-        base.BallSkill();
-        StartCoroutine(nameof(SpeedBoost));
+
     }
 
-    public IEnumerator SpeedBoost()
-    {
-        Time.timeScale += speedBoost[rank];
-        yield return new WaitForSecondsRealtime(skillLength);
-        Time.timeScale -= speedBoost[rank];
-    }
 }

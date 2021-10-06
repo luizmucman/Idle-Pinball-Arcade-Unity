@@ -19,6 +19,6 @@ public class Bumper : InteractableObject
         base.BallHit(ball, collision);
         soundsManager.PlaySound("bumperhit");
         ball.theRB.AddForce(collision.GetContact(0).normal * bumperForce, ForceMode2D.Impulse);
-        manager.Payout(ball, 1);
+        manager.Payout(ball, PlayerManager.instance.playerTicketBuffs.bumperBuff);
     }
 }
