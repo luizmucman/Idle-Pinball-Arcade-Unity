@@ -13216,8 +13216,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: 0d3ec5b684451bd48a4a6b83346c04bc, type: 3}
-    objectName: 
-    upgradeDesc: 
+    objectName: Paddles
+    upgradeDesc: The trusty paddles. Gain coins for every flip of a paddle.
     baseCoinProduction: 1
     baseCost: 4
     upgradeCostGrowthRate: 1.07

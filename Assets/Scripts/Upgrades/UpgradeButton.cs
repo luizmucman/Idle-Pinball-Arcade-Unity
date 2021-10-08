@@ -15,6 +15,6 @@ public class UpgradeButton : MonoBehaviour
 
     public void UpgradeButtonClicked()
     {
-        UIManager.instance.uiUpgradeManager.SetUpgrade(manager);
+        
     }
 }

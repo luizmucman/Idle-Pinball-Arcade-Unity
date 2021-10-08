@@ -103,6 +103,11 @@ public class MachineManager : MonoBehaviour
             UIManager.instance.playerCoinText.text = PlayerManager.instance.numFormat.Format(PlayerManager.instance.playerCoins);
         }
 
+        foreach(ObjectManager manager in objectManagers)
+        {
+            UIManager.instance.uiUpgradeManager.AddUpgradeRow(manager);
+        }
+
         RewardAway();
     }
 
