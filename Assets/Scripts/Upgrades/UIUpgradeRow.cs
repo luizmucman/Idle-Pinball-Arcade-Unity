@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class UIUpgradeRow : MonoBehaviour
 {
+    public GameObject lockOverlay;
+    public Button unlockButton;
+    public Text unlockCost;
+
     public Image icon;
     public Text title;
     public Text topLevel;
@@ -26,26 +30,57 @@ public class UIUpgradeRow : MonoBehaviour
 
     private void Update()
     {
-        if (PlayerManager.instance.currentMachine.machineData.isCurrentEvent)
+        if (selectedUpgrade.level > 0)
         {
-            if (PlayerManager.instance.eventCoins < currentCost)
+            HideLock();
+            if (PlayerManager.instance.currentMachine.machineData.isCurrentEvent)
             {
-                upgradeButton.interactable = false;
+                if (PlayerManager.instance.eventCoins < currentCost)
+                {
+                    upgradeButton.interactable = false;
+                }
+                else
+                {
+                    upgradeButton.interactable = true;
+                }
             }
             else
             {
-                upgradeButton.interactable = true;
+                if (PlayerManager.instance.playerCoins < currentCost)
+                {
+                    upgradeButton.interactable = false;
+                }
+                else
+                {
+                    upgradeButton.interactable = true;
+                }
             }
         }
         else
         {
-            if (PlayerManager.instance.playerCoins < currentCost)
+            ShowLock();
+
+            if (PlayerManager.instance.currentMachine.machineData.isCurrentEvent)
             {
-                upgradeButton.interactable = false;
+                if (PlayerManager.instance.eventCoins < selectedUpgrade.baseCost)
+                {
+                    unlockButton.interactable = false;
+                }
+                else
+                {
+                    unlockButton.interactable = true;
+                }
             }
             else
             {
-                upgradeButton.interactable = true;
+                if (PlayerManager.instance.playerCoins < selectedUpgrade.baseCost)
+                {
+                    unlockButton.interactable = false;
+                }
+                else
+                {
+                    unlockButton.interactable = true;
+                }
             }
         }
     }
@@ -54,6 +89,8 @@ public class UIUpgradeRow : MonoBehaviour
     {
         objectManager = manager;
         selectedUpgrade = manager.upgradeData;
+
+        unlockCost.text = PlayerManager.instance.numFormat.Format(selectedUpgrade.baseCost);
 
         icon.sprite = manager.upgradeData.upgradeIcon;
         title.text = manager.upgradeData.objectName;
@@ -89,7 +126,6 @@ public class UIUpgradeRow : MonoBehaviour
         }
     }
 
-
     public void SetCostByAmount(int amount)
     {
         // UI Changes
@@ -121,5 +157,22 @@ public class UIUpgradeRow : MonoBehaviour
         currLvl.text = selectedUpgrade.level.ToString();
         currCPH.text = PlayerManager.instance.numFormat.Format(selectedUpgrade.GetProductionValue(selectedUpgrade.level));
         SetCostByAmount(upgradeAmt);
+    }
+
+    public void BuyUnlock()
+    {
+        PlayerManager.instance.RemoveCoins(selectedUpgrade.baseCost);
+        selectedUpgrade.level++;
+        HideLock();
+    }
+
+    public void ShowLock()
+    {
+        lockOverlay.SetActive(true);
+    }
+
+    public void HideLock()
+    {
+        lockOverlay.SetActive(false);
     }
 }

@@ -27,6 +27,7 @@ public class UIShopPopup : MonoBehaviour
     // Specials Sprites
     public Sprite adFreeSprite;
     public Sprite incomeBuffSprite;
+    public Sprite tripleIncomeBuffSprite;
     public Sprite idleBuffSprite;
 
     public Animator theAnim;
@@ -129,7 +130,21 @@ public class UIShopPopup : MonoBehaviour
     {
         itemIcon.sprite = incomeBuffSprite;
         itemTitle.text = "2X All Income";
-        itemDesc.text = "You will now permanently gain 2x coins from all sources";
+        itemDesc.text = "You will now permanently gain 2x coins from all sources!";
+
+        starContainer.SetActive(false);
+
+        itemIcon.SetNativeSize();
+
+        gameObject.SetActive(true);
+        theAnim.Play("open");
+    }
+
+    public void SetTripleIncomeBuffPopup()
+    {
+        itemIcon.sprite = tripleIncomeBuffSprite;
+        itemTitle.text = "3X All Income";
+        itemDesc.text = "You will now permanently gain 3x coins from all sources!";
 
         starContainer.SetActive(false);
 

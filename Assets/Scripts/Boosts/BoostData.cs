@@ -3,13 +3,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
+public class BoostInUseSave {
+    public string boostID;
+
+    public string endTime;
+    public bool inUse;
+
+    public BoostInUseSave(BoostData data)
+    {
+        boostID = data.boostID;
+
+        endTime = data.endTime.ToString();
+        inUse = data.inUse;
+    }
+}
+
+[Serializable]
+public class BoostOwnedSave
+{
+    public string boostID;
+
+    public int qtyOwned;
+    public double boostLength;
+
+    public BoostOwnedSave(BoostData data)
+    {
+        boostID = data.boostID;
+        qtyOwned = data.qtyOwned;
+        boostLength = data.boostLength;
+    }
+}
+
 [System.Serializable]
 public class BoostData
 {
     public string boostID;
     public Sprite boostImg;
     public ulong boostAmt;
-    public double boostLength;
+
 
     // In Use Stats
     public DateTime endTime;
@@ -17,6 +49,7 @@ public class BoostData
 
     // Inventory Stats
     public int qtyOwned;
+    public double boostLength;
 
     // Functions For Active
     public void AddTime(double hours)
@@ -85,5 +118,18 @@ public class BoostData
             endTime = ES3.Load(boostID + "-database-endTime", endTime);
             inUse = ES3.Load(boostID + "-database-inUse", inUse);
         }
+    }
+
+    public BoostInUseSave SaveBoostDatabaseToJson()
+    {
+        BoostInUseSave boostSave = new BoostInUseSave(this);
+
+        return boostSave;
+    }
+
+    public BoostOwnedSave SaveBoostOwnedToJson()
+    {
+        BoostOwnedSave boostSave = new BoostOwnedSave(this);
+        return boostSave;
     }
 }

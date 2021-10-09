@@ -59,13 +59,21 @@ public class UIBoostsManager : MonoBehaviour
 
     private void GetBoostAmt()
     {
-        ulong currBoostAmt = 1;
+        ulong currBoostAmt = 0;
         foreach (BoostActiveContainer container in boostContainers)
         {
             currBoostAmt += container.UpdateBoostStatus();
         }
 
-        totalBoostAmt = currBoostAmt;
+        if (currBoostAmt > 0)
+        {
+            totalBoostAmt = currBoostAmt;
+        }
+        else
+        {
+            totalBoostAmt = 1;
+        }
+
         totalBoostAmtText.text = PlayerManager.instance.numFormat.Format(totalBoostAmt) + "X";
         mainUIBoostText.text = PlayerManager.instance.numFormat.Format(totalBoostAmt) + "X";
     }

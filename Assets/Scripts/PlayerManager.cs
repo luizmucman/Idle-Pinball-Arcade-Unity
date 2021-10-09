@@ -5,6 +5,73 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+[Serializable]
+public class PlayerSave {
+    public bool tutorialFinished;
+
+    // Buffs
+    public bool isAdFree;
+    public bool is2xAllIncome;
+    public bool is2xIdleIncome;
+    public bool is4xAllIncome;
+
+    // Event Data
+
+    // Currency
+    public ulong playerCoins;
+    public int playerGems;
+
+    // Tickets
+    public int ticketSlotCount;
+
+    // Boosts
+    public List<BoostInUseSave> boostsInUse;
+    public List<BoostOwnedSave> boostsOwned;
+
+    // Balls
+
+    // Tickets
+
+    // Machine Data
+
+    public PlayerSave (PlayerManager manager)
+    {
+        tutorialFinished = manager.tutorialFinished;
+        isAdFree = manager.isAdFree;
+        is2xAllIncome = manager.is2xAllIncome;
+        is4xAllIncome = manager.is4xAllIncome;
+
+        playerCoins = manager.playerCoins;
+        playerGems = manager.playerGems;
+
+        ticketSlotCount = manager.ticketSlotCount;
+
+
+        // Saving Boosts In Use
+        List<BoostInUseSave> boostInUseList = new List<BoostInUseSave>();
+
+        foreach(BoostData data in manager.boostDatabase.database)
+        {
+           boostInUseList.Add(data.SaveBoostDatabaseToJson());
+        }
+
+        boostsInUse = boostInUseList;
+
+        // Save Boosts Owned
+        List<BoostOwnedSave> boostsOwnedList = new List<BoostOwnedSave>();
+
+        foreach(BoostData data in manager.boostInventory)
+        {
+            boostsOwnedList.Add(data.SaveBoostOwnedToJson());
+        }
+
+        boostsOwned = boostsOwnedList;
+
+    }
+
+
+}
+
 public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance;
@@ -24,6 +91,7 @@ public class PlayerManager : MonoBehaviour
     public bool isAdFree;
     public bool is2xAllIncome;
     public bool is2xIdleIncome;
+    public bool is4xAllIncome;
 
     [Header("SeasonPassData")]
     public ulong eventCoins;
@@ -129,6 +197,7 @@ public class PlayerManager : MonoBehaviour
     private void OnApplicationQuit()
     {
         SavePlayerData();
+        SavePlayerToJson();
     }
 
     private void Start()
@@ -419,5 +488,14 @@ public class PlayerManager : MonoBehaviour
             ticketSlotCount = ES3.Load("playerTicketSlotCount", ticketSlotCount);
             equippedTickets = ES3.Load("playerEquippedTickets", equippedTickets);
         }
+    }
+
+    public void SavePlayerToJson()
+    {
+        PlayerSave data = new PlayerSave(this);
+
+        FileHandler.SaveToJSON(data, "playerData");
+
+        Debug.Log("Saved To Json");
     }
 }

@@ -35,13 +35,27 @@ public class UIBallManager : MonoBehaviour
 
     private void Update()
     {
-        if (PlayerManager.instance.playerCoins >= currentCost)
+        if (PlayerManager.instance.currentMachine.machineData.isCurrentEvent)
         {
-            maxBallUpgradeButton.interactable = true;
+            if (PlayerManager.instance.eventCoins < currentCost)
+            {
+                maxBallUpgradeButton.interactable = false;
+            }
+            else
+            {
+                maxBallUpgradeButton.interactable = true;
+            }
         }
         else
         {
-            maxBallUpgradeButton.interactable = false;
+            if (PlayerManager.instance.playerCoins < currentCost)
+            {
+                maxBallUpgradeButton.interactable = false;
+            }
+            else
+            {
+                maxBallUpgradeButton.interactable = true;
+            }
         }
     }
 
@@ -59,14 +73,30 @@ public class UIBallManager : MonoBehaviour
 
     public void IncreaseMaxBalls()
     {
-        if(PlayerManager.instance.playerCoins >= currentCost && currMachine.maxEquippedBalls < 50)
+        if (PlayerManager.instance.currentMachine.machineData.isCurrentEvent)
         {
-            PlayerManager.instance.RemoveCoins(currentCost);
-            currMachine.maxEquippedBalls++;
-            currMachine.ShootNormalBall();
-            SetBallUpgradeCost();
-            maxBallValueText.text = currMachine.maxEquippedBalls.ToString();
+            if (PlayerManager.instance.eventCoins >= currentCost && currMachine.maxEquippedBalls < 50)
+            {
+                PlayerManager.instance.RemoveCoins(currentCost);
+                currMachine.maxEquippedBalls++;
+                currMachine.ShootNormalBall();
+                SetBallUpgradeCost();
+                maxBallValueText.text = currMachine.maxEquippedBalls.ToString();
+            }
         }
+        else
+        {
+            if (PlayerManager.instance.playerCoins >= currentCost && currMachine.maxEquippedBalls < 50)
+            {
+                PlayerManager.instance.RemoveCoins(currentCost);
+                currMachine.maxEquippedBalls++;
+                currMachine.ShootNormalBall();
+                SetBallUpgradeCost();
+                maxBallValueText.text = currMachine.maxEquippedBalls.ToString();
+            }
+        }
+
+
     }
     
     public void SetBallUpgradeCost()

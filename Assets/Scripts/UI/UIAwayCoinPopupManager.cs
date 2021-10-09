@@ -22,9 +22,7 @@ public class UIAwayCoinPopupManager : MonoBehaviour
 
     [Header("Watch Ad Button")]
     // Watch Ad Components
-    public Button watchAdButton;
-    public Text free2xText;
-    public Image adImage;
+    public WatchAdButton watchAdButton;
 
     // Machine Data
     private MachineData currMachine;
@@ -49,16 +47,7 @@ public class UIAwayCoinPopupManager : MonoBehaviour
         span =  DateTime.Now - machine.awayCheckPoint;
         currMultiplier = 1;
 
-        if (!PlayerManager.instance.isAdFree)
-        {
-            adImage.gameObject.SetActive(true);
-            free2xText.gameObject.SetActive(false);
-        }
-        else
-        {
-            adImage.gameObject.SetActive(false);
-            free2xText.gameObject.SetActive(true);
-        }
+        watchAdButton.CheckAdFree();
 
         if (PlayerManager.instance.maxIdleTime > span.TotalHours)
         {

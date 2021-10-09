@@ -11,24 +11,33 @@ public enum ShopItemType
 
 public class UIShopManager : MonoBehaviour
 {
+    [Header("Pack Gem Rewards")]
+    public int starterPackGems;
+    public int masterPackGems;
+
+    [Header("UI Popups")]
     // UI Popups
     public UIShopPopup buyPopup;
     public UISeasonPassPopup seasonPassPopup;
 
+    [Header("Chest Chances")]
     // Chances
     public int commonChestGreatChance;
     public int legendaryChestEpicChance;
     public int legendaryChestRareChance;
 
+    [Header("Gem Costs")]
     // Gem Costs
     public int commonChestCost;
     public int legendaryChestCost;
     public int mysteryBoostCost;
     public int megaMysteryBoostCost;
 
+    [Header("Boost Database")]
     // Booster Databases
     public List<BoostDatabase> mysteryBoostLists;
     public List<BoostDatabase> megaMysteryBoostLists;
+
 
     // Specials Buttons
     public Button adFreeButton;
@@ -77,6 +86,24 @@ public class UIShopManager : MonoBehaviour
     {
         PlayerManager.instance.is2xIdleIncome = true;
         buyPopup.SetIdleBuffPopup();
+    }
+
+    public void Buy4xAllIncome()
+    {
+        PlayerManager.instance.is4xAllIncome = true;
+        buyPopup.SetTripleIncomeBuffPopup();
+    }
+
+    public void BuyStarterPack()
+    {
+        Buy2xAllIncome();
+        PlayerManager.instance.AddGems(starterPackGems);
+    }
+
+    public void BuyMasterPack()
+    {
+        Buy4xAllIncome();
+        PlayerManager.instance.AddGems(masterPackGems);
     }
 
     // Things that cost gems
@@ -383,7 +410,6 @@ public class UIShopManager : MonoBehaviour
             UIManager.instance.uiBallManager.AddNewBallUI(itemData);
         }
     }
-
 
     private BoostData GetBoostData(BoostData data)
     {
