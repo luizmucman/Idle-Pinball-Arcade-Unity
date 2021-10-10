@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using PlayFab;
+using PlayFab.ClientModels;
 
 [Serializable]
 public class PlayerSave {
@@ -16,6 +18,7 @@ public class PlayerSave {
     public bool is4xAllIncome;
 
     // Event Data
+    public ulong eventCoins;
 
     // Currency
     public ulong playerCoins;
@@ -40,12 +43,11 @@ public class PlayerSave {
         isAdFree = manager.isAdFree;
         is2xAllIncome = manager.is2xAllIncome;
         is4xAllIncome = manager.is4xAllIncome;
-
+        eventCoins = manager.eventCoins;
         playerCoins = manager.playerCoins;
         playerGems = manager.playerGems;
 
         ticketSlotCount = manager.ticketSlotCount;
-
 
         // Saving Boosts In Use
         List<BoostInUseSave> boostInUseList = new List<BoostInUseSave>();
@@ -75,6 +77,10 @@ public class PlayerSave {
 public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance;
+
+    private PlayFabAuthService _AuthService = PlayFabAuthService.Instance;
+
+    public ES3Settings es3Cache;
 
     public MachineData currMachineData;
     public MachineManager currentMachine;
@@ -145,16 +151,24 @@ public class PlayerManager : MonoBehaviour
         }
         else
         {
-            instance = this;
-            if (ES3.KeyExists("playerCoins"))
+            if(_AuthService.AuthType == 0)
             {
-                LoadPlayerData();
+                _AuthService.Authenticate(Authtypes.Silent);
             }
             else
             {
-                currMachineData = mainMachines[0];
-                SceneManager.LoadScene("MA001");
+                _AuthService.Authenticate();
             }
+
+            instance = this;
+            es3Cache = new ES3Settings(ES3.Location.Cache);
+            if (ES3.FileExists("SaveFile.es3"))
+            {
+                ES3.CacheFile("SaveFile.es3");
+            }
+
+            LoadPlayerData();
+
             DontDestroyOnLoad(this);
         }
 
@@ -197,7 +211,7 @@ public class PlayerManager : MonoBehaviour
     private void OnApplicationQuit()
     {
         SavePlayerData();
-        SavePlayerToJson();
+        //SavePlayerToJson();
     }
 
     private void Start()
@@ -390,9 +404,33 @@ public class PlayerManager : MonoBehaviour
         SaveMachineData();
 
         seasonPassData.SaveSeasonPassData();
+
+        ES3.StoreCachedFile();
+        SaveToPlayFab();
+    }
+
+    private void SaveToPlayFab()
+    {
+        string rawSave = ES3.LoadRawString(es3Cache);
+
+        var request = new UpdateUserDataRequest
+        {
+            Data = new Dictionary<string, string>
+            {
+                {"es3Save", rawSave}
+            }
+        };
+
+        PlayFabClientAPI.UpdateUserData(request, OnDataSend, OnError);
     }
 
     private void LoadPlayerData()
+    {
+        LoadFromPlayfab();
+
+    }
+
+    private void LoadFromCache()
     {
         LoadPlayerManager();
         boostDatabase.LoadBoostDatabase();
@@ -416,6 +454,7 @@ public class PlayerManager : MonoBehaviour
 
     private void LoadMachineData()
     {
+        currMachineData = null;
         foreach (MachineData machineData in mainMachines)
         {
             machineData.LoadMachine();
@@ -470,24 +509,21 @@ public class PlayerManager : MonoBehaviour
 
     private void LoadPlayerManager()
     {
-        if(ES3.KeyExists("playerCoins"))
-        {
-            tutorialFinished = ES3.Load("playerTutorialFinished", tutorialFinished);
-            isAdFree = ES3.Load("playerIsAdFree", isAdFree);
-            is2xAllIncome = ES3.Load("playerHas2xIncome", is2xAllIncome);
-            is2xIdleIncome = ES3.Load("playerHas2xIdleIncome", is2xIdleIncome);
+        tutorialFinished = ES3.Load("playerTutorialFinished", tutorialFinished);
+        isAdFree = ES3.Load("playerIsAdFree", isAdFree);
+        is2xAllIncome = ES3.Load("playerHas2xIncome", is2xAllIncome);
+        is2xIdleIncome = ES3.Load("playerHas2xIdleIncome", is2xIdleIncome);
 
-            globalCoinMultiplier = ES3.Load("playerGlobalCoinMultiplier", globalCoinMultiplier);
-            boostDatabase = ES3.Load("playerBoostDatabase", boostDatabase);
-            boostInventory = ES3.Load("playerBoostInventory", boostInventory);
+        globalCoinMultiplier = ES3.Load("playerGlobalCoinMultiplier", globalCoinMultiplier);
+        boostDatabase = ES3.Load("playerBoostDatabase", boostDatabase);
+        boostInventory = ES3.Load("playerBoostInventory", boostInventory);
 
-            playerCoins = ES3.Load("playerCoins", playerCoins);
-            playerGems = ES3.Load("playerGems", playerGems);
-            ballInventory = ES3.Load("playerBallInventory", ballInventory);
-            ticketInventory = ES3.Load("playerTicketInventory", ticketInventory);
-            ticketSlotCount = ES3.Load("playerTicketSlotCount", ticketSlotCount);
-            equippedTickets = ES3.Load("playerEquippedTickets", equippedTickets);
-        }
+        playerCoins = ES3.Load("playerCoins", playerCoins);
+        playerGems = ES3.Load("playerGems", playerGems);
+        ballInventory = ES3.Load("playerBallInventory", ballInventory);
+        ticketInventory = ES3.Load("playerTicketInventory", ticketInventory);
+        ticketSlotCount = ES3.Load("playerTicketSlotCount", ticketSlotCount);
+        equippedTickets = ES3.Load("playerEquippedTickets", equippedTickets);
     }
 
     public void SavePlayerToJson()
@@ -497,5 +533,34 @@ public class PlayerManager : MonoBehaviour
         FileHandler.SaveToJSON(data, "playerData");
 
         Debug.Log("Saved To Json");
+    }
+
+    private void LoadFromPlayfab()
+    {
+        PlayFabClientAPI.GetUserData(new GetUserDataRequest(), OnDataReceived, OnError);
+
+    }
+
+    void OnDataReceived(GetUserDataResult result)
+    {
+        if (result.Data != null && result.Data.ContainsKey("es3Save"))
+        {
+            string rawString = result.Data["es3Save"].Value;
+            ES3.SaveRaw(rawString, es3Cache);
+        }
+        else if (ES3.FileExists("SaveFile.es3"))
+        {
+            LoadFromCache();
+        }
+    }
+
+    void OnDataSend(UpdateUserDataResult result)
+    {
+        Debug.Log("Success user data send");
+    }
+
+    void OnError(PlayFabError error)
+    {
+        Debug.Log(error);
     }
 }

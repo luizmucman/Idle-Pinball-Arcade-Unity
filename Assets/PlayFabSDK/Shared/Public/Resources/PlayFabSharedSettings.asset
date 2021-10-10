@@ -15,7 +15,7 @@ MonoBehaviour:
   TitleId: D5A27
   DeveloperSecretKey: FFRXRM8EUCXZT4YM3CXUCA7SR5FTD4ODXGFCO3H9QEGBISNWTX
   ProductionEnvironmentUrl: 
-  RequestType: 2
+  RequestType: 0
   DisableDeviceInfo: 0
   DisableFocusTimeCollection: 0
   RequestTimeout: 2000
