@@ -151,7 +151,22 @@ public class PlayerManager : MonoBehaviour
         }
         else
         {
-            if(_AuthService.AuthType == 0)
+            instance = this;
+
+            numFormat = new NumericalFormatter();
+            soundsManager = GetComponent<SoundsManager>();
+            es3Cache = new ES3Settings(ES3.Location.Cache);
+
+            if (ES3.FileExists("SaveFile.es3"))
+            {
+                ES3.CacheFile("SaveFile.es3");
+            }
+
+            PlayFabAuthService.OnLoginSuccess += OnLoginSuccess;
+            PlayFabAuthService.OnPlayFabError += OnPlayFabError;
+            PlayFabAuthService.OnGoogleLink += OnGoogleLink;
+
+            if (_AuthService.AuthType == 0)
             {
                 _AuthService.Authenticate(Authtypes.Silent);
             }
@@ -160,23 +175,8 @@ public class PlayerManager : MonoBehaviour
                 _AuthService.Authenticate();
             }
 
-            instance = this;
-            es3Cache = new ES3Settings(ES3.Location.Cache);
-            if (ES3.FileExists("SaveFile.es3"))
-            {
-                ES3.CacheFile("SaveFile.es3");
-            }
-
-            LoadPlayerData();
-
             DontDestroyOnLoad(this);
         }
-
-        numFormat = new NumericalFormatter();
-        soundsManager = GetComponent<SoundsManager>();
-        //playerTicketBuffs = new PlayerTicketBuffs();
-        AddMachineAwayCoins();
-
     }
 
     private void Update()
@@ -430,13 +430,15 @@ public class PlayerManager : MonoBehaviour
 
     }
 
-    private void LoadFromCache()
+    public void LoadFromCache()
     {
         LoadPlayerManager();
         boostDatabase.LoadBoostDatabase();
         LoadMachineData();
 
         seasonPassData.LoadSeasonPassData();
+
+        AddMachineAwayCoins();
     }
 
     private void SaveMachineData()
@@ -526,19 +528,28 @@ public class PlayerManager : MonoBehaviour
         equippedTickets = ES3.Load("playerEquippedTickets", equippedTickets);
     }
 
-    public void SavePlayerToJson()
+    // Auth Dependency
+
+    private void OnGoogleLink(LinkGoogleAccountResult success)
     {
-        PlayerSave data = new PlayerSave(this);
-
-        FileHandler.SaveToJSON(data, "playerData");
-
-        Debug.Log("Saved To Json");
+        throw new NotImplementedException();
     }
 
-    private void LoadFromPlayfab()
+    private void OnPlayFabError(PlayFabError error)
+    {
+        Debug.Log(error);
+    }
+
+    private void OnLoginSuccess(LoginResult success)
+    {
+        LoadFromCache();
+    }
+
+    // Loading From Playfab
+
+    public void LoadFromPlayfab()
     {
         PlayFabClientAPI.GetUserData(new GetUserDataRequest(), OnDataReceived, OnError);
-
     }
 
     void OnDataReceived(GetUserDataResult result)
@@ -547,9 +558,6 @@ public class PlayerManager : MonoBehaviour
         {
             string rawString = result.Data["es3Save"].Value;
             ES3.SaveRaw(rawString, es3Cache);
-        }
-        else if (ES3.FileExists("SaveFile.es3"))
-        {
             LoadFromCache();
         }
     }

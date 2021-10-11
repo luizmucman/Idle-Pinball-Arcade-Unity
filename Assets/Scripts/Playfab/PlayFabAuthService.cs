@@ -6,9 +6,8 @@ using PlayFab.ClientModels;
 using LoginResult = PlayFab.ClientModels.LoginResult;
 using System;
 
-#if FACEBOOK
+
 using Facebook.Unity;
-#endif
 
 /// <summary>
 /// Supported Authentication types
@@ -37,8 +36,11 @@ public class PlayFabAuthService
     public delegate void LoginSuccessEvent(LoginResult success);
     public static event LoginSuccessEvent OnLoginSuccess;
 
-    public delegate void LinkGoogleAccountResult(LinkGoogleAccountResult success);
-    public static event LinkGoogleAccountResult OnGoogleLink;
+    public delegate void LinkGoogleSuccessEvent(LinkGoogleAccountResult success);
+    public static event LinkGoogleSuccessEvent OnGoogleLink;
+
+    public delegate void LinkFacebookSuccessEvent(LinkFacebookAccountResult success);
+    public static event LinkFacebookSuccessEvent OnFacebookLink;
 
     public delegate void PlayFabErrorEvent(PlayFabError error);
     public static event PlayFabErrorEvent OnPlayFabError;
@@ -344,16 +346,15 @@ public class PlayFabAuthService
         });
     }
 
-    private void AuthenticateFacebook()
+    public void AuthenticateFacebook()
     {
-#if FACEBOOK
         if (FB.IsInitialized && FB.IsLoggedIn && !string.IsNullOrEmpty(AuthTicket))
         {
             PlayFabClientAPI.LoginWithFacebook(new LoginWithFacebookRequest()
             {
                 TitleId = PlayFabSettings.TitleId,
                 AccessToken = AuthTicket,
-                CreateAccount = true,
+                CreateAccount = false,
                 InfoRequestParameters = InfoRequestParams
             }, (result) =>
             {
@@ -384,18 +385,44 @@ public class PlayFabAuthService
                 OnDisplayAuthentication.Invoke();
             }
         }
-#endif 
     }
 
-    private void AuthenticateGooglePlayGames()
+    public void LinkFacebook()
     {
-#if GOOGLEGAMES
+        PlayFabClientAPI.LinkFacebookAccount(new LinkFacebookAccountRequest()
+        {
+            ForceLink = false,
+            AccessToken = AuthTicket
+        }, (result) =>
+        {
+            if (OnFacebookLink != null)
+            {
+
+                OnFacebookLink.Invoke(result);
+            }
+        }, (error) =>
+        {
+            if (OnPlayFabError != null)
+            {
+                OnPlayFabError.Invoke(error);
+            }
+        });
+    }
+
+    public void AuthenticateGooglePlayGames()
+    {
+        AndroidJavaClass up = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+        AndroidJavaObject currentActivity = up.GetStatic<AndroidJavaObject>("currentActivity");
+        AndroidJavaObject contentResolver = currentActivity.Call<AndroidJavaObject>("getContentResolver");
+        AndroidJavaClass secure = new AndroidJavaClass("android.provider.Settings$Secure");
+        string deviceId = secure.CallStatic<string>("getString", contentResolver, "android_id");
+
         PlayFabClientAPI.LoginWithGoogleAccount(new LoginWithGoogleAccountRequest()
         {
             TitleId = PlayFabSettings.TitleId,
             ServerAuthCode = AuthTicket,
             InfoRequestParameters = InfoRequestParams,
-            CreateAccount = true
+            CreateAccount = false
         }, (result) =>
         {
             //Store Identity and session
@@ -417,31 +444,28 @@ public class PlayFabAuthService
                 OnPlayFabError.Invoke(error);
             }
         });
-#endif
     }
 
-    private void LinkGooglePlayGames()
+    public void LinkGooglePlayGames()
     {
-#if GOOGLEGAMES
         PlayFabClientAPI.LinkGoogleAccount(new LinkGoogleAccountRequest()
         {
             ForceLink = false,
             ServerAuthCode = AuthTicket
         }, (result) =>
         {
-            Debug.Log("Account Linked");
+            if (OnGoogleLink != null)
+            {
+                
+                OnGoogleLink.Invoke(result);
+            }
         }, (error) =>
         {
-            if (error.HttpCode == 1011)
+            if (OnPlayFabError != null)
             {
-                AuthenticateGooglePlayGames();
-            }
-            else
-            {
-                Debug.Log(error.GenerateErrorReport());
+                OnPlayFabError.Invoke(error);
             }
         });
-#endif
     }
 
     private void AuthenticateSteam()
