@@ -476,6 +476,8 @@ public class PlayFabAuthService
 
     private void SilentlyAuthenticate(System.Action<LoginResult> callback = null)
     {
+        InfoRequestParams = new GetPlayerCombinedInfoRequestParams();
+        InfoRequestParams.GetUserAccountInfo = true;
 #if UNITY_ANDROID  && !UNITY_EDITOR
 
         //Get the device id from native android

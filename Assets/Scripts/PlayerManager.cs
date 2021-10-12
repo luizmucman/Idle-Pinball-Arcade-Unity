@@ -78,7 +78,10 @@ public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance;
 
+    // PlayFab
     private PlayFabAuthService _AuthService = PlayFabAuthService.Instance;
+    public bool facebookAccLinked;
+    public bool googleAccLinked;
 
     public ES3Settings es3Cache;
 
@@ -217,6 +220,7 @@ public class PlayerManager : MonoBehaviour
     private void Start()
     {
         soundsManager.PlayMusic("bgmMain");
+        Application.targetFrameRate = 60;
     }
 
     public void AddCoins(ulong coins)
@@ -432,13 +436,21 @@ public class PlayerManager : MonoBehaviour
 
     public void LoadFromCache()
     {
-        LoadPlayerManager();
-        boostDatabase.LoadBoostDatabase();
-        LoadMachineData();
+        if(ES3.KeyExists("playerCoins"))
+        {
+            LoadPlayerManager();
+            boostDatabase.LoadBoostDatabase();
+            LoadMachineData();
 
-        seasonPassData.LoadSeasonPassData();
+            seasonPassData.LoadSeasonPassData();
 
-        AddMachineAwayCoins();
+            AddMachineAwayCoins();
+        }
+        else
+        {
+            SceneManager.LoadScene("MA001");
+        }
+
     }
 
     private void SaveMachineData()
@@ -542,6 +554,14 @@ public class PlayerManager : MonoBehaviour
 
     private void OnLoginSuccess(LoginResult success)
     {
+        if(success.InfoResultPayload.AccountInfo.FacebookInfo != null)
+        {
+            facebookAccLinked = true;
+        }
+        if(success.InfoResultPayload.AccountInfo.GoogleInfo != null)
+        {
+            googleAccLinked = true;
+        }
         LoadFromCache();
     }
 

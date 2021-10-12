@@ -1,21 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-//#if GOOGLEGAMES
+using UnityEngine.UI;
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
 using PlayFab.ClientModels;
 using PlayFab;
-//#endif
+
 
 public class PlayFabGooglePlayLoginBtn : MonoBehaviour
 {
 
     private PlayFabAuthService _AuthService = PlayFabAuthService.Instance;
+    private Button btn;
+    [SerializeField] private Text connectedTxt;
 
     private void Awake()
     {
+        btn = GetComponent<Button>();
+        if (PlayerManager.instance.googleAccLinked)
+        {
+            ShowConnected();
+        }
+        else
+        {
+            ShowNotConnected();
+        }
         Debug.Log("GoogleBtnCheck");
         PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
             .AddOauthScope("profile")
@@ -79,7 +89,6 @@ public class PlayFabGooglePlayLoginBtn : MonoBehaviour
         }
     }
 
-//#if GOOGLEGAMES
     public void OnClick()
     {
         Social.localUser.Authenticate((success) =>
@@ -92,6 +101,18 @@ public class PlayFabGooglePlayLoginBtn : MonoBehaviour
             }
         });
     }
-//#endif
 
+    private void ShowConnected()
+    {
+        btn.interactable = false;
+        connectedTxt.text = "CONNECTED";
+        connectedTxt.color = Color.green;
+    }
+
+    private void ShowNotConnected()
+    {
+        btn.interactable = true;
+        connectedTxt.text = "NOT CONNECTED";
+        connectedTxt.color = Color.red;
+    }
 }

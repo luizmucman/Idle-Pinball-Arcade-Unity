@@ -163,6 +163,7 @@ public class UIUpgradeRow : MonoBehaviour
     {
         PlayerManager.instance.RemoveCoins(selectedUpgrade.baseCost);
         selectedUpgrade.level++;
+        objectManager.ShowObjects();
         HideLock();
     }
 

@@ -5,15 +5,25 @@ using UnityEngine.UI;
 using PlayFab;
 using PlayFab.ClientModels;
 using Facebook.Unity;
-
+using System;
 
 public class PlayFabFacebookLoginBtn : MonoBehaviour
 {
     private PlayFabAuthService _AuthService = PlayFabAuthService.Instance;
+    private Button btn;
+    [SerializeField] private Text connectedTxt;
 
     private void Awake()
     {
-        Debug.Log("FB Awake");
+        btn = GetComponent<Button>();
+        if (PlayerManager.instance.facebookAccLinked)
+        {
+            ShowConnected();
+        }
+        else
+        {
+            ShowNotConnected();
+        }
         FB.Init(OnFBInitComplete, OnFBHideUnity);
     }
 
@@ -21,16 +31,25 @@ public class PlayFabFacebookLoginBtn : MonoBehaviour
     {
         PlayFabAuthService.OnLoginSuccess += OnLoginSuccess;
         PlayFabAuthService.OnPlayFabError += OnPlayFabError;
+        PlayFabAuthService.OnFacebookLink += OnLinkSuccess;
+    }
+
+    private void OnLinkSuccess(LinkFacebookAccountResult success)
+    {
+        ShowConnected();
     }
 
     private void OnPlayFabError(PlayFabError error)
     {
-        Debug.Log("Fb Error Check");
-        if (AccessToken.CurrentAccessToken != null)
+        if (error.HttpCode == 400)
         {
-            _AuthService.AuthTicket = AccessToken.CurrentAccessToken.TokenString;
-            _AuthService.LinkFacebook();
+            if (AccessToken.CurrentAccessToken != null)
+            {
+                _AuthService.AuthTicket = AccessToken.CurrentAccessToken.TokenString;
+                _AuthService.LinkFacebook();
+            }
         }
+
 
     }
 
@@ -66,9 +85,7 @@ public class PlayFabFacebookLoginBtn : MonoBehaviour
 
     public void OnClick()
     {
-
         FB.LogInWithReadPermissions(new List<string>() { "public_profile", "email", "user_friends" }, OnHandleFBResult);
-
     }
 
     private void OnHandleFBResult(ILoginResult result)
@@ -95,5 +112,19 @@ public class PlayFabFacebookLoginBtn : MonoBehaviour
     private void OnFBHideUnity(bool isUnityShown)
     {
         //do nothing.
+    }
+
+    private void ShowConnected()
+    {
+        btn.interactable = false;
+        connectedTxt.text = "CONNECTED";
+        connectedTxt.color = Color.green;
+    }
+
+    private void ShowNotConnected()
+    {
+        btn.interactable = true;
+        connectedTxt.text = "NOT CONNECTED";
+        connectedTxt.color = Color.red;
     }
 }

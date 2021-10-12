@@ -37,7 +37,7 @@ public class MachineData
 
     public void LoadMachine()
     {
-        isUnlocked = ES3.Load(machineName + "-isUnlocked", false);
+        isUnlocked = ES3.Load(machineName + "-isUnlocked", isUnlocked);
         isPlaying = ES3.Load(machineName + "-isPlaying", false);
         coinsPerSecond = ES3.Load(machineName + "-coinsPerSecond", (ulong) 0);
         accumulatedCoins = ES3.Load(machineName + "-accumulatedCoins", (ulong) 0);
