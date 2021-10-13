@@ -8,6 +8,8 @@ public class UIMenuManager : MonoBehaviour
 {
     public GameObject settingsWindow;
 
+    private PlayFabAuthService _AuthService = PlayFabAuthService.Instance;
+
     // Audio Sources
     public AudioMixerGroup sfxSource;
     public AudioMixerGroup bgmSource;
@@ -19,6 +21,10 @@ public class UIMenuManager : MonoBehaviour
     // Audio Button Sprites
     public Sprite audioButtonUnmuted;
     public Sprite audioButtonMuted;
+
+    // Bottom Text
+    [SerializeField] private Text playerId;
+    [SerializeField] private Text versionNum;
 
     private void Start()
     {
@@ -43,6 +49,9 @@ public class UIMenuManager : MonoBehaviour
             sfxSource.audioMixer.SetFloat("SFXVolume", 0f);
             sfxButton.image.sprite = audioButtonUnmuted;
         }
+
+        playerId.text = "Player Id: " + PlayerManager.instance.playFabID;
+        versionNum.text = "v" + Application.version;
     }
 
     public void ToggleSfx()
@@ -65,13 +74,13 @@ public class UIMenuManager : MonoBehaviour
     {
         if (PlayerManager.instance.playerSettingsData.bgmMuted)
         {
-            bgmSource.audioMixer.SetFloat("BGMVolume", -80f);
+            bgmSource.audioMixer.SetFloat("BGMVolume", 0f);
             bgmButton.image.sprite = audioButtonUnmuted;
             PlayerManager.instance.playerSettingsData.bgmMuted = false;
         }
         else
         {
-            bgmSource.audioMixer.SetFloat("BGMVolume", 0f);
+            bgmSource.audioMixer.SetFloat("BGMVolume", -80f);
             bgmButton.image.sprite = audioButtonMuted;
             PlayerManager.instance.playerSettingsData.bgmMuted = true;
         }
@@ -87,5 +96,10 @@ public class UIMenuManager : MonoBehaviour
     {
         settingsWindow.SetActive(false);
         UIManager.instance.HideOverlay();
+    }
+
+    public void SetPlayerId(string id)
+    {
+        playerId.text = "PlayerID: " + id;
     }
 }

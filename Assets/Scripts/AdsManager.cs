@@ -7,10 +7,10 @@ using UnityEngine.Advertisements;
 public class AdsManager : MonoBehaviour, IUnityAdsListener
 {
 #if UNITY_IOS
-    string gameId = "4241330";
+    string gameId = "4403846";
     string rewardedId = "Rewarded_iOS";
 #elif UNITY_ANDROID
-    string gameId = "4241331";
+    string gameId = "4403847";
     string rewardedId = "Rewarded_Android";
 #endif
 
@@ -39,17 +39,17 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
 
     public void OnUnityAdsReady(string placementId)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Unity Ads Ready");
     }
 
     public void OnUnityAdsDidError(string message)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Unity Ads Error: " + message);
     }
 
     public void OnUnityAdsDidStart(string placementId)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Unity Ads Started");
     }
 
     public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)

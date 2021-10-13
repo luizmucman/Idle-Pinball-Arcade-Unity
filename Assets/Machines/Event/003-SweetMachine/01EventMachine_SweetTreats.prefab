@@ -2098,7 +2098,7 @@ MonoBehaviour:
   currentBallCount: 0
   maxEquippedBalls: 1
   instantiatedBalls: []
-  testBalance: 1
+  testBalance: 0
   machineSceneName: 
   cpsMinuteCounter: 0
   coinsPerSecondCounter: 0
@@ -2108,6 +2108,7 @@ MonoBehaviour:
     machineCost: 0
     isUnlocked: 0
     isPlaying: 0
+    isEvent: 0
     isCurrentEvent: 0
     coinsPerSecond: 0
     accumulatedCoins: 0
@@ -2115,7 +2116,6 @@ MonoBehaviour:
   objectManagers: []
   upgradeDatas: []
   paddleMultiplier: 0
-  isEvent: 1
   shooter: {fileID: 5472062609462763928}
   rightPaddle: {fileID: 1103473202406941786}
   leftPaddle: {fileID: 1103473202406941790}
@@ -4844,13 +4844,13 @@ PolygonCollider2D:
       - {x: 2.32975, y: 4.1023355}
       - {x: 2.2757576, y: 3.9454544}
       - {x: 2.251747, y: 3.8121212}
-      - {x: 1.9363636, y: 2.7575758}
+      - {x: 2.02356, y: 2.9942522}
       - {x: 1.8393939, y: 2.7575758}
       - {x: 1.790909, y: 2.7333333}
       - {x: 1.6575757, y: 2.6}
-      - {x: 1.7006922, y: 2.4989614}
-      - {x: 1.4367098, y: 2.2910304}
-      - {x: 1.3666667, y: 2.3524504}
+      - {x: 1.6218, y: 2.5653973}
+      - {x: 1.4450141, y: 2.4363582}
+      - {x: 1.3583622, y: 2.3773637}
       - {x: 1.326805, y: 2.356762}
       - {x: 1.2099047, y: 2.2476711}
       - {x: 1.192658, y: 2.1305277}
@@ -7300,7 +7300,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13038,9 +13038,9 @@ PolygonCollider2D:
     - - {x: 0.06363636, y: 0.14242424}
       - {x: -0.14242424, y: -0.003030303}
       - {x: -0.14242424, y: -0.12424242}
-      - {x: -0.009090909, y: -0.12424242}
-      - {x: 0.14848484, y: -0.06363636}
-      - {x: 0.16060606, y: 0.009090909}
+      - {x: -0.022438057, y: -0.09754812}
+      - {x: 0.10510661, y: -0.0035741925}
+      - {x: 0.14725891, y: 0.0324483}
       - {x: 0.16060606, y: 0.14242424}
 --- !u!95 &4635914042678641149
 Animator:

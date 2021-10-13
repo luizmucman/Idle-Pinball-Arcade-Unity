@@ -26,16 +26,7 @@ public class PlayFabGooglePlayLoginBtn : MonoBehaviour
         {
             ShowNotConnected();
         }
-        Debug.Log("GoogleBtnCheck");
-        PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
-            .AddOauthScope("profile")
-            .RequestServerAuthCode(false)
-            .Build();
-        PlayGamesPlatform.InitializeInstance(config);
 
-        PlayGamesPlatform.DebugLogEnabled = true;
-
-        PlayGamesPlatform.Activate();
     }
 
     // Start is called before the first frame update

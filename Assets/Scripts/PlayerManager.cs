@@ -78,8 +78,11 @@ public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance;
 
+    [SerializeField] private bool finishedLoadMethod;
+
     // PlayFab
     private PlayFabAuthService _AuthService = PlayFabAuthService.Instance;
+    public string playFabID;
     public bool facebookAccLinked;
     public bool googleAccLinked;
 
@@ -155,6 +158,8 @@ public class PlayerManager : MonoBehaviour
         else
         {
             instance = this;
+
+            GetComponent<SDKInit>().InitSDK();
 
             numFormat = new NumericalFormatter();
             soundsManager = GetComponent<SoundsManager>();
@@ -403,14 +408,18 @@ public class PlayerManager : MonoBehaviour
 
     public void SavePlayerData()
     {
-        SavePlayerManager();
-        boostDatabase.SaveBoostDatabase();
-        SaveMachineData();
+        if (finishedLoadMethod)
+        {
+            SavePlayerManager();
+            boostDatabase.SaveBoostDatabase();
+            SaveMachineData();
 
-        seasonPassData.SaveSeasonPassData();
+            seasonPassData.SaveSeasonPassData();
 
-        ES3.StoreCachedFile();
-        SaveToPlayFab();
+            ES3.StoreCachedFile();
+            SaveToPlayFab();
+        }
+
     }
 
     private void SaveToPlayFab()
@@ -445,10 +454,13 @@ public class PlayerManager : MonoBehaviour
             seasonPassData.LoadSeasonPassData();
 
             AddMachineAwayCoins();
+
+            finishedLoadMethod = true;
         }
         else
         {
             SceneManager.LoadScene("MA001");
+            finishedLoadMethod = true;
         }
 
     }
@@ -562,6 +574,9 @@ public class PlayerManager : MonoBehaviour
         {
             googleAccLinked = true;
         }
+
+        playFabID = success.PlayFabId;
+
         LoadFromCache();
     }
 

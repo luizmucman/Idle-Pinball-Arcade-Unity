@@ -10,9 +10,8 @@ public class UICollectCoinsWindow : MonoBehaviour
     public Text collectCoinAmtTxt;
 
     [Header("Watch Ad Button")]
-    public Button watchAdButton;
-    public Text freeWatchAdText;
-    public Image watchAdImage;
+    public WatchAdButton watchAdButton;
+
 
     [Header("Gem Multiplier Button")]
     public Button gemMultiplierButton;
@@ -37,16 +36,7 @@ public class UICollectCoinsWindow : MonoBehaviour
         watchAdButton.gameObject.SetActive(true);
         gemMultiplierButton.gameObject.SetActive(true);
 
-        if (PlayerManager.instance.isAdFree)
-        {
-            freeWatchAdText.gameObject.SetActive(true);
-            watchAdImage.gameObject.SetActive(false);
-        }
-        else
-        {
-            freeWatchAdText.gameObject.SetActive(false);
-            watchAdImage.gameObject.SetActive(true);
-        }
+        watchAdButton.CheckAdFree();
 
         foreach (MachineData data in PlayerManager.instance.mainMachines)
         {

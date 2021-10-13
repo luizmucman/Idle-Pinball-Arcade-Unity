@@ -26,6 +26,7 @@ public class SoundsManager : MonoBehaviour
         foreach (Sound s in bgmSounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
+            s.source.loop = true;
 
             s.source.outputAudioMixerGroup = bgmMixerGroup;
             s.source.clip = s.clip;

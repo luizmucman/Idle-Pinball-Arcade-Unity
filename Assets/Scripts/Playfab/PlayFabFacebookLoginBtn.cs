@@ -24,7 +24,7 @@ public class PlayFabFacebookLoginBtn : MonoBehaviour
         {
             ShowNotConnected();
         }
-        FB.Init(OnFBInitComplete, OnFBHideUnity);
+
     }
 
     void Start()
@@ -102,16 +102,6 @@ public class PlayFabFacebookLoginBtn : MonoBehaviour
             _AuthService.AuthTicket = result.AccessToken.TokenString;
             _AuthService.AuthenticateFacebook();
         }
-    }
-
-    private void OnFBInitComplete()
-    {
-        Debug.Log("FB Init");
-    }
-
-    private void OnFBHideUnity(bool isUnityShown)
-    {
-        //do nothing.
     }
 
     private void ShowConnected()
