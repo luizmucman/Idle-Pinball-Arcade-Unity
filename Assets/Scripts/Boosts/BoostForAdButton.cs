@@ -15,6 +15,7 @@ public class BoostForAdButton : MonoBehaviour
     private void Start()
     {
         adsManager = PlayerManager.instance.GetComponent<AdsManager>();
+        btn = GetComponent<Button>();
     }
 
     private void Update()

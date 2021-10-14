@@ -15,7 +15,7 @@ public class Ball : Item
     [HideInInspector] public int ballID;
     [HideInInspector] public int ballCD;
     [HideInInspector] public int ballCDCount;
-    [HideInInspector] public ulong accumulatedCoins;
+    [HideInInspector] public double accumulatedCoins;
 
     // Ball Components
     [HideInInspector] public Rigidbody2D theRB;

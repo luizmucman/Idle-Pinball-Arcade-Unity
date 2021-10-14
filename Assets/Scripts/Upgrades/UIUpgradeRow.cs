@@ -23,7 +23,7 @@ public class UIUpgradeRow : MonoBehaviour
 
     public UpgradeData selectedUpgrade;
 
-    public ulong currentCost;
+    public double currentCost;
     public int upgradeAmt;
 
     private ObjectManager objectManager;
@@ -90,7 +90,7 @@ public class UIUpgradeRow : MonoBehaviour
         objectManager = manager;
         selectedUpgrade = manager.upgradeData;
 
-        unlockCost.text = PlayerManager.instance.numFormat.Format(selectedUpgrade.baseCost);
+        unlockCost.text = DoubleFormatter.Format(selectedUpgrade.baseCost);
 
         icon.sprite = manager.upgradeData.upgradeIcon;
         title.text = manager.upgradeData.objectName;
@@ -98,7 +98,7 @@ public class UIUpgradeRow : MonoBehaviour
 
         topLevel.text = manager.upgradeData.level.ToString() + "/" + manager.upgradeData.unlockLevelData.unlocks[manager.upgradeData.currentUnlockStage].level;
         currLvl.text = manager.upgradeData.level.ToString();
-        currCPH.text = PlayerManager.instance.numFormat.Format(selectedUpgrade.GetProductionValue(selectedUpgrade.level));
+        currCPH.text = DoubleFormatter.Format(selectedUpgrade.GetProductionValue(selectedUpgrade.level));
 
         SetCostByAmount(1);
 
@@ -130,7 +130,7 @@ public class UIUpgradeRow : MonoBehaviour
     {
         // UI Changes
         nextLvl.text = (selectedUpgrade.level + amount).ToString();
-        nextCPH.text = PlayerManager.instance.numFormat.Format(selectedUpgrade.GetProductionValue(selectedUpgrade.level + amount));
+        nextCPH.text = DoubleFormatter.Format(selectedUpgrade.GetProductionValue(selectedUpgrade.level + amount));
 
         // Cost Calculations
         float currentLevel = Mathf.Pow(selectedUpgrade.upgradeCostGrowthRate, selectedUpgrade.level);
@@ -138,8 +138,8 @@ public class UIUpgradeRow : MonoBehaviour
         float topNum = currentLevel * numToBuy;
         float bottomNum = selectedUpgrade.upgradeCostGrowthRate - 1;
 
-        currentCost = (ulong)(selectedUpgrade.baseCost * (topNum / bottomNum));
-        cost.text = PlayerManager.instance.numFormat.Format(currentCost);
+        currentCost = (double)(selectedUpgrade.baseCost * (topNum / bottomNum));
+        cost.text = DoubleFormatter.Format(currentCost);
         upgradeAmt = amount;
 
     }
@@ -155,7 +155,7 @@ public class UIUpgradeRow : MonoBehaviour
         selectedUpgrade.LevelUp(upgradeAmt);
         topLevel.text = objectManager.upgradeData.level.ToString() + "/" + objectManager.upgradeData.unlockLevelData.unlocks[objectManager.upgradeData.currentUnlockStage].level;
         currLvl.text = selectedUpgrade.level.ToString();
-        currCPH.text = PlayerManager.instance.numFormat.Format(selectedUpgrade.GetProductionValue(selectedUpgrade.level));
+        currCPH.text = DoubleFormatter.Format(selectedUpgrade.GetProductionValue(selectedUpgrade.level));
         SetCostByAmount(upgradeAmt);
     }
 

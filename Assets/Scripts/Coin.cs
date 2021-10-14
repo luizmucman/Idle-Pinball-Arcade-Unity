@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Coin : InteractableObject
 {
-    public ulong coinMultiplier;
+    public double coinMultiplier;
 
-    private ulong machineCPS;
+    private double machineCPS;
     private bool isHit;
 
     public override void Start()
@@ -16,7 +17,7 @@ public class Coin : InteractableObject
         Invoke(nameof(Activate), 1f);
     }
 
-    public void SetCPS(ulong cps)
+    public void SetCPS(double cps)
     {
         machineCPS = cps;
     }

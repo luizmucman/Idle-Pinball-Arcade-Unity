@@ -4,7 +4,7 @@ using UnityEngine;
 namespace ES3Types
 {
 	[UnityEngine.Scripting.Preserve]
-	[ES3PropertiesAttribute("playerSettingsData", "tutorialFinished", "isAdFree", "is2xAllIncome", "is2xIdleIncome", "globalCoinMultiplier", "boostDatabase", "boostInventory", "playerCoins", "playerGems", "ballInventory", "ticketInventory", "ticketSlotCount", "equippedTickets")]
+	[ES3PropertiesAttribute("playerSettingsData", "tutorialFinished", "isAdFree", "is2xAllIncome", "is2xIdleIncome", "is4xAllIncome", "eventCoins", "globalCoinMultiplier", "boostDatabase", "boostInventory", "playerCoins", "playerGems", "ballInventory", "ticketInventory", "ticketSlotCount", "equippedTickets")]
 	public class ES3UserType_PlayerManager : ES3ComponentType
 	{
 		public static ES3Type Instance = null;
@@ -21,10 +21,12 @@ namespace ES3Types
 			writer.WriteProperty("isAdFree", instance.isAdFree, ES3Type_bool.Instance);
 			writer.WriteProperty("is2xAllIncome", instance.is2xAllIncome, ES3Type_bool.Instance);
 			writer.WriteProperty("is2xIdleIncome", instance.is2xIdleIncome, ES3Type_bool.Instance);
+			writer.WriteProperty("is4xAllIncome", instance.is4xAllIncome, ES3Type_bool.Instance);
+			writer.WriteProperty("eventCoins", instance.eventCoins, ES3Type_double.Instance);
 			writer.WriteProperty("globalCoinMultiplier", instance.globalCoinMultiplier, ES3Type_float.Instance);
 			writer.WritePropertyByRef("boostDatabase", instance.boostDatabase);
 			writer.WriteProperty("boostInventory", instance.boostInventory, ES3Internal.ES3TypeMgr.GetES3Type(typeof(System.Collections.Generic.List<BoostData>)));
-			writer.WriteProperty("playerCoins", instance.playerCoins, ES3Type_ulong.Instance);
+			writer.WriteProperty("playerCoins", instance.playerCoins, ES3Type_double.Instance);
 			writer.WriteProperty("playerGems", instance.playerGems, ES3Type_int.Instance);
 			writer.WriteProperty("ballInventory", instance.ballInventory, ES3Internal.ES3TypeMgr.GetES3Type(typeof(System.Collections.Generic.List<ItemData>)));
 			writer.WriteProperty("ticketInventory", instance.ticketInventory, ES3Internal.ES3TypeMgr.GetES3Type(typeof(System.Collections.Generic.List<ItemData>)));
@@ -55,6 +57,12 @@ namespace ES3Types
 					case "is2xIdleIncome":
 						instance.is2xIdleIncome = reader.Read<System.Boolean>(ES3Type_bool.Instance);
 						break;
+					case "is4xAllIncome":
+						instance.is4xAllIncome = reader.Read<System.Boolean>(ES3Type_bool.Instance);
+						break;
+					case "eventCoins":
+						instance.eventCoins = reader.Read<System.Double>(ES3Type_double.Instance);
+						break;
 					case "globalCoinMultiplier":
 						instance.globalCoinMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
 						break;
@@ -65,7 +73,7 @@ namespace ES3Types
 						instance.boostInventory = reader.Read<System.Collections.Generic.List<BoostData>>();
 						break;
 					case "playerCoins":
-						instance.playerCoins = reader.Read<System.UInt64>(ES3Type_ulong.Instance);
+						instance.playerCoins = reader.Read<System.Double>(ES3Type_double.Instance);
 						break;
 					case "playerGems":
 						instance.playerGems = reader.Read<System.Int32>(ES3Type_int.Instance);

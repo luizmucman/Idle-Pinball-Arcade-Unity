@@ -20,9 +20,9 @@ public class UIBallManager : MonoBehaviour
     private List<UIBallContainer> ballContainers;
 
     // Max Ball Stats
-    public ulong ballBaseCost;
+    public double ballBaseCost;
     public float costMultiplier;
-    public ulong currentCost;
+    public double currentCost;
 
     // Ball Popup
     public UIBallPopup ballPopup;
@@ -109,8 +109,8 @@ public class UIBallManager : MonoBehaviour
         else if (currMachine.maxEquippedBalls < 50)
         {
 
-            currentCost = (ulong)(ballBaseCost * (Mathf.Pow(costMultiplier, currMachine.maxEquippedBalls)));
-            maxBallUpgradeCostText.text = PlayerManager.instance.numFormat.Format(currentCost);
+            currentCost = (double)(ballBaseCost * (Mathf.Pow(costMultiplier, currMachine.maxEquippedBalls)));
+            maxBallUpgradeCostText.text = DoubleFormatter.Format(currentCost);
         }
     }
 

@@ -9,7 +9,7 @@ public class UIAwayCoinPopupManager : MonoBehaviour
     public GameObject IdleCollectPopup;
 
     public TimeSpan span;
-    private ulong currMultiplier;
+    private double currMultiplier;
 
     // UI Elements
     public Text awayTime;
@@ -26,8 +26,8 @@ public class UIAwayCoinPopupManager : MonoBehaviour
 
     // Machine Data
     private MachineData currMachine;
-    private ulong collectedCoins;
-    private ulong multipliedCoins;
+    private double collectedCoins;
+    private double multipliedCoins;
 
     // Ads Manager
     private AdsManager adsManager;
@@ -59,7 +59,7 @@ public class UIAwayCoinPopupManager : MonoBehaviour
         }
 
         collectedCoins = machine.accumulatedCoins;
-        coinAmount.text = PlayerManager.instance.numFormat.Format(collectedCoins) + " coins!";
+        coinAmount.text = DoubleFormatter.Format(collectedCoins) + " coins!";
 
         IdleCollectPopup.SetActive(true);
         
@@ -67,7 +67,7 @@ public class UIAwayCoinPopupManager : MonoBehaviour
 
     public void RewardCoins()
     {
-        PlayerManager.instance.AddCoins((ulong) (currMachine.accumulatedCoins));
+        PlayerManager.instance.AddCoins((double) (currMachine.accumulatedCoins));
     }
 
     public void AdButtonClicked()
@@ -86,7 +86,7 @@ public class UIAwayCoinPopupManager : MonoBehaviour
     {
         currMultiplier += 1;
         multipliedCoins = currMachine.accumulatedCoins * currMultiplier;
-        coinAmount.text = PlayerManager.instance.numFormat.Format(multipliedCoins) + " coins!";
+        coinAmount.text = DoubleFormatter.Format(multipliedCoins) + " coins!";
         watchAdButton.gameObject.SetActive(false);
     }
 
@@ -97,7 +97,7 @@ public class UIAwayCoinPopupManager : MonoBehaviour
             PlayerManager.instance.playerGems -= gemMultiplierCost;
             currMultiplier += 2;
             multipliedCoins = currMachine.accumulatedCoins * currMultiplier;
-            coinAmount.text = PlayerManager.instance.numFormat.Format(multipliedCoins) + " coins!";
+            coinAmount.text = DoubleFormatter.Format(multipliedCoins) + " coins!";
             gemMultiplierButton.gameObject.SetActive(false);
         }
     }

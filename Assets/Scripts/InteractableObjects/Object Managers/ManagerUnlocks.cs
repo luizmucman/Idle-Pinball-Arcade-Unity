@@ -12,5 +12,5 @@ public class ManagerUnlocks : ScriptableObject
 public class ManagerUnlockLevels
 {
     public int level;
-    public ulong multiplier;
+    public double multiplier;
 }

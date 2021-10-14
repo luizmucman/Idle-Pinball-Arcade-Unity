@@ -5,11 +5,11 @@ using UnityEngine;
 public class MoneyBag : InteractableObject
 {
     [SerializeField]
-    private ulong moneyBagMultiplier;
+    private double moneyBagMultiplier;
     [SerializeField]
     private float fallSpeed;
 
-    private ulong machineCPS;
+    private double machineCPS;
     private bool isHit;
 
     private void Update()
@@ -17,7 +17,7 @@ public class MoneyBag : InteractableObject
         transform.position = new Vector2(transform.position.x, transform.position.y - (fallSpeed * Time.deltaTime));
     }
 
-    public void SetCPS(ulong cps)
+    public void SetCPS(double cps)
     {
         machineCPS = cps;
     }

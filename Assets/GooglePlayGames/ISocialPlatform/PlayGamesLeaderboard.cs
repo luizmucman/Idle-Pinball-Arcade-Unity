@@ -130,7 +130,7 @@ namespace GooglePlayGames
             return data.Valid;
         }
 
-        internal void SetMaxRange(ulong val)
+        internal void SetMaxRange(double val)
         {
             mMaxRange = (uint) val;
         }

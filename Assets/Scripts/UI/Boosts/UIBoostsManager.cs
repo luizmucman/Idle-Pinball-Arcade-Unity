@@ -22,7 +22,7 @@ public class UIBoostsManager : MonoBehaviour
     // Total Boost Data
     public float checkBoostsTimer;
     public Text totalBoostAmtText;
-    public ulong totalBoostAmt;
+    public double totalBoostAmt;
 
     // Boost Description Window
     public BoostDescriptionWindow descriptionWindow;
@@ -59,7 +59,7 @@ public class UIBoostsManager : MonoBehaviour
 
     private void GetBoostAmt()
     {
-        ulong currBoostAmt = 0;
+        double currBoostAmt = 0;
         foreach (BoostActiveContainer container in boostContainers)
         {
             currBoostAmt += container.UpdateBoostStatus();
@@ -74,8 +74,8 @@ public class UIBoostsManager : MonoBehaviour
             totalBoostAmt = 1;
         }
 
-        totalBoostAmtText.text = PlayerManager.instance.numFormat.Format(totalBoostAmt) + "X";
-        mainUIBoostText.text = PlayerManager.instance.numFormat.Format(totalBoostAmt) + "X";
+        totalBoostAmtText.text = DoubleFormatter.Format(totalBoostAmt) + "X";
+        mainUIBoostText.text = DoubleFormatter.Format(totalBoostAmt) + "X";
     }
 
     public void CloseBoostWindow()

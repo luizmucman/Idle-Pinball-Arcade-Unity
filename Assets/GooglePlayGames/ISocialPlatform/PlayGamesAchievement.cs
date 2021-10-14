@@ -53,7 +53,7 @@ namespace GooglePlayGames
 #endif
         private Texture2D mImage = null;
         private string mDescription = string.Empty;
-        private ulong mPoints = 0;
+        private double mPoints = 0;
 
         internal PlayGamesAchievement()
             : this(PlayGamesPlatform.Instance.ReportProgress)

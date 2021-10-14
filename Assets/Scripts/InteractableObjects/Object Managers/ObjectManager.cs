@@ -69,6 +69,7 @@ public abstract class ObjectManager : MonoBehaviour
 
     public virtual void Payout(Ball ball, float multiplier)
     {
+        double coinGain = 0;
         if (machineManager.testBalance)
         {
             if (multiplier > 1f)
@@ -80,8 +81,9 @@ public abstract class ObjectManager : MonoBehaviour
                 timesHit++;
             }
         }
-        PlayerManager.instance.AddCoins((ulong)(upgradeData.currentCoinProduction));
-        PlayerManager.instance.currentMachine.coinsPerSecondCounter += (ulong)(upgradeData.currentCoinProduction);
+        coinGain = PlayerManager.instance.AddCoins((double)(upgradeData.currentCoinProduction));
+        PlayerManager.instance.currentMachine.coinsPerSecondCounter += (double)(upgradeData.currentCoinProduction);
+        PlayerManager.instance.currentMachine.machineData.totalCoinsGained += coinGain;
         ball.accumulatedCoins += upgradeData.currentCoinProduction;
     }
 
@@ -98,8 +100,8 @@ public abstract class ObjectManager : MonoBehaviour
                 timesHit++;
             }
         }
-        PlayerManager.instance.AddCoins((ulong)(upgradeData.currentCoinProduction));
-        PlayerManager.instance.currentMachine.coinsPerSecondCounter += (ulong)(upgradeData.currentCoinProduction);
+        PlayerManager.instance.AddCoins((double)(upgradeData.currentCoinProduction));
+        PlayerManager.instance.currentMachine.coinsPerSecondCounter += (double)(upgradeData.currentCoinProduction);
     }
 
     public void EnableUpgradeCanvas()

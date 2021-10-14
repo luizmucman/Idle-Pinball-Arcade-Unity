@@ -5120,7 +5120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productId: com.happyhedgehogstudio.idlepinballarcade.300gems
+  productId: com.happyhedgehog.idlepinballarcade.300gems
   buttonType: 0
   consumePurchase: 1
   onPurchaseComplete:
@@ -5648,7 +5648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productId: 
+  productId: com.happyhedgehog.idlepinballarcade.seasonpass
   buttonType: 0
   consumePurchase: 1
   onPurchaseComplete:
@@ -7122,7 +7122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productId: com.happyhedgehogstudio.idlepinballarcade.noadsoffer
+  productId: com.happyhedgehog.idlepinballarcade.noadsoffer
   buttonType: 0
   consumePurchase: 1
   onPurchaseComplete:
@@ -11357,7 +11357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productId: com.happyhedgehogstudio.idlepinballarcade.2xidleincome
+  productId: com.happyhedgehog.idlepinballarcade.2xidleincome
   buttonType: 0
   consumePurchase: 1
   onPurchaseComplete:
@@ -11532,7 +11532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productId: com.happyhedgehogstudio.idlepinballarcade.2xallincome
+  productId: com.happyhedgehog.idlepinballarcade.2xallincome
   buttonType: 0
   consumePurchase: 1
   onPurchaseComplete:
@@ -12332,7 +12332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productId: com.happyhedgehogstudio.idlepinballarcade.starterpack
+  productId: com.happyhedgehog.idlepinballarcade.starterpack
   buttonType: 0
   consumePurchase: 1
   onPurchaseComplete:
@@ -14686,7 +14686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productId: com.happyhedgehogstudio.idlepinballarcade.masterpack
+  productId: com.happyhedgehog.idlepinballarcade.masterpack
   buttonType: 0
   consumePurchase: 1
   onPurchaseComplete:
@@ -17537,7 +17537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shaderTypes: 0
+  shaderTypes: 2
   normalStrenght: 5
   normalSmoothing: 1
   computingNormal: 0
@@ -17866,7 +17866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shaderTypes: 0
+  shaderTypes: 2
   normalStrenght: 5
   normalSmoothing: 1
   computingNormal: 0
@@ -18232,7 +18232,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100 Gems
+  m_Text: 1700 Gems
 --- !u!1 &4898055563953222601
 GameObject:
   m_ObjectHideFlags: 0
@@ -19799,7 +19799,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100 Gems
+  m_Text: 9500 Gems
 --- !u!1 &4898055564331092510
 GameObject:
   m_ObjectHideFlags: 0
@@ -19932,7 +19932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productId: com.happyhedgehogstudio.idlepinballarcade.20000gems
+  productId: com.happyhedgehog.idlepinballarcade.20000gems
   buttonType: 0
   consumePurchase: 1
   onPurchaseComplete:
@@ -20800,7 +20800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productId: com.happyhedgehogstudio.idlepinballarcade1700gems
+  productId: com.happyhedgehog.idlepinballarcade1700gems
   buttonType: 0
   consumePurchase: 1
   onPurchaseComplete:
@@ -20975,7 +20975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productId: com.happyhedgehogstudio.idlepinballarcade.9500gems
+  productId: com.happyhedgehog.idlepinballarcade.9500gems
   buttonType: 0
   consumePurchase: 1
   onPurchaseComplete:
@@ -21261,7 +21261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shaderTypes: 0
+  shaderTypes: 2
   normalStrenght: 5
   normalSmoothing: 1
   computingNormal: 0
@@ -22159,7 +22159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productId: com.happyhedgehogstudio.idlepinballarcade.800gems
+  productId: com.happyhedgehog.idlepinballarcade.800gems
   buttonType: 0
   consumePurchase: 1
   onPurchaseComplete:
@@ -22470,7 +22470,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100 Gems
+  m_Text: 3600 Gems
 --- !u!1 &4898055565205984797
 GameObject:
   m_ObjectHideFlags: 0
@@ -22599,7 +22599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productId: com.happyhedgehogstudio.idlepinballarcade.3600gems
+  productId: com.happyhedgehog.idlepinballarcade.3600gems
   buttonType: 0
   consumePurchase: 1
   onPurchaseComplete:
@@ -23097,7 +23097,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100 Gems
+  m_Text: 20000 Gems
 --- !u!1 &4898055565460358835
 GameObject:
   m_ObjectHideFlags: 0
@@ -23637,7 +23637,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100 Gems
+  m_Text: 800 Gems
 --- !u!1 &4927630853624012336
 GameObject:
   m_ObjectHideFlags: 0
@@ -35762,7 +35762,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &707245733857587900
 RectTransform:
   m_ObjectHideFlags: 0

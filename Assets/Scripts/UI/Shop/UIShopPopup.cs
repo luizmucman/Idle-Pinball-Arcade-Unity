@@ -66,7 +66,7 @@ public class UIShopPopup : MonoBehaviour
     public void SetPopup(BoostData boost)
     {
         itemIcon.sprite = PlayerManager.instance.boostDatabase.GetBoost(boost.boostID).boostImg;
-        itemTitle.text = PlayerManager.instance.numFormat.Format(boost.boostAmt) + "X Boost";
+        itemTitle.text = DoubleFormatter.Format(boost.boostAmt) + "X Boost";
         itemDesc.text = "Gain a " + itemTitle.text + " for " + boost.FormatDuration();
         starContainer.SetActive(false);
 

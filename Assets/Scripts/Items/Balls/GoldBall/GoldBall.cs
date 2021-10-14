@@ -9,7 +9,7 @@ public class GoldBall : Ball
     public override void BallSkill()
     {
         base.BallSkill();
-        ulong coins = (ulong) (machine.machineData.coinsPerSecond * coinTime);
+        double coins = (double) (machine.machineData.coinsPerSecond * coinTime);
         PlayerManager.instance.AddCoins(coins);
     }
 }

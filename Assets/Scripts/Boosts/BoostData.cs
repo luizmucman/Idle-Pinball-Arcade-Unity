@@ -40,7 +40,7 @@ public class BoostData
 {
     public string boostID;
     public Sprite boostImg;
-    public ulong boostAmt;
+    public double boostAmt;
 
 
     // In Use Stats
@@ -64,7 +64,7 @@ public class BoostData
 
     }
 
-    public ulong CheckBoost()
+    public double CheckBoost()
     {
         if(inUse)
         {
@@ -120,16 +120,4 @@ public class BoostData
         }
     }
 
-    public BoostInUseSave SaveBoostDatabaseToJson()
-    {
-        BoostInUseSave boostSave = new BoostInUseSave(this);
-
-        return boostSave;
-    }
-
-    public BoostOwnedSave SaveBoostOwnedToJson()
-    {
-        BoostOwnedSave boostSave = new BoostOwnedSave(this);
-        return boostSave;
-    }
 }

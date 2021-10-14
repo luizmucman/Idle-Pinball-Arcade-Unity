@@ -18,12 +18,12 @@ namespace ES3Types
 			
 			writer.WriteProperty("machineGUID", instance.machineGUID, ES3Type_string.Instance);
 			writer.WriteProperty("machineName", instance.machineName, ES3Type_string.Instance);
-			writer.WriteProperty("machineCost", instance.machineCost, ES3Type_ulong.Instance);
+			writer.WriteProperty("machineCost", instance.machineCost, ES3Type_double.Instance);
 			writer.WriteProperty("isUnlocked", instance.isUnlocked, ES3Type_bool.Instance);
 			writer.WriteProperty("isPlaying", instance.isPlaying, ES3Type_bool.Instance);
 			writer.WriteProperty("isCurrentEvent", instance.isCurrentEvent, ES3Type_bool.Instance);
-			writer.WriteProperty("coinsPerSecond", instance.coinsPerSecond, ES3Type_ulong.Instance);
-			writer.WriteProperty("accumulatedCoins", instance.accumulatedCoins, ES3Type_ulong.Instance);
+			writer.WriteProperty("coinsPerSecond", instance.coinsPerSecond, ES3Type_double.Instance);
+			writer.WriteProperty("accumulatedCoins", instance.accumulatedCoins, ES3Type_double.Instance);
 			writer.WritePropertyByRef("machineImage", instance.machineImage);
 			writer.WriteProperty("awayCheckPoint", instance.awayCheckPoint, ES3Type_DateTime.Instance);
 		}
@@ -43,7 +43,7 @@ namespace ES3Types
 						instance.machineName = reader.Read<System.String>(ES3Type_string.Instance);
 						break;
 					case "machineCost":
-						instance.machineCost = reader.Read<System.UInt64>(ES3Type_ulong.Instance);
+						instance.machineCost = reader.Read<System.UInt64>(ES3Type_double.Instance);
 						break;
 					case "isUnlocked":
 						instance.isUnlocked = reader.Read<System.Boolean>(ES3Type_bool.Instance);
@@ -55,10 +55,10 @@ namespace ES3Types
 						instance.isCurrentEvent = reader.Read<System.Boolean>(ES3Type_bool.Instance);
 						break;
 					case "coinsPerSecond":
-						instance.coinsPerSecond = reader.Read<System.UInt64>(ES3Type_ulong.Instance);
+						instance.coinsPerSecond = reader.Read<System.UInt64>(ES3Type_double.Instance);
 						break;
 					case "accumulatedCoins":
-						instance.accumulatedCoins = reader.Read<System.UInt64>(ES3Type_ulong.Instance);
+						instance.accumulatedCoins = reader.Read<System.UInt64>(ES3Type_double.Instance);
 						break;
 					case "machineImage":
 						instance.machineImage = reader.Read<UnityEngine.Sprite>(ES3Type_Sprite.Instance);

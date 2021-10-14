@@ -42,7 +42,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         cam = Camera.main;
-        playerCoinText.text = PlayerManager.instance.numFormat.Format(PlayerManager.instance.playerCoins);
+        playerCoinText.text = DoubleFormatter.Format(PlayerManager.instance.playerCoins);
         playerGemText.text = PlayerManager.instance.playerGems.ToString();
         coinPos = cam.ScreenToWorldPoint(coinImage.rectTransform.position);
     }

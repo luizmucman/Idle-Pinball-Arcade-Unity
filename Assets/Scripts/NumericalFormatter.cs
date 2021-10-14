@@ -33,6 +33,7 @@ public class NumericalFormatter : uLongFormatter
         return FormatNumberString(number.ToString());
     }
 
+
     private static string FormatNumberString(string number)
     {
         if (number.Length < 5)

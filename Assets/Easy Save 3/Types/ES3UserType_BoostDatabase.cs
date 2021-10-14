@@ -4,7 +4,7 @@ using UnityEngine;
 namespace ES3Types
 {
 	[UnityEngine.Scripting.Preserve]
-	[ES3PropertiesAttribute("database")]
+	[ES3PropertiesAttribute()]
 	public class ES3UserType_BoostDatabase : ES3ScriptableObjectType
 	{
 		public static ES3Type Instance = null;
@@ -16,7 +16,6 @@ namespace ES3Types
 		{
 			var instance = (BoostDatabase)obj;
 			
-			writer.WriteProperty("database", instance.database, ES3Internal.ES3TypeMgr.GetES3Type(typeof(System.Collections.Generic.List<BoostData>)));
 		}
 
 		protected override void ReadScriptableObject<T>(ES3Reader reader, object obj)
@@ -27,9 +26,6 @@ namespace ES3Types
 				switch(propertyName)
 				{
 					
-					case "database":
-						instance.database = reader.Read<System.Collections.Generic.List<BoostData>>();
-						break;
 					default:
 						reader.Skip();
 						break;

@@ -24,7 +24,7 @@ public class UIMachineButton : MonoBehaviour
     {
         machineData = data;
         machineName.text = data.machineName;
-        costButton.GetComponentInChildren<Text>().text = PlayerManager.instance.numFormat.Format(machineData.machineCost);
+        costButton.GetComponentInChildren<Text>().text = DoubleFormatter.Format(machineData.machineCost);
         machineButton.image.sprite = machineData.machineImage;
 
 

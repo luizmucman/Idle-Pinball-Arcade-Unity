@@ -18,7 +18,7 @@ namespace ES3Types
 			
 			writer.WriteProperty("boostID", instance.boostID, ES3Type_string.Instance);
 			writer.WritePropertyByRef("boostImg", instance.boostImg);
-			writer.WriteProperty("boostAmt", instance.boostAmt, ES3Type_ulong.Instance);
+			writer.WriteProperty("boostAmt", instance.boostAmt, ES3Type_double.Instance);
 			writer.WriteProperty("boostLength", instance.boostLength, ES3Type_double.Instance);
 			writer.WriteProperty("endTime", instance.endTime, ES3Type_DateTime.Instance);
 			writer.WriteProperty("inUse", instance.inUse, ES3Type_bool.Instance);
@@ -40,7 +40,7 @@ namespace ES3Types
 						instance.boostImg = reader.Read<UnityEngine.Sprite>(ES3Type_Sprite.Instance);
 						break;
 					case "boostAmt":
-						instance.boostAmt = reader.Read<System.UInt64>(ES3Type_ulong.Instance);
+						instance.boostAmt = reader.Read<System.UInt64>(ES3Type_double.Instance);
 						break;
 					case "boostLength":
 						instance.boostLength = reader.Read<System.Double>(ES3Type_double.Instance);

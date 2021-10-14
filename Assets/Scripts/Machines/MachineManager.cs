@@ -21,7 +21,7 @@ public class MachineManager : MonoBehaviour
     public bool testBalance;
     [HideInInspector] public string machineSceneName;
     [HideInInspector] public float cpsMinuteCounter;
-    [HideInInspector] public ulong coinsPerSecondCounter;
+    [HideInInspector] public double coinsPerSecondCounter;
     [HideInInspector] public MachineData machineData;
 
     // Connected Objects
@@ -31,7 +31,7 @@ public class MachineManager : MonoBehaviour
     private Canvas[] objectCanvases;
 
     // Paddles Data
-    [HideInInspector] public Double paddleMultiplier;
+    [HideInInspector] public double paddleMultiplier;
 
 
     [Header("Set In Inspector")]
@@ -95,12 +95,12 @@ public class MachineManager : MonoBehaviour
         if (machineData.isCurrentEvent)
         {
             UIManager.instance.uiSeasonPassManager.ShowSeasonPassButton();
-            UIManager.instance.playerCoinText.text = PlayerManager.instance.numFormat.Format(PlayerManager.instance.eventCoins);
+            UIManager.instance.playerCoinText.text = DoubleFormatter.Format(PlayerManager.instance.eventCoins);
         }
         else
         {
             UIManager.instance.uiSeasonPassManager.HideSeasonPassButton();
-            UIManager.instance.playerCoinText.text = PlayerManager.instance.numFormat.Format(PlayerManager.instance.playerCoins);
+            UIManager.instance.playerCoinText.text = DoubleFormatter.Format(PlayerManager.instance.playerCoins);
         }
 
         foreach(ObjectManager manager in objectManagers)
@@ -126,6 +126,7 @@ public class MachineManager : MonoBehaviour
         if(pause)
         {
             SetAwayTime();
+            SaveMachine();
         }
     }
 
@@ -139,7 +140,7 @@ public class MachineManager : MonoBehaviour
     {
         if(coinsPerSecondCounter > machineData.coinsPerSecond)
         {
-            machineData.coinsPerSecond = (ulong) (coinsPerSecondCounter / 60 * PlayerManager.instance.playerTicketBuffs.cpsBuff);
+            machineData.coinsPerSecond = (double) (coinsPerSecondCounter / 60 * PlayerManager.instance.playerTicketBuffs.cpsBuff);
             coinsPerSecondCounter = 0;
             cpsMinuteCounter = 0;
         }

@@ -7,73 +7,6 @@ using UnityEngine.SceneManagement;
 using PlayFab;
 using PlayFab.ClientModels;
 
-[Serializable]
-public class PlayerSave {
-    public bool tutorialFinished;
-
-    // Buffs
-    public bool isAdFree;
-    public bool is2xAllIncome;
-    public bool is2xIdleIncome;
-    public bool is4xAllIncome;
-
-    // Event Data
-    public ulong eventCoins;
-
-    // Currency
-    public ulong playerCoins;
-    public int playerGems;
-
-    // Tickets
-    public int ticketSlotCount;
-
-    // Boosts
-    public List<BoostInUseSave> boostsInUse;
-    public List<BoostOwnedSave> boostsOwned;
-
-    // Balls
-
-    // Tickets
-
-    // Machine Data
-
-    public PlayerSave (PlayerManager manager)
-    {
-        tutorialFinished = manager.tutorialFinished;
-        isAdFree = manager.isAdFree;
-        is2xAllIncome = manager.is2xAllIncome;
-        is4xAllIncome = manager.is4xAllIncome;
-        eventCoins = manager.eventCoins;
-        playerCoins = manager.playerCoins;
-        playerGems = manager.playerGems;
-
-        ticketSlotCount = manager.ticketSlotCount;
-
-        // Saving Boosts In Use
-        List<BoostInUseSave> boostInUseList = new List<BoostInUseSave>();
-
-        foreach(BoostData data in manager.boostDatabase.database)
-        {
-           boostInUseList.Add(data.SaveBoostDatabaseToJson());
-        }
-
-        boostsInUse = boostInUseList;
-
-        // Save Boosts Owned
-        List<BoostOwnedSave> boostsOwnedList = new List<BoostOwnedSave>();
-
-        foreach(BoostData data in manager.boostInventory)
-        {
-            boostsOwnedList.Add(data.SaveBoostOwnedToJson());
-        }
-
-        boostsOwned = boostsOwnedList;
-
-    }
-
-
-}
-
 public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance;
@@ -90,7 +23,6 @@ public class PlayerManager : MonoBehaviour
 
     public MachineData currMachineData;
     public MachineManager currentMachine;
-    public NumericalFormatter numFormat;
     public SoundsManager soundsManager;
 
     // Player Settings
@@ -106,7 +38,7 @@ public class PlayerManager : MonoBehaviour
     public bool is4xAllIncome;
 
     [Header("SeasonPassData")]
-    public ulong eventCoins;
+    public double eventCoins;
     public SeasonPassData seasonPassData;
 
     [Header("Global Stats")]
@@ -118,7 +50,7 @@ public class PlayerManager : MonoBehaviour
 
     [Header("Player Currency")]
     // Player Currency
-    public ulong playerCoins;
+    public double playerCoins;
     public int playerGems;
 
     [Header("Player Inventories")]
@@ -146,7 +78,7 @@ public class PlayerManager : MonoBehaviour
 
     [Header("Away Data")]
     // Away Data
-    public Double maxIdleTime;
+    public double maxIdleTime;
     private DateTime timeAtPause;
 
     private void Awake()
@@ -160,8 +92,6 @@ public class PlayerManager : MonoBehaviour
             instance = this;
 
             GetComponent<SDKInit>().InitSDK();
-
-            numFormat = new NumericalFormatter();
             soundsManager = GetComponent<SoundsManager>();
             es3Cache = new ES3Settings(ES3.Location.Cache);
 
@@ -228,32 +158,34 @@ public class PlayerManager : MonoBehaviour
         Application.targetFrameRate = 60;
     }
 
-    public void AddCoins(ulong coins)
+    public double AddCoins(double coins)
     {
+        double coinGain = (double)(coins * playerTicketBuffs.coinBuff * UIManager.instance.uiBoostsManager.totalBoostAmt);
         if (currentMachine.machineData.isCurrentEvent)
         {
-            eventCoins += (ulong)(coins * playerTicketBuffs.coinBuff * UIManager.instance.uiBoostsManager.totalBoostAmt);
-            UIManager.instance.playerCoinText.text = numFormat.Format(eventCoins);
+            eventCoins += coinGain;
+            UIManager.instance.playerCoinText.text = DoubleFormatter.Format(eventCoins);
         }
         else
         {
-            playerCoins += (ulong)(coins * playerTicketBuffs.coinBuff * UIManager.instance.uiBoostsManager.totalBoostAmt);
-            UIManager.instance.playerCoinText.text = numFormat.Format(playerCoins);
+            playerCoins += coinGain;
+            UIManager.instance.playerCoinText.text = DoubleFormatter.Format(playerCoins);
         }
 
+        return coinGain;
     }
 
-    public void RemoveCoins(ulong coins)
+    public void RemoveCoins(double coins)
     {
         if (currentMachine.machineData.isCurrentEvent)
         {
-            eventCoins -= (ulong)(coins);
-            UIManager.instance.playerCoinText.text = numFormat.Format(eventCoins);
+            eventCoins -= (double)(coins);
+            UIManager.instance.playerCoinText.text = DoubleFormatter.Format(eventCoins);
         }
         else
         {
-            playerCoins -= (ulong)(coins);
-            UIManager.instance.playerCoinText.text = numFormat.Format(playerCoins);
+            playerCoins -= (double)(coins);
+            UIManager.instance.playerCoinText.text = DoubleFormatter.Format(playerCoins);
         }
     }
 
@@ -312,7 +244,7 @@ public class PlayerManager : MonoBehaviour
                 TimeSpan difference = DateTime.Now - machineData.awayCheckPoint;
                 if (difference.TotalHours < maxIdleTime)
                 {
-                    machineData.accumulatedCoins += (ulong) (machineData.coinsPerSecond * playerTicketBuffs.idleCoinBuff);
+                    machineData.accumulatedCoins += (double) (machineData.coinsPerSecond * playerTicketBuffs.idleCoinBuff);
                 } 
             }
         }
@@ -333,11 +265,11 @@ public class PlayerManager : MonoBehaviour
                 TimeSpan idleLimitCheck = DateTime.Now - machineData.awayCheckPoint;
                 if (idleLimitCheck.TotalHours > maxIdleTime)
                 {
-                    machineData.accumulatedCoins = (ulong)(machineData.coinsPerSecond * (3600 * (maxIdleTime + playerTicketBuffs.maxIdleTimeLength)) * playerTicketBuffs.idleCoinBuff);
+                    machineData.accumulatedCoins = (double)(machineData.coinsPerSecond * (3600 * (maxIdleTime + playerTicketBuffs.maxIdleTimeLength)) * playerTicketBuffs.idleCoinBuff);
                 }
                 else
                 {
-                    machineData.accumulatedCoins = (ulong)(machineData.coinsPerSecond * idleLimitCheck.TotalSeconds * playerTicketBuffs.idleCoinBuff);
+                    machineData.accumulatedCoins = (double)(machineData.coinsPerSecond * idleLimitCheck.TotalSeconds * playerTicketBuffs.idleCoinBuff);
                 }
             }
         }
@@ -377,13 +309,13 @@ public class PlayerManager : MonoBehaviour
         return null;
     }
 
-    public void CollectAllIdleCoins(Double multiplier)
+    public void CollectAllIdleCoins(double multiplier)
     {
         foreach (MachineData machineData in mainMachines)
         {
             if (machineData.isUnlocked && !machineData.isPlaying)
             {
-                AddCoins((ulong) (machineData.accumulatedCoins * multiplier));
+                AddCoins((double) (machineData.accumulatedCoins * multiplier));
                 machineData.accumulatedCoins = 0;
             }
         }
@@ -392,7 +324,7 @@ public class PlayerManager : MonoBehaviour
         {
             if (machineData.isUnlocked && !machineData.isPlaying)
             {
-                AddCoins((ulong) (machineData.accumulatedCoins * multiplier));
+                AddCoins((double) (machineData.accumulatedCoins * multiplier));
                 machineData.accumulatedCoins = 0;
             }
         }
@@ -411,10 +343,10 @@ public class PlayerManager : MonoBehaviour
         if (finishedLoadMethod)
         {
             SavePlayerManager();
-            boostDatabase.SaveBoostDatabase();
             SaveMachineData();
 
             seasonPassData.SaveSeasonPassData();
+            currentMachine.SaveMachine();
 
             ES3.StoreCachedFile();
             SaveToPlayFab();
@@ -448,7 +380,6 @@ public class PlayerManager : MonoBehaviour
         if(ES3.KeyExists("playerCoins"))
         {
             LoadPlayerManager();
-            boostDatabase.LoadBoostDatabase();
             LoadMachineData();
 
             seasonPassData.LoadSeasonPassData();
@@ -459,6 +390,7 @@ public class PlayerManager : MonoBehaviour
         }
         else
         {
+            currMachineData = mainMachines[0];
             SceneManager.LoadScene("MA001");
             finishedLoadMethod = true;
         }
@@ -522,7 +454,7 @@ public class PlayerManager : MonoBehaviour
         ES3.Save("playerHas2xIdleIncome", is2xIdleIncome);
 
         ES3.Save("playerGlobalCoinMultiplier", globalCoinMultiplier);
-        ES3.Save("playerBoostDatabase", boostDatabase);
+        boostDatabase.SaveBoostDatabase();
         ES3.Save("playerBoostInventory", boostInventory);
 
         ES3.Save("playerCoins", playerCoins);
@@ -541,7 +473,7 @@ public class PlayerManager : MonoBehaviour
         is2xIdleIncome = ES3.Load("playerHas2xIdleIncome", is2xIdleIncome);
 
         globalCoinMultiplier = ES3.Load("playerGlobalCoinMultiplier", globalCoinMultiplier);
-        boostDatabase = ES3.Load("playerBoostDatabase", boostDatabase);
+        boostDatabase.LoadBoostDatabase();
         boostInventory = ES3.Load("playerBoostInventory", boostInventory);
 
         playerCoins = ES3.Load("playerCoins", playerCoins);

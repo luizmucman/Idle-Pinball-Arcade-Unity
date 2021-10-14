@@ -17,9 +17,9 @@ public class UICollectCoinsWindow : MonoBehaviour
     public Button gemMultiplierButton;
     public int gemMultiplierCost;
 
-    private ulong totalCoinsCollected;
-    private ulong multipliedCoinsCollected;
-    private ulong currentMultiplier;
+    private double totalCoinsCollected;
+    private double multipliedCoinsCollected;
+    private double currentMultiplier;
 
     private AdsManager adsManager;
 
@@ -56,7 +56,7 @@ public class UICollectCoinsWindow : MonoBehaviour
 
         multipliedCoinsCollected = totalCoinsCollected;
 
-        collectCoinAmtTxt.text = PlayerManager.instance.numFormat.Format(multipliedCoinsCollected);
+        collectCoinAmtTxt.text = DoubleFormatter.Format(multipliedCoinsCollected);
 
         watchAdButton.gameObject.SetActive(true);
         gameObject.SetActive(true);
@@ -92,7 +92,7 @@ public class UICollectCoinsWindow : MonoBehaviour
     {
         currentMultiplier += 1;
         multipliedCoinsCollected = totalCoinsCollected * currentMultiplier;
-        collectCoinAmtTxt.text = PlayerManager.instance.numFormat.Format(multipliedCoinsCollected);
+        collectCoinAmtTxt.text = DoubleFormatter.Format(multipliedCoinsCollected);
 
         watchAdButton.gameObject.SetActive(false);
     }
@@ -104,7 +104,7 @@ public class UICollectCoinsWindow : MonoBehaviour
             PlayerManager.instance.playerGems -= gemMultiplierCost;
             currentMultiplier += 2;
             multipliedCoinsCollected = totalCoinsCollected * currentMultiplier;
-            collectCoinAmtTxt.text = PlayerManager.instance.numFormat.Format(multipliedCoinsCollected);
+            collectCoinAmtTxt.text = DoubleFormatter.Format(multipliedCoinsCollected);
 
             gemMultiplierButton.gameObject.SetActive(false);
         }

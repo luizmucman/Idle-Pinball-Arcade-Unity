@@ -13,20 +13,20 @@ public class UpgradeData
 
     [Header("Set Values")]
     // Base Values
-    public ulong baseCoinProduction;
-    public ulong baseCost;
+    public double baseCoinProduction;
+    public double baseCost;
     public float upgradeCostGrowthRate;
     public float jackpotMultiplier;
 
     [Header("Current Values")]
     public int level;
-    public ulong currentCoinProduction;
-    public ulong currentCost;
+    public double currentCoinProduction;
+    public double currentCost;
 
     [Header("UnlockData")]
     public ManagerUnlocks unlockLevelData;
     public int currentUnlockStage;
-    public ulong currentUnlockMultiplier;
+    public double currentUnlockMultiplier;
 
     public void SetData()
     {
@@ -35,12 +35,12 @@ public class UpgradeData
             currentUnlockMultiplier = 1;
         }
         currentCoinProduction = GetProductionValue(level);
-        currentCost = (ulong)(baseCost * Mathf.Pow(upgradeCostGrowthRate, (float)level));
+        currentCost = (double)(baseCost * Mathf.Pow(upgradeCostGrowthRate, (float)level));
     }
 
-    public ulong GetProductionValue(int level)
+    public double GetProductionValue(int level)
     {
-        return baseCoinProduction * (ulong)level * currentUnlockMultiplier;
+        return baseCoinProduction * (double)level * currentUnlockMultiplier;
     }
 
     public void LevelUp(int upgradeAmt)

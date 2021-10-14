@@ -16,7 +16,7 @@ public class RecycleBall : Ball
         base.OnTriggerEnter2D(other);
         if(other.gameObject.GetComponent<OutHole>() != null)
         {
-            PlayerManager.instance.AddCoins((ulong) (accumulatedCoins * recyclePercent[rank]));
+            PlayerManager.instance.AddCoins((double) (accumulatedCoins * recyclePercent[rank]));
             accumulatedCoins = 0;
         }
     }

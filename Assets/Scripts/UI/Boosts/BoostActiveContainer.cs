@@ -21,7 +21,7 @@ public class BoostActiveContainer : MonoBehaviour
         boostImage.color = Color.gray;
     }
 
-    public ulong UpdateBoostStatus()
+    public double UpdateBoostStatus()
     {
         TimeSpan duration = boostData.endTime - DateTime.Now;
 

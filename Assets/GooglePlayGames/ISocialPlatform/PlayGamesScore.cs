@@ -28,14 +28,14 @@ namespace GooglePlayGames
     {
         private string mLbId = null;
         private long mValue = 0;
-        private ulong mRank = 0;
+        private double mRank = 0;
         private string mPlayerId = string.Empty;
         private string mMetadata = string.Empty;
 
         private DateTime mDate = new DateTime(1970, 1, 1, 0, 0, 0);
 
         internal PlayGamesScore(DateTime date, string leaderboardId,
-            ulong rank, string playerId, ulong value, string metadata)
+            double rank, string playerId, double value, string metadata)
         {
             this.mDate = date;
             mLbId = leaderboardID;
