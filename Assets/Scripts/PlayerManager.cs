@@ -102,7 +102,7 @@ public class PlayerManager : MonoBehaviour
 
             PlayFabAuthService.OnLoginSuccess += OnLoginSuccess;
             PlayFabAuthService.OnPlayFabError += OnPlayFabError;
-            PlayFabAuthService.OnGoogleLink += OnGoogleLink;
+            
 
             if (_AuthService.AuthType == 0)
             {
@@ -171,6 +171,8 @@ public class PlayerManager : MonoBehaviour
             playerCoins += coinGain;
             UIManager.instance.playerCoinText.text = DoubleFormatter.Format(playerCoins);
         }
+
+        Debug.Log("PlayerManager Coin Gain: " + coinGain);
 
         return coinGain;
     }
@@ -334,7 +336,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (currentMachine.machineData.isCurrentEvent)
         {
-            seasonPassData.AddSeasonPoints(1);
+            seasonPassData.CheckSeasonPassProgress();
         }
     }
 
@@ -343,6 +345,7 @@ public class PlayerManager : MonoBehaviour
         if (finishedLoadMethod)
         {
             SavePlayerManager();
+            playerSettingsData.Save();
             SaveMachineData();
 
             seasonPassData.SaveSeasonPassData();
@@ -381,7 +384,7 @@ public class PlayerManager : MonoBehaviour
         {
             LoadPlayerManager();
             LoadMachineData();
-
+            playerSettingsData.Load();
             seasonPassData.LoadSeasonPassData();
 
             AddMachineAwayCoins();
@@ -391,6 +394,13 @@ public class PlayerManager : MonoBehaviour
         else
         {
             currMachineData = mainMachines[0];
+            foreach (MachineData machineData in eventMachines)
+            {
+                if (machineData.isCurrentEvent)
+                {
+                    currentEventMachineData = machineData;
+                }
+            }
             SceneManager.LoadScene("MA001");
             finishedLoadMethod = true;
         }
@@ -457,6 +467,7 @@ public class PlayerManager : MonoBehaviour
         boostDatabase.SaveBoostDatabase();
         ES3.Save("playerBoostInventory", boostInventory);
 
+        ES3.Save("playerEventCoins", eventCoins);
         ES3.Save("playerCoins", playerCoins);
         ES3.Save("playerGems", playerGems);
         ES3.Save("playerBallInventory", ballInventory);
@@ -476,6 +487,7 @@ public class PlayerManager : MonoBehaviour
         boostDatabase.LoadBoostDatabase();
         boostInventory = ES3.Load("playerBoostInventory", boostInventory);
 
+        eventCoins = ES3.Load("playerEventCoins", eventCoins);
         playerCoins = ES3.Load("playerCoins", playerCoins);
         playerGems = ES3.Load("playerGems", playerGems);
         ballInventory = ES3.Load("playerBallInventory", ballInventory);

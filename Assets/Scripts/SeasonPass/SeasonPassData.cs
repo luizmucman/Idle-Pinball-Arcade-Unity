@@ -6,44 +6,49 @@ using UnityEngine;
 public class SeasonPassData
 {
     public bool isPremium;
-    public int seasonPassPoints;
     public int seasonPassLvl;
     public List<SeasonPassTier> seasonPassTiers;
-    public List<int> seasonPassPointReqs;
-
-    public void AddSeasonPoints(int points)
-    {
-        if(seasonPassLvl < seasonPassPointReqs.Count - 1)
-        {
-            for (int i = 0; i < points; i++)
-            {
-                seasonPassPoints++;
-                if (seasonPassPoints >= seasonPassPointReqs[seasonPassLvl - 1])
-                {
-                    LevelUp();
-                }
-            }
-            UIManager.instance.uiSeasonPassManager.SetExpSlider();
-        }
-    }
+    public List<double> seasonPassPointReqs;
 
     public void ResetSeasonPass()
     {
-        seasonPassPoints = 0;
         seasonPassLvl = 1;
+    }
+
+    public void CheckSeasonPassProgress()
+    {
+        double totalEventCoinsGained = PlayerManager.instance.currentEventMachineData.totalCoinsGained;
+        double totalCoinsAdjusted = 0;
+        double currentCoinsNeeded = 0;
+        
+        if(seasonPassLvl > 1)
+        {
+            totalCoinsAdjusted = totalEventCoinsGained - seasonPassPointReqs[seasonPassLvl - 2];
+            currentCoinsNeeded = seasonPassPointReqs[seasonPassLvl - 1] - seasonPassPointReqs[seasonPassLvl - 2];
+        }
+        else
+        {
+            totalCoinsAdjusted = totalEventCoinsGained;
+            currentCoinsNeeded = seasonPassPointReqs[seasonPassLvl - 1];
+        }
+
+        if(totalCoinsAdjusted >= currentCoinsNeeded)
+        {
+            LevelUp();
+        }
+
+        UIManager.instance.uiSeasonPassManager.SetExpSlider(currentCoinsNeeded, totalCoinsAdjusted);
     }
 
     private void LevelUp()
     {
         seasonPassLvl++;
-        seasonPassPoints = 0;
         UIManager.instance.uiSeasonPassManager.SetLevelReached(seasonPassLvl);
     }
 
     public void SaveSeasonPassData()
     {
         ES3.Save("SeasonPass-isPremium", isPremium);
-        ES3.Save("SeasonPass-Points", seasonPassPoints);
         ES3.Save("seasonPass-Level", seasonPassLvl);
         for(int i = 0; i < seasonPassTiers.Count; i++)
         {
@@ -54,8 +59,7 @@ public class SeasonPassData
     public void LoadSeasonPassData()
     {
         isPremium = ES3.Load("SeasonPass-isPremium", false);
-        seasonPassPoints = ES3.Load("SeasonPass-Points", 0);
-        seasonPassLvl = ES3.Load("seasonPass-Level", 0);
+        seasonPassLvl = ES3.Load("seasonPass-Level", (int) 1);
         for (int i = 0; i < seasonPassTiers.Count; i++)
         {
             seasonPassTiers[i].LoadSeasonPassTiers(i);

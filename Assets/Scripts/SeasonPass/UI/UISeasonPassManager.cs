@@ -16,6 +16,8 @@ public class UISeasonPassManager : MonoBehaviour
     public GameObject uiRewardsContainer;
     public Slider expSlider;
     public Text expText;
+    public Text currLevelText;
+    public Text nextLevelText;
 
     // Prefabs
     public UISeasonPassRewardRow rewardRowPrefab;
@@ -23,8 +25,6 @@ public class UISeasonPassManager : MonoBehaviour
     private void Start()
     {
         currSeasonData = PlayerManager.instance.seasonPassData;
-
-        SetExpSlider();
 
         int rewardIndex = 0;
         foreach(SeasonPassTier tier in currSeasonData.seasonPassTiers)
@@ -46,21 +46,31 @@ public class UISeasonPassManager : MonoBehaviour
 
             rewardIndex++;
         }
+
+        currSeasonData.CheckSeasonPassProgress();
+        SetCurrLevelUI();
+    }
+
+    public void SetCurrLevelUI()
+    {
+        currLevelText.text = currSeasonData.seasonPassLvl.ToString();
+        nextLevelText.text = (currSeasonData.seasonPassLvl + 1).ToString();
     }
 
     public void SetLevelReached(int level)
     {
         rewardRows[level - 1].SetLevelReached();
-        SetExpSlider();
+        currSeasonData.CheckSeasonPassProgress();
+        SetCurrLevelUI();
     }
 
-    public void SetExpSlider()
+    public void SetExpSlider(double maxValue, double currValue)
     {
         if(currSeasonData.seasonPassLvl < currSeasonData.seasonPassPointReqs.Count)
         {
-            expSlider.maxValue = currSeasonData.seasonPassPointReqs[currSeasonData.seasonPassLvl - 1];
-            expSlider.value = currSeasonData.seasonPassPoints;
-            expText.text = currSeasonData.seasonPassPoints + "/" + currSeasonData.seasonPassPointReqs[currSeasonData.seasonPassLvl - 1];
+            expSlider.maxValue = (float) maxValue;
+            expSlider.value = (float) currValue;
+            expText.text = DoubleFormatter.Format(currValue) + " / " + DoubleFormatter.Format(maxValue);
         }
         else
         {

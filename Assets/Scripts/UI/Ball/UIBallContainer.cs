@@ -51,7 +51,7 @@ public class UIBallContainer : MonoBehaviour
         UpdateCount();
     }
 
-    private void CheckIfLimitReached()
+    public void CheckIfLimitReached()
     {
         MachineManager currMachine = PlayerManager.instance.currentMachine;
         if (currMachine.equippedBallCount[ball.ballID] >= ball.ballStats[itemData.rank].maxBallCount || currMachine.currentBallCount >= currMachine.maxEquippedBalls)

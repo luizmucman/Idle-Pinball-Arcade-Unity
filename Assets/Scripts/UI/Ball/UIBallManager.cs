@@ -96,7 +96,10 @@ public class UIBallManager : MonoBehaviour
             }
         }
 
-
+        foreach(UIBallContainer ballContainer in ballContainers)
+        {
+            ballContainer.CheckIfLimitReached();
+        }
     }
     
     public void SetBallUpgradeCost()

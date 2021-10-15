@@ -46,6 +46,6 @@ public class MachineData
         coinsPerSecond = ES3.Load(machineGUID + "-coinsPerSecond", (double) 0);
         accumulatedCoins = ES3.Load(machineGUID + "-accumulatedCoins", (double) 0);
         awayCheckPoint = ES3.Load(machineGUID + "-awayCheckPoint", DateTime.Now);
-        totalCoinsGained = ES3.Load(machineGUID + "-totalCoinsGained", 0);
+        totalCoinsGained = ES3.Load(machineGUID + "-totalCoinsGained", (double) 0);
     }
 }

@@ -29,15 +29,9 @@ public class PlayFabGooglePlayLoginBtn : MonoBehaviour
 
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        PlayFabAuthService.OnLoginSuccess += OnLoginSuccess;
-        PlayFabAuthService.OnPlayFabError += OnPlayFabError;
-    }
-
     private void OnPlayFabError(PlayFabError error)
     {
+        UIManager.instance.uiErrorWindow.SetErrorDesc(error.HttpCode + ": " + error.ErrorMessage);
         Social.localUser.Authenticate((success) =>
         {
             if (success)
@@ -69,19 +63,22 @@ public class PlayFabGooglePlayLoginBtn : MonoBehaviour
             }, (result) =>
             {
                 PlayerManager.instance.LoadFromPlayfab();
+                UnsubscribeEvents();
             }, (error) =>
             {
-                Debug.Log(error);
+                UIManager.instance.uiErrorWindow.SetErrorDesc(error.ErrorMessage);
             }); ;
         }
         else
-        { 
-
+        {
+            
         }
     }
 
     public void OnClick()
     {
+        SubscribeEvents();
+
         Social.localUser.Authenticate((success) =>
         {
             if (success)
@@ -105,5 +102,25 @@ public class PlayFabGooglePlayLoginBtn : MonoBehaviour
         btn.interactable = true;
         connectedTxt.text = "NOT CONNECTED";
         connectedTxt.color = Color.red;
+    }
+
+    private void OnGoogleLink(LinkGoogleAccountResult success)
+    {
+        ShowConnected();
+        UnsubscribeEvents();
+    }
+
+    private void SubscribeEvents()
+    {
+        PlayFabAuthService.OnLoginSuccess += OnLoginSuccess;
+        PlayFabAuthService.OnPlayFabError += OnPlayFabError;
+        PlayFabAuthService.OnGoogleLink += OnGoogleLink;
+    }
+
+    private void UnsubscribeEvents()
+    {
+        PlayFabAuthService.OnLoginSuccess -= OnLoginSuccess;
+        PlayFabAuthService.OnPlayFabError -= OnPlayFabError;
+        PlayFabAuthService.OnGoogleLink -= OnGoogleLink;
     }
 }

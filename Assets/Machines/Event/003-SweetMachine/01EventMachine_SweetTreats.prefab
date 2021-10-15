@@ -2110,6 +2110,7 @@ MonoBehaviour:
     isPlaying: 0
     isEvent: 0
     isCurrentEvent: 0
+    totalCoinsGained: 0
     coinsPerSecond: 0
     accumulatedCoins: 0
     machineImage: {fileID: 0}
@@ -2248,7 +2249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeData:
-    upgradeIcon: {fileID: 0}
+    upgradeIcon: {fileID: 21300000, guid: de4213def8d702c419717882227470fe, type: 3}
     objectName: Sweet Paddles
     upgradeDesc: Your candy paddles! Gain coins for every paddle flip.
     baseCoinProduction: 1
@@ -7300,7 +7301,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -40,7 +40,8 @@ public class UpgradeData
 
     public double GetProductionValue(int level)
     {
-        return baseCoinProduction * (double)level * currentUnlockMultiplier;
+        return baseCoinProduction * level * currentUnlockMultiplier;
+
     }
 
     public void LevelUp(int upgradeAmt)
@@ -64,6 +65,7 @@ public class UpgradeData
         if (ES3.KeyExists(machineSceneName + objectName + "-level"))
         {
             level = ES3.Load(machineSceneName + objectName + "-level", 0);
+            SetData();
         }
     }
 }

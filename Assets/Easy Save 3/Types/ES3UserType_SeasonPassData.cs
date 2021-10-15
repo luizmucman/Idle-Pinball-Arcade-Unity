@@ -17,7 +17,6 @@ namespace ES3Types
 			var instance = (SeasonPassData)obj;
 			
 			writer.WriteProperty("isPremium", instance.isPremium, ES3Type_bool.Instance);
-			writer.WriteProperty("seasonPassPoints", instance.seasonPassPoints, ES3Type_int.Instance);
 			writer.WriteProperty("seasonPassLvl", instance.seasonPassLvl, ES3Type_int.Instance);
 			writer.WriteProperty("seasonPassTiers", instance.seasonPassTiers, ES3Internal.ES3TypeMgr.GetES3Type(typeof(System.Collections.Generic.List<SeasonPassTier>)));
 			writer.WriteProperty("seasonPassPointReqs", instance.seasonPassPointReqs, ES3Internal.ES3TypeMgr.GetES3Type(typeof(System.Collections.Generic.List<System.Int32>)));
@@ -34,9 +33,6 @@ namespace ES3Types
 					case "isPremium":
 						instance.isPremium = reader.Read<System.Boolean>(ES3Type_bool.Instance);
 						break;
-					case "seasonPassPoints":
-						instance.seasonPassPoints = reader.Read<System.Int32>(ES3Type_int.Instance);
-						break;
 					case "seasonPassLvl":
 						instance.seasonPassLvl = reader.Read<System.Int32>(ES3Type_int.Instance);
 						break;
@@ -44,7 +40,7 @@ namespace ES3Types
 						instance.seasonPassTiers = reader.Read<System.Collections.Generic.List<SeasonPassTier>>();
 						break;
 					case "seasonPassPointReqs":
-						instance.seasonPassPointReqs = reader.Read<System.Collections.Generic.List<System.Int32>>();
+						instance.seasonPassPointReqs = reader.Read<System.Collections.Generic.List<double>>();
 						break;
 					default:
 						reader.Skip();

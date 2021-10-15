@@ -81,6 +81,7 @@ public abstract class ObjectManager : MonoBehaviour
                 timesHit++;
             }
         }
+
         coinGain = PlayerManager.instance.AddCoins((double)(upgradeData.currentCoinProduction));
         PlayerManager.instance.currentMachine.coinsPerSecondCounter += (double)(upgradeData.currentCoinProduction);
         PlayerManager.instance.currentMachine.machineData.totalCoinsGained += coinGain;
@@ -89,6 +90,7 @@ public abstract class ObjectManager : MonoBehaviour
 
     public virtual void Payout(float multiplier)
     {
+        double coinGain = 0;
         if (machineManager.testBalance && multiplier > 1f)
         {
             if (multiplier > 1f)
@@ -100,8 +102,9 @@ public abstract class ObjectManager : MonoBehaviour
                 timesHit++;
             }
         }
-        PlayerManager.instance.AddCoins((double)(upgradeData.currentCoinProduction));
+        coinGain = PlayerManager.instance.AddCoins((double)(upgradeData.currentCoinProduction));
         PlayerManager.instance.currentMachine.coinsPerSecondCounter += (double)(upgradeData.currentCoinProduction);
+        PlayerManager.instance.currentMachine.machineData.totalCoinsGained += coinGain;
     }
 
     public void EnableUpgradeCanvas()

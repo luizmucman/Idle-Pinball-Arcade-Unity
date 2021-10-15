@@ -67,7 +67,7 @@ MonoBehaviour:
   playerSettingsData:
     bgmMuted: 0
     sfxMuted: 0
-    notificationsEnabled: 0
+    notificationsDisabled: 0
   tutorialFinished: 0
   isAdFree: 0
   is2xAllIncome: 0
@@ -219,7 +219,27 @@ MonoBehaviour:
       freeReward:
         isClaimed: 0
         rewardItem: {fileID: 11400000, guid: 81ecadf0b8fca8847bc51c6b73a6aff1, type: 2}
-    seasonPassPointReqs: 96000000c80000002c0100002c0100002c0100002c0100002c0100002c0100002c0100002c0100002c0100002c0100002c0100002c0100002c0100002c0100002c0100002c0100002c0100002c010000
+    seasonPassPointReqs:
+    - 1000
+    - 5000
+    - 10000
+    - 50000
+    - 100000
+    - 200000
+    - 400000
+    - 800000
+    - 1600000
+    - 3200000
+    - 6400000
+    - 12800000
+    - 25600000
+    - 51200000
+    - 102400000
+    - 204800000
+    - 409600000
+    - 819200000
+    - 1638400000
+    - 3276800000
   globalCoinMultiplier: 1
   boostDatabase: {fileID: 11400000, guid: b1e044ea2fcc511429c196ee0892721a, type: 2}
   boostInventory: []

@@ -63,7 +63,6 @@ public class Ball : Item
         // Check if collided object is interactable
         if(hitObject.GetComponent<InteractableObject>() != null)
         {
-            PlayerManager.instance.AddSeasonPassHit();
             hitObject.GetComponent<InteractableObject>().BallHit(this, other);
             particle.Play();
             if(!skillActive)
@@ -74,13 +73,13 @@ public class Ball : Item
                     BallSkill();
                 }
             }
+            PlayerManager.instance.AddSeasonPassHit();
         }
     }
 
     public virtual void OnTriggerEnter2D(Collider2D other)
     {
         GameObject hitObject = other.gameObject;
-        PlayerManager.instance.AddSeasonPassHit();
 
         // Check if collided object is interactable
         if (hitObject.GetComponent<InteractableObject>() != null)
@@ -88,6 +87,7 @@ public class Ball : Item
             hitObject.GetComponent<InteractableObject>().BallHit(this, other);
             particle.Play();
         }
+        PlayerManager.instance.AddSeasonPassHit();
     }
 
 }

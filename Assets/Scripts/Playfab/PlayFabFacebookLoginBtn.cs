@@ -27,16 +27,11 @@ public class PlayFabFacebookLoginBtn : MonoBehaviour
 
     }
 
-    void Start()
-    {
-        PlayFabAuthService.OnLoginSuccess += OnLoginSuccess;
-        PlayFabAuthService.OnPlayFabError += OnPlayFabError;
-        PlayFabAuthService.OnFacebookLink += OnLinkSuccess;
-    }
 
     private void OnLinkSuccess(LinkFacebookAccountResult success)
     {
         ShowConnected();
+        UnsubscribeEvents();
     }
 
     private void OnPlayFabError(PlayFabError error)
@@ -49,7 +44,10 @@ public class PlayFabFacebookLoginBtn : MonoBehaviour
                 _AuthService.LinkFacebook();
             }
         }
-
+        else
+        {
+            UIManager.instance.uiErrorWindow.SetErrorDesc(error.HttpCode + ": " + error.ErrorMessage);
+        }
 
     }
 
@@ -72,9 +70,11 @@ public class PlayFabFacebookLoginBtn : MonoBehaviour
             }, (result) =>
             {
                 PlayerManager.instance.LoadFromPlayfab();
+                UnsubscribeEvents();
             }, (error) =>
             {
                 Debug.Log(error);
+                UIManager.instance.uiErrorWindow.SetErrorDesc(error.ErrorMessage);
             }); ;
         }
         else
@@ -85,6 +85,8 @@ public class PlayFabFacebookLoginBtn : MonoBehaviour
 
     public void OnClick()
     {
+        SubscribeEvents();
+
         FB.LogInWithReadPermissions(new List<string>() { "public_profile", "email", "user_friends" }, OnHandleFBResult);
     }
 
@@ -116,5 +118,19 @@ public class PlayFabFacebookLoginBtn : MonoBehaviour
         btn.interactable = true;
         connectedTxt.text = "NOT CONNECTED";
         connectedTxt.color = Color.red;
+    }
+
+    private void SubscribeEvents()
+    {
+        PlayFabAuthService.OnLoginSuccess += OnLoginSuccess;
+        PlayFabAuthService.OnPlayFabError += OnPlayFabError;
+        PlayFabAuthService.OnFacebookLink += OnLinkSuccess;
+    }
+
+    private void UnsubscribeEvents()
+    {
+        PlayFabAuthService.OnLoginSuccess -= OnLoginSuccess;
+        PlayFabAuthService.OnPlayFabError -= OnPlayFabError;
+        PlayFabAuthService.OnFacebookLink -= OnLinkSuccess;
     }
 }
