@@ -85,7 +85,7 @@ public class PlayFabGooglePlayLoginBtn : MonoBehaviour
             {
                 var serverAuthCode = PlayGamesPlatform.Instance.GetServerAuthCode();
                 _AuthService.AuthTicket = serverAuthCode;
-                _AuthService.Authenticate(Authtypes.Google);
+                _AuthService.AuthenticateGooglePlayGames();
             }
         });
     }

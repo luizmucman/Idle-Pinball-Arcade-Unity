@@ -9,7 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Upgrade Window
   m_Shader: {fileID: 4800000, guid: a36b7719ff0465b42ab1407d67672c5f, type: 3}
-  m_ShaderKeywords: OUTBASEPIXELPERF_ON OUTBASE_ON RECTSIZE_ON _OUTLINEISPIXEL_ON
+  m_ShaderKeywords: ATLAS_ON OFFSETUV_ON OUTBASEPIXELPERF_ON OUTBASE_ON RECTSIZE_ON
+    _OUTLINEISPIXEL_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -143,10 +144,10 @@ Material:
     - _InnerOutlineAlpha: 1
     - _InnerOutlineGlow: 4
     - _InnerOutlineThickness: 1
-    - _MaxXUV: 1
-    - _MaxYUV: 1
-    - _MinXUV: 0
-    - _MinYUV: 0
+    - _MaxXUV: 0.5510254
+    - _MaxYUV: 0.60998535
+    - _MinXUV: 0.27624512
+    - _MinYUV: 0.00048828125
     - _MotionBlurAngle: 0.1
     - _MotionBlurDist: 1.25
     - _MyDstMode: 10
@@ -164,7 +165,7 @@ Material:
     - _OutlineDistortToggle: 0
     - _OutlineGlow: 18
     - _OutlineIsPixel: 1
-    - _OutlinePixelWidth: 3.43
+    - _OutlinePixelWidth: 500
     - _OutlineTexGrey: 0
     - _OutlineTexToggle: 0
     - _OutlineTexXSpeed: 10

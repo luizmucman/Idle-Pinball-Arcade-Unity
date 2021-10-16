@@ -172,8 +172,6 @@ public class PlayerManager : MonoBehaviour
             UIManager.instance.playerCoinText.text = DoubleFormatter.Format(playerCoins);
         }
 
-        Debug.Log("PlayerManager Coin Gain: " + coinGain);
-
         return coinGain;
     }
 

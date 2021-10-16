@@ -6933,7 +6933,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0.35943168, y: 0.1674738}
-  m_ConnectedAnchor: {x: 0.9744317, y: -4.347526}
+  m_ConnectedAnchor: {x: 1.0048862, y: -4.2961626}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 5000
@@ -7301,7 +7301,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -18330,7 +18330,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: -0.35098433, y: 0.15049982}
-  m_ConnectedAnchor: {x: -1.2349844, y: -4.3345003}
+  m_ConnectedAnchor: {x: -1.435833, y: -4.3131366}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: -5000
@@ -22628,6 +22628,14 @@ PrefabInstance:
     - target: {fileID: 4195046150129532605, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246940276857989896, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246940276857989896, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9156151016843113993, guid: 7d4d02023498a4441b6c3c9703281ff3, type: 3}
       propertyPath: m_Name
