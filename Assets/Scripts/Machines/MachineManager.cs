@@ -81,6 +81,7 @@ public class MachineManager : MonoBehaviour
         currentBallCount = 0;
         normalBallCount = 0;
 
+        Debug.Log(PlayerManager.instance.ballDataList.GetItemData("BA002").isUnlocked);
         uiManager.uiBallManager.NewMachine();
 
         // Instantiate the normal balls until max balls for machine is reached

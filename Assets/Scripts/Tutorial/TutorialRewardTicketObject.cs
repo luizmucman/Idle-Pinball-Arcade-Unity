@@ -9,11 +9,10 @@ public class TutorialRewardTicketObject : TutorialObject
     public override void NextTutorial()
     {
         base.NextTutorial();
-        ItemData ticketData = new ItemData();
-        ticketData.GUID = rewardedTicket.GUID;
-        ticketData.rank = 0;
-        PlayerManager.instance.ticketInventory.Add(ticketData);
-        UIManager.instance.uiTicketManager.AddNewTicketOwned(ticketData);
+        
+        PlayerManager.instance.ticketDataList.GetItemData(rewardedTicket.GUID).AddExp(1);
+
+        UIManager.instance.uiTicketManager.CheckUnlockedTickets();
         UIManager.instance.uiShopManager.buyPopup.SetPopup(rewardedTicket);
     }
 }

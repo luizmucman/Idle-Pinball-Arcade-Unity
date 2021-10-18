@@ -1805,8 +1805,8 @@ MonoBehaviour:
     objectName: Milkshake Tunnel
     upgradeDesc: Time to shake things up. Gain coins for every entry and {JackpotValue}
       for jackpot.
-    baseCoinProduction: 572076
-    baseCost: 2149908480
+    baseCoinProduction: 1906920
+    baseCost: 21499084800
     upgradeCostGrowthRate: 1.08
     jackpotMultiplier: 5
     level: 0
@@ -2252,8 +2252,8 @@ MonoBehaviour:
     upgradeIcon: {fileID: 21300000, guid: de4213def8d702c419717882227470fe, type: 3}
     objectName: Sweet Paddles
     upgradeDesc: Your candy paddles! Gain coins for every paddle flip.
-    baseCoinProduction: 1
-    baseCost: 4
+    baseCoinProduction: 10
+    baseCost: 40
     upgradeCostGrowthRate: 1.07
     jackpotMultiplier: 0
     level: 1
@@ -2490,7 +2490,7 @@ MonoBehaviour:
     objectName: Sweet Targets
     upgradeDesc: Woah it's the name of the machine! Gain coins for every target hit
       and {JackpotValue} for jackpot.
-    baseCoinProduction: 71364
+    baseCoinProduction: 237880
     baseCost: 179159040
     upgradeCostGrowthRate: 1.09
     jackpotMultiplier: 10
@@ -3210,8 +3210,8 @@ MonoBehaviour:
     objectName: Cupcake Targets
     upgradeDesc: Make your cake and eat it too! Gain coins for every target hit and
       {JackpotValue} for jackpot.
-    baseCoinProduction: 7973
-    baseCost: 1244160
+    baseCoinProduction: 26576
+    baseCost: 12441600
     upgradeCostGrowthRate: 1.11
     jackpotMultiplier: 5
     level: 0
@@ -3422,8 +3422,8 @@ MonoBehaviour:
     objectName: Cherry Rollovers
     upgradeDesc: These are literally the cherries on top. Gain coins for every rollover
       and {JackpotValue} for jackpot.
-    baseCoinProduction: 16
-    baseCost: 60
+    baseCoinProduction: 160
+    baseCost: 600
     upgradeCostGrowthRate: 1.15
     jackpotMultiplier: 5
     level: 0
@@ -11308,8 +11308,8 @@ MonoBehaviour:
     objectName: Gummy Targets
     upgradeDesc: What a sweet family of bears. Gain coins for every bear hit and
       {JackpotValue} for jackpot.
-    baseCoinProduction: 1979
-    baseCost: 103680
+    baseCoinProduction: 6596
+    baseCost: 1036800
     upgradeCostGrowthRate: 1.12
     jackpotMultiplier: 9
     level: 0
@@ -11779,8 +11779,8 @@ MonoBehaviour:
     objectName: Blue Ramp
     upgradeDesc: A blue raspberry ride. Gain coins for every ramp entry and {JackpotValue}
       for jackpot.
-    baseCoinProduction: 241
-    baseCost: 720
+    baseCoinProduction: 2410
+    baseCost: 7200
     upgradeCostGrowthRate: 1.14
     jackpotMultiplier: 7
     level: 0
@@ -12597,8 +12597,8 @@ MonoBehaviour:
     objectName: Pink Ramp
     upgradeDesc: The pink version. Gain coins for every ramp entry and {JackpotValue}
       for jackpot.
-    baseCoinProduction: 771
-    baseCost: 8640
+    baseCoinProduction: 7710
+    baseCost: 86400
     upgradeCostGrowthRate: 1.13
     jackpotMultiplier: 7
     level: 0
@@ -15711,8 +15711,8 @@ MonoBehaviour:
     objectName: Sundae Target
     upgradeDesc: Lets build a sundae. Gain coins for every target hit and {JackpotValue}
       for jackpot.
-    baseCoinProduction: 28800
-    baseCost: 14929920
+    baseCoinProduction: 96000
+    baseCost: 149299200
     upgradeCostGrowthRate: 1.1
     jackpotMultiplier: 3
     level: 0
@@ -18988,8 +18988,8 @@ MonoBehaviour:
     upgradeIcon: {fileID: 21300000, guid: dec24f2f95b4454499cb9dbae11b7624, type: 3}
     objectName: Ice Cream Bumpers
     upgradeDesc: Three flavors of bumpers. Gain coins for every bumper hit.
-    baseCoinProduction: 1
-    baseCost: 4
+    baseCoinProduction: 10
+    baseCost: 40
     upgradeCostGrowthRate: 1.07
     jackpotMultiplier: 0
     level: 1
@@ -19281,8 +19281,8 @@ MonoBehaviour:
     objectName: Arrow Path
     upgradeDesc: The path crossed many times. Gain coins for every rollover and {JackpotValue}
       for jackpot.
-    baseCoinProduction: 334836
-    baseCost: 25798901760
+    baseCoinProduction: 1116120
+    baseCost: 257989017600
     upgradeCostGrowthRate: 1.07
     jackpotMultiplier: 5
     level: 0

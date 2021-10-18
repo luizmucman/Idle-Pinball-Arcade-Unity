@@ -216,117 +216,59 @@ public class UIShopManager : MonoBehaviour
 
     public void RewardCommonChest(ShopItemType itemType)
     {
-        List<ItemData> playerInventory;
-        ItemData itemData = new ItemData();
+        List<Item> playerInventory;
         Item chosenItem;
 
-        int dupeCheckIndex = 0;
-        bool isDupe = false;
-        bool isNew = false;
         int chosenIndex = 0;
 
         if (itemType == ShopItemType.Ball)
         {
-            playerInventory = PlayerManager.instance.ballInventory;
+            playerInventory = PlayerManager.instance.ballDatabase.database;
             chosenIndex = Random.Range(1, PlayerManager.instance.ballDatabase.database.Count - 1);
             chosenItem = (Ball)PlayerManager.instance.ballDatabase.database[chosenIndex];
         }
         else if(itemType == ShopItemType.Ticket)
         {
-            playerInventory = PlayerManager.instance.ticketInventory;
+            playerInventory = PlayerManager.instance.ticketDatabase.database;
             chosenIndex = Random.Range(0, PlayerManager.instance.ticketDatabase.database.Count - 1);
             chosenItem = (Ticket)PlayerManager.instance.ticketDatabase.database[chosenIndex];
         }
         else
         {
             return;
-        }
-
-        // Choosing the ball
-        while (!isDupe && !isNew)
-        {
-            ItemData currInventoryItem = playerInventory[dupeCheckIndex];
-            if (currInventoryItem.GUID.Equals(chosenItem.GUID))
-            {
-                if (currInventoryItem.rank == 4)
-                {
-                    if (itemType == ShopItemType.Ball)
-                    {
-                        chosenIndex = Random.Range(1, PlayerManager.instance.ballDatabase.database.Count - 1);
-                        chosenItem = (Ball)PlayerManager.instance.ballDatabase.database[chosenIndex];
-                    }
-                    else if (itemType == ShopItemType.Ticket)
-                    {
-                        chosenIndex = Random.Range(0, PlayerManager.instance.ticketDatabase.database.Count - 1);
-                        chosenItem = (Ticket)PlayerManager.instance.ticketDatabase.database[chosenIndex];
-                    }
-                    else
-                    {
-                        return;
-                    }
-                    dupeCheckIndex = 0;
-                    continue;
-                }
-                else
-                {
-                    itemData.GUID = chosenItem.GUID;
-                    isDupe = true;
-                    break;
-                }
-            }
-            else if (dupeCheckIndex == playerInventory.Count - 1)
-            {
-                isNew = true;
-                itemData.GUID = chosenItem.GUID;
-                break;
-            }
-
-            dupeCheckIndex++;
         }
 
         // Choosing the rank
         int randomRank = Random.Range(0, 100);
         if (randomRank <= 20)
         {
-            itemData.rank = 1;
+            chosenItem.itemData.AddExp(3);
         }
         else
         {
-            itemData.rank = 0;
+            chosenItem.itemData.AddExp(1);
         }
 
-        if (isDupe)
-        {
-            playerInventory[dupeCheckIndex].AddExp((int)Mathf.Pow(3, itemData.rank + 1) / 3);
-        }
-        else
-        {
-            playerInventory.Add(itemData);
-        }
-
+        chosenItem.itemData.isUnlocked = true;
         buyPopup.SetPopup(chosenItem);
     }
 
     public void RewardEpicChest(ShopItemType itemType)
     {
-        List<ItemData> playerInventory;
-        ItemData itemData = new ItemData();
+        List<Item> playerInventory;
         Item chosenItem;
 
-        int dupeCheckIndex = 0;
-        bool isDupe = false;
-        bool isNew = false;
         int chosenIndex = 0;
 
         if (itemType == ShopItemType.Ball)
         {
-            playerInventory = PlayerManager.instance.ballInventory;
+            playerInventory = PlayerManager.instance.ballDatabase.database;
             chosenIndex = Random.Range(1, PlayerManager.instance.ballDatabase.database.Count - 1);
             chosenItem = (Ball)PlayerManager.instance.ballDatabase.database[chosenIndex];
         }
         else if (itemType == ShopItemType.Ticket)
         {
-            playerInventory = PlayerManager.instance.ticketInventory;
+            playerInventory = PlayerManager.instance.ticketDatabase.database;
             chosenIndex = Random.Range(0, PlayerManager.instance.ticketDatabase.database.Count - 1);
             chosenItem = (Ticket)PlayerManager.instance.ticketDatabase.database[chosenIndex];
         }
@@ -335,80 +277,23 @@ public class UIShopManager : MonoBehaviour
             return;
         }
 
-        // Choosing the ball
-        while (!isDupe && !isNew)
-        {
-            ItemData currInventoryItem = playerInventory[dupeCheckIndex];
-            if (currInventoryItem.GUID.Equals(chosenItem.GUID))
-            {
-                if (currInventoryItem.rank == 4)
-                {
-                    if (itemType == ShopItemType.Ball)
-                    {
-                        chosenIndex = Random.Range(1, PlayerManager.instance.ballDatabase.database.Count - 1);
-                        chosenItem = (Ball)PlayerManager.instance.ballDatabase.database[chosenIndex];
-                    }
-                    else if (itemType == ShopItemType.Ticket)
-                    {
-                        chosenIndex = Random.Range(0, PlayerManager.instance.ticketDatabase.database.Count - 1);
-                        chosenItem = (Ticket)PlayerManager.instance.ticketDatabase.database[chosenIndex];
-                    }
-                    else
-                    {
-                        return;
-                    }
-                    dupeCheckIndex = 0;
-                    continue;
-                }
-                else
-                {
-                    itemData.GUID = chosenItem.GUID;
-                    isDupe = true;
-                    break;
-                }
-            }
-            else if (dupeCheckIndex == playerInventory.Count - 1)
-            {
-                isNew = true;
-                itemData.GUID = chosenItem.GUID;
-                break;
-            }
-
-            dupeCheckIndex++;
-        }
-
         // Choosing the rank
         int randomRank = Random.Range(0, 100);
         if (randomRank <= legendaryChestEpicChance)
         {
-            itemData.rank = 3;
+            chosenItem.itemData.AddExp(9);
         }
         else if (randomRank <= legendaryChestRareChance)
         {
-            itemData.rank = 2;
+            chosenItem.itemData.AddExp(6);
         }
         else
         {
-            itemData.rank = 1;
+            chosenItem.itemData.AddExp(3);
         }
 
-        if (isDupe)
-        {
-            playerInventory[dupeCheckIndex].AddExp((int)Mathf.Pow(3, itemData.rank + 1) / 3);
-        }
-        else
-        {
-            playerInventory.Add(itemData);
-        }
-
-        chosenItem.rank = itemData.rank;
-
+        chosenItem.itemData.isUnlocked = true;
         buyPopup.SetPopup(chosenItem);
-
-        if(itemType == ShopItemType.Ball && !isDupe)
-        {
-            UIManager.instance.uiBallManager.AddNewBallUI(itemData);
-        }
     }
 
     private BoostData GetBoostData(BoostData data)

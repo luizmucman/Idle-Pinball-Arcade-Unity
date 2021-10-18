@@ -21,6 +21,7 @@ public class SDKInit : MonoBehaviour
 
         FB.Init(OnFBInitComplete, OnFBHideUnity);
     }
+
     private void OnFBInitComplete()
     {
         Debug.Log("FB Init");

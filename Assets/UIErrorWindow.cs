@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UIErrorWindow : MonoBehaviour
 {
-    Text errorDesc;
+    public Text errorDesc;
 
     public void SetErrorDesc(string text)
     {

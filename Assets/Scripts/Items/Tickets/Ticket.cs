@@ -23,13 +23,21 @@ public abstract class Ticket : Item
         if(!PlayerManager.instance.equippedTickets.Contains(itemData))
         {
             PlayerManager.instance.equippedTickets.Add(itemData);
-            PlayerManager.instance.ticketInventory.Remove(itemData);
         }
     }
 
     public virtual void UnequipTicket()
     {
         PlayerManager.instance.equippedTickets.Remove(itemData);
-        PlayerManager.instance.ticketInventory.Add(itemData);
+    }
+
+    public override void SaveItem()
+    {
+        base.SaveItem();
+    }
+
+    public override void LoadItem()
+    {
+        base.LoadItem();
     }
 }

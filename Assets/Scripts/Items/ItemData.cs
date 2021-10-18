@@ -10,9 +10,14 @@ public class ItemData
     public string GUID;
     public int rank;
     public int exp;
+    public bool isUnlocked;
+
+    // Ticket Equipped
+    public bool isEquipped;
 
     public void AddExp(int addedExp)
     {
+        isUnlocked = true;
         for(int i = 0; i < addedExp; i++)
         {
             exp++;
@@ -23,5 +28,21 @@ public class ItemData
                 exp = 0;
             }
         }
+    }
+
+    public void SaveItemData()
+    {
+        ES3.Save(GUID + "-rank", rank);
+        ES3.Save(GUID + "-exp", exp);
+        ES3.Save(GUID + "-isEquipped", isEquipped);
+        ES3.Save(GUID + "-isUnlocked", isUnlocked);
+    }
+
+    public void LoadItemData()
+    {
+        rank = ES3.Load(GUID + "-rank", 0);
+        exp = ES3.Load(GUID + "-exp", 0);
+        isEquipped = ES3.Load(GUID + "-isEquipped", false);
+        isUnlocked = ES3.Load(GUID + "-isUnlocked", false);
     }
 }

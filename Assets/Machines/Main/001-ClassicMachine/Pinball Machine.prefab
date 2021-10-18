@@ -2348,8 +2348,8 @@ MonoBehaviour:
     objectName: Green Arrows
     upgradeDesc: Gain coins just for crossing this path. Jackpot gives {JackpotMultiplier}
       the normal amount when all lights are lit.
-    baseCoinProduction: 76774
-    baseCost: 2149908480
+    baseCoinProduction: 255913
+    baseCost: 21499084800
     upgradeCostGrowthRate: 1.08
     jackpotMultiplier: 20
     level: 0
@@ -2416,8 +2416,8 @@ MonoBehaviour:
     objectName: Teleport Bumpers
     upgradeDesc: Teleport to riches! Gain coins for each ball teleported and each
       bumper hit.
-    baseCoinProduction: 36374
-    baseCost: 179159040
+    baseCoinProduction: 121246
+    baseCost: 1791590400
     upgradeCostGrowthRate: 1.09
     jackpotMultiplier: 0
     level: 0
@@ -2627,8 +2627,8 @@ MonoBehaviour:
     objectName: Blue Ramp
     upgradeDesc: A ramp to reset the balls to your right flipper. Gain coins for
       every ball and {JackpotMultiplier} coins for jackpot.
-    baseCoinProduction: 670
-    baseCost: 8640
+    baseCoinProduction: 2200
+    baseCost: 86400
     upgradeCostGrowthRate: 1.14
     jackpotMultiplier: 10
     level: 0
@@ -4162,8 +4162,8 @@ MonoBehaviour:
     objectName: Yellow Arrows
     upgradeDesc: Another path to cross! Jackpot gives {JackpotMultiplier} the normal
       amount when all lights are lit.
-    baseCoinProduction: 152091
-    baseCost: 25798901760
+    baseCoinProduction: 506970
+    baseCost: 257989017600
     upgradeCostGrowthRate: 1.07
     jackpotMultiplier: 20
     level: 0
@@ -6044,8 +6044,8 @@ MonoBehaviour:
     objectName: Red Ramp
     upgradeDesc: A ramp that leads to a favourable spot! Gain coins for every ball
       entry and {JackpotMultiplier} coins for jackpot.
-    baseCoinProduction: 150
-    baseCost: 720
+    baseCoinProduction: 500
+    baseCost: 7200
     upgradeCostGrowthRate: 1.14
     jackpotMultiplier: 5
     level: 0
@@ -8042,6 +8042,7 @@ MonoBehaviour:
     isPlaying: 0
     isEvent: 0
     isCurrentEvent: 0
+    totalCoinsGained: 0
     coinsPerSecond: 0
     accumulatedCoins: 0
     machineImage: {fileID: 0}
@@ -9257,8 +9258,8 @@ MonoBehaviour:
     objectName: Red Targets
     upgradeDesc: An inner circle to the blue circle! Targets give coins for every
       ball hit and {JackpotMultiplier} jackpot.
-    baseCoinProduction: 16159
-    baseCost: 14929920
+    baseCoinProduction: 53863
+    baseCost: 149299200
     upgradeCostGrowthRate: 1.1
     jackpotMultiplier: 15
     level: 0
@@ -10100,9 +10101,9 @@ GameObject:
   - component: {fileID: 537082425780700598}
   - component: {fileID: 3302584050349969665}
   - component: {fileID: 923422972528512412}
-  - component: {fileID: 923422972528512409}
   - component: {fileID: 923422972528512410}
   - component: {fileID: 923422972528512411}
+  - component: {fileID: 923422972528512409}
   m_Layer: 7
   m_Name: Ramp_1
   m_TagString: Untagged
@@ -10198,22 +10199,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &923422972528512409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5990324052953370928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shaderTypes: 0
-  normalStrenght: 5
-  normalSmoothing: 1
-  computingNormal: 0
 --- !u!114 &923422972528512410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10239,6 +10224,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c97c57707bc1c54589f1c99ad1f8482, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &923422972528512409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5990324052953370928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderTypes: 0
+  normalStrenght: 5
+  normalSmoothing: 1
+  computingNormal: 0
 --- !u!1 &6158275497981239658
 GameObject:
   m_ObjectHideFlags: 0
@@ -13218,8 +13219,8 @@ MonoBehaviour:
     upgradeIcon: {fileID: 21300000, guid: 0d3ec5b684451bd48a4a6b83346c04bc, type: 3}
     objectName: Paddles
     upgradeDesc: The trusty paddles. Gain coins for every flip of a paddle.
-    baseCoinProduction: 1
-    baseCost: 4
+    baseCoinProduction: 3
+    baseCost: 40
     upgradeCostGrowthRate: 1.07
     jackpotMultiplier: 0
     level: 1
@@ -13429,8 +13430,8 @@ MonoBehaviour:
     upgradeIcon: {fileID: 21300000, guid: f3972f57f46bddc489895128f2b3c3ba, type: 3}
     objectName: Main Bumpers
     upgradeDesc: The good ol' basic bumpers! Gains coins for every ball hit.
-    baseCoinProduction: 1
-    baseCost: 4
+    baseCoinProduction: 3
+    baseCost: 40
     upgradeCostGrowthRate: 1.07
     jackpotMultiplier: 0
     level: 0
@@ -14681,8 +14682,8 @@ MonoBehaviour:
     objectName: Yellow Dot Lights
     upgradeDesc: Roll a ball over these lights for coins. Gain a jackpot worth {JackpotMultiplier}
       the normal amount when they all light up!
-    baseCoinProduction: 14
-    baseCost: 60
+    baseCoinProduction: 43
+    baseCost: 600
     upgradeCostGrowthRate: 1.15
     jackpotMultiplier: 3
     level: 0
@@ -14760,8 +14761,8 @@ MonoBehaviour:
     objectName: Bumper Targets
     upgradeDesc: Super bouncy targets. Gain coins for every hit and {JackpotMultiplier}
       coins for jackpot.
-    baseCoinProduction: 2065
-    baseCost: 1244160
+    baseCoinProduction: 6883
+    baseCost: 12441600
     upgradeCostGrowthRate: 1.12
     jackpotMultiplier: 5
     level: 0
@@ -15179,8 +15180,8 @@ MonoBehaviour:
     objectName: Teleporter Ramp
     upgradeDesc: A special teleporter to reset your ball back to your flipper. Gain
       coins for every teleport.
-    baseCoinProduction: 27640
-    baseCost: 103680
+    baseCoinProduction: 92133
+    baseCost: 1036800
     upgradeCostGrowthRate: 1.11
     jackpotMultiplier: 0
     level: 0

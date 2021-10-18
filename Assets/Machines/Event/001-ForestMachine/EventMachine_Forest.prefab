@@ -197,8 +197,8 @@ MonoBehaviour:
     objectName: Flower Path
     upgradeDesc: A path with a nice scent. Gain coins for every ball entry and {JackpotValue}
       for jackpot.
-    baseCoinProduction: 208493
-    baseCost: 2149908480
+    baseCoinProduction: 694976
+    baseCost: 21499084800
     upgradeCostGrowthRate: 1.08
     jackpotMultiplier: 20
     level: 0
@@ -262,8 +262,8 @@ MonoBehaviour:
     objectName: Beehive Target
     upgradeDesc: Get the honey you deserve. Gain coins for every ball hit and {JackpotValue}
       for jackpot.
-    baseCoinProduction: 114
-    baseCost: 720
+    baseCoinProduction: 380
+    baseCost: 7200
     upgradeCostGrowthRate: 1.14
     jackpotMultiplier: 5
     level: 0
@@ -1145,8 +1145,8 @@ MonoBehaviour:
     upgradeIcon: {fileID: 21300000, guid: 9c00ccbf0c6c69e40b13da9cc709e170, type: 3}
     objectName: Secret Rose Bumpers
     upgradeDesc: Roses without the thorns. Gain coins for every bumper hit.
-    baseCoinProduction: 21492
-    baseCost: 179159040
+    baseCoinProduction: 71640
+    baseCost: 1791590400
     upgradeCostGrowthRate: 1.09
     jackpotMultiplier: 0
     level: 0
@@ -1893,8 +1893,8 @@ MonoBehaviour:
     objectName: Secret Red Lights
     upgradeDesc: The secret is out! Gain coins for every rollover and {JackpotValue}
       for jackpot.
-    baseCoinProduction: 5404
-    baseCost: 14929920
+    baseCoinProduction: 18013
+    baseCost: 149299200
     upgradeCostGrowthRate: 1.1
     jackpotMultiplier: 12
     level: 0
@@ -1959,8 +1959,8 @@ MonoBehaviour:
     objectName: Mushroom Lights
     upgradeDesc: These shrooms will light up your world. Gain coins for every ball
       rollover and {JackpotValue} for jackpot.
-    baseCoinProduction: 13
-    baseCost: 60
+    baseCoinProduction: 43.3333333333333
+    baseCost: 600
     upgradeCostGrowthRate: 1.15
     jackpotMultiplier: 5
     level: 0
@@ -2453,14 +2453,15 @@ MonoBehaviour:
     machineCost: 0
     isUnlocked: 0
     isPlaying: 0
+    isEvent: 0
     isCurrentEvent: 0
+    totalCoinsGained: 0
     coinsPerSecond: 0
     accumulatedCoins: 0
     machineImage: {fileID: 0}
   objectManagers: []
   upgradeDatas: []
   paddleMultiplier: 0
-  isEvent: 0
   shooter: {fileID: 5380720066602564906}
   rightPaddle: {fileID: 809874028893315185}
   leftPaddle: {fileID: 783221919275577088}
@@ -5023,8 +5024,8 @@ MonoBehaviour:
     upgradeIcon: {fileID: 21300000, guid: 2fe1834d1c93f914eb02ec54febb8f15, type: 3}
     objectName: Secret Teleporter
     upgradeDesc: Where does this lead to? Gain coins for every teleport.
-    baseCoinProduction: 13690
-    baseCost: 1244160
+    baseCoinProduction: 45633
+    baseCost: 12441600
     upgradeCostGrowthRate: 1.11
     jackpotMultiplier: 0
     level: 0
@@ -10436,8 +10437,8 @@ MonoBehaviour:
     objectName: Tree Targets
     upgradeDesc: The tree of life. Gain coins for every target hit and {JackpotValue}
       for jackpot.
-    baseCoinProduction: 435
-    baseCost: 8640
+    baseCoinProduction: 1450
+    baseCost: 86400
     upgradeCostGrowthRate: 1.13
     jackpotMultiplier: 10
     level: 0
@@ -11187,8 +11188,8 @@ MonoBehaviour:
     upgradeIcon: {fileID: 21300000, guid: f4cd5d807edf8eb48825b83241629ca1, type: 3}
     objectName: Lily Bumpers
     upgradeDesc: Extra bouncy lilypads! Gain coins for every ball hit.
-    baseCoinProduction: 1
-    baseCost: 4
+    baseCoinProduction: 3
+    baseCost: 40
     upgradeCostGrowthRate: 1.07
     jackpotMultiplier: 0
     level: 0
@@ -11251,8 +11252,8 @@ MonoBehaviour:
     upgradeIcon: {fileID: 21300000, guid: 37f5e1c77dd3985419d2ef7b131f8f88, type: 3}
     objectName: Nature's Paddles
     upgradeDesc: Your wilderness paddles! Gain coins for every flip of the paddle.
-    baseCoinProduction: 1
-    baseCost: 4
+    baseCoinProduction: 3
+    baseCost: 40
     upgradeCostGrowthRate: 1.07
     jackpotMultiplier: 0
     level: 1
@@ -12286,8 +12287,8 @@ MonoBehaviour:
     objectName: Fruit Roll...over
     upgradeDesc: What is a forest without fruits? Gain coins for every rollover and
       {JackpotValue} for jackpot.
-    baseCoinProduction: 2081
-    baseCost: 103680
+    baseCoinProduction: 6936
+    baseCost: 1036800
     upgradeCostGrowthRate: 1.12
     jackpotMultiplier: 7
     level: 0
@@ -12714,8 +12715,8 @@ MonoBehaviour:
     objectName: Spider Web
     upgradeDesc: A less inviting path. Gain coins for every ball entry and {JackpotValue}
       for jackpot.
-    baseCoinProduction: 173203
-    baseCost: 25798901760
+    baseCoinProduction: 577343
+    baseCost: 257989017600
     upgradeCostGrowthRate: 1.07
     jackpotMultiplier: 20
     level: 0

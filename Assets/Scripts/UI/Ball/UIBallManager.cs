@@ -125,30 +125,25 @@ public class UIBallManager : MonoBehaviour
 
     public void ResetBallUI()
     {
-        foreach(UIBallContainer container in ballContainers)
+        foreach (Ball ball in PlayerManager.instance.ballDatabase.database)
         {
-            Destroy(container.gameObject);
-            ballContainers.Remove(container);
+            if(!ball.GUID.Equals("BA000"))
+            {
+                UIBallContainer currBallContainer = Instantiate(ballContainerPrefab, BallContent.transform);
 
+                currBallContainer.SetRow(ball);
+
+                ballContainers.Add(currBallContainer);
+            }
         }
-
-        foreach (ItemData ballData in PlayerManager.instance.ballInventory)
-        {
-            UIBallContainer currBallContainer = Instantiate(ballContainerPrefab, BallContent.transform);
-
-            currBallContainer.SetRow(ballData);
-
-            ballContainers.Add(currBallContainer);
-        }
+        CheckUnlockedBalls();
     }
 
-    public void AddNewBallUI(ItemData ballData)
+    public void CheckUnlockedBalls()
     {
-        UIBallContainer currBallContainer = Instantiate(ballContainerPrefab, BallContent.transform);
-
-        currBallContainer.SetRow(ballData);
-
-        ballContainers.Add(currBallContainer);
-        currBallContainer.UpdateCount();
+        foreach(UIBallContainer ballContainer in ballContainers)
+        {
+            ballContainer.CheckUnlocked();
+        }
     }
 }

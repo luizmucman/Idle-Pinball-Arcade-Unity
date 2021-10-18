@@ -23,6 +23,16 @@ public abstract class Item : MonoBehaviour
         itemData = item;
         rank = item.rank;
     }
+
+    public virtual void SaveItem()
+    {
+        itemData.SaveItemData();
+    }
+
+    public virtual void LoadItem()
+    {
+        itemData.LoadItemData();
+    }
 }
 
 public enum ItemType

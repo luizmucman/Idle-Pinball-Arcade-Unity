@@ -31,16 +31,25 @@ public class PlayFabGooglePlayLoginBtn : MonoBehaviour
 
     private void OnPlayFabError(PlayFabError error)
     {
-        UIManager.instance.uiErrorWindow.SetErrorDesc(error.HttpCode + ": " + error.ErrorMessage);
-        Social.localUser.Authenticate((success) =>
+        PlayGamesPlatform.Instance.SignOut();
+
+        if (error.HttpCode == 400)
         {
-            if (success)
+            Social.localUser.Authenticate((success) =>
             {
-                var serverAuthCode = PlayGamesPlatform.Instance.GetServerAuthCode();
-                _AuthService.AuthTicket = serverAuthCode;
-                _AuthService.LinkGooglePlayGames();
-            }
-        });
+                if (success)
+                {
+                    var serverAuthCode = PlayGamesPlatform.Instance.GetServerAuthCode();
+                    _AuthService.AuthTicket = serverAuthCode;
+                    _AuthService.LinkGooglePlayGames();
+                }
+            });
+        }
+        else
+        {
+            UIManager.instance.uiErrorWindow.SetErrorDesc(error.HttpCode + ": " + error.ErrorMessage);
+        }
+
 
     }
 

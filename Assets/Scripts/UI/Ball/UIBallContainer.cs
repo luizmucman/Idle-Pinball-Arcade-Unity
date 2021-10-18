@@ -18,20 +18,23 @@ public class UIBallContainer : MonoBehaviour
     public Text ballDesc;
     public Text maxEquipped;
     public Text cooldown;
+    public GameObject lockedOverlay;
 
     // Bottom Row
     public Button minusButton;
     public Button plusButton;
     public Text equippedCount;
 
-    public void SetRow(ItemData data)
+    public void SetRow(Ball currBall)
     {
-        itemData = data;
-        ball = (Ball) PlayerManager.instance.ballDatabase.GetItem(itemData.GUID);
+        itemData = PlayerManager.instance.ballDataList.GetItemData(currBall.GUID);
+        ball = currBall;
         icon.sprite = ball.ballIcon;
-        ball.rank = data.rank;
+        ball.rank = itemData.rank;
         title.text = ball.itemName;
         ballDesc.text = ball.itemDescription;
+
+        CheckUnlocked();
     }
 
     public void UpdateCount()
@@ -42,13 +45,24 @@ public class UIBallContainer : MonoBehaviour
 
     public void ResetMachine()
     {
-        instantiatedBalls = new List<Ball>();
-        int ballCount = PlayerManager.instance.currentMachine.equippedBallCount[ball.ballID];
-        for (int i = 0; i < ballCount; i++)
+        if(itemData.isUnlocked)
         {
-            instantiatedBalls.Add(PlayerManager.instance.currentMachine.AddResetBall(ball));
+            instantiatedBalls = new List<Ball>();
+            int ballCount = PlayerManager.instance.currentMachine.equippedBallCount[ball.ballID];
+            for (int i = 0; i < ballCount; i++)
+            {
+                instantiatedBalls.Add(PlayerManager.instance.currentMachine.AddResetBall(ball));
+            }
+            UpdateCount();
+            gameObject.transform.SetAsFirstSibling();
+            lockedOverlay.SetActive(false);
         }
-        UpdateCount();
+        else
+        {
+            equippedCount.text = "0";
+            lockedOverlay.SetActive(true);
+        }
+        CheckUnlocked();
     }
 
     public void CheckIfLimitReached()
@@ -97,5 +111,20 @@ public class UIBallContainer : MonoBehaviour
     public void OpenPopup()
     {
         UIManager.instance.uiBallManager.OpenPopup(ball);
+    }
+
+    public void CheckUnlocked()
+    {
+        Debug.Log(itemData.GUID + ": "+itemData.isUnlocked);
+        if (itemData.isUnlocked)
+        {
+            gameObject.transform.SetAsFirstSibling();
+            lockedOverlay.SetActive(false);
+        }
+        else
+        {
+            equippedCount.text = "0";
+            lockedOverlay.SetActive(true);
+        }
     }
 }

@@ -9,11 +9,9 @@ public class RewardBallButton : TutorialObject
     public override void NextTutorial()
     {
         base.NextTutorial();
-        ItemData ballData = new ItemData();
-        ballData.GUID = rewardedBall.GUID;
-        ballData.rank = 0;
-        PlayerManager.instance.ballInventory.Add(ballData);
-        UIManager.instance.uiBallManager.AddNewBallUI(ballData);
+        PlayerManager.instance.ballDataList.GetItemData(rewardedBall.GUID).AddExp(1);
+
+        UIManager.instance.uiBallManager.CheckUnlockedBalls();
         UIManager.instance.uiShopManager.buyPopup.SetPopup(rewardedBall);
     }
 }

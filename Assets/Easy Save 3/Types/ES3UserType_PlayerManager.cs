@@ -28,8 +28,6 @@ namespace ES3Types
 			writer.WriteProperty("boostInventory", instance.boostInventory, ES3Internal.ES3TypeMgr.GetES3Type(typeof(System.Collections.Generic.List<BoostData>)));
 			writer.WriteProperty("playerCoins", instance.playerCoins, ES3Type_double.Instance);
 			writer.WriteProperty("playerGems", instance.playerGems, ES3Type_int.Instance);
-			writer.WriteProperty("ballInventory", instance.ballInventory, ES3Internal.ES3TypeMgr.GetES3Type(typeof(System.Collections.Generic.List<ItemData>)));
-			writer.WriteProperty("ticketInventory", instance.ticketInventory, ES3Internal.ES3TypeMgr.GetES3Type(typeof(System.Collections.Generic.List<ItemData>)));
 			writer.WriteProperty("ticketSlotCount", instance.ticketSlotCount, ES3Type_int.Instance);
 			writer.WriteProperty("equippedTickets", instance.equippedTickets, ES3Internal.ES3TypeMgr.GetES3Type(typeof(System.Collections.Generic.List<ItemData>)));
 		}
@@ -77,12 +75,6 @@ namespace ES3Types
 						break;
 					case "playerGems":
 						instance.playerGems = reader.Read<System.Int32>(ES3Type_int.Instance);
-						break;
-					case "ballInventory":
-						instance.ballInventory = reader.Read<System.Collections.Generic.List<ItemData>>();
-						break;
-					case "ticketInventory":
-						instance.ticketInventory = reader.Read<System.Collections.Generic.List<ItemData>>();
 						break;
 					case "ticketSlotCount":
 						instance.ticketSlotCount = reader.Read<System.Int32>(ES3Type_int.Instance);

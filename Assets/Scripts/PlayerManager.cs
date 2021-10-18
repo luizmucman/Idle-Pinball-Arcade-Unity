@@ -53,11 +53,6 @@ public class PlayerManager : MonoBehaviour
     public double playerCoins;
     public int playerGems;
 
-    [Header("Player Inventories")]
-    // Player Inventories
-    public List<ItemData> ballInventory;
-    public List<ItemData> ticketInventory;
-
     [Header("Player Ticket Data")]
     // Player Tickets
     public int ticketSlotCount;
@@ -81,6 +76,10 @@ public class PlayerManager : MonoBehaviour
     public double maxIdleTime;
     private DateTime timeAtPause;
 
+    // Item Data
+    public ItemDataList ballDataList;
+    public ItemDataList ticketDataList;
+
     private void Awake()
     {
         if (instance != null)
@@ -93,6 +92,7 @@ public class PlayerManager : MonoBehaviour
 
             GetComponent<SDKInit>().InitSDK();
             soundsManager = GetComponent<SoundsManager>();
+            PopulateItemLists();
             es3Cache = new ES3Settings(ES3.Location.Cache);
 
             if (ES3.FileExists("SaveFile.es3"))
@@ -297,18 +297,6 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public ItemData CheckIfBallOwned(string currGUID)
-    {
-        foreach (ItemData currData in ballInventory)
-        {
-            if (currGUID.Equals(currData.GUID))
-            {
-                return currData;
-            }
-        }
-        return null;
-    }
-
     public void CollectAllIdleCoins(double multiplier)
     {
         foreach (MachineData machineData in mainMachines)
@@ -335,6 +323,21 @@ public class PlayerManager : MonoBehaviour
         if (currentMachine.machineData.isCurrentEvent)
         {
             seasonPassData.CheckSeasonPassProgress();
+        }
+    }
+
+    private void PopulateItemLists()
+    {
+        ballDataList = new ItemDataList();
+        foreach (Item ball in ballDatabase.database)
+        {
+            ballDataList.AddNewItemData(ball.GUID);
+        }
+
+        ticketDataList = new ItemDataList();
+        foreach (Item ticket in ticketDatabase.database)
+        {
+            ticketDataList.AddNewItemData(ticket.GUID);
         }
     }
 
@@ -468,8 +471,10 @@ public class PlayerManager : MonoBehaviour
         ES3.Save("playerEventCoins", eventCoins);
         ES3.Save("playerCoins", playerCoins);
         ES3.Save("playerGems", playerGems);
-        ES3.Save("playerBallInventory", ballInventory);
-        ES3.Save("playerTicketInventory", ticketInventory);
+
+        ticketDataList.SaveItemList();
+        ballDataList.SaveItemList();
+
         ES3.Save("playerTicketSlotCount", ticketSlotCount);
         ES3.Save("playerEquippedTickets", equippedTickets);
     }
@@ -488,8 +493,10 @@ public class PlayerManager : MonoBehaviour
         eventCoins = ES3.Load("playerEventCoins", eventCoins);
         playerCoins = ES3.Load("playerCoins", playerCoins);
         playerGems = ES3.Load("playerGems", playerGems);
-        ballInventory = ES3.Load("playerBallInventory", ballInventory);
-        ticketInventory = ES3.Load("playerTicketInventory", ticketInventory);
+
+        ticketDataList.LoadItemList();
+        ballDataList.LoadItemList();
+
         ticketSlotCount = ES3.Load("playerTicketSlotCount", ticketSlotCount);
         equippedTickets = ES3.Load("playerEquippedTickets", equippedTickets);
     }

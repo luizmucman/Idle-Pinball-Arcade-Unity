@@ -5,25 +5,46 @@ using UnityEngine.UI;
 
 public class UITicketButton : MonoBehaviour
 {
-    public Image ticketImage;
+    public GameObject lockedOverlay;
 
+    // UI Components
+    public Image ticketImage;
+    private Button btn;
+
+    // Ticket Data
     public ItemData ticketData;
     public Ticket ticket;
 
-    public bool isEquipped;
-
-    public void SetTicket(ItemData data)
+    public void SetTicket(Ticket currTicket)
     {
         ticketImage = GetComponent<Image>();
-        ticketData = data;
-        ticket = (Ticket) PlayerManager.instance.ticketDatabase.GetItem(data.GUID);
-        ticket.SetItemData(data);
+        ticketData = PlayerManager.instance.ticketDataList.GetItemData(currTicket.GUID);
+        ticket = currTicket;
+        ticket.SetItemData(ticketData);
 
         ticketImage.sprite = ticket.image;
+        btn = GetComponent<Button>();
+
+        CheckUnlocked();
     }
 
     public void ButtonClicked()
     {
         UIManager.instance.uiTicketManager.TicketPopup(this);
+    }
+
+    public void CheckUnlocked()
+    {
+        if (ticketData.isUnlocked)
+        {
+            lockedOverlay.SetActive(false);
+            btn.interactable = true;
+            gameObject.transform.SetSiblingIndex(1);
+        }
+        else
+        {
+            btn.interactable = false;
+            lockedOverlay.SetActive(true);
+        }
     }
 }

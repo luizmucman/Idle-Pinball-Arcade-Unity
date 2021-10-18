@@ -12,17 +12,17 @@ EditorBuildSettings:
     path: Assets/Machines/Main/001-ClassicMachine/MA001.unity
     guid: 73b63749e4946ee4c8623fe1b24951b1
   - enabled: 1
-    path: Assets/Machines/Main/001-ClassicMachine/MA005.unity
-    guid: 1ac1ae0fe592ad94cb0c5ee9af95fd7b
-  - enabled: 1
     path: Assets/Machines/Main/001-ClassicMachine/MA002.unity
     guid: ffbda44ccd7bb8943a2a35978f6f54df
   - enabled: 1
     path: Assets/Machines/Main/001-ClassicMachine/MA003.unity
-    guid: 585698ea9b024fc4b8832ca2975040e8
+    guid: b7515fb63d65bf04bafb6b5aa22eaec5
   - enabled: 1
     path: Assets/Machines/Main/001-ClassicMachine/MA004.unity
-    guid: bdfeb1c0d75d94645b7a8ed503658f76
+    guid: 93f7797ff692e184db4b26b8ae741de0
+  - enabled: 1
+    path: Assets/Machines/Main/001-ClassicMachine/MA005.unity
+    guid: 384830bfdf3cecc41a7ba00e3bf25c0d
   - enabled: 1
     path: Assets/Machines/Event/001-ForestMachine/EV001.unity
     guid: 7f9c509f8aae2014fa8570b435992e03

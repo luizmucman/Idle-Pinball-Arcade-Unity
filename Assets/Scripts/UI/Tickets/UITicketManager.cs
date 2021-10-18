@@ -21,23 +21,30 @@ public class UITicketManager : MonoBehaviour
     public int ticketSlotBaseCost;
     public Text ticketSlotCostText;
 
+    private List<UITicketButton> unEquippedTickets = new List<UITicketButton>();
+
     private void Start()
     {
         playerManager = PlayerManager.instance;
         ticketDiff = playerManager.ticketSlotCount - playerManager.equippedTickets.Count;
         ticketSlotCostText.text = (playerManager.ticketSlotCount * ticketSlotBaseCost).ToString();
 
-        foreach (ItemData ticketData in playerManager.ticketInventory)
+        foreach(Ticket ticket in playerManager.ticketDatabase.database)
         {
-            AddNewTicketOwned(ticketData);
-        }
-
-        foreach (ItemData ticketData in playerManager.equippedTickets)
-        {
-            UITicketButton currTicket = Instantiate(ticketButtonPrefab, equippedList.transform);
-            currTicket.isEquipped = true;
-            currTicket.SetTicket(ticketData);
-            currTicket.ticket.EquipTicket();
+            if(ticket.itemData.isEquipped)
+            {
+                UITicketButton currTicket = Instantiate(ticketButtonPrefab, equippedList.transform);
+                currTicket.SetTicket(ticket);
+                currTicket.ticket.EquipTicket();
+                currTicket.CheckUnlocked();
+            }
+            else
+            {
+                UITicketButton currTicket = Instantiate(ticketButtonPrefab, ownedList.transform);
+                unEquippedTickets.Add(currTicket);
+                currTicket.SetTicket(ticket);
+                currTicket.CheckUnlocked();
+            }
         }
 
         for (int i = 0; i < ticketDiff; i++)
@@ -54,7 +61,7 @@ public class UITicketManager : MonoBehaviour
 
     public void TicketInteract(UITicketButton ticketButton)
     {
-        if (ticketButton.isEquipped)
+        if (ticketButton.ticket.itemData.isEquipped)
         {
             UnequipTicket(ticketButton);
         }
@@ -79,7 +86,7 @@ public class UITicketManager : MonoBehaviour
     private void UnequipTicket(UITicketButton ticketButton)
     {
         ticketButton.ticket.UnequipTicket();
-        ticketButton.isEquipped = false;
+        ticketButton.ticket.itemData.isEquipped = false;
         ticketButton.transform.SetParent(ownedList.transform);
         AddEmptyTicket();
         ticketDiff = playerManager.ticketSlotCount - playerManager.equippedTickets.Count;
@@ -90,7 +97,7 @@ public class UITicketManager : MonoBehaviour
     {
         RemoveEmptyTicket();
         ticketButton.ticket.EquipTicket();
-        ticketButton.isEquipped = true;
+        ticketButton.ticket.itemData.isEquipped = true;
         ticketButton.transform.SetParent(equippedList.transform);
 
         ticketDiff = playerManager.ticketSlotCount - playerManager.equippedTickets.Count;
@@ -116,9 +123,11 @@ public class UITicketManager : MonoBehaviour
         equippedList.SetActive(true);
     }
 
-    public void AddNewTicketOwned(ItemData ticketData)
+    public void CheckUnlockedTickets()
     {
-        UITicketButton currTicket = Instantiate(ticketButtonPrefab, ownedList.transform);
-        currTicket.SetTicket(ticketData);
+        foreach (UITicketButton ticket in unEquippedTickets)
+        {
+            ticket.CheckUnlocked();
+        }
     }
 }

@@ -38,7 +38,7 @@ public class UITicketPopup : MonoBehaviour
         currRankDescription.text = ticketButton.ticket.currRankDescription;
         nextRankDescription.text = ticketButton.ticket.nextRankDescription;
 
-        if(ticketButton.isEquipped)
+        if(ticketButton.ticketData.isEquipped)
         {
             interactButton.GetComponentInChildren<Text>().text = "UNEQUIP";
         }
