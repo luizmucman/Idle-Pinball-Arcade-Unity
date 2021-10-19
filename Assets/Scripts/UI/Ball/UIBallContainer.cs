@@ -115,7 +115,6 @@ public class UIBallContainer : MonoBehaviour
 
     public void CheckUnlocked()
     {
-        Debug.Log(itemData.GUID + ": "+itemData.isUnlocked);
         if (itemData.isUnlocked)
         {
             gameObject.transform.SetAsFirstSibling();

@@ -26,17 +26,24 @@ public class UITicketManager : MonoBehaviour
     private void Start()
     {
         playerManager = PlayerManager.instance;
-        ticketDiff = playerManager.ticketSlotCount - playerManager.equippedTickets.Count;
+        SetNewTicketUI();
+    }
+
+    private void SetNewTicketUI()
+    {
+        int ticketsEquipped = 0;
+        
         ticketSlotCostText.text = (playerManager.ticketSlotCount * ticketSlotBaseCost).ToString();
 
-        foreach(Ticket ticket in playerManager.ticketDatabase.database)
+        foreach (Ticket ticket in playerManager.ticketDatabase.database)
         {
-            if(ticket.itemData.isEquipped)
+            if (playerManager.ticketDataList.GetItemData(ticket.GUID).isEquipped)
             {
                 UITicketButton currTicket = Instantiate(ticketButtonPrefab, equippedList.transform);
                 currTicket.SetTicket(ticket);
                 currTicket.ticket.EquipTicket();
                 currTicket.CheckUnlocked();
+                ticketsEquipped++;
             }
             else
             {
@@ -46,6 +53,8 @@ public class UITicketManager : MonoBehaviour
                 currTicket.CheckUnlocked();
             }
         }
+
+        ticketDiff = playerManager.ticketSlotCount - ticketsEquipped;
 
         for (int i = 0; i < ticketDiff; i++)
         {
