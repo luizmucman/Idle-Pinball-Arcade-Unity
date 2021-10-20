@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Boost50x10Mins
   m_EditorClassIdentifier: 
   rewardTitle: 50x Boost 5 Minutes
-  rewardDesc: Get a 50x Boost For 5 Minutes.
+  rewardDesc: Get a 50x Boost For 10 Minutes.
   rewardIcon: {fileID: 21300000, guid: 31cff1da35b80e04fa38a20a682dc15b, type: 3}
   rewardType: 7
   gems: 0
   boostData:
-    boostID: BOO005
+    boostID: BOO006
     boostImg: {fileID: 0}
     boostAmt: 20
-    boostLength: 0.176
     inUse: 0
     qtyOwned: 0
+    boostLength: 0.176

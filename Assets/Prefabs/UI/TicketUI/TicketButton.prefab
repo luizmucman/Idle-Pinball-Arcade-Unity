@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 576b4d69d49379d46a836f689dee6658, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 670cfa41653e4954cb67d2f9e1982fae, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -229,6 +229,7 @@ MonoBehaviour:
     rank: 0
     exp: 0
     isUnlocked: 0
+    isEquipped: 0
   ticket: {fileID: 0}
 --- !u!114 &2338324687339776875
 MonoBehaviour:

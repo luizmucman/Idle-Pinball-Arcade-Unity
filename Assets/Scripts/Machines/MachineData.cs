@@ -29,6 +29,11 @@ public class MachineData
     // Away Data
     public DateTime awayCheckPoint;
 
+    public void SetAwayCheckpoint()
+    {
+        awayCheckPoint = DateTime.Now;
+    }
+
     public void SaveMachine()
     {
         ES3.Save(machineGUID + "-isUnlocked", isUnlocked);

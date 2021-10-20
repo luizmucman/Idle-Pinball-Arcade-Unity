@@ -18,6 +18,12 @@ public class PlayFabGooglePlayLoginBtn : MonoBehaviour
     private void Awake()
     {
         btn = GetComponent<Button>();
+
+
+    }
+
+    private void Start()
+    {
         if (PlayerManager.instance.googleAccLinked)
         {
             ShowConnected();
@@ -26,19 +32,24 @@ public class PlayFabGooglePlayLoginBtn : MonoBehaviour
         {
             ShowNotConnected();
         }
-
     }
 
     private void OnPlayFabError(PlayFabError error)
     {
-        PlayGamesPlatform.Instance.SignOut();
+        Debug.Log("Google Login Error Entered");
+        if(PlayGamesPlatform.Instance != null)
+        {
+            PlayGamesPlatform.Instance.SignOut();
+        }
 
         if (error.HttpCode == 400)
         {
+            Debug.Log("Google Link Code 400 Entered");
             Social.localUser.Authenticate((success) =>
             {
                 if (success)
                 {
+                    Debug.Log("Google Link Auth Success");
                     var serverAuthCode = PlayGamesPlatform.Instance.GetServerAuthCode();
                     _AuthService.AuthTicket = serverAuthCode;
                     _AuthService.LinkGooglePlayGames();
@@ -115,6 +126,7 @@ public class PlayFabGooglePlayLoginBtn : MonoBehaviour
 
     private void OnGoogleLink(LinkGoogleAccountResult success)
     {
+        Debug.Log("Google Link Success");
         ShowConnected();
         UnsubscribeEvents();
     }

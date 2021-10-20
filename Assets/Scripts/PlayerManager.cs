@@ -149,7 +149,6 @@ public class PlayerManager : MonoBehaviour
     private void OnApplicationQuit()
     {
         SavePlayerData();
-        //SavePlayerToJson();
     }
 
     private void Start()

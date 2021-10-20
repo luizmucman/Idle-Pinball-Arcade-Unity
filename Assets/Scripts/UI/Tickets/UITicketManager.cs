@@ -97,6 +97,7 @@ public class UITicketManager : MonoBehaviour
         ticketButton.ticket.UnequipTicket();
         ticketButton.ticket.itemData.isEquipped = false;
         ticketButton.transform.SetParent(ownedList.transform);
+        ticketButton.transform.SetAsFirstSibling();
         AddEmptyTicket();
         ticketDiff = playerManager.ticketSlotCount - playerManager.equippedTickets.Count;
         Invoke(nameof(RefreshUI), 0.1f);

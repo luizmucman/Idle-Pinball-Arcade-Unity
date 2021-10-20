@@ -81,7 +81,6 @@ public class MachineManager : MonoBehaviour
         currentBallCount = 0;
         normalBallCount = 0;
 
-        Debug.Log(PlayerManager.instance.ballDataList.GetItemData("BA002").isUnlocked);
         uiManager.uiBallManager.NewMachine();
 
         // Instantiate the normal balls until max balls for machine is reached
@@ -126,14 +125,12 @@ public class MachineManager : MonoBehaviour
     {
         if(pause)
         {
-            SetAwayTime();
             SaveMachine();
         }
     }
 
     private void OnApplicationQuit()
     {
-        SetAwayTime();
         SaveMachine();
     }
 
@@ -280,6 +277,7 @@ public class MachineManager : MonoBehaviour
 
     public void SaveMachine()
     {
+        machineData.SetAwayCheckpoint();
         for (int i = 0; i < objectManagers.Length; i++)
         {
             objectManagers[i].SaveManager(machineSceneName);
