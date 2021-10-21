@@ -76,7 +76,6 @@ MonoBehaviour:
   eventCoins: 0
   seasonPassData:
     isPremium: 0
-    seasonPassPoints: 50
     seasonPassLvl: 1
     seasonPassTiers:
     - containsFreeReward: 0
@@ -245,8 +244,6 @@ MonoBehaviour:
   boostInventory: []
   playerCoins: 550
   playerGems: 0
-  ballInventory: []
-  ticketInventory: []
   ticketSlotCount: 1
   equippedTickets: []
   playerTicketBuffs:
@@ -264,7 +261,7 @@ MonoBehaviour:
   ticketDatabase: {fileID: 11400000, guid: d2691e477f5353747bb165413ec1814c, type: 2}
   mainMachines:
   - machineGUID: MA001
-    machineName: Classic - 1
+    machineName: Classic
     machineCost: 0
     isUnlocked: 1
     isPlaying: 1
@@ -275,7 +272,7 @@ MonoBehaviour:
     accumulatedCoins: 0
     machineImage: {fileID: 21300000, guid: 2873cf9d4a318ad45bc5fae4eabf942d, type: 3}
   - machineGUID: MA002
-    machineName: Classic - 2
+    machineName: Under The Sea
     machineCost: 7.7e+18
     isUnlocked: 0
     isPlaying: 0
@@ -284,9 +281,9 @@ MonoBehaviour:
     totalCoinsGained: 0
     coinsPerSecond: 0
     accumulatedCoins: 0
-    machineImage: {fileID: 21300000, guid: 2873cf9d4a318ad45bc5fae4eabf942d, type: 3}
+    machineImage: {fileID: 21300000, guid: ffa54b0c53cc18d43a1bb69003ba530a, type: 3}
   - machineGUID: MA003
-    machineName: Classic - 3
+    machineName: Alien Invasion
     machineCost: 6.2e+24
     isUnlocked: 0
     isPlaying: 0
@@ -295,9 +292,9 @@ MonoBehaviour:
     totalCoinsGained: 0
     coinsPerSecond: 0
     accumulatedCoins: 0
-    machineImage: {fileID: 21300000, guid: 2873cf9d4a318ad45bc5fae4eabf942d, type: 3}
+    machineImage: {fileID: 21300000, guid: 88011c2e97a5f9b4f9a5d07eef397606, type: 3}
   - machineGUID: MA004
-    machineName: Classic - 4
+    machineName: Classic - 2
     machineCost: 3.68e+29
     isUnlocked: 0
     isPlaying: 0
@@ -308,7 +305,7 @@ MonoBehaviour:
     accumulatedCoins: 0
     machineImage: {fileID: 21300000, guid: 2873cf9d4a318ad45bc5fae4eabf942d, type: 3}
   - machineGUID: MA005
-    machineName: Classic - 5
+    machineName: Under The Sea - 2
     machineCost: 4.91e+35
     isUnlocked: 0
     isPlaying: 0
@@ -317,7 +314,7 @@ MonoBehaviour:
     totalCoinsGained: 0
     coinsPerSecond: 0
     accumulatedCoins: 0
-    machineImage: {fileID: 21300000, guid: 2873cf9d4a318ad45bc5fae4eabf942d, type: 3}
+    machineImage: {fileID: 21300000, guid: ffa54b0c53cc18d43a1bb69003ba530a, type: 3}
   eventMachines:
   - machineGUID: EV001
     machineName: All Natural
@@ -331,17 +328,6 @@ MonoBehaviour:
     accumulatedCoins: 0
     machineImage: {fileID: 21300000, guid: 0fc4d60fd21897048afbdfd792d2fcd6, type: 3}
   - machineGUID: EV002
-    machineName: Under The Sea
-    machineCost: 1000
-    isUnlocked: 0
-    isPlaying: 0
-    isEvent: 1
-    isCurrentEvent: 0
-    totalCoinsGained: 0
-    coinsPerSecond: 0
-    accumulatedCoins: 0
-    machineImage: {fileID: 21300000, guid: ffa54b0c53cc18d43a1bb69003ba530a, type: 3}
-  - machineGUID: EV003
     machineName: Sweet Treats
     machineCost: 1000
     isUnlocked: 0
@@ -365,6 +351,10 @@ MonoBehaviour:
     accumulatedCoins: 0
     machineImage: {fileID: 0}
   maxIdleTime: 2
+  ballDataList:
+    itemList: []
+  ticketDataList:
+    itemList: []
 --- !u!114 &1232679007
 MonoBehaviour:
   m_ObjectHideFlags: 0

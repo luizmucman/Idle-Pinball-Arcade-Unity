@@ -2443,7 +2443,7 @@ MonoBehaviour:
   currentBallCount: 0
   maxEquippedBalls: 1
   instantiatedBalls: []
-  testBalance: 1
+  testBalance: 0
   machineSceneName: 
   cpsMinuteCounter: 0
   coinsPerSecondCounter: 0

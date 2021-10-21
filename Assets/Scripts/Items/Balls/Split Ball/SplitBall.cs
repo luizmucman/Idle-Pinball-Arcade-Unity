@@ -22,19 +22,26 @@ public class SplitBall : Ball
         for (int i = 0; i < numSplitBalls; i++)
         {
             GameObject newBall = Instantiate(gameObject);
-            splitBalls.Add(newBall);
+            newBall.GetComponent<SplitBall>().RemoveSplitBalls();
             newBall.GetComponent<Ball>().theRB.velocity = new Vector2(Random.Range(-ballForce, ballForce), Random.Range(-ballForce, ballForce));
         }
 
-        Invoke(nameof(RemoveSplitBalls), skillLength);
+        Invoke(nameof(SetInactiveSkill), skillLength);
     }
 
     private void RemoveSplitBalls()
     {
+        Invoke(nameof(DestroyBall), skillLength);
+        
+    }
+
+    private void DestroyBall()
+    {
+        Destroy(gameObject);
+    }
+
+    private void SetInactiveSkill()
+    {
         skillActive = false;
-        foreach(GameObject ball in splitBalls) 
-        {
-            Destroy(ball);
-        }
     }
 }

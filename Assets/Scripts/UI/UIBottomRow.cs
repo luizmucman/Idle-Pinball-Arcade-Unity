@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UIBottomRow : MonoBehaviour
 {
     public List<UIMenuButton> menuButtons;
-    public List<GameObject> windows;
+    public List<UIWindow> windows;
 
     public Sprite menuButtonUnselected;
     public Sprite menuButtonSelected;
@@ -16,9 +16,12 @@ public class UIBottomRow : MonoBehaviour
         PlayerManager.instance.currentMachine.DisableUpgradeWindow();
         UIManager.instance.uiMenuManager.CloseSettingsWindow();
         UIManager.instance.HideOverlay();
-        foreach(GameObject window in windows)
+        foreach(UIWindow window in windows)
         {
-            window.SetActive(false);
+            if(window.gameObject.activeSelf)
+            {
+                window.CloseAnim();
+            }
         }
 
         foreach(UIMenuButton menuButton in menuButtons)
@@ -34,7 +37,7 @@ public class UIBottomRow : MonoBehaviour
         {
             ResetButtonState();
             UIManager.instance.ShowOverlay();
-            windows[button.windowID].SetActive(true);
+            windows[button.windowID].OpenAnim();
             button.isClicked = true;
             button.GetComponent<Image>().sprite = button.isSelected;
         }

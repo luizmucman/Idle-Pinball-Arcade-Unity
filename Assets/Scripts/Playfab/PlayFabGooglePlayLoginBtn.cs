@@ -37,24 +37,30 @@ public class PlayFabGooglePlayLoginBtn : MonoBehaviour
     private void OnPlayFabError(PlayFabError error)
     {
         Debug.Log("Google Login Error Entered");
-        if(PlayGamesPlatform.Instance != null)
-        {
-            PlayGamesPlatform.Instance.SignOut();
-        }
 
         if (error.HttpCode == 400)
         {
             Debug.Log("Google Link Code 400 Entered");
-            Social.localUser.Authenticate((success) =>
+            PlayGamesPlatform.Instance.GetAnotherServerAuthCode(true, (authenticationCode) =>
             {
-                if (success)
+                Debug.Log("Google play authentication executed");
+                if (authenticationCode != null)
                 {
-                    Debug.Log("Google Link Auth Success");
-                    var serverAuthCode = PlayGamesPlatform.Instance.GetServerAuthCode();
+                    var serverAuthCode = authenticationCode;
                     _AuthService.AuthTicket = serverAuthCode;
                     _AuthService.LinkGooglePlayGames();
                 }
             });
+            //Social.localUser.Authenticate((success) =>
+            //{
+            //    if (success)
+            //    {
+            //        Debug.Log("Google Link Auth Success");
+            //        var serverAuthCode = PlayGamesPlatform.Instance.GetServerAuthCode();
+            //        _AuthService.AuthTicket = serverAuthCode;
+            //        _AuthService.LinkGooglePlayGames();
+            //    }
+            //});
         }
         else
         {

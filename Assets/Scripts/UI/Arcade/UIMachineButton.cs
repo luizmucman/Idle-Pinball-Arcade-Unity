@@ -52,10 +52,14 @@ public class UIMachineButton : MonoBehaviour
 
     public void LoadMachine()
     {
-        PlayerManager.instance.currentMachine.SaveMachine();
-        PlayerManager.instance.currentMachine.machineData.isPlaying = false;
-        PlayerManager.instance.currMachineData = machineData;
-        SceneManager.LoadScene(machineData.machineGUID);
+        if(SceneManager.GetSceneByName(machineData.machineGUID) != null)
+        {
+            PlayerManager.instance.currentMachine.SaveMachine();
+            PlayerManager.instance.currentMachine.machineData.isPlaying = false;
+            PlayerManager.instance.currMachineData = machineData;
+            SceneManager.LoadScene(machineData.machineGUID);
+        }
+
     }
 
     public void BuyMachine()

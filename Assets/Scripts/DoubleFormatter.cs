@@ -27,7 +27,7 @@ public static class DoubleFormatter
             return FormatThousands(number.ToString().Split('.')[0]);
         }
 
-        return number.ToString("0.00E+0");
+        return number.ToString("00.000E+0");
     }
 
     private static string FormatThousands(string number)

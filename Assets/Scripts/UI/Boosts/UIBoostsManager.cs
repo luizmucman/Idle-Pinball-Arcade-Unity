@@ -8,7 +8,7 @@ public class UIBoostsManager : MonoBehaviour
 
     public List<BoostActiveContainer> boostContainers;
 
-    public GameObject boostWindow;
+    public UIWindow boostWindow;
     public Text mainUIBoostText;
 
     // Active Boost Instantiate
@@ -80,13 +80,13 @@ public class UIBoostsManager : MonoBehaviour
 
     public void CloseBoostWindow()
     {
-        boostWindow.SetActive(false);
+        boostWindow.CloseAnim();
     }
 
     public void OpenBoostWindow()
     {
         ResetOwnedBoosts();
-        boostWindow.SetActive(true);
+        boostWindow.OpenAnim();
     }
 
     public void ResetOwnedBoosts()

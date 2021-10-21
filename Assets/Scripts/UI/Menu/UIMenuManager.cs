@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class UIMenuManager : MonoBehaviour
 {
-    public GameObject settingsWindow;
+    public UIWindow settingsWindow;
 
     private PlayFabAuthService _AuthService = PlayFabAuthService.Instance;
 
@@ -88,13 +88,13 @@ public class UIMenuManager : MonoBehaviour
 
     public void OpenSettingsWindow()
     {
-        settingsWindow.SetActive(true);
+        settingsWindow.OpenAnim();
         UIManager.instance.ShowOverlay();
     }
 
     public void CloseSettingsWindow()
     {
-        settingsWindow.SetActive(false);
+        settingsWindow.CloseAnim();
         UIManager.instance.HideOverlay();
     }
 
