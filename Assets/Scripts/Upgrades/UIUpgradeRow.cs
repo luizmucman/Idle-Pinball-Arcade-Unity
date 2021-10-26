@@ -153,16 +153,15 @@ public class UIUpgradeRow : MonoBehaviour
 
         PlayerManager.instance.RemoveCoins(currentCost);
         selectedUpgrade.LevelUp(upgradeAmt);
-        topLevel.text = objectManager.upgradeData.level.ToString() + "/" + objectManager.upgradeData.unlockLevelData.unlocks[objectManager.upgradeData.currentUnlockStage].level;
-        currLvl.text = selectedUpgrade.level.ToString();
-        currCPH.text = DoubleFormatter.Format(selectedUpgrade.GetProductionValue(selectedUpgrade.level));
+        SetUpgradeUIData();
         SetCostByAmount(upgradeAmt);
     }
 
     public void BuyUnlock()
     {
         PlayerManager.instance.RemoveCoins(selectedUpgrade.baseCost);
-        selectedUpgrade.level++;
+        selectedUpgrade.LevelUp(1);
+        SetUpgradeUIData();
         objectManager.ShowObjects();
         HideLock();
     }
@@ -175,5 +174,12 @@ public class UIUpgradeRow : MonoBehaviour
     public void HideLock()
     {
         lockOverlay.SetActive(false);
+    }
+
+    private void SetUpgradeUIData()
+    {
+        topLevel.text = objectManager.upgradeData.level.ToString() + "/" + objectManager.upgradeData.unlockLevelData.unlocks[objectManager.upgradeData.currentUnlockStage].level;
+        currLvl.text = selectedUpgrade.level.ToString();
+        currCPH.text = DoubleFormatter.Format(selectedUpgrade.GetProductionValue(selectedUpgrade.level));
     }
 }

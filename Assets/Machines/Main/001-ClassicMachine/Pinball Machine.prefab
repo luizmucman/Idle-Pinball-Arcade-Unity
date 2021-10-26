@@ -2348,7 +2348,7 @@ MonoBehaviour:
     objectName: Green Arrows
     upgradeDesc: Gain coins just for crossing this path. Jackpot gives {JackpotMultiplier}
       the normal amount when all lights are lit.
-    baseCoinProduction: 255913
+    baseCoinProduction: 85304
     baseCost: 21499084800
     upgradeCostGrowthRate: 1.08
     jackpotMultiplier: 20
@@ -2416,7 +2416,7 @@ MonoBehaviour:
     objectName: Teleport Bumpers
     upgradeDesc: Teleport to riches! Gain coins for each ball teleported and each
       bumper hit.
-    baseCoinProduction: 121246
+    baseCoinProduction: 40415
     baseCost: 1791590400
     upgradeCostGrowthRate: 1.09
     jackpotMultiplier: 0
@@ -2627,7 +2627,7 @@ MonoBehaviour:
     objectName: Blue Ramp
     upgradeDesc: A ramp to reset the balls to your right flipper. Gain coins for
       every ball and {JackpotMultiplier} coins for jackpot.
-    baseCoinProduction: 2200
+    baseCoinProduction: 733
     baseCost: 86400
     upgradeCostGrowthRate: 1.14
     jackpotMultiplier: 10
@@ -4162,7 +4162,7 @@ MonoBehaviour:
     objectName: Yellow Arrows
     upgradeDesc: Another path to cross! Jackpot gives {JackpotMultiplier} the normal
       amount when all lights are lit.
-    baseCoinProduction: 506970
+    baseCoinProduction: 253485
     baseCost: 257989017600
     upgradeCostGrowthRate: 1.07
     jackpotMultiplier: 20
@@ -6044,7 +6044,7 @@ MonoBehaviour:
     objectName: Red Ramp
     upgradeDesc: A ramp that leads to a favourable spot! Gain coins for every ball
       entry and {JackpotMultiplier} coins for jackpot.
-    baseCoinProduction: 500
+    baseCoinProduction: 167
     baseCost: 7200
     upgradeCostGrowthRate: 1.14
     jackpotMultiplier: 5
@@ -8513,7 +8513,7 @@ PolygonCollider2D:
       - {x: 1.5818181, y: 4.3696966}
       - {x: 1.351515, y: 4.5757575}
       - {x: 1.1289263, y: 4.704684}
-      - {x: 1.0954835, y: 4.714877}
+      - {x: 1.0860004, y: 4.716774}
       - {x: 1.062075, y: 4.7076216}
       - {x: 1.0363636, y: 4.6969695}
       - {x: 1.0363636, y: 4.660606}
@@ -8577,32 +8577,15 @@ PolygonCollider2D:
       - {x: -0.19999999, y: 1.9212121}
       - {x: -0.16299574, y: 1.8825167}
       - {x: -0.070920765, y: 1.8988917}
-      - {x: -0.05518619, y: 1.9175988}
-      - {x: -0.0630533, y: 1.9696969}
-      - {x: -0.07878788, y: 2.0666666}
-      - {x: -0.12727273, y: 2.2363636}
-      - {x: -0.17575757, y: 2.4181817}
-      - {x: -0.19999999, y: 2.5030303}
-      - {x: -0.34545454, y: 3.0363636}
-      - {x: -0.46666664, y: 3.472727}
-      - {x: -0.57575756, y: 3.8727272}
-      - {x: -0.66843396, y: 4.1867166}
-      - {x: -0.71892697, y: 4.3575754}
+      - {x: -0.057867892, y: 1.9310073}
       - {x: -0.77069056, y: 4.532191}
-      - {x: -0.8167788, y: 4.6209054}
-      - {x: -0.8964678, y: 4.689491}
-      - {x: -0.95366555, y: 4.7170696}
-      - {x: -1.022557, y: 4.735235}
-      - {x: -1.1565831, y: 4.745639}
-      - {x: -1.2537192, y: 4.750565}
-      - {x: -1.2729341, y: 4.750378}
-      - {x: -1.4824098, y: 4.747821}
-      - {x: -1.5833783, y: 4.7407737}
-      - {x: -1.7151514, y: 4.7090907}
-      - {x: -1.7878788, y: 4.672727}
-      - {x: -1.8727272, y: 4.612121}
-      - {x: -1.9575757, y: 4.5151515}
-      - {x: -2.0181818, y: 4.4424243}
+      - {x: -0.8236692, y: 4.612637}
+      - {x: -0.88417125, y: 4.669731}
+      - {x: -0.93166983, y: 4.703764}
+      - {x: -1.0525291, y: 4.748506}
+      - {x: -1.5941156, y: 4.723248}
+      - {x: -1.783865, y: 4.6448474}
+      - {x: -1.9030988, y: 4.5390253}
       - {x: -2.0545454, y: 4.3575754}
       - {x: -2.0787878, y: 4.2969694}
       - {x: -2.1030302, y: 4.1878786}
@@ -8617,32 +8600,26 @@ PolygonCollider2D:
       - {x: -1.3151515, y: 1.8484848}
       - {x: -1.2554878, y: 1.9085933}
       - {x: -1.351515, y: 2.260606}
-    - - {x: -0.34775284, y: 4.7218766}
-      - {x: -0.37211594, y: 4.7200575}
-      - {x: -0.38973743, y: 4.7146215}
+    - - {x: -0.3339975, y: 4.7218766}
+      - {x: -0.3794209, y: 4.723792}
       - {x: -0.41216618, y: 4.693432}
-      - {x: -0.3631967, y: 4.4920583}
       - {x: -0.32568392, y: 4.362442}
       - {x: -0.29343227, y: 4.337535}
       - {x: -0.2526868, y: 4.3556714}
       - {x: -0.23512453, y: 4.388408}
-      - {x: -0.26777083, y: 4.5321393}
     - - {x: 0.10714229, y: 4.549127}
       - {x: 0.15982908, y: 4.3582397}
-      - {x: 0.19380446, y: 4.341162}
-      - {x: 0.23331085, y: 4.362927}
+      - {x: 0.22184804, y: 4.341148}
       - {x: 0.2442829, y: 4.3949986}
-      - {x: 0.23521446, y: 4.4696293}
       - {x: 0.16133805, y: 4.6994476}
-      - {x: 0.1321392, y: 4.7218766}
+      - {x: 0.11838386, y: 4.728754}
       - {x: 0.08060156, y: 4.705553}
       - {x: 0.0726823, y: 4.6752954}
-    - - {x: 0.62681055, y: 4.721876}
-      - {x: 0.5703165, y: 4.7055535}
+    - - {x: 0.64223766, y: 4.7076626}
+      - {x: 0.58783704, y: 4.731047}
       - {x: 0.55571705, y: 4.6734815}
-      - {x: 0.6518423, y: 4.34542}
-      - {x: 0.68161577, y: 4.3339076}
-      - {x: 0.7090909, y: 4.3466034}
+      - {x: 0.64496464, y: 4.351151}
+      - {x: 0.69992065, y: 4.338579}
       - {x: 0.73457247, y: 4.391461}
       - {x: 0.69104403, y: 4.543021}
 --- !u!1 &5041403444746136356
@@ -9259,7 +9236,7 @@ MonoBehaviour:
     objectName: Red Targets
     upgradeDesc: An inner circle to the blue circle! Targets give coins for every
       ball hit and {JackpotMultiplier} jackpot.
-    baseCoinProduction: 53863
+    baseCoinProduction: 17954
     baseCost: 149299200
     upgradeCostGrowthRate: 1.1
     jackpotMultiplier: 15
@@ -13220,7 +13197,7 @@ MonoBehaviour:
     upgradeIcon: {fileID: 21300000, guid: 0d3ec5b684451bd48a4a6b83346c04bc, type: 3}
     objectName: Paddles
     upgradeDesc: The trusty paddles. Gain coins for every flip of a paddle.
-    baseCoinProduction: 3
+    baseCoinProduction: 1
     baseCost: 40
     upgradeCostGrowthRate: 1.07
     jackpotMultiplier: 0
@@ -13431,7 +13408,7 @@ MonoBehaviour:
     upgradeIcon: {fileID: 21300000, guid: f3972f57f46bddc489895128f2b3c3ba, type: 3}
     objectName: Main Bumpers
     upgradeDesc: The good ol' basic bumpers! Gains coins for every ball hit.
-    baseCoinProduction: 3
+    baseCoinProduction: 1
     baseCost: 40
     upgradeCostGrowthRate: 1.07
     jackpotMultiplier: 0
@@ -14683,7 +14660,7 @@ MonoBehaviour:
     objectName: Yellow Dot Lights
     upgradeDesc: Roll a ball over these lights for coins. Gain a jackpot worth {JackpotMultiplier}
       the normal amount when they all light up!
-    baseCoinProduction: 43
+    baseCoinProduction: 14
     baseCost: 600
     upgradeCostGrowthRate: 1.15
     jackpotMultiplier: 3
@@ -14762,7 +14739,7 @@ MonoBehaviour:
     objectName: Bumper Targets
     upgradeDesc: Super bouncy targets. Gain coins for every hit and {JackpotMultiplier}
       coins for jackpot.
-    baseCoinProduction: 6883
+    baseCoinProduction: 2294
     baseCost: 12441600
     upgradeCostGrowthRate: 1.12
     jackpotMultiplier: 5
@@ -15181,7 +15158,7 @@ MonoBehaviour:
     objectName: Teleporter Ramp
     upgradeDesc: A special teleporter to reset your ball back to your flipper. Gain
       coins for every teleport.
-    baseCoinProduction: 92133
+    baseCoinProduction: 30711
     baseCost: 1036800
     upgradeCostGrowthRate: 1.11
     jackpotMultiplier: 0

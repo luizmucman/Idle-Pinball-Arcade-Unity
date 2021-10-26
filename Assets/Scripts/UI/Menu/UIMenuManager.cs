@@ -94,8 +94,12 @@ public class UIMenuManager : MonoBehaviour
 
     public void CloseSettingsWindow()
     {
-        settingsWindow.CloseAnim();
-        UIManager.instance.HideOverlay();
+        if(settingsWindow.isActiveAndEnabled)
+        {
+            settingsWindow.CloseAnim();
+            UIManager.instance.HideOverlay();
+        }
+
     }
 
     public void SetPlayerId(string id)

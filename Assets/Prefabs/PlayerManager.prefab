@@ -242,7 +242,7 @@ MonoBehaviour:
   globalCoinMultiplier: 1
   boostDatabase: {fileID: 11400000, guid: b1e044ea2fcc511429c196ee0892721a, type: 2}
   boostInventory: []
-  playerCoins: 550
+  playerCoins: 600
   playerGems: 0
   ticketSlotCount: 1
   equippedTickets: []
