@@ -8,9 +8,9 @@ public class ChallengeData
 {
     [SerializeField] private ChallengeType challengeType;
     [SerializeField] private int challengeGoal;
-    [SerializeField] private RewardType rewardType;
     [SerializeField] private string title;
     [SerializeField] private string description;
+    [SerializeField] private SeasonPassItemSO reward;
     private int challengeProgress;
     private bool rewardClaimed;
 
@@ -36,10 +36,14 @@ public class ChallengeData
     {
         if (challengeProgress == challengeGoal && !rewardClaimed)
         {
-
-
+            reward.GetItem();
             rewardClaimed = true;
         }
+    }
+
+    public SeasonPassItemSO GetRewardData()
+    {
+        return reward;
     }
 
     public string GetTitle()
@@ -79,6 +83,7 @@ public class ChallengeData
 
     public void SaveData()
     {
+        Debug.Log("Challenge Saved");
         ES3.Save(title + "-progress", challengeProgress);
         ES3.Save(title + "-claimed", rewardClaimed);
     }

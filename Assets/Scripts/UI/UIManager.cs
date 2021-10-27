@@ -22,6 +22,7 @@ public class UIManager : MonoBehaviour
     public UISeasonPassManager uiSeasonPassManager;
     public UIMenuManager uiMenuManager;
     public UIErrorWindow uiErrorWindow;
+    public UIChallengeManager uiChallengeManager;
 
     [Header("Top Bar UI")]
     // Top Bar

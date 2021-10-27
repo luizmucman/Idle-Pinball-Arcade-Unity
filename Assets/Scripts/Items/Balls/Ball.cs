@@ -63,6 +63,7 @@ public class Ball : Item
         // Check if collided object is interactable
         if(hitObject.GetComponent<InteractableObject>() != null)
         {
+            UIManager.instance.uiChallengeManager.AddChallengeHit(1, ChallengeType.BallHit);
             hitObject.GetComponent<InteractableObject>().BallHit(this, other);
             particle.Play();
             if(!skillActive)
@@ -84,6 +85,7 @@ public class Ball : Item
         // Check if collided object is interactable
         if (hitObject.GetComponent<InteractableObject>() != null)
         {
+            UIManager.instance.uiChallengeManager.AddChallengeHit(1, ChallengeType.BallHit);
             hitObject.GetComponent<InteractableObject>().BallHit(this, other);
             particle.Play();
         }

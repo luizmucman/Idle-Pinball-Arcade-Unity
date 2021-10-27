@@ -34,20 +34,12 @@ public class UIChallengeManager : MonoBehaviour
     {
         if(lastRecordedDay.Date == DateTime.Now.Date)
         {
-            string timeLeft = (DateTime.Now.AddDays(1.0).Date - DateTime.Now).ToString("t");
+            string timeLeft = (DateTime.Now.AddDays(1.0).Date - DateTime.Now).ToString("hh\\:mm\\:ss");
             dailyChallengeCountdown.text = "Time Until Reset: " + timeLeft;
         }
         else
         {
             ChooseNewDailyChallenges();
-        }
-    }
-
-    private void OnApplicationPause(bool pause)
-    {
-        if(pause)
-        {
-            SaveChallenges();
         }
     }
 
@@ -73,6 +65,7 @@ public class UIChallengeManager : MonoBehaviour
 
     public void ChooseNewDailyChallenges()
     {
+        Debug.Log("Populate New Dailies");
         lastRecordedDay = DateTime.Now;
         dailyChallenges.ResetChallenges();
         List<ChallengeData> dailyChallengeList = dailyChallenges.GetChallengeData();
@@ -103,6 +96,7 @@ public class UIChallengeManager : MonoBehaviour
 
     public void PopulateSavedDailyChallenges()
     {
+        Debug.Log("Populate Saved Dailies");
         List<ChallengeData> dailyChallengeList = dailyChallenges.GetChallengeData();
         foreach (int index in chosenDailyChallengeIndexs)
         {
@@ -111,6 +105,14 @@ public class UIChallengeManager : MonoBehaviour
             currChallengeRow.SetChallengeRow(data);
             ChallengeType currType = data.GetChallengeType();
             ClassifyChallengeRow(currChallengeRow, currType);
+        }
+    }
+
+    public void AddChallengeHit(int hitNum, ChallengeType challengeType)
+    {
+        foreach(UIChallengeRow challengeRow in bumperChallenges)
+        {
+            challengeRow.AddProgress(hitNum);
         }
     }
 
@@ -130,15 +132,19 @@ public class UIChallengeManager : MonoBehaviour
         }
     }
 
-    private void SaveChallenges()
+    public void SaveChallenges()
     {
         ES3.Save("challenges-recorded-day", lastRecordedDay);
+        ES3.Save("chosen-daily-indexs", chosenDailyChallengeIndexs);
         globalChallenges.SaveDatabase();
+        dailyChallenges.SaveDatabase();
     }
 
-    private void LoadChallenges()
+    public void LoadChallenges()
     {
-        ES3.Load("challenges-recorded-day", new DateTime());
+        lastRecordedDay = ES3.Load("challenges-recorded-day", new DateTime());
+        chosenDailyChallengeIndexs = ES3.Load("chosen-daily-indexs", chosenDailyChallengeIndexs);
         globalChallenges.LoadDatabase();
+        dailyChallenges.LoadDatabase();
     }
 }

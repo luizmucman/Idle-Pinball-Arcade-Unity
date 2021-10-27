@@ -7,6 +7,8 @@ public abstract class ObjectManager : MonoBehaviour
 {
 
     private MachineManager machineManager;
+    public ChallengeType challengeType;
+    public bool hasChallenge;
 
     // Upgrade Data
     public UpgradeData upgradeData;
@@ -34,7 +36,7 @@ public abstract class ObjectManager : MonoBehaviour
         machineManager = GetComponentInParent<MachineManager>();
     }
 
-    public void Start()
+    public virtual void Start()
     {
         CheckIfObjectOwned();
         timePassed = 0;
@@ -69,6 +71,11 @@ public abstract class ObjectManager : MonoBehaviour
 
     public virtual void Payout(Ball ball, float multiplier)
     {
+        if(hasChallenge)
+        {
+            UIManager.instance.uiChallengeManager.AddChallengeHit(1, challengeType);
+        }
+
         double coinGain = 0;
         if (machineManager.testBalance)
         {
@@ -90,6 +97,11 @@ public abstract class ObjectManager : MonoBehaviour
 
     public virtual void Payout(float multiplier)
     {
+        if (hasChallenge)
+        {
+            UIManager.instance.uiChallengeManager.AddChallengeHit(1, challengeType);
+        }
+
         double coinGain = 0;
         if (machineManager.testBalance && multiplier > 1f)
         {

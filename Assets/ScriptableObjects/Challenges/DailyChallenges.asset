@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc74b848005f6d4ab913c7555c1b2b0, type: 3}
+  m_Name: DailyChallenges
+  m_EditorClassIdentifier: 
+  challengeData:
+  - challengeType: 0
+    challengeGoal: 100
+    title: Break The Bumpers
+    description: Hit your bumpers 100 times
+    reward: {fileID: 11400000, guid: 70818cd6fd6781046a3b0dae9d572ecd, type: 2}
+  - challengeType: 3
+    challengeGoal: 100
+    title: Flip Those Paddles
+    description: Flip your paddles 100 times
+    reward: {fileID: 11400000, guid: db3cf6eb62c0d174caca3fce27d7b6c5, type: 2}
+  - challengeType: 1
+    challengeGoal: 50
+    title: Whoosh!
+    description: Enter a ramp 50 times
+    reward: {fileID: 11400000, guid: 70818cd6fd6781046a3b0dae9d572ecd, type: 2}
+  - challengeType: 4
+    challengeGoal: 500
+    title: The Balls Deserve It
+    description: Hit your balls on anything 500 times
+    reward: {fileID: 11400000, guid: 70818cd6fd6781046a3b0dae9d572ecd, type: 2}

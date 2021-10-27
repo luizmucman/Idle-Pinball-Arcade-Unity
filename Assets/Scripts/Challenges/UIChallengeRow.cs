@@ -10,17 +10,24 @@ public class UIChallengeRow : MonoBehaviour
     [SerializeField] private Text progressText;
     [SerializeField] private Text goalText;
     [SerializeField] private Button claimBtn;
+    [SerializeField] private Image rewardIcon;
+    [SerializeField] private Text rewardTitle;
 
-    public ChallengeData challengeData;
+    [HideInInspector] public ChallengeData challengeData;
 
     public void SetChallengeRow(ChallengeData data)
     {
+        SeasonPassItemSO rewardData = data.GetRewardData();
         challengeData = data;
 
         title.text = challengeData.GetTitle();
         description.text = challengeData.GetDescription();
         progressText.text = challengeData.GetProgress();
-        goalText.text = challengeData.GetGoal();
+        goalText.text = "/" + challengeData.GetGoal();
+        rewardIcon.sprite = rewardData.rewardIcon;
+        rewardTitle.text = rewardData.rewardTitle;
+
+        SetProgress();
     }
 
     public void ClaimRewardBtn()
@@ -33,7 +40,8 @@ public class UIChallengeRow : MonoBehaviour
     {
         if(challengeData.GoalReached())
         {
-            if(challengeData.IsClaimed())
+            claimBtn.gameObject.SetActive(true);
+            if (challengeData.IsClaimed())
             {
                 claimBtn.interactable = false;
                 claimBtn.GetComponentInChildren<Text>().text = "CLAIMED";
@@ -41,14 +49,14 @@ public class UIChallengeRow : MonoBehaviour
             else
             {
                 claimBtn.interactable = true;
-                claimBtn.GetComponentInChildren<Text>().text = "CLAIM";
+                claimBtn.GetComponentInChildren<Text>().text = "CLAIM REWARD";
             }
         }
         else
         {
-            claimBtn.interactable = false;
-            claimBtn.GetComponentInChildren<Text>().text = challengeData.GetProgress() + "/" + challengeData.GetGoal();
+            claimBtn.gameObject.SetActive(false);
         }
+        progressText.text = challengeData.GetProgress();
     }
 
     public void AddProgress(int progressNum)

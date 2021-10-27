@@ -5,4 +5,10 @@ using UnityEngine;
 public class BumperManager : ObjectManager
 {
 
+    public override void Start()
+    {
+        base.Start();
+        challengeType = ChallengeType.BumperHit;
+        hasChallenge = true;
+    }
 }

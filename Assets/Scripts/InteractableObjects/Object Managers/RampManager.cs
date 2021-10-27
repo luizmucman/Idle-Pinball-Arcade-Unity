@@ -17,6 +17,13 @@ public class RampManager : ObjectManager
         hitCount = 0;
     }
 
+    public override void Start()
+    {
+        base.Start();
+        challengeType = ChallengeType.RampHit;
+        hasChallenge = true;
+    }
+
     public void AddHit(Ball ball)
     {
         if (hitCount < lights.Length)

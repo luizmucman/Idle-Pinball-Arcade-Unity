@@ -350,6 +350,7 @@ public class PlayerManager : MonoBehaviour
 
             seasonPassData.SaveSeasonPassData();
             currentMachine.SaveMachine();
+            UIManager.instance.uiChallengeManager.SaveChallenges();
 
             ES3.StoreCachedFile();
             SaveToPlayFab();
