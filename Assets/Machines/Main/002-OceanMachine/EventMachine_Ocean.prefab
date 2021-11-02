@@ -1955,12 +1955,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec8f47545c02b914fb31d5a70a1f4ab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeType: 0
+  hasChallenge: 0
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: 838cdc67aaaaf5244a45d4661e40526b, type: 3}
     objectName: Arrow Path 3
     upgradeDesc: The third path. Gain coins for every ball crossed and {JackpotValue}
       for jackpot.
-    baseCoinProduction: 329080
+    baseCoinProduction: 110570
     baseCost: 21499084800
     upgradeCostGrowthRate: 1.08
     jackpotMultiplier: 15
@@ -2167,12 +2169,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0deddfebf2c14ed498f57d6848f86113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeType: 0
+  hasChallenge: 0
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: d9cf7ac587709764a9de54e5c9a08d54, type: 3}
     objectName: Shell Lights
     upgradeDesc: Sea shell rollovers. Gain coins for every ball rollover and {JackpotValue}
       for jackpot.
-    baseCoinProduction: 37
+    baseCoinProduction: 12
     baseCost: 600
     upgradeCostGrowthRate: 1.15
     jackpotMultiplier: 10
@@ -2304,12 +2308,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec8f47545c02b914fb31d5a70a1f4ab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeType: 0
+  hasChallenge: 0
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: 30e1951fc8fb3b240a866939b4baad60, type: 3}
     objectName: Arrow Path 2
     upgradeDesc: The final path to the treasures. Gain coins for every ball crossed
       and {JackpotValue} for jackpot.
-    baseCoinProduction: 1202863
+    baseCoinProduction: 404161
     baseCost: 257989017600
     upgradeCostGrowthRate: 1.07
     jackpotMultiplier: 0
@@ -2375,12 +2381,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 151bc387f22cddb4c9ffcb04dfcf8b95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeType: 0
+  hasChallenge: 0
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: c405e83370047f546abbf665b5883736, type: 3}
     objectName: Jellyfish Targets
     upgradeDesc: These jellyfish don't sting. Gain coins for each target hit and
       {JackpotValue} for jackpot.
-    baseCoinProduction: 55903
+    baseCoinProduction: 16771
     baseCost: 12441600
     upgradeCostGrowthRate: 1.11
     jackpotMultiplier: 0
@@ -2642,12 +2650,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec8f47545c02b914fb31d5a70a1f4ab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeType: 0
+  hasChallenge: 0
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: a813347c00d6234418ac028e0740dd3d, type: 3}
     objectName: Arrow Path 4
     upgradeDesc: Another path! Gain coins for every ball crossed and {JackpotValue}
       for every jackpot.
-    baseCoinProduction: 130277
+    baseCoinProduction: 43772
     baseCost: 1791590400
     upgradeCostGrowthRate: 1.09
     jackpotMultiplier: 10
@@ -2853,12 +2863,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa240c1d812456b4cb2158db7ed7faa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeType: 0
+  hasChallenge: 0
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: 2b1d729804e22e141b9170b780c97995, type: 3}
     objectName: Light Blue Ramp
     upgradeDesc: Light blue ramp. Gain coins for every ball entry and {JackpotValue}
       for jackpot.
-    baseCoinProduction: 3783
+    baseCoinProduction: 1270
     baseCost: 86400
     upgradeCostGrowthRate: 1.13
     jackpotMultiplier: 5
@@ -3956,11 +3968,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b18d9138cde75df4d8c91dcd2ee4c1d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeType: 0
+  hasChallenge: 0
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: e0df647309ae3c74b904787db7ce9ab9, type: 3}
     objectName: Ocean Paddles
     upgradeDesc: Paddles under the ocean! Gain coins for every flip of the paddles.
-    baseCoinProduction: 3
+    baseCoinProduction: 1
     baseCost: 40
     upgradeCostGrowthRate: 1.07
     jackpotMultiplier: 0
@@ -6067,12 +6081,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec8f47545c02b914fb31d5a70a1f4ab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeType: 0
+  hasChallenge: 0
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: 10cd02b13174df54e84f6854575bd8eb, type: 3}
     objectName: Arrow Path 1
     upgradeDesc: The first path to riches. Gain coins for every ball crossed and
       {JackpotValue} for jackpot.
-    baseCoinProduction: 46067
+    baseCoinProduction: 15478
     baseCost: 149299200
     upgradeCostGrowthRate: 1.1
     jackpotMultiplier: 5
@@ -7881,12 +7897,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa240c1d812456b4cb2158db7ed7faa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeType: 0
+  hasChallenge: 0
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: c1ca27b31d3ba884993948c8a362e621, type: 3}
     objectName: Dark Blue Ramp
     upgradeDesc: Ocean blue ramp. Gain coins for every ball entry and {JackpotValue}
       for every jackpot.
-    baseCoinProduction: 710
+    baseCoinProduction: 239
     baseCost: 7200
     upgradeCostGrowthRate: 1.14
     jackpotMultiplier: 5
@@ -8386,11 +8404,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8002c802cdc4a054dac04253625c32aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeType: 0
+  hasChallenge: 0
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: 7651ab985b5697d46a4ab1a381082c8d, type: 3}
     objectName: Bubble Bumpers
     upgradeDesc: Bump off these bubbles! Gain coins for every ball hit.
-    baseCoinProduction: 3
+    baseCoinProduction: 1
     baseCost: 40
     upgradeCostGrowthRate: 1.07
     jackpotMultiplier: 0
@@ -13421,12 +13441,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 151bc387f22cddb4c9ffcb04dfcf8b95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeType: 0
+  hasChallenge: 0
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: 77fd1e5f72ad6a34cb01e2126503412c, type: 3}
     objectName: Starfish Targets
     upgradeDesc: Light up these 6 starfish for a good bonus! Gain coins for each
       target hit and {JackpotValue} for jackpot.
-    baseCoinProduction: 34887
+    baseCoinProduction: 11720
     baseCost: 1036800
     upgradeCostGrowthRate: 1.12
     jackpotMultiplier: 0

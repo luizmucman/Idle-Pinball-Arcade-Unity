@@ -30,8 +30,6 @@ public abstract class ObjectManager : MonoBehaviour
     public virtual void Awake()
     {
         upgradeData.SetData();
-        upgradeBtnCanvas = GetComponentInChildren<Canvas>();
-        upgradeBtnCanvas.enabled = false;
         iObjects = GetComponentsInChildren<InteractableObject>();
         machineManager = GetComponentInParent<MachineManager>();
     }
@@ -121,26 +119,12 @@ public abstract class ObjectManager : MonoBehaviour
 
     public void EnableUpgradeCanvas()
     {
-        if (dependentManager != null)
-        {
-            if (dependentManager.upgradeData.level > 0)
-            {
-                upgradeBtnCanvas.enabled = true;
-            }
-            else
-            {
-                upgradeBtnCanvas.enabled = false;
-            }
-        }
-        else
-        {
-            upgradeBtnCanvas.enabled = true;
-        }
+        
     }
 
     public void DisableUpgradeCanvas()
     {
-        upgradeBtnCanvas.enabled = false;
+        
     }
 
     public void CheckIfObjectOwned()

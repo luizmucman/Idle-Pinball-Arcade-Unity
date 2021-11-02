@@ -52,10 +52,12 @@ MonoBehaviour:
     GUID: BA001
     rank: 1
     exp: 0
+    isUnlocked: 0
+    isEquipped: 0
   GUID: BA000
   itemIcon: {fileID: 0}
-  itemName: Ball
-  itemDescription: A basic pinball.
+  itemName: Classic Pinball
+  itemDescription: The good ol' classic pinball. It gets the job done.
   currRankDescription: 
   nextRankDescription: 
   rank: 0
@@ -63,10 +65,11 @@ MonoBehaviour:
   ballStats:
   - ballCD: 50
     maxBallCount: 1000
-  ballIcon: {fileID: 0}
+  ballIcon: {fileID: 21300000, guid: daf6026db049b9c469badb4ac2a1b091, type: 3}
   ballID: 0
   ballCD: 0
   ballCDCount: 0
+  accumulatedCoins: 0
   theRB: {fileID: 0}
   theCollider: {fileID: 0}
   machine: {fileID: 0}

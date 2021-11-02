@@ -189,6 +189,7 @@ public class MachineManager : MonoBehaviour
 
         // Change ball UI count
         uiManager.uiBallManager.equippedBallValueText.text = currentBallCount.ToString();
+        UIManager.instance.uiBallManager.SetNormalBallCount(normalBallCount);
 
         IgnoreCollisions(newBall);
 
@@ -203,6 +204,7 @@ public class MachineManager : MonoBehaviour
         instantiatedBalls.Remove(ball);
         Destroy(ball.gameObject);
         uiManager.uiBallManager.equippedBallValueText.text = currentBallCount.ToString();
+        UIManager.instance.uiBallManager.SetNormalBallCount(normalBallCount);
         ShootNormalBall();
     }
 
@@ -214,6 +216,7 @@ public class MachineManager : MonoBehaviour
         IgnoreCollisions(newBall);
         instantiatedNormalBalls.Add(newBall);
         normalBallCount++;
+        UIManager.instance.uiBallManager.SetNormalBallCount(normalBallCount);
         shooter.ShootBall(newBall);
     }
 

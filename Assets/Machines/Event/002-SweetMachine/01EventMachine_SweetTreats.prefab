@@ -1800,13 +1800,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec8f47545c02b914fb31d5a70a1f4ab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeType: 0
+  hasChallenge: 0
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: 36fa0c5af18f44548bad56647c3bea6d, type: 3}
     objectName: Milkshake Tunnel
     upgradeDesc: Time to shake things up. Gain coins for every entry and {JackpotValue}
       for jackpot.
-    baseCoinProduction: 1906920
-    baseCost: 21499084800
+    baseCoinProduction: 640725
+    baseCost: 2149908480
     upgradeCostGrowthRate: 1.08
     jackpotMultiplier: 5
     level: 0
@@ -2248,11 +2250,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b18d9138cde75df4d8c91dcd2ee4c1d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeType: 0
+  hasChallenge: 0
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: de4213def8d702c419717882227470fe, type: 3}
     objectName: Sweet Paddles
     upgradeDesc: Your candy paddles! Gain coins for every paddle flip.
-    baseCoinProduction: 10
+    baseCoinProduction: 1
     baseCost: 40
     upgradeCostGrowthRate: 1.07
     jackpotMultiplier: 0
@@ -2485,12 +2489,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 151bc387f22cddb4c9ffcb04dfcf8b95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeType: 0
+  hasChallenge: 0
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: c8714f01e064b694cab1e710f45a1fe0, type: 3}
     objectName: Sweet Targets
     upgradeDesc: Woah it's the name of the machine! Gain coins for every target hit
       and {JackpotValue} for jackpot.
-    baseCoinProduction: 237880
+    baseCoinProduction: 79927
     baseCost: 179159040
     upgradeCostGrowthRate: 1.09
     jackpotMultiplier: 10
@@ -3205,13 +3211,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 151bc387f22cddb4c9ffcb04dfcf8b95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeType: 0
+  hasChallenge: 0
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: ed03fb573bff3934db5a7faf8ae9f87a, type: 3}
     objectName: Cupcake Targets
     upgradeDesc: Make your cake and eat it too! Gain coins for every target hit and
       {JackpotValue} for jackpot.
-    baseCoinProduction: 26576
-    baseCost: 12441600
+    baseCoinProduction: 7973
+    baseCost: 1244160
     upgradeCostGrowthRate: 1.11
     jackpotMultiplier: 5
     level: 0
@@ -3417,13 +3425,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0deddfebf2c14ed498f57d6848f86113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeType: 0
+  hasChallenge: 0
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: 254bc27b98e93aa45962732d6b70bf23, type: 3}
     objectName: Cherry Rollovers
     upgradeDesc: These are literally the cherries on top. Gain coins for every rollover
       and {JackpotValue} for jackpot.
-    baseCoinProduction: 160
-    baseCost: 600
+    baseCoinProduction: 18
+    baseCost: 60
     upgradeCostGrowthRate: 1.15
     jackpotMultiplier: 5
     level: 0
@@ -11303,13 +11313,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5569cf98c227a042a08045c0904b280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeType: 0
+  hasChallenge: 0
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: d221aa3f92b2fea4cbb5a175d6e0014a, type: 3}
     objectName: Gummy Targets
     upgradeDesc: What a sweet family of bears. Gain coins for every bear hit and
       {JackpotValue} for jackpot.
-    baseCoinProduction: 6596
-    baseCost: 1036800
+    baseCoinProduction: 2216
+    baseCost: 103680
     upgradeCostGrowthRate: 1.12
     jackpotMultiplier: 9
     level: 0
@@ -11774,13 +11786,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa240c1d812456b4cb2158db7ed7faa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeType: 0
+  hasChallenge: 0
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: 3bcb68a25bd3f4f43a338047bdfc9799, type: 3}
     objectName: Blue Ramp
     upgradeDesc: A blue raspberry ride. Gain coins for every ramp entry and {JackpotValue}
       for jackpot.
-    baseCoinProduction: 2410
-    baseCost: 7200
+    baseCoinProduction: 271
+    baseCost: 8640
     upgradeCostGrowthRate: 1.14
     jackpotMultiplier: 7
     level: 0
@@ -12592,13 +12606,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa240c1d812456b4cb2158db7ed7faa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeType: 0
+  hasChallenge: 0
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: 1fcd0b058237bc446868a7fa1949552c, type: 3}
     objectName: Pink Ramp
     upgradeDesc: The pink version. Gain coins for every ramp entry and {JackpotValue}
       for jackpot.
-    baseCoinProduction: 7710
-    baseCost: 86400
+    baseCoinProduction: 864
+    baseCost: 8640
     upgradeCostGrowthRate: 1.13
     jackpotMultiplier: 7
     level: 0
@@ -15706,13 +15722,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5569cf98c227a042a08045c0904b280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeType: 0
+  hasChallenge: 0
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: befd9d759fd279b4fa26540f4afcadb1, type: 3}
     objectName: Sundae Target
     upgradeDesc: Lets build a sundae. Gain coins for every target hit and {JackpotValue}
       for jackpot.
-    baseCoinProduction: 96000
-    baseCost: 149299200
+    baseCoinProduction: 32256
+    baseCost: 14929920
     upgradeCostGrowthRate: 1.1
     jackpotMultiplier: 3
     level: 0
@@ -18984,11 +19002,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8002c802cdc4a054dac04253625c32aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeType: 0
+  hasChallenge: 0
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: dec24f2f95b4454499cb9dbae11b7624, type: 3}
     objectName: Ice Cream Bumpers
     upgradeDesc: Three flavors of bumpers. Gain coins for every bumper hit.
-    baseCoinProduction: 10
+    baseCoinProduction: 1
     baseCost: 40
     upgradeCostGrowthRate: 1.07
     jackpotMultiplier: 0
@@ -19276,12 +19296,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec8f47545c02b914fb31d5a70a1f4ab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeType: 0
+  hasChallenge: 0
   upgradeData:
     upgradeIcon: {fileID: 21300000, guid: 36fa0c5af18f44548bad56647c3bea6d, type: 3}
     objectName: Arrow Path
     upgradeDesc: The path crossed many times. Gain coins for every rollover and {JackpotValue}
       for jackpot.
-    baseCoinProduction: 1116120
+    baseCoinProduction: 375016
     baseCost: 257989017600
     upgradeCostGrowthRate: 1.07
     jackpotMultiplier: 5

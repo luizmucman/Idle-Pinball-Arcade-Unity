@@ -127,16 +127,18 @@ public class UIBallManager : MonoBehaviour
     {
         foreach (Ball ball in PlayerManager.instance.ballDatabase.database)
         {
-            if(!ball.GUID.Equals("BA000"))
-            {
                 UIBallContainer currBallContainer = Instantiate(ballContainerPrefab, BallContent.transform);
 
                 currBallContainer.SetRow(ball);
 
                 ballContainers.Add(currBallContainer);
-            }
         }
         CheckUnlockedBalls();
+    }
+
+    public void SetNormalBallCount(int num)
+    {
+        ballContainers[0].SetNormalBallCount(num);
     }
 
     public void CheckUnlockedBalls()

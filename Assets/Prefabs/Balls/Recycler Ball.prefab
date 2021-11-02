@@ -156,6 +156,8 @@ MonoBehaviour:
     GUID: 
     rank: 0
     exp: 0
+    isUnlocked: 0
+    isEquipped: 0
   GUID: BA005
   itemIcon: {fileID: 21300000, guid: e04f415340c89cf4fa8e78916606925e, type: 3}
   itemName: Recycle Ball
@@ -167,15 +169,15 @@ MonoBehaviour:
   itemType: 1
   ballStats:
   - ballCD: 0
-    maxBallCount: 0
+    maxBallCount: 5
   - ballCD: 0
-    maxBallCount: 0
+    maxBallCount: 5
   - ballCD: 0
-    maxBallCount: 0
+    maxBallCount: 5
   - ballCD: 0
-    maxBallCount: 0
+    maxBallCount: 5
   - ballCD: 0
-    maxBallCount: 0
+    maxBallCount: 5
   ballIcon: {fileID: 21300000, guid: e04f415340c89cf4fa8e78916606925e, type: 3}
   ballID: 0
   ballCD: 0

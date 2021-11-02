@@ -5016,29 +5016,32 @@ MonoBehaviour:
     GUID: BA000
     rank: 0
     exp: 0
+    isUnlocked: 0
+    isEquipped: 0
   GUID: BA001
   itemIcon: {fileID: 21300000, guid: 08a8162e0780cca47acb42a00f01a504, type: 3}
   itemName: Gold Ball
   itemDescription: Gives you 1 minute worth of your machines CPS on skill activation
   currRankDescription: 
   nextRankDescription: 
-  rank: 1
+  rank: 0
   itemType: 1
   ballStats:
   - ballCD: 50
-    maxBallCount: 2
+    maxBallCount: 5
   - ballCD: 45
-    maxBallCount: 3
+    maxBallCount: 5
   - ballCD: 40
-    maxBallCount: 4
+    maxBallCount: 5
   - ballCD: 35
     maxBallCount: 5
   - ballCD: 30
-    maxBallCount: 6
+    maxBallCount: 5
   ballIcon: {fileID: 21300000, guid: 08a8162e0780cca47acb42a00f01a504, type: 3}
   ballID: 1
   ballCD: 50
   ballCDCount: 0
+  accumulatedCoins: 0
   theRB: {fileID: 0}
   theCollider: {fileID: 0}
   machine: {fileID: 0}

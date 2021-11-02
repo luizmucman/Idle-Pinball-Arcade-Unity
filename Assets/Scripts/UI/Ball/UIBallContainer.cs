@@ -16,25 +16,38 @@ public class UIBallContainer : MonoBehaviour
     public Image icon;
     public Text title;
     public Text ballDesc;
+    public Text outOfText;
     public Text maxEquipped;
     public Text cooldown;
     public GameObject lockedOverlay;
 
     // Bottom Row
+    [SerializeField] private GameObject btnContainer;
     public Button minusButton;
     public Button plusButton;
     public Text equippedCount;
 
     public void SetRow(Ball currBall)
     {
-        itemData = PlayerManager.instance.ballDataList.GetItemData(currBall.GUID);
         ball = currBall;
         icon.sprite = ball.ballIcon;
-        ball.rank = itemData.rank;
         title.text = ball.itemName;
         ballDesc.text = ball.itemDescription;
 
-        CheckUnlocked();
+        if (currBall.GUID.Equals("BA000"))
+        {
+            outOfText.gameObject.SetActive(false);
+            maxEquipped.gameObject.SetActive(false);
+            btnContainer.gameObject.SetActive(false);
+        }
+        else
+        {
+            itemData = PlayerManager.instance.ballDataList.GetItemData(currBall.GUID);
+            ball.rank = itemData.rank;
+            maxEquipped.text = ball.ballStats[ball.rank].maxBallCount.ToString();
+
+            CheckUnlocked();
+        }
     }
 
     public void UpdateCount()
@@ -70,16 +83,16 @@ public class UIBallContainer : MonoBehaviour
         MachineManager currMachine = PlayerManager.instance.currentMachine;
         if (currMachine.equippedBallCount[ball.ballID] >= ball.ballStats[itemData.rank].maxBallCount || currMachine.currentBallCount >= currMachine.maxEquippedBalls)
         {
-            plusButton.enabled = false;
+            plusButton.interactable = false;
         }
         else if (PlayerManager.instance.currentMachine.equippedBallCount[ball.ballID] <= 0)
         {
-            minusButton.enabled = false;
+            minusButton.interactable = false;
         }
         else
         {
-            plusButton.enabled = true;
-            minusButton.enabled = true;
+            plusButton.interactable = true;
+            minusButton.interactable = true;
         }
     }
 
@@ -115,15 +128,29 @@ public class UIBallContainer : MonoBehaviour
 
     public void CheckUnlocked()
     {
-        if (itemData.isUnlocked)
+        if(!ball.GUID.Equals("BA000"))
+        {
+            if (itemData.isUnlocked)
+            {
+                gameObject.transform.SetSiblingIndex(1);
+                lockedOverlay.SetActive(false);
+            }
+            else
+            {
+                equippedCount.text = "0";
+                lockedOverlay.SetActive(true);
+            }
+        }
+        else
         {
             gameObject.transform.SetAsFirstSibling();
             lockedOverlay.SetActive(false);
         }
-        else
-        {
-            equippedCount.text = "0";
-            lockedOverlay.SetActive(true);
-        }
+
+    }
+
+    public void SetNormalBallCount(int num)
+    {
+        equippedCount.text = num.ToString();
     }
 }

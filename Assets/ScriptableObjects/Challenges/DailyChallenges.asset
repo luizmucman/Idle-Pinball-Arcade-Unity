@@ -15,21 +15,21 @@ MonoBehaviour:
   challengeData:
   - challengeType: 0
     challengeGoal: 100
-    title: Break The Bumpers
+    title: 
     description: Hit your bumpers 100 times
     reward: {fileID: 11400000, guid: 70818cd6fd6781046a3b0dae9d572ecd, type: 2}
   - challengeType: 3
     challengeGoal: 100
-    title: Flip Those Paddles
+    title: 
     description: Flip your paddles 100 times
     reward: {fileID: 11400000, guid: db3cf6eb62c0d174caca3fce27d7b6c5, type: 2}
   - challengeType: 1
     challengeGoal: 50
-    title: Whoosh!
+    title: 
     description: Enter a ramp 50 times
     reward: {fileID: 11400000, guid: 70818cd6fd6781046a3b0dae9d572ecd, type: 2}
   - challengeType: 4
     challengeGoal: 500
-    title: The Balls Deserve It
+    title: 
     description: Hit your balls on anything 500 times
     reward: {fileID: 11400000, guid: 70818cd6fd6781046a3b0dae9d572ecd, type: 2}

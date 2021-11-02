@@ -83,7 +83,6 @@ public class ChallengeData
 
     public void SaveData()
     {
-        Debug.Log("Challenge Saved");
         ES3.Save(title + "-progress", challengeProgress);
         ES3.Save(title + "-claimed", rewardClaimed);
     }

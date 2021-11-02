@@ -65,7 +65,7 @@ public class UpgradeData
         if (ES3.KeyExists(machineSceneName + objectName + "-level"))
         {
             level = ES3.Load(machineSceneName + objectName + "-level", 0);
-            SetData();
+            LevelUp(0);
         }
     }
 }
