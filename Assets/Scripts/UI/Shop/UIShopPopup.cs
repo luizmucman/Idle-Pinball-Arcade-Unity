@@ -41,8 +41,20 @@ public class UIShopPopup : MonoBehaviour
     {
         itemIcon.sprite = item.itemIcon;
         itemTitle.text = item.itemName;
-        itemDesc.text = item.itemDescription;
 
+        ItemData chosenItemData;
+
+        if (item.itemType == ItemType.Ball)
+        {
+            chosenItemData = PlayerManager.instance.ballDataList.GetItemData(item.GUID);
+            
+        }
+        else if(item.itemType == ItemType.Ticket)
+        {
+            chosenItemData = PlayerManager.instance.ticketDataList.GetItemData(item.GUID);
+        }
+
+        itemDesc.text = item.currRankDescription;
         itemIcon.SetNativeSize();
 
         for(int i = 0; i < 5; i++)

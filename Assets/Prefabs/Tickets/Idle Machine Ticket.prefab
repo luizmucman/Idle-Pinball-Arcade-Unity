@@ -45,15 +45,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemData:
     GUID: TI001
-    rank: 3
-    exp: 0
+    rank: 2
+    exp: 8
+    isUnlocked: 1
+    isEquipped: 1
   GUID: TI001
   itemIcon: {fileID: 21300000, guid: 1becaa3a728f9ed4db370ea41dcd14bb, type: 3}
   itemName: Idle Machine
-  itemDescription: Increase all idle income by {Value}
-  currRankDescription: Increase all idle income by 125%
-  nextRankDescription: Increase all idle income by 150%
-  rank: 0
+  itemDescription: Increase all idle income by {Value}x
+  currRankDescription: Increase all idle income by 1.75
+  nextRankDescription: Increase all idle income by 2
+  rank: 2
   itemType: 2
   image: {fileID: 21300000, guid: 1becaa3a728f9ed4db370ea41dcd14bb, type: 3}
   ticketStats:

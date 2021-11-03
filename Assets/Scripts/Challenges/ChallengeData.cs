@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public enum ChallengeType { BumperHit, RampHit, Coins, Paddle, BallHit }
+public enum ChallengeType { BumperHit, RampHit, Coins, Paddle, BallHit, TargetHit }
 
 [System.Serializable]
 public class ChallengeData
 {
+    [SerializeField] private int challengeID;
     [SerializeField] private ChallengeType challengeType;
     [SerializeField] private int challengeGoal;
-    [SerializeField] private string title;
     [SerializeField] private string description;
     [SerializeField] private SeasonPassItemSO reward;
     private int challengeProgress;
@@ -46,24 +46,19 @@ public class ChallengeData
         return reward;
     }
 
-    public string GetTitle()
-    {
-        return title;
-    }
-
     public string GetDescription()
     {
         return description;
     }
 
-    public string GetProgress()
+    public int GetProgress()
     {
-        return challengeProgress.ToString();
+        return challengeProgress;
     }
 
-    public string GetGoal()
+    public int GetGoal()
     {
-        return challengeGoal.ToString();
+        return challengeGoal;
     }
     
     public bool IsClaimed()
@@ -83,12 +78,12 @@ public class ChallengeData
 
     public void SaveData()
     {
-        ES3.Save(title + "-progress", challengeProgress);
-        ES3.Save(title + "-claimed", rewardClaimed);
+        ES3.Save(challengeID + "-progress", challengeProgress);
+        ES3.Save(challengeID + "-claimed", rewardClaimed);
     }
     public void LoadData()
     {
-        challengeProgress = ES3.Load(title + "-progress", 0);
-        rewardClaimed = ES3.Load(title + "-claimed", false);
+        challengeProgress = ES3.Load(challengeID + "-progress", 0);
+        rewardClaimed = ES3.Load(challengeID + "-claimed", false);
     }
 }

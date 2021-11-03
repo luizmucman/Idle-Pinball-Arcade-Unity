@@ -16,6 +16,7 @@ public class Ball : Item
     [HideInInspector] public int ballCD;
     [HideInInspector] public int ballCDCount;
     [HideInInspector] public double accumulatedCoins;
+    [HideInInspector] public int currMachineBallCount;
 
     // Ball Components
     [HideInInspector] public Rigidbody2D theRB;
@@ -33,6 +34,7 @@ public class Ball : Item
         machine = GetComponentInParent<MachineManager>();
         particle = GetComponentInChildren<ParticleSystem>();
         ballID =  int.Parse(GUID.Substring(3));
+        Debug.Log(GUID + ": " + ballID);
     }
 
     public virtual void Start()
@@ -49,11 +51,24 @@ public class Ball : Item
     public virtual void SetBallStats()
     {
         ballCD = ballStats[itemData.rank].ballCD - PlayerManager.instance.playerTicketBuffs.ballCD;
+        currRankDescription = itemDescription.Replace("{Value}", ballStats[rank].ballCD.ToString());
+        nextRankDescription = itemDescription.Replace("{Value}", ballStats[rank + 1].ballCD.ToString());
     }
 
     public virtual void BallSkill()
     {
         ballCDCount = 0;
+    }
+
+    public override string GetCurrentRankDesc()
+    {
+        return "Hits Required: " + ballStats[rank].ballCD;
+
+    }
+
+    public override string GetNextRankDesc()
+    {
+        return "Hits Required: " + ballStats[rank + 1].ballCD;
     }
 
     public void OnCollisionEnter2D(Collision2D other)

@@ -13,18 +13,228 @@ MonoBehaviour:
   m_Name: GlobalChallenges
   m_EditorClassIdentifier: 
   challengeData:
-  - challengeType: 0
+  - challengeID: 0
+    challengeType: 0
     challengeGoal: 25
-    title: Baby Bumpers
-    description: Hit a bumper 10 times
+    description: Hit a bumper {Goal} times
     reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
-  - challengeType: 3
+  - challengeID: 1
+    challengeType: 5
     challengeGoal: 25
-    title: Paddle Novice
-    description: Hit a bumper 10 times
+    description: Hit a target {Goal} times
     reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
-  - challengeType: 3
-    challengeGoal: 25
-    title: Paddle Novice
-    description: Hit a bumper 10 times
+  - challengeID: 2
+    challengeType: 1
+    challengeGoal: 10
+    description: Roll onto a ramp {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 3
+    challengeType: 3
+    challengeGoal: 100
+    description: Flip your paddles {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 4
+    challengeType: 4
+    challengeGoal: 100
+    description: Make your balls hit something {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 5
+    challengeType: 0
+    challengeGoal: 100
+    description: Hit a bumper {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 6
+    challengeType: 5
+    challengeGoal: 100
+    description: Hit a target {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 7
+    challengeType: 1
+    challengeGoal: 50
+    description: Roll onto a ramp {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 8
+    challengeType: 3
+    challengeGoal: 300
+    description: Flip your paddles {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 9
+    challengeType: 4
+    challengeGoal: 500
+    description: Make your balls hit something {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 10
+    challengeType: 0
+    challengeGoal: 500
+    description: Hit a bumper {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 11
+    challengeType: 5
+    challengeGoal: 500
+    description: Hit a target {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 12
+    challengeType: 1
+    challengeGoal: 100
+    description: Roll onto a ramp {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 13
+    challengeType: 3
+    challengeGoal: 750
+    description: Flip your paddles {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 14
+    challengeType: 4
+    challengeGoal: 2500
+    description: Make your balls hit something {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 15
+    challengeType: 0
+    challengeGoal: 1000
+    description: Hit a bumper {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 16
+    challengeType: 5
+    challengeGoal: 1000
+    description: Hit a target {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 17
+    challengeType: 1
+    challengeGoal: 500
+    description: Roll onto a ramp {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 18
+    challengeType: 3
+    challengeGoal: 1500
+    description: Flip your paddles {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 19
+    challengeType: 4
+    challengeGoal: 10000
+    description: Make your balls hit something {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 20
+    challengeType: 0
+    challengeGoal: 5000
+    description: Hit a bumper {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 21
+    challengeType: 5
+    challengeGoal: 5000
+    description: Hit a target {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 22
+    challengeType: 1
+    challengeGoal: 1000
+    description: Roll onto a ramp {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 23
+    challengeType: 3
+    challengeGoal: 5000
+    description: Flip your paddles {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 24
+    challengeType: 4
+    challengeGoal: 40000
+    description: Make your balls hit something {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 25
+    challengeType: 0
+    challengeGoal: 50000
+    description: Hit a bumper {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 26
+    challengeType: 5
+    challengeGoal: 50000
+    description: Hit a target {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 27
+    challengeType: 1
+    challengeGoal: 5000
+    description: Roll onto a ramp {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 28
+    challengeType: 3
+    challengeGoal: 10000
+    description: Flip your paddles {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 29
+    challengeType: 4
+    challengeGoal: 100000
+    description: Make your balls hit something {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 30
+    challengeType: 0
+    challengeGoal: 500000
+    description: Hit a bumper {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 31
+    challengeType: 5
+    challengeGoal: 500000
+    description: Hit a target {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 32
+    challengeType: 1
+    challengeGoal: 50000
+    description: Roll onto a ramp {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 33
+    challengeType: 3
+    challengeGoal: 100000
+    description: Flip your paddles {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 34
+    challengeType: 4
+    challengeGoal: 300000
+    description: Make your balls hit something {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 35
+    challengeType: 0
+    challengeGoal: 1000000
+    description: Hit a bumper {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 36
+    challengeType: 5
+    challengeGoal: 1000000
+    description: Hit a target {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 37
+    challengeType: 1
+    challengeGoal: 100000
+    description: Roll onto a ramp {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 38
+    challengeType: 3
+    challengeGoal: 1000000
+    description: Flip your paddles {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 39
+    challengeType: 4
+    challengeGoal: 1000000
+    description: Make your balls hit something {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 40
+    challengeType: 0
+    challengeGoal: 10000000
+    description: Hit a bumper {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 41
+    challengeType: 5
+    challengeGoal: 10000000
+    description: Hit a target {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 42
+    challengeType: 1
+    challengeGoal: 1000000
+    description: Roll onto a ramp {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 43
+    challengeType: 3
+    challengeGoal: 5000000
+    description: Flip your paddles {Goal} times
+    reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}
+  - challengeID: 44
+    challengeType: 4
+    challengeGoal: 10000000
+    description: Make your balls hit something {Goal} times
     reward: {fileID: 11400000, guid: 0d00669ecc4a9f74a8b4b67e6b644610, type: 2}

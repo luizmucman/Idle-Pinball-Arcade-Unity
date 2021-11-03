@@ -44,16 +44,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData:
-    GUID: 
-    rank: 0
-    exp: 0
+    GUID: TI008
+    rank: 1
+    exp: 1
+    isUnlocked: 1
+    isEquipped: 1
   GUID: TI008
   itemIcon: {fileID: 21300000, guid: 7be13cba46d9dff43bc72d801d4db61e, type: 3}
   itemName: Active Earner
-  itemDescription: Increase income by {Value}% when game is open
-  currRankDescription: 
-  nextRankDescription: 
-  rank: 0
+  itemDescription: Increase income by {Value}x when game is open
+  currRankDescription: Increase income by 1.5% when game is open
+  nextRankDescription: Increase income by 1.75% when game is open
+  rank: 1
   itemType: 2
   image: {fileID: 21300000, guid: 7be13cba46d9dff43bc72d801d4db61e, type: 3}
   ticketStats:

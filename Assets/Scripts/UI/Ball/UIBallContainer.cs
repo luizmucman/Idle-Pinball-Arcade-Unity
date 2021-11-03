@@ -32,19 +32,22 @@ public class UIBallContainer : MonoBehaviour
         ball = currBall;
         icon.sprite = ball.ballIcon;
         title.text = ball.itemName;
-        ballDesc.text = ball.itemDescription;
+        
 
         if (currBall.GUID.Equals("BA000"))
         {
             outOfText.gameObject.SetActive(false);
             maxEquipped.gameObject.SetActive(false);
             btnContainer.gameObject.SetActive(false);
+            ballDesc.text = ball.itemDescription;
         }
         else
         {
             itemData = PlayerManager.instance.ballDataList.GetItemData(currBall.GUID);
             ball.rank = itemData.rank;
+            ball.SetBallStats();
             maxEquipped.text = ball.ballStats[ball.rank].maxBallCount.ToString();
+            ballDesc.text = ball.currRankDescription;
 
             CheckUnlocked();
         }
@@ -52,7 +55,7 @@ public class UIBallContainer : MonoBehaviour
 
     public void UpdateCount()
     {
-        equippedCount.text = PlayerManager.instance.currentMachine.equippedBallCount[ball.ballID].ToString();
+        equippedCount.text = ball.currMachineBallCount.ToString();
         CheckIfLimitReached();
     }
 
@@ -61,7 +64,7 @@ public class UIBallContainer : MonoBehaviour
         if(itemData.isUnlocked)
         {
             instantiatedBalls = new List<Ball>();
-            int ballCount = PlayerManager.instance.currentMachine.equippedBallCount[ball.ballID];
+            int ballCount = ball.currMachineBallCount;
             for (int i = 0; i < ballCount; i++)
             {
                 instantiatedBalls.Add(PlayerManager.instance.currentMachine.AddResetBall(ball));
@@ -81,11 +84,11 @@ public class UIBallContainer : MonoBehaviour
     public void CheckIfLimitReached()
     {
         MachineManager currMachine = PlayerManager.instance.currentMachine;
-        if (currMachine.equippedBallCount[ball.ballID] >= ball.ballStats[itemData.rank].maxBallCount || currMachine.currentBallCount >= currMachine.maxEquippedBalls)
+        if (ball.currMachineBallCount >= ball.ballStats[itemData.rank].maxBallCount || currMachine.currentBallCount >= currMachine.maxEquippedBalls)
         {
             plusButton.interactable = false;
         }
-        else if (PlayerManager.instance.currentMachine.equippedBallCount[ball.ballID] <= 0)
+        else if (ball.currMachineBallCount <= 0)
         {
             minusButton.interactable = false;
         }
@@ -102,8 +105,9 @@ public class UIBallContainer : MonoBehaviour
         {
             ball.SetItemData(itemData);
         }
-        if (PlayerManager.instance.currentMachine.equippedBallCount[ball.ballID] < ball.ballStats[itemData.rank].maxBallCount && PlayerManager.instance.currentMachine.currentBallCount < PlayerManager.instance.currentMachine.maxEquippedBalls)
+        if (ball.currMachineBallCount < ball.ballStats[itemData.rank].maxBallCount && PlayerManager.instance.currentMachine.currentBallCount < PlayerManager.instance.currentMachine.maxEquippedBalls)
         {
+            Debug.Log("Adding Ball");
             // Adds instantiated ball to list
             instantiatedBalls.Add(PlayerManager.instance.currentMachine.AddBall(ball));
             UpdateCount();
@@ -112,8 +116,9 @@ public class UIBallContainer : MonoBehaviour
 
     public void RemoveBall()
     {
-        if (PlayerManager.instance.currentMachine.equippedBallCount[ball.ballID] > 0)
+        if (ball.currMachineBallCount > 0)
         {
+            Debug.Log("Removing Ball");
             Ball currBall = instantiatedBalls[0];
             instantiatedBalls.Remove(currBall);
             PlayerManager.instance.currentMachine.RemoveBall(currBall);

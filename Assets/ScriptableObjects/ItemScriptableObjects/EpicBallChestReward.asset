@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b18f40a47bcbe984bbc3a905c5dfbe09, type: 3}
   m_Name: EpicBallChestReward
   m_EditorClassIdentifier: 
-  rewardTitle: Epic Ball Chest
+  rewardTitle: Ball Chest
   rewardDesc: Receive an epic ball chest.
   rewardIcon: {fileID: 21300000, guid: 1f375793a5d344740833fa8c41c5fc75, type: 3}
   rewardType: 2
@@ -21,6 +21,6 @@ MonoBehaviour:
     boostID: 
     boostImg: {fileID: 0}
     boostAmt: 0
-    boostLength: 0
     inUse: 0
     qtyOwned: 0
+    boostLength: 0

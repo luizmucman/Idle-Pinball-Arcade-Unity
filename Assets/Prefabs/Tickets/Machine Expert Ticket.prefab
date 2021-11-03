@@ -44,16 +44,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData:
-    GUID: 
-    rank: 0
+    GUID: TI010
+    rank: 2
     exp: 0
+    isUnlocked: 1
+    isEquipped: 0
   GUID: TI010
   itemIcon: {fileID: 21300000, guid: e88781fd319bf254e894603bed082228, type: 3}
   itemName: Machine Expert
-  itemDescription: Increase CPS on all machines by {Value}
-  currRankDescription: 
-  nextRankDescription: 
-  rank: 0
+  itemDescription: Increase CPS on all machines by {Value}x
+  currRankDescription: Increase CPS on all machines by 1.6
+  nextRankDescription: Increase CPS on all machines by 1.8
+  rank: 2
   itemType: 2
   image: {fileID: 21300000, guid: e88781fd319bf254e894603bed082228, type: 3}
   ticketStats:

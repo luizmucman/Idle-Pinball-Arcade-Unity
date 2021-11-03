@@ -13,23 +13,28 @@ MonoBehaviour:
   m_Name: DailyChallenges
   m_EditorClassIdentifier: 
   challengeData:
-  - challengeType: 0
+  - challengeID: 1001
+    challengeType: 0
     challengeGoal: 100
-    title: 
-    description: Hit your bumpers 100 times
+    description: Hit your bumpers {Goal} times
     reward: {fileID: 11400000, guid: 70818cd6fd6781046a3b0dae9d572ecd, type: 2}
-  - challengeType: 3
-    challengeGoal: 100
-    title: 
-    description: Flip your paddles 100 times
-    reward: {fileID: 11400000, guid: db3cf6eb62c0d174caca3fce27d7b6c5, type: 2}
-  - challengeType: 1
+  - challengeID: 1002
+    challengeType: 5
     challengeGoal: 50
-    title: 
-    description: Enter a ramp 50 times
+    description: Hit a target {Goal} times
+    reward: {fileID: 11400000, guid: db3cf6eb62c0d174caca3fce27d7b6c5, type: 2}
+  - challengeID: 1003
+    challengeType: 1
+    challengeGoal: 25
+    description: Enter a ramp {Goal} times
     reward: {fileID: 11400000, guid: 70818cd6fd6781046a3b0dae9d572ecd, type: 2}
-  - challengeType: 4
-    challengeGoal: 500
-    title: 
-    description: Hit your balls on anything 500 times
+  - challengeID: 1004
+    challengeType: 3
+    challengeGoal: 100
+    description: Flip your paddles {Goal} times
+    reward: {fileID: 11400000, guid: 70818cd6fd6781046a3b0dae9d572ecd, type: 2}
+  - challengeID: 1005
+    challengeType: 4
+    challengeGoal: 250
+    description: Hit your balls on anything {Goal} times
     reward: {fileID: 11400000, guid: 70818cd6fd6781046a3b0dae9d572ecd, type: 2}

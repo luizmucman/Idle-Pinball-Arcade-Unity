@@ -220,34 +220,41 @@ public class UIShopManager : MonoBehaviour
         Item chosenItem;
 
         int chosenIndex = 0;
+        int expAdded = 0;
+
+        // Choosing the rank
+        int randomRank = Random.Range(0, 100);
+        if (randomRank <= 20)
+        {
+            expAdded = 3;
+        }
+        else
+        {
+            expAdded = 1;
+        }
 
         if (itemType == ShopItemType.Ball)
         {
             playerInventory = PlayerManager.instance.ballDatabase.database;
             chosenIndex = Random.Range(1, PlayerManager.instance.ballDatabase.database.Count - 1);
             chosenItem = (Ball)PlayerManager.instance.ballDatabase.database[chosenIndex];
+            PlayerManager.instance.ballDataList.GetItemData(chosenItem.GUID).AddExp(expAdded);
+            UIManager.instance.uiBallManager.CheckUnlockedBalls();
         }
         else if(itemType == ShopItemType.Ticket)
         {
             playerInventory = PlayerManager.instance.ticketDatabase.database;
             chosenIndex = Random.Range(0, PlayerManager.instance.ticketDatabase.database.Count - 1);
             chosenItem = (Ticket)PlayerManager.instance.ticketDatabase.database[chosenIndex];
+            PlayerManager.instance.ticketDataList.GetItemData(chosenItem.GUID).AddExp(expAdded);
+            UIManager.instance.uiTicketManager.CheckUnlockedTickets();
         }
         else
         {
             return;
         }
 
-        // Choosing the rank
-        int randomRank = Random.Range(0, 100);
-        if (randomRank <= 20)
-        {
-            chosenItem.itemData.AddExp(3);
-        }
-        else
-        {
-            chosenItem.itemData.AddExp(1);
-        }
+
 
         chosenItem.itemData.isUnlocked = true;
         buyPopup.SetPopup(chosenItem);
@@ -259,40 +266,43 @@ public class UIShopManager : MonoBehaviour
         Item chosenItem;
 
         int chosenIndex = 0;
+        int expAdded = 0;
+
+        // Choosing the rank
+        int randomRank = Random.Range(0, 100);
+        if (randomRank <= legendaryChestEpicChance)
+        {
+            expAdded = 9;
+        }
+        else if (randomRank <= legendaryChestRareChance)
+        {
+            expAdded = 6;
+        }
+        else
+        {
+            expAdded = 3;
+        }
 
         if (itemType == ShopItemType.Ball)
         {
             playerInventory = PlayerManager.instance.ballDatabase.database;
             chosenIndex = Random.Range(1, PlayerManager.instance.ballDatabase.database.Count - 1);
             chosenItem = (Ball)PlayerManager.instance.ballDatabase.database[chosenIndex];
+            PlayerManager.instance.ballDataList.GetItemData(chosenItem.GUID).AddExp(expAdded);
         }
         else if (itemType == ShopItemType.Ticket)
         {
             playerInventory = PlayerManager.instance.ticketDatabase.database;
             chosenIndex = Random.Range(0, PlayerManager.instance.ticketDatabase.database.Count - 1);
             chosenItem = (Ticket)PlayerManager.instance.ticketDatabase.database[chosenIndex];
+            PlayerManager.instance.ticketDataList.GetItemData(chosenItem.GUID).AddExp(expAdded);
         }
         else
         {
             return;
         }
 
-        // Choosing the rank
-        int randomRank = Random.Range(0, 100);
-        if (randomRank <= legendaryChestEpicChance)
-        {
-            chosenItem.itemData.AddExp(9);
-        }
-        else if (randomRank <= legendaryChestRareChance)
-        {
-            chosenItem.itemData.AddExp(6);
-        }
-        else
-        {
-            chosenItem.itemData.AddExp(3);
-        }
-
-        chosenItem.itemData.isUnlocked = true;
+        chosenItem.itemData.AddExp(expAdded);
         buyPopup.SetPopup(chosenItem);
     }
 

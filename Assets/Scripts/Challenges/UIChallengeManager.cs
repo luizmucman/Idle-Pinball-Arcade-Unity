@@ -12,6 +12,7 @@ public class UIChallengeManager : MonoBehaviour
     [SerializeField] private UIChallengeRow challengeRowPrefab;
     [SerializeField] private GameObject globalContainer;
     [SerializeField] private GameObject dailyContainer;
+    [SerializeField] private GameObject rewardNotification;
 
     public List<UIChallengeRow> bumperChallenges;
     public List<UIChallengeRow> rampChallenges;
@@ -21,6 +22,8 @@ public class UIChallengeManager : MonoBehaviour
 
     private List<int> chosenDailyChallengeIndexs;
     private DateTime lastRecordedDay;
+
+    private int unclaimedRewardCount;
 
     private void Start()
     {
@@ -48,6 +51,7 @@ public class UIChallengeManager : MonoBehaviour
         foreach (ChallengeData data in globalChallenges.GetChallengeData())
         {
             UIChallengeRow currChallengeRow = Instantiate(challengeRowPrefab, globalContainer.transform);
+            //Instantiate(challengeRowPrefab, globalContainer.transform);
             currChallengeRow.SetChallengeRow(data);
             ChallengeType currType = data.GetChallengeType();
             ClassifyChallengeRow(currChallengeRow, currType);
@@ -61,11 +65,40 @@ public class UIChallengeManager : MonoBehaviour
         {
             ChooseNewDailyChallenges();
         }
+
+        UIChallengeRow[] globalChallengeRows = globalContainer.GetComponentsInChildren<UIChallengeRow>();
+        UIChallengeRow[] dailyChallengeRows = dailyContainer.GetComponentsInChildren<UIChallengeRow>();
+
+        for(int i = globalChallengeRows.Length - 1; i >= 0; i--)
+        {
+            UIChallengeRow currRow = globalChallengeRows[i];
+            if (currRow.GetStatus() == ChallengeStatus.Claim)
+            {
+                currRow.transform.SetAsFirstSibling();
+            }
+            else if(currRow.GetStatus() == ChallengeStatus.Claimed)
+            {
+                currRow.transform.SetAsLastSibling();
+            }
+        }
+
+        for (int i = dailyChallengeRows.Length - 1; i >= 0; i--)
+        {
+            UIChallengeRow currRow = dailyChallengeRows[i];
+            if (currRow.GetStatus() == ChallengeStatus.Claim)
+            {
+                currRow.transform.SetAsFirstSibling();
+            }
+            else if (currRow.GetStatus() == ChallengeStatus.Claimed)
+            {
+                currRow.transform.SetAsLastSibling();
+            }
+        }
     }
 
     public void ChooseNewDailyChallenges()
     {
-        Debug.Log("Populate New Dailies");
+
         lastRecordedDay = DateTime.Now;
         dailyChallenges.ResetChallenges();
         List<ChallengeData> dailyChallengeList = dailyChallenges.GetChallengeData();
@@ -83,6 +116,7 @@ public class UIChallengeManager : MonoBehaviour
                 int chosenIndex = UnityEngine.Random.Range((int)0, totalChallenges);
                 if(!chosenDailyChallengeIndexs.Contains(chosenIndex))
                 {
+                    chosenDailyChallengeIndexs.Add(chosenIndex);
                     ChallengeData data = dailyChallengeList[UnityEngine.Random.Range((int)0, totalChallenges)];
                     currChallengeRow.SetChallengeRow(data);
                     currType = data.GetChallengeType();
@@ -110,10 +144,28 @@ public class UIChallengeManager : MonoBehaviour
 
     public void AddChallengeHit(int hitNum, ChallengeType challengeType)
     {
-        foreach(UIChallengeRow challengeRow in bumperChallenges)
+        if (challengeType.Equals(ChallengeType.BumperHit))
         {
-            challengeRow.AddProgress(hitNum);
+            foreach (UIChallengeRow challengeRow in bumperChallenges)
+            {
+                challengeRow.AddProgress(hitNum);
+            }
         }
+        else if (challengeType.Equals(ChallengeType.RampHit))
+        {
+            foreach (UIChallengeRow challengeRow in rampChallenges)
+            {
+                challengeRow.AddProgress(hitNum);
+            }
+        }
+        else if (challengeType.Equals(ChallengeType.Paddle))
+        {
+            foreach (UIChallengeRow challengeRow in paddleChallenges)
+            {
+                challengeRow.AddProgress(hitNum);
+            }
+        }
+
     }
 
     private void ClassifyChallengeRow(UIChallengeRow currChallengeRow, ChallengeType currType)
@@ -129,6 +181,22 @@ public class UIChallengeManager : MonoBehaviour
         else if (currType.Equals(ChallengeType.Paddle))
         {
             paddleChallenges.Add(currChallengeRow);
+        }
+    }
+
+    public void AddUnclaimedChallenge()
+    {
+        unclaimedRewardCount++;
+        rewardNotification.gameObject.SetActive(true);
+    }
+
+    public void RemoveUnclaimedChallenge()
+    {
+        unclaimedRewardCount--;
+
+        if(unclaimedRewardCount <= 0)
+        {
+            rewardNotification.gameObject.SetActive(false);
         }
     }
 

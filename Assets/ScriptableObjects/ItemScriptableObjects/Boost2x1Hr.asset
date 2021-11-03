@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b18f40a47bcbe984bbc3a905c5dfbe09, type: 3}
   m_Name: Boost2x1Hr
   m_EditorClassIdentifier: 
-  rewardTitle: 2x Boost 1 Hour
+  rewardTitle: 2x Boost
   rewardDesc: Get a 2x Boost For 1 Hour.
   rewardIcon: {fileID: 21300000, guid: bb6467941bbaf3d4c9be3b2b813d2d6a, type: 3}
   rewardType: 7
@@ -21,6 +21,6 @@ MonoBehaviour:
     boostID: BOO001
     boostImg: {fileID: 0}
     boostAmt: 2
-    boostLength: 1
     inUse: 0
     qtyOwned: 0
+    boostLength: 1

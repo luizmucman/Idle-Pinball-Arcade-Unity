@@ -24,7 +24,7 @@ public class UIBallPopup : MonoBehaviour
     {
         ballIcon.sprite = ball.ballIcon;
         ballTitle.text = ball.itemName;
-        ballDesc.text = ball.itemDescription;
+        ballDesc.text = ball.currRankDescription;
         for (int i = 0; i < 5; i++)
         {
             if (i <= ball.rank)
@@ -36,8 +36,8 @@ public class UIBallPopup : MonoBehaviour
                 stars[i].sprite = unlitStar;
             }
         }
-        currRankHits.text = "Hits Required: " + ball.ballStats[ball.rank].ballCD;
-        nextRankHits.text = "Hits Required: " + ball.ballStats[ball.rank + 1].ballCD;
+        currRankHits.text = ball.GetCurrentRankDesc();
+        nextRankHits.text = ball.GetNextRankDesc();
     }
 
     public void ClosePopup()

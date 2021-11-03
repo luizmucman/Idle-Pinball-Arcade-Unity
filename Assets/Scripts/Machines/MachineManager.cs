@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class MachineManager : MonoBehaviour
 {
+    private ItemDatabase ballDatabase;
+
     //UI Manager
     private UIManager uiManager;
 
     // Ball Info
-    [HideInInspector] public List<int> equippedBallCount;
     [HideInInspector] public int normalBallCount;
     [HideInInspector] public int currentBallCount;
     public int maxEquippedBalls;
@@ -47,21 +48,17 @@ public class MachineManager : MonoBehaviour
         objectCanvases = GetComponentsInChildren<Canvas>();
         machineSceneName = SceneManager.GetActiveScene().name;
 
-        for (int i = 0; i < objectManagers.Length; i++)
-        {
-            objectManagers[i].LoadManager(machineSceneName);
-        }
-
-        if (ES3.KeyExists(machineSceneName)) {
-            ES3.LoadInto(machineSceneName, gameObject);
-        }
     }
 
     private void Start()
     {
+        ballDatabase = PlayerManager.instance.ballDatabase;
+
+        LoadMachine();
+
         if(testBalance)
         {
-            Time.timeScale = 50;
+            Time.timeScale = 25;
         }
 
         PlayerManager.instance.currentMachine = this;
@@ -71,12 +68,6 @@ public class MachineManager : MonoBehaviour
         DisableUpgradeWindow();
 
         instantiatedNormalBalls = new List<Ball>();
-
-        // Add a new ball count for each ball in the database
-        while (equippedBallCount.Count < PlayerManager.instance.ballDatabase.database.Count)
-        {
-            equippedBallCount.Add(0);
-        }
 
         currentBallCount = 0;
         normalBallCount = 0;
@@ -170,7 +161,8 @@ public class MachineManager : MonoBehaviour
     public Ball AddBall(Ball ball)
     {
         // Add ball count to the special ball in array
-        equippedBallCount[ball.ballID]++;
+        Ball chosenBall = (Ball) ballDatabase.GetItem(ball.GUID);
+        chosenBall.currMachineBallCount++;
 
         // Increase special ball count and remove normal ball count
         currentBallCount++;
@@ -200,7 +192,10 @@ public class MachineManager : MonoBehaviour
     public void RemoveBall(Ball ball)
     {
         currentBallCount--;
-        equippedBallCount[ball.ballID]--;
+
+        Ball chosenBall = (Ball)ballDatabase.GetItem(ball.GUID);
+        chosenBall.currMachineBallCount--;
+
         instantiatedBalls.Remove(ball);
         Destroy(ball.gameObject);
         uiManager.uiBallManager.equippedBallValueText.text = currentBallCount.ToString();
@@ -285,19 +280,27 @@ public class MachineManager : MonoBehaviour
         {
             objectManagers[i].SaveManager(machineSceneName);
         }
-        ES3.Save(machineSceneName, gameObject);
 
         ES3.Save(machineSceneName + "-maxEquippedBalls", maxEquippedBalls);
-        ES3.Save(machineSceneName + "-equippedBallCount", equippedBallCount);
+
+        foreach (Ball currBall in ballDatabase.database)
+        {
+            ES3.Save(machineSceneName + currBall.GUID + "equipped-count", currBall.currMachineBallCount);
+        }
     }
 
     public void LoadMachine()
     {
+        for (int i = 0; i < objectManagers.Length; i++)
+        {
+            objectManagers[i].LoadManager(machineSceneName);
+        }
+
         maxEquippedBalls = ES3.Load(machineSceneName + "-maxEquippedBalls", 1);
 
-        if(ES3.KeyExists(machineSceneName + "-equippedBallCount"))
+        foreach(Ball currBall in ballDatabase.database)
         {
-            equippedBallCount = ES3.Load(machineSceneName + "-equippedBallCount", new List<int>());
+            currBall.currMachineBallCount = ES3.Load(machineSceneName + currBall.GUID + "equipped-count", 0);
         }
 
     }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b18f40a47bcbe984bbc3a905c5dfbe09, type: 3}
   m_Name: Boost50x5Mins
   m_EditorClassIdentifier: 
-  rewardTitle: 50x Boost 5 Minutes
+  rewardTitle: 50x Boost
   rewardDesc: Get a 50x Boost For 5 Minutes.
   rewardIcon: {fileID: 21300000, guid: 31cff1da35b80e04fa38a20a682dc15b, type: 3}
   rewardType: 7

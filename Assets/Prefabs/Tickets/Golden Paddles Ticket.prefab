@@ -44,16 +44,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData:
-    GUID: 
-    rank: 0
-    exp: 0
+    GUID: TI007
+    rank: 2
+    exp: 4
+    isUnlocked: 1
+    isEquipped: 0
   GUID: TI007
   itemIcon: {fileID: 21300000, guid: 50f0e3c2ce889f84087ae3533ad41d65, type: 3}
   itemName: Golden Paddles
-  itemDescription: Increase coins gained tapping paddles by {Value}%
-  currRankDescription: 
-  nextRankDescription: 
-  rank: 0
+  itemDescription: Increase coins gained tapping paddles by {Value}x
+  currRankDescription: Increase coins gained tapping paddles by 1.75%
+  nextRankDescription: Increase coins gained tapping paddles by 2%
+  rank: 2
   itemType: 2
   image: {fileID: 21300000, guid: 50f0e3c2ce889f84087ae3533ad41d65, type: 3}
   ticketStats:

@@ -5021,7 +5021,7 @@ MonoBehaviour:
   GUID: BA001
   itemIcon: {fileID: 21300000, guid: 08a8162e0780cca47acb42a00f01a504, type: 3}
   itemName: Gold Ball
-  itemDescription: Gives you 1 minute worth of your machines CPS on skill activation
+  itemDescription: Gives you 1 minute worth of your machines CPS after {Value} hits.
   currRankDescription: 
   nextRankDescription: 
   rank: 0

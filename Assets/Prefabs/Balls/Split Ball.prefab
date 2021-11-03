@@ -161,9 +161,9 @@ MonoBehaviour:
   GUID: BA002
   itemIcon: {fileID: 21300000, guid: a27a14ad232045346a8174a36f624c1f, type: 3}
   itemName: Split Ball
-  itemDescription: A ball that will split into more balls.
-  currRankDescription: 
-  nextRankDescription: 
+  itemDescription: A ball that will split into 5 more balls after {Value} hits.
+  currRankDescription: A ball that will split into more balls.
+  nextRankDescription: A ball that will split into more balls.
   rank: 1
   itemType: 1
   ballStats:

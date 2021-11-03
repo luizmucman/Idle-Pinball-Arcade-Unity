@@ -1,0 +1,2828 @@
+fileFormatVersion: 2
+guid: 60ec3660defea7f40a0e9423af9d058b
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 330
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: Arrows
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2263
+      y: 6079
+      width: 327
+      height: 332
+    spriteID: d97125aa6cfc5ad4685ff78818fb4970
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 721, y: 1818}
+  - name: UfoLights
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 638
+      y: 7629
+      width: 533
+      height: 348
+    spriteID: 443f987af9c60b340bf9218fd06168b4
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -985, y: 3237}
+  - name: TargetLight8
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2389
+      y: 7667
+      width: 128
+      height: 163
+    spriteID: dc5c78ad5c39bef4b9faab6b6c0f1f35
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 443, y: 2979}
+  - name: TargetLight7
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1215
+      y: 7985
+      width: 127
+      height: 163
+    spriteID: 93832014ddd00b2428958e671ec31d5b
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -623, y: 3280}
+  - name: TargetLight6
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2536
+      y: 6911
+      width: 127
+      height: 163
+    spriteID: c3da4cfd26cf48349b18ccd38889f382
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 524, y: 2311}
+  - name: TargetLight5
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2536
+      y: 7082
+      width: 127
+      height: 163
+    spriteID: 1ce4b7dbce898a142b8269ca474b0090
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 514, y: 2618}
+  - name: TargetLight4
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 808
+      y: 7985
+      width: 128
+      height: 163
+    spriteID: 3096cef074f317e4cb25a5fc2cf54a62
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -1105, y: 3516}
+  - name: TargetLight3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2536
+      y: 7253
+      width: 127
+      height: 163
+    spriteID: f43d523429818fb488801fa43eaf83ec
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 667, y: 2688}
+  - name: TargetLight2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 944
+      y: 7985
+      width: 128
+      height: 163
+    spriteID: d9a85a42e1e9b69429808d595e746d47
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -819, y: 3422}
+  - name: TargetLight1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1080
+      y: 7985
+      width: 127
+      height: 164
+    spriteID: ed2befeea3aee0047bc450274266b024
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -630, y: 3335}
+  - name: Background
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 7629
+      width: 626
+      height: 553
+    spriteID: 4759873b5b877fb45b8faa7e74c80b86
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -1557, y: 3299}
+  - name: Background_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2263
+      y: 5010
+      width: 525
+      height: 691
+    spriteID: 7f7140990d239084ab58178dcbd558b7
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2182, y: 1805}
+  - name: TargetLight1_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2536
+      y: 7865
+      width: 121
+      height: 125
+    spriteID: b1e53f2b6bd2f6a4dbbbabdc7a35be6e
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2168, y: 4597}
+  - name: TargetLight2_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 638
+      y: 7985
+      width: 162
+      height: 161
+    spriteID: 69c118b1c9c3ec5438c2fb5309f98d7d
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 283, y: 4746}
+  - name: TargetLight3_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2263
+      y: 7453
+      width: 198
+      height: 206
+    spriteID: 30522345b89bed84eb483ef1e1ddc676
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1921, y: 4244}
+  - name: TargetLight4_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2263
+      y: 7199
+      width: 236
+      height: 246
+    spriteID: 81df17caf38110f4ea73a91805131b7b
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1934, y: 4022}
+  - name: TargetLight5_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2263
+      y: 6911
+      width: 265
+      height: 280
+    spriteID: 3dc111f8671d8b44e9bb995071cc0102
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1944, y: 3763}
+  - name: Target
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1376
+      y: 8082
+      width: 141
+      height: 99
+    spriteID: f905cae3f17270346b07a866666737ac
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 984, y: 4883}
+  - name: Ramp
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 6056
+      width: 1364
+      height: 1565
+    spriteID: 2c39bc9d949be5a47b371d4289c1c3e5
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -794, y: 2593}
+  - name: RolloverLight5
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2186
+      y: 6056
+      width: 62
+      height: 60
+    spriteID: 0a81acb7a4dfa9d44abd0bb6be5324ed
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 633, y: 2922}
+  - name: RolloverLight4
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2092
+      y: 6463
+      width: 61
+      height: 60
+    spriteID: eb905fcc3ddbcd9449b9436d1f202e69
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 514, y: 3265}
+  - name: RolloverLight3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2092
+      y: 6599
+      width: 62
+      height: 59
+    spriteID: 2753c6ab18909c64783128ca99d75301
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 490, y: 3337}
+  - name: RolloverLight2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2092
+      y: 6531
+      width: 61
+      height: 60
+    spriteID: d2e43adec65866843a195a2b9b9b8534
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 465, y: 3206}
+  - name: RolloverLight1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2173
+      y: 6152
+      width: 62
+      height: 60
+    spriteID: 4af45203e1628384f8c2579e18d1a654
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 522, y: 2763}
+  - name: Ramp_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1376
+      y: 6056
+      width: 708
+      height: 1740
+    spriteID: 8f51be2177994314085c4a90d2914573
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1358, y: 3892}
+  - name: RolloverLight5_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2092
+      y: 6666
+      width: 63
+      height: 58
+    spriteID: 5910516b4d4471b4b90e86a03df1d086
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1375, y: 2455}
+  - name: RolloverLight4_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2092
+      y: 6331
+      width: 64
+      height: 58
+    spriteID: e623671b6fb80524bae59e84b7adf446
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1391, y: 2187}
+  - name: RolloverLight3_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2092
+      y: 6732
+      width: 63
+      height: 58
+    spriteID: 003a98c385b157b4db020c783586bebe
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1406, y: 2654}
+  - name: RolloverLight2_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2092
+      y: 6798
+      width: 64
+      height: 57
+    spriteID: 416097cdac854f749a04611f6a786717
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1422, y: 2786}
+  - name: RolloverLight1_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2092
+      y: 6397
+      width: 64
+      height: 58
+    spriteID: cc997912968034545bce429101ff8d13
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1438, y: 2452}
+  - name: MultiRollover3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2024
+      y: 8093
+      width: 99
+      height: 91
+    spriteID: 340bfbd49c79aff47ab277cd76deabc6
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1007, y: 3406}
+  - name: MultiRollover2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2536
+      y: 7998
+      width: 100
+      height: 92
+    spriteID: 3669c3708b4cc6c43b6174dcf4ff7695
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1324, y: 3307}
+  - name: MultiRollover1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2131
+      y: 8093
+      width: 99
+      height: 91
+    spriteID: 1d6c49ca391c9504f9c263179a1514ae
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 723, y: 3410}
+  - name: Bumper3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2263
+      y: 7995
+      width: 213
+      height: 163
+    spriteID: 910bc8b898984c144922950c4f5450d0
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 684, y: 4281}
+  - name: Bumper2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1179
+      y: 7629
+      width: 164
+      height: 164
+    spriteID: 6706560994d7cdf4082e8367cabe282e
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -198, y: 3656}
+  - name: Bumper1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1179
+      y: 7801
+      width: 164
+      height: 164
+    spriteID: 86012f6a57ee6c04cbdf46f7ea7a8e8e
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -532, y: 3737}
+  - name: RolloverLight12
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2092
+      y: 7011
+      width: 49
+      height: 59
+    spriteID: 8175cc7421f7c5f4ca482cea623c288d
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1425, y: 2229}
+  - name: RolloverLight11
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2469
+      y: 7453
+      width: 51
+      height: 66
+    spriteID: bee727ce30debf44f81d1dbcb68c44db
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1944, y: 2736}
+  - name: RolloverLight10
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2484
+      y: 8061
+      width: 43
+      height: 57
+    spriteID: b738efac0d2004247a2544aa55b541bf
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2082, y: 3426}
+  - name: RolloverLight9
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2092
+      y: 7078
+      width: 49
+      height: 59
+    spriteID: 27dc43a3f53b03d459a6ef4e961cb246
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1777, y: 2571}
+  - name: RolloverLight8
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2469
+      y: 7527
+      width: 51
+      height: 66
+    spriteID: 8d10bb9c47612494784887a97ebd847f
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2187, y: 3186}
+  - name: RolloverLight7
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2211
+      y: 6263
+      width: 44
+      height: 58
+    spriteID: d354226c6079e6f44bc9f732be0b1e25
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1909, y: 2074}
+  - name: RolloverLight6
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2469
+      y: 7601
+      width: 49
+      height: 56
+    spriteID: 6a6552d0f7d1edd44b5555719fb4cdcd
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2118, y: 3554}
+  - name: RolloverLight5_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2092
+      y: 6863
+      width: 51
+      height: 66
+    spriteID: b5cc1096c831c0241984f0b83f8f87c0
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1684, y: 2955}
+  - name: RolloverLight4_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1969
+      y: 8082
+      width: 44
+      height: 58
+    spriteID: 9b9db1d0ac623e14483132319bf25a3a
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1481, y: 4292}
+  - name: RolloverLight3_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2092
+      y: 7145
+      width: 48
+      height: 55
+    spriteID: 86b354add9f63db4a8ecdf1de08caf5c
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1516, y: 3466}
+  - name: RolloverLight2_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2092
+      y: 6937
+      width: 50
+      height: 66
+    spriteID: d49fa6800219f0946a65cc4b4d9f9326
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1407, y: 3376}
+  - name: RolloverLight1_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2484
+      y: 7995
+      width: 43
+      height: 58
+    spriteID: 1a5c7def8f093c541870769e02ce5823
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1690, y: 4524}
+  - name: MultiTargetLight6
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2671
+      y: 7253
+      width: 84
+      height: 92
+    spriteID: 30fb9d80e8e45e8479ce8bc3a43331b4
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1575, y: 3864}
+  - name: MultiTarget6
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2671
+      y: 7777
+      width: 74
+      height: 103
+    spriteID: 74170da89364f3840b0be5d4979b7443
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1293, y: 4218}
+  - name: MultiTargetLight5
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1525
+      y: 8082
+      width: 83
+      height: 98
+    spriteID: 9b7546aaa999f83488120d5e1c9703a3
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 330, y: 4525}
+  - name: MultiTarget5
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2092
+      y: 6152
+      width: 73
+      height: 103
+    spriteID: e9c6c7c919b5ae341860d59c8a294b93
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 774, y: 2489}
+  - name: MultiTargetLight4
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1871
+      y: 8082
+      width: 90
+      height: 86
+    spriteID: c0009a0a02e3bb147a7fd038a49e8cc4
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 889, y: 4468}
+  - name: MultiTarget4
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2671
+      y: 7888
+      width: 74
+      height: 103
+    spriteID: f9fd3507251529f48a05dcaf5a260fa8
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1414, y: 4122}
+  - name: MultiTargetLight3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2671
+      y: 7680
+      width: 86
+      height: 89
+    spriteID: ae530bbe50155a44d84b35529439be02
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1574, y: 3895}
+  - name: MultiTarget3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2671
+      y: 7353
+      width: 76
+      height: 101
+    spriteID: 55c776a7cba755b42ac30638d1502c79
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1910, y: 3457}
+  - name: MultiTargetLight2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2536
+      y: 8098
+      width: 97
+      height: 83
+    spriteID: e694e55c412fba543a9d92f204bb516e
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1519, y: 4060}
+  - name: MultiTarget2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1616
+      y: 8082
+      width: 77
+      height: 101
+    spriteID: e6149e49392620b4f9a13dcccdf815d3
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 791, y: 4085}
+  - name: MultiTargetLight1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2092
+      y: 6056
+      width: 86
+      height: 88
+    spriteID: 12365b4ef1b60b847a882f91a6be414d
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1167, y: 2213}
+  - name: MultiTarget1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2671
+      y: 7462
+      width: 76
+      height: 101
+    spriteID: 34ca3a5b45e82d940bd549c6f19711b2
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1781, y: 3364}
+  - name: MultiTargetLight6_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2389
+      y: 7838
+      width: 113
+      height: 139
+    spriteID: ca88489bb617b5b4bb4e31550d76b0d6
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1956, y: 4961}
+  - name: MultiTarget6_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2671
+      y: 8107
+      width: 107
+      height: 64
+    spriteID: 0bcc424eb04f3a543960ed72505618bd
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1983, y: 4800}
+  - name: MultiTargetLight5_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2536
+      y: 7720
+      width: 112
+      height: 137
+    spriteID: e200a1c22e43f7f40958f0762bae2aa7
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2202, y: 5052}
+  - name: MultiTarget5_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2653
+      y: 6831
+      width: 107
+      height: 64
+    spriteID: ec6370a5d256e734bbb15ad330288701
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2075, y: 3570}
+  - name: MultiTargetLight4_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2536
+      y: 7424
+      width: 112
+      height: 140
+    spriteID: 37649db5b50dbd04a93186e8b2197f29
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1975, y: 4842}
+  - name: MultiTarget4_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1701
+      y: 8082
+      width: 77
+      height: 101
+    spriteID: 51c3bfd5960c03047a5e8a970b5b467b
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1380, y: 5036}
+  - name: MultiTargetLight3_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2671
+      y: 7082
+      width: 114
+      height: 138
+    spriteID: 067e67407e5f5154d8555e02117c404d
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2239, y: 4710}
+  - name: MultiTarget3_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2671
+      y: 7999
+      width: 76
+      height: 100
+    spriteID: 7d80ec0affcd1e643a8aa4a4ff35d5ae
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2414, y: 5053}
+  - name: MultiTargetLight2_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2671
+      y: 6911
+      width: 113
+      height: 140
+    spriteID: f0a9624ba2121e24380abbff458927da
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2021, y: 4607}
+  - name: MultiTarget2_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1786
+      y: 8082
+      width: 77
+      height: 101
+    spriteID: affab7ca7f60e664abd10ed474472ec0
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1595, y: 5238}
+  - name: MultiTargetLight1_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2536
+      y: 7572
+      width: 111
+      height: 140
+    spriteID: 5d220655a4183fe4b8529acb71ab898c
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1969, y: 5483}
+  - name: MultiTarget1_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2671
+      y: 7571
+      width: 76
+      height: 101
+    spriteID: a6963a05f21b9a54fb4c97863feda9bf
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2544, y: 4828}
+  - name: Effects
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2653
+      y: 6419
+      width: 107
+      height: 214
+    spriteID: 1a5dc0cb36032ed46957d0c93aa8c55a
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 929, y: 3245}
+  - name: Target_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2092
+      y: 6263
+      width: 111
+      height: 60
+    spriteID: c5759c94ede71454787a54f74ce733a7
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 307, y: 2844}
+  - name: TargetLight5_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2024
+      y: 7804
+      width: 202
+      height: 281
+    spriteID: 7431d5c653f53e54bbfd7e2b72f23ec1
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 948, y: 5824}
+  - name: TargetLight4_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2653
+      y: 6665
+      width: 133
+      height: 158
+    spriteID: 0d43947f84ea1224484a056b3bb704df
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1760, y: 3969}
+  - name: TargetLight3_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2582
+      y: 5709
+      width: 206
+      height: 323
+    spriteID: 207decc032a92d04bab7377e24cb359e
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1000, y: 3003}
+  - name: TargetLight2_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1376
+      y: 7804
+      width: 640
+      height: 270
+    spriteID: 4897c8724c04c70459ee36bf6601a795
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 277, y: 5460}
+  - name: TargetLight1_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2263
+      y: 5709
+      width: 311
+      height: 362
+    spriteID: 4d7501defc446334cb2264e5c277352a
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1253, y: 2868}
+  - name: Paddle
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2263
+      y: 7667
+      width: 118
+      height: 320
+    spriteID: 91f3c2af2ac7d0247b594208ec2d607b
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1734, y: 3376}
+  - name: Paddle_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2598
+      y: 6079
+      width: 178
+      height: 308
+    spriteID: 70e6507a7970052478a9395face88201
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 642, y: 3074}
+  - name: LeftPaddle
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2263
+      y: 6419
+      width: 382
+      height: 238
+    spriteID: 6603cd0740890bb43aa7cd142000159b
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1690, y: 5041}
+  - name: RightPaddle
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2263
+      y: 6665
+      width: 382
+      height: 238
+    spriteID: bb38eaa08fa006c4bb5dc8486acc52a9
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1119, y: 5287}
+  - name: Wall
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 2251
+      height: 6044
+    spriteID: 34754cc8765cd97499ece759e2d4de11
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 4}
+  - name: BackgroundTexture
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4522
+      y: 4
+      width: 2250
+      height: 4997
+    spriteID: c4011426f89a5ec4d9f1b21b87299fd4
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4521, y: 3}
+  - name: Background_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2263
+      y: 4
+      width: 2251
+      height: 4998
+    spriteID: cac81b08e63de6c4f9325068c2dbfb86
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2263, y: 4}
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: iPhone
+    overridden: 0
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Android
+    overridden: 0
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  mosaicLayers: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  importedTextureWidth: 8192
+  importedTextureHeight: 8192
+  documentSize: {x: 2251, y: 6044}
+  paperDollMode: 0
+  keepDupilcateSpriteName: 0
+  spriteCategoryList:
+    categories: []
+  textureActualWidth: 8192
+  textureActualHeight: 8192
+  spritePackingTag: 
+  resliceFromLayer: 1
+  characterMode: 1
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: InteractableObjects
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 00000000000000000000000000000000
+    layerID: 134
+    mosaicPosition: {x: 0, y: 0}
+  - name: UfoTargetManager
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 00000000000000000000000000000000
+    layerID: 132
+    mosaicPosition: {x: 0, y: 0}
+  - name: Effects
+    spriteName: 
+    isGroup: 1
+    parentIndex: 1
+    spriteID: 00000000000000000000000000000000
+    layerID: 130
+    mosaicPosition: {x: 0, y: 0}
+  - name: Arrows
+    spriteName: Arrows
+    isGroup: 0
+    parentIndex: 2
+    spriteID: d97125aa6cfc5ad4685ff78818fb4970
+    layerID: 129
+    mosaicPosition: {x: 2263, y: 6079}
+  - name: UfoLights
+    spriteName: UfoLights
+    isGroup: 0
+    parentIndex: 2
+    spriteID: 443f987af9c60b340bf9218fd06168b4
+    layerID: 128
+    mosaicPosition: {x: 638, y: 7629}
+  - name: TargetLights
+    spriteName: 
+    isGroup: 1
+    parentIndex: 1
+    spriteID: 00000000000000000000000000000000
+    layerID: 126
+    mosaicPosition: {x: 0, y: 0}
+  - name: TargetLight8
+    spriteName: TargetLight8
+    isGroup: 0
+    parentIndex: 5
+    spriteID: dc5c78ad5c39bef4b9faab6b6c0f1f35
+    layerID: 125
+    mosaicPosition: {x: 2389, y: 7667}
+  - name: TargetLight7
+    spriteName: TargetLight7
+    isGroup: 0
+    parentIndex: 5
+    spriteID: 93832014ddd00b2428958e671ec31d5b
+    layerID: 124
+    mosaicPosition: {x: 1215, y: 7985}
+  - name: TargetLight6
+    spriteName: TargetLight6
+    isGroup: 0
+    parentIndex: 5
+    spriteID: c3da4cfd26cf48349b18ccd38889f382
+    layerID: 123
+    mosaicPosition: {x: 2536, y: 6911}
+  - name: TargetLight5
+    spriteName: TargetLight5
+    isGroup: 0
+    parentIndex: 5
+    spriteID: 1ce4b7dbce898a142b8269ca474b0090
+    layerID: 122
+    mosaicPosition: {x: 2536, y: 7082}
+  - name: TargetLight4
+    spriteName: TargetLight4
+    isGroup: 0
+    parentIndex: 5
+    spriteID: 3096cef074f317e4cb25a5fc2cf54a62
+    layerID: 121
+    mosaicPosition: {x: 808, y: 7985}
+  - name: TargetLight3
+    spriteName: TargetLight3
+    isGroup: 0
+    parentIndex: 5
+    spriteID: f43d523429818fb488801fa43eaf83ec
+    layerID: 120
+    mosaicPosition: {x: 2536, y: 7253}
+  - name: TargetLight2
+    spriteName: TargetLight2
+    isGroup: 0
+    parentIndex: 5
+    spriteID: d9a85a42e1e9b69429808d595e746d47
+    layerID: 119
+    mosaicPosition: {x: 944, y: 7985}
+  - name: TargetLight1
+    spriteName: TargetLight1
+    isGroup: 0
+    parentIndex: 5
+    spriteID: ed2befeea3aee0047bc450274266b024
+    layerID: 118
+    mosaicPosition: {x: 1080, y: 7985}
+  - name: Background
+    spriteName: Background
+    isGroup: 0
+    parentIndex: 1
+    spriteID: 4759873b5b877fb45b8faa7e74c80b86
+    layerID: 117
+    mosaicPosition: {x: 4, y: 7629}
+  - name: RocketTargetManager
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 00000000000000000000000000000000
+    layerID: 115
+    mosaicPosition: {x: 0, y: 0}
+  - name: Background
+    spriteName: Background_1
+    isGroup: 0
+    parentIndex: 15
+    spriteID: 7f7140990d239084ab58178dcbd558b7
+    layerID: 114
+    mosaicPosition: {x: 2263, y: 5010}
+  - name: TargetLights
+    spriteName: 
+    isGroup: 1
+    parentIndex: 15
+    spriteID: 00000000000000000000000000000000
+    layerID: 112
+    mosaicPosition: {x: 0, y: 0}
+  - name: TargetLight1
+    spriteName: TargetLight1_1
+    isGroup: 0
+    parentIndex: 17
+    spriteID: b1e53f2b6bd2f6a4dbbbabdc7a35be6e
+    layerID: 111
+    mosaicPosition: {x: 2536, y: 7865}
+  - name: TargetLight2
+    spriteName: TargetLight2_1
+    isGroup: 0
+    parentIndex: 17
+    spriteID: 69c118b1c9c3ec5438c2fb5309f98d7d
+    layerID: 110
+    mosaicPosition: {x: 638, y: 7985}
+  - name: TargetLight3
+    spriteName: TargetLight3_1
+    isGroup: 0
+    parentIndex: 17
+    spriteID: 30522345b89bed84eb483ef1e1ddc676
+    layerID: 109
+    mosaicPosition: {x: 2263, y: 7453}
+  - name: TargetLight4
+    spriteName: TargetLight4_1
+    isGroup: 0
+    parentIndex: 17
+    spriteID: 81df17caf38110f4ea73a91805131b7b
+    layerID: 108
+    mosaicPosition: {x: 2263, y: 7199}
+  - name: TargetLight5
+    spriteName: TargetLight5_1
+    isGroup: 0
+    parentIndex: 17
+    spriteID: 3dc111f8671d8b44e9bb995071cc0102
+    layerID: 107
+    mosaicPosition: {x: 2263, y: 6911}
+  - name: Target
+    spriteName: Target
+    isGroup: 0
+    parentIndex: 15
+    spriteID: f905cae3f17270346b07a866666737ac
+    layerID: 106
+    mosaicPosition: {x: 1376, y: 8082}
+  - name: BlueRampManager
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 00000000000000000000000000000000
+    layerID: 104
+    mosaicPosition: {x: 0, y: 0}
+  - name: Ramp
+    spriteName: Ramp
+    isGroup: 0
+    parentIndex: 24
+    spriteID: 2c39bc9d949be5a47b371d4289c1c3e5
+    layerID: 103
+    mosaicPosition: {x: 4, y: 6056}
+  - name: RolloverLights
+    spriteName: 
+    isGroup: 1
+    parentIndex: 24
+    spriteID: 00000000000000000000000000000000
+    layerID: 101
+    mosaicPosition: {x: 0, y: 0}
+  - name: RolloverLight5
+    spriteName: RolloverLight5
+    isGroup: 0
+    parentIndex: 26
+    spriteID: 0a81acb7a4dfa9d44abd0bb6be5324ed
+    layerID: 100
+    mosaicPosition: {x: 2186, y: 6056}
+  - name: RolloverLight4
+    spriteName: RolloverLight4
+    isGroup: 0
+    parentIndex: 26
+    spriteID: eb905fcc3ddbcd9449b9436d1f202e69
+    layerID: 99
+    mosaicPosition: {x: 2092, y: 6463}
+  - name: RolloverLight3
+    spriteName: RolloverLight3
+    isGroup: 0
+    parentIndex: 26
+    spriteID: 2753c6ab18909c64783128ca99d75301
+    layerID: 98
+    mosaicPosition: {x: 2092, y: 6599}
+  - name: RolloverLight2
+    spriteName: RolloverLight2
+    isGroup: 0
+    parentIndex: 26
+    spriteID: d2e43adec65866843a195a2b9b9b8534
+    layerID: 97
+    mosaicPosition: {x: 2092, y: 6531}
+  - name: RolloverLight1
+    spriteName: RolloverLight1
+    isGroup: 0
+    parentIndex: 26
+    spriteID: 4af45203e1628384f8c2579e18d1a654
+    layerID: 96
+    mosaicPosition: {x: 2173, y: 6152}
+  - name: RedRampManager
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 00000000000000000000000000000000
+    layerID: 94
+    mosaicPosition: {x: 0, y: 0}
+  - name: Ramp
+    spriteName: Ramp_1
+    isGroup: 0
+    parentIndex: 32
+    spriteID: 8f51be2177994314085c4a90d2914573
+    layerID: 93
+    mosaicPosition: {x: 1376, y: 6056}
+  - name: RolloverLights
+    spriteName: 
+    isGroup: 1
+    parentIndex: 32
+    spriteID: 00000000000000000000000000000000
+    layerID: 91
+    mosaicPosition: {x: 0, y: 0}
+  - name: RolloverLight5
+    spriteName: RolloverLight5_1
+    isGroup: 0
+    parentIndex: 34
+    spriteID: 5910516b4d4471b4b90e86a03df1d086
+    layerID: 90
+    mosaicPosition: {x: 2092, y: 6666}
+  - name: RolloverLight4
+    spriteName: RolloverLight4_1
+    isGroup: 0
+    parentIndex: 34
+    spriteID: e623671b6fb80524bae59e84b7adf446
+    layerID: 89
+    mosaicPosition: {x: 2092, y: 6331}
+  - name: RolloverLight3
+    spriteName: RolloverLight3_1
+    isGroup: 0
+    parentIndex: 34
+    spriteID: 003a98c385b157b4db020c783586bebe
+    layerID: 88
+    mosaicPosition: {x: 2092, y: 6732}
+  - name: RolloverLight2
+    spriteName: RolloverLight2_1
+    isGroup: 0
+    parentIndex: 34
+    spriteID: 416097cdac854f749a04611f6a786717
+    layerID: 87
+    mosaicPosition: {x: 2092, y: 6798}
+  - name: RolloverLight1
+    spriteName: RolloverLight1_1
+    isGroup: 0
+    parentIndex: 34
+    spriteID: cc997912968034545bce429101ff8d13
+    layerID: 86
+    mosaicPosition: {x: 2092, y: 6397}
+  - name: ShootingStarMultiRolloverManager
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 00000000000000000000000000000000
+    layerID: 84
+    mosaicPosition: {x: 0, y: 0}
+  - name: MultiRollover3
+    spriteName: MultiRollover3
+    isGroup: 0
+    parentIndex: 40
+    spriteID: 340bfbd49c79aff47ab277cd76deabc6
+    layerID: 83
+    mosaicPosition: {x: 2024, y: 8093}
+  - name: MultiRollover2
+    spriteName: MultiRollover2
+    isGroup: 0
+    parentIndex: 40
+    spriteID: 3669c3708b4cc6c43b6174dcf4ff7695
+    layerID: 82
+    mosaicPosition: {x: 2536, y: 7998}
+  - name: MultiRollover1
+    spriteName: MultiRollover1
+    isGroup: 0
+    parentIndex: 40
+    spriteID: 1d6c49ca391c9504f9c263179a1514ae
+    layerID: 81
+    mosaicPosition: {x: 2131, y: 8093}
+  - name: BumperManager
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 00000000000000000000000000000000
+    layerID: 79
+    mosaicPosition: {x: 0, y: 0}
+  - name: Bumper3
+    spriteName: Bumper3
+    isGroup: 0
+    parentIndex: 44
+    spriteID: 910bc8b898984c144922950c4f5450d0
+    layerID: 78
+    mosaicPosition: {x: 2263, y: 7995}
+  - name: Bumper2
+    spriteName: Bumper2
+    isGroup: 0
+    parentIndex: 44
+    spriteID: 6706560994d7cdf4082e8367cabe282e
+    layerID: 77
+    mosaicPosition: {x: 1179, y: 7629}
+  - name: Bumper1
+    spriteName: Bumper1
+    isGroup: 0
+    parentIndex: 44
+    spriteID: 86012f6a57ee6c04cbdf46f7ea7a8e8e
+    layerID: 76
+    mosaicPosition: {x: 1179, y: 7801}
+  - name: StarryRolloverManager
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 00000000000000000000000000000000
+    layerID: 74
+    mosaicPosition: {x: 0, y: 0}
+  - name: RolloverLights
+    spriteName: 
+    isGroup: 1
+    parentIndex: 48
+    spriteID: 00000000000000000000000000000000
+    layerID: 72
+    mosaicPosition: {x: 0, y: 0}
+  - name: RolloverLight12
+    spriteName: RolloverLight12
+    isGroup: 0
+    parentIndex: 49
+    spriteID: 8175cc7421f7c5f4ca482cea623c288d
+    layerID: 71
+    mosaicPosition: {x: 2092, y: 7011}
+  - name: RolloverLight11
+    spriteName: RolloverLight11
+    isGroup: 0
+    parentIndex: 49
+    spriteID: bee727ce30debf44f81d1dbcb68c44db
+    layerID: 70
+    mosaicPosition: {x: 2469, y: 7453}
+  - name: RolloverLight10
+    spriteName: RolloverLight10
+    isGroup: 0
+    parentIndex: 49
+    spriteID: b738efac0d2004247a2544aa55b541bf
+    layerID: 69
+    mosaicPosition: {x: 2484, y: 8061}
+  - name: RolloverLight9
+    spriteName: RolloverLight9
+    isGroup: 0
+    parentIndex: 49
+    spriteID: 27dc43a3f53b03d459a6ef4e961cb246
+    layerID: 68
+    mosaicPosition: {x: 2092, y: 7078}
+  - name: RolloverLight8
+    spriteName: RolloverLight8
+    isGroup: 0
+    parentIndex: 49
+    spriteID: 8d10bb9c47612494784887a97ebd847f
+    layerID: 67
+    mosaicPosition: {x: 2469, y: 7527}
+  - name: RolloverLight7
+    spriteName: RolloverLight7
+    isGroup: 0
+    parentIndex: 49
+    spriteID: d354226c6079e6f44bc9f732be0b1e25
+    layerID: 66
+    mosaicPosition: {x: 2211, y: 6263}
+  - name: RolloverLight6
+    spriteName: RolloverLight6
+    isGroup: 0
+    parentIndex: 49
+    spriteID: 6a6552d0f7d1edd44b5555719fb4cdcd
+    layerID: 65
+    mosaicPosition: {x: 2469, y: 7601}
+  - name: RolloverLight5
+    spriteName: RolloverLight5_2
+    isGroup: 0
+    parentIndex: 49
+    spriteID: b5cc1096c831c0241984f0b83f8f87c0
+    layerID: 64
+    mosaicPosition: {x: 2092, y: 6863}
+  - name: RolloverLight4
+    spriteName: RolloverLight4_2
+    isGroup: 0
+    parentIndex: 49
+    spriteID: 9b9db1d0ac623e14483132319bf25a3a
+    layerID: 63
+    mosaicPosition: {x: 1969, y: 8082}
+  - name: RolloverLight3
+    spriteName: RolloverLight3_2
+    isGroup: 0
+    parentIndex: 49
+    spriteID: 86b354add9f63db4a8ecdf1de08caf5c
+    layerID: 62
+    mosaicPosition: {x: 2092, y: 7145}
+  - name: RolloverLight2
+    spriteName: RolloverLight2_2
+    isGroup: 0
+    parentIndex: 49
+    spriteID: d49fa6800219f0946a65cc4b4d9f9326
+    layerID: 61
+    mosaicPosition: {x: 2092, y: 6937}
+  - name: RolloverLight1
+    spriteName: RolloverLight1_2
+    isGroup: 0
+    parentIndex: 49
+    spriteID: 1a5c7def8f093c541870769e02ce5823
+    layerID: 60
+    mosaicPosition: {x: 2484, y: 7995}
+  - name: AsteroidMultiTargetManager
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 00000000000000000000000000000000
+    layerID: 58
+    mosaicPosition: {x: 0, y: 0}
+  - name: MultiTargetLight6
+    spriteName: MultiTargetLight6
+    isGroup: 0
+    parentIndex: 62
+    spriteID: 30fb9d80e8e45e8479ce8bc3a43331b4
+    layerID: 57
+    mosaicPosition: {x: 2671, y: 7253}
+  - name: MultiTarget6
+    spriteName: MultiTarget6
+    isGroup: 0
+    parentIndex: 62
+    spriteID: 74170da89364f3840b0be5d4979b7443
+    layerID: 56
+    mosaicPosition: {x: 2671, y: 7777}
+  - name: MultiTargetLight5
+    spriteName: MultiTargetLight5
+    isGroup: 0
+    parentIndex: 62
+    spriteID: 9b7546aaa999f83488120d5e1c9703a3
+    layerID: 55
+    mosaicPosition: {x: 1525, y: 8082}
+  - name: MultiTarget5
+    spriteName: MultiTarget5
+    isGroup: 0
+    parentIndex: 62
+    spriteID: e9c6c7c919b5ae341860d59c8a294b93
+    layerID: 54
+    mosaicPosition: {x: 2092, y: 6152}
+  - name: MultiTargetLight4
+    spriteName: MultiTargetLight4
+    isGroup: 0
+    parentIndex: 62
+    spriteID: c0009a0a02e3bb147a7fd038a49e8cc4
+    layerID: 53
+    mosaicPosition: {x: 1871, y: 8082}
+  - name: MultiTarget4
+    spriteName: MultiTarget4
+    isGroup: 0
+    parentIndex: 62
+    spriteID: f9fd3507251529f48a05dcaf5a260fa8
+    layerID: 52
+    mosaicPosition: {x: 2671, y: 7888}
+  - name: MultiTargetLight3
+    spriteName: MultiTargetLight3
+    isGroup: 0
+    parentIndex: 62
+    spriteID: ae530bbe50155a44d84b35529439be02
+    layerID: 51
+    mosaicPosition: {x: 2671, y: 7680}
+  - name: MultiTarget3
+    spriteName: MultiTarget3
+    isGroup: 0
+    parentIndex: 62
+    spriteID: 55c776a7cba755b42ac30638d1502c79
+    layerID: 50
+    mosaicPosition: {x: 2671, y: 7353}
+  - name: MultiTargetLight2
+    spriteName: MultiTargetLight2
+    isGroup: 0
+    parentIndex: 62
+    spriteID: e694e55c412fba543a9d92f204bb516e
+    layerID: 49
+    mosaicPosition: {x: 2536, y: 8098}
+  - name: MultiTarget2
+    spriteName: MultiTarget2
+    isGroup: 0
+    parentIndex: 62
+    spriteID: e6149e49392620b4f9a13dcccdf815d3
+    layerID: 48
+    mosaicPosition: {x: 1616, y: 8082}
+  - name: MultiTargetLight1
+    spriteName: MultiTargetLight1
+    isGroup: 0
+    parentIndex: 62
+    spriteID: 12365b4ef1b60b847a882f91a6be414d
+    layerID: 47
+    mosaicPosition: {x: 2092, y: 6056}
+  - name: MultiTarget1
+    spriteName: MultiTarget1
+    isGroup: 0
+    parentIndex: 62
+    spriteID: 34ca3a5b45e82d940bd549c6f19711b2
+    layerID: 46
+    mosaicPosition: {x: 2671, y: 7462}
+  - name: AstronautMultiTargetManager
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 00000000000000000000000000000000
+    layerID: 44
+    mosaicPosition: {x: 0, y: 0}
+  - name: MultiTargetLight6
+    spriteName: MultiTargetLight6_1
+    isGroup: 0
+    parentIndex: 75
+    spriteID: ca88489bb617b5b4bb4e31550d76b0d6
+    layerID: 43
+    mosaicPosition: {x: 2389, y: 7838}
+  - name: MultiTarget6
+    spriteName: MultiTarget6_1
+    isGroup: 0
+    parentIndex: 75
+    spriteID: 0bcc424eb04f3a543960ed72505618bd
+    layerID: 42
+    mosaicPosition: {x: 2671, y: 8107}
+  - name: MultiTargetLight5
+    spriteName: MultiTargetLight5_1
+    isGroup: 0
+    parentIndex: 75
+    spriteID: e200a1c22e43f7f40958f0762bae2aa7
+    layerID: 41
+    mosaicPosition: {x: 2536, y: 7720}
+  - name: MultiTarget5
+    spriteName: MultiTarget5_1
+    isGroup: 0
+    parentIndex: 75
+    spriteID: ec6370a5d256e734bbb15ad330288701
+    layerID: 40
+    mosaicPosition: {x: 2653, y: 6831}
+  - name: MultiTargetLight4
+    spriteName: MultiTargetLight4_1
+    isGroup: 0
+    parentIndex: 75
+    spriteID: 37649db5b50dbd04a93186e8b2197f29
+    layerID: 39
+    mosaicPosition: {x: 2536, y: 7424}
+  - name: MultiTarget4
+    spriteName: MultiTarget4_1
+    isGroup: 0
+    parentIndex: 75
+    spriteID: 51c3bfd5960c03047a5e8a970b5b467b
+    layerID: 38
+    mosaicPosition: {x: 1701, y: 8082}
+  - name: MultiTargetLight3
+    spriteName: MultiTargetLight3_1
+    isGroup: 0
+    parentIndex: 75
+    spriteID: 067e67407e5f5154d8555e02117c404d
+    layerID: 37
+    mosaicPosition: {x: 2671, y: 7082}
+  - name: MultiTarget3
+    spriteName: MultiTarget3_1
+    isGroup: 0
+    parentIndex: 75
+    spriteID: 7d80ec0affcd1e643a8aa4a4ff35d5ae
+    layerID: 36
+    mosaicPosition: {x: 2671, y: 7999}
+  - name: MultiTargetLight2
+    spriteName: MultiTargetLight2_1
+    isGroup: 0
+    parentIndex: 75
+    spriteID: f0a9624ba2121e24380abbff458927da
+    layerID: 35
+    mosaicPosition: {x: 2671, y: 6911}
+  - name: MultiTarget2
+    spriteName: MultiTarget2_1
+    isGroup: 0
+    parentIndex: 75
+    spriteID: affab7ca7f60e664abd10ed474472ec0
+    layerID: 34
+    mosaicPosition: {x: 1786, y: 8082}
+  - name: MultiTargetLight1
+    spriteName: MultiTargetLight1_1
+    isGroup: 0
+    parentIndex: 75
+    spriteID: 5d220655a4183fe4b8529acb71ab898c
+    layerID: 33
+    mosaicPosition: {x: 2536, y: 7572}
+  - name: MultiTarget1
+    spriteName: MultiTarget1_1
+    isGroup: 0
+    parentIndex: 75
+    spriteID: a6963a05f21b9a54fb4c97863feda9bf
+    layerID: 32
+    mosaicPosition: {x: 2671, y: 7571}
+  - name: ConstellationTargetManager
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 00000000000000000000000000000000
+    layerID: 30
+    mosaicPosition: {x: 0, y: 0}
+  - name: Effects
+    spriteName: Effects
+    isGroup: 0
+    parentIndex: 88
+    spriteID: 1a5dc0cb36032ed46957d0c93aa8c55a
+    layerID: 29
+    mosaicPosition: {x: 2653, y: 6419}
+  - name: Target
+    spriteName: Target_1
+    isGroup: 0
+    parentIndex: 88
+    spriteID: c5759c94ede71454787a54f74ce733a7
+    layerID: 28
+    mosaicPosition: {x: 2092, y: 6263}
+  - name: TargetLights
+    spriteName: 
+    isGroup: 1
+    parentIndex: 88
+    spriteID: 00000000000000000000000000000000
+    layerID: 26
+    mosaicPosition: {x: 0, y: 0}
+  - name: TargetLight5
+    spriteName: TargetLight5_2
+    isGroup: 0
+    parentIndex: 91
+    spriteID: 7431d5c653f53e54bbfd7e2b72f23ec1
+    layerID: 25
+    mosaicPosition: {x: 2024, y: 7804}
+  - name: TargetLight4
+    spriteName: TargetLight4_2
+    isGroup: 0
+    parentIndex: 91
+    spriteID: 0d43947f84ea1224484a056b3bb704df
+    layerID: 24
+    mosaicPosition: {x: 2653, y: 6665}
+  - name: TargetLight3
+    spriteName: TargetLight3_2
+    isGroup: 0
+    parentIndex: 91
+    spriteID: 207decc032a92d04bab7377e24cb359e
+    layerID: 23
+    mosaicPosition: {x: 2582, y: 5709}
+  - name: TargetLight2
+    spriteName: TargetLight2_2
+    isGroup: 0
+    parentIndex: 91
+    spriteID: 4897c8724c04c70459ee36bf6601a795
+    layerID: 22
+    mosaicPosition: {x: 1376, y: 7804}
+  - name: TargetLight1
+    spriteName: TargetLight1_2
+    isGroup: 0
+    parentIndex: 91
+    spriteID: 4d7501defc446334cb2264e5c277352a
+    layerID: 21
+    mosaicPosition: {x: 2263, y: 5709}
+  - name: TopPaddleManager
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 00000000000000000000000000000000
+    layerID: 19
+    mosaicPosition: {x: 0, y: 0}
+  - name: Paddle
+    spriteName: Paddle
+    isGroup: 0
+    parentIndex: 97
+    spriteID: 91f3c2af2ac7d0247b594208ec2d607b
+    layerID: 18
+    mosaicPosition: {x: 2263, y: 7667}
+  - name: MiddlePaddleManager
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 00000000000000000000000000000000
+    layerID: 16
+    mosaicPosition: {x: 0, y: 0}
+  - name: Paddle
+    spriteName: Paddle_1
+    isGroup: 0
+    parentIndex: 99
+    spriteID: 70e6507a7970052478a9395face88201
+    layerID: 15
+    mosaicPosition: {x: 2598, y: 6079}
+  - name: PaddleManager
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 00000000000000000000000000000000
+    layerID: 13
+    mosaicPosition: {x: 0, y: 0}
+  - name: LeftPaddle
+    spriteName: LeftPaddle
+    isGroup: 0
+    parentIndex: 101
+    spriteID: 6603cd0740890bb43aa7cd142000159b
+    layerID: 12
+    mosaicPosition: {x: 2263, y: 6419}
+  - name: RightPaddle
+    spriteName: RightPaddle
+    isGroup: 0
+    parentIndex: 101
+    spriteID: bb38eaa08fa006c4bb5dc8486acc52a9
+    layerID: 11
+    mosaicPosition: {x: 2263, y: 6665}
+  - name: StaticObjects
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 00000000000000000000000000000000
+    layerID: 9
+    mosaicPosition: {x: 0, y: 0}
+  - name: WallManager
+    spriteName: 
+    isGroup: 1
+    parentIndex: 104
+    spriteID: 00000000000000000000000000000000
+    layerID: 7
+    mosaicPosition: {x: 0, y: 0}
+  - name: Wall
+    spriteName: Wall
+    isGroup: 0
+    parentIndex: 105
+    spriteID: 34754cc8765cd97499ece759e2d4de11
+    layerID: 6
+    mosaicPosition: {x: 4, y: 4}
+  - name: BackgroundManager
+    spriteName: 
+    isGroup: 1
+    parentIndex: 104
+    spriteID: 00000000000000000000000000000000
+    layerID: 4
+    mosaicPosition: {x: 0, y: 0}
+  - name: BackgroundTexture
+    spriteName: BackgroundTexture
+    isGroup: 0
+    parentIndex: 107
+    spriteID: c4011426f89a5ec4d9f1b21b87299fd4
+    layerID: 3
+    mosaicPosition: {x: 4522, y: 4}
+  - name: Background
+    spriteName: Background_2
+    isGroup: 0
+    parentIndex: 107
+    spriteID: cac81b08e63de6c4f9325068c2dbfb86
+    layerID: 2
+    mosaicPosition: {x: 2263, y: 4}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+  generateGOHierarchy: 1
+  textureAssetName: MainMachine_Space 1 Texture
+  prefabAssetName: MainMachine_Space 1 Prefab
+  spriteLibAssetName: MainMachine_Space 1 Sprite Lib
+  secondarySpriteTextures: []

@@ -36,4 +36,6 @@ public class ChallengeDatabaseSO : ScriptableObject
             data.LoadData();
         }
     }
+
+
 }

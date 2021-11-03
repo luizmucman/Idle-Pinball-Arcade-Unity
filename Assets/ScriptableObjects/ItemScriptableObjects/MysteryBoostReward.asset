@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b18f40a47bcbe984bbc3a905c5dfbe09, type: 3}
   m_Name: MysteryBoostReward
   m_EditorClassIdentifier: 
-  rewardTitle: Random Mystery Boost
+  rewardTitle: ' Mystery Boost'
   rewardDesc: Receive a mystery boost.
   rewardIcon: {fileID: 21300000, guid: 0ec59583a2ab0ab40a66549cee2c8ae0, type: 3}
   rewardType: 4
@@ -21,6 +21,6 @@ MonoBehaviour:
     boostID: 
     boostImg: {fileID: 0}
     boostAmt: 0
-    boostLength: 0
     inUse: 0
     qtyOwned: 0
+    boostLength: 0

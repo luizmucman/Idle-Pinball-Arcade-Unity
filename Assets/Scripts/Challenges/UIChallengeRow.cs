@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum ChallengeStatus { Claimed, InProgress, Claim };
+
 public class UIChallengeRow : MonoBehaviour
 {
-    [SerializeField] private Text title;
+
+
     [SerializeField] private Text description;
     [SerializeField] private Text progressText;
     [SerializeField] private Text goalText;
     [SerializeField] private Button claimBtn;
     [SerializeField] private Image rewardIcon;
     [SerializeField] private Text rewardTitle;
+    [SerializeField] private Slider progressSlider;
+    private ChallengeStatus status;
 
     [HideInInspector] public ChallengeData challengeData;
 
@@ -20,12 +25,12 @@ public class UIChallengeRow : MonoBehaviour
         SeasonPassItemSO rewardData = data.GetRewardData();
         challengeData = data;
 
-        title.text = challengeData.GetTitle();
         description.text = challengeData.GetDescription();
-        progressText.text = challengeData.GetProgress();
-        goalText.text = "/" + challengeData.GetGoal();
+        progressText.text = challengeData.GetProgress().ToString() + "/" + challengeData.GetGoal().ToString();
         rewardIcon.sprite = rewardData.rewardIcon;
         rewardTitle.text = rewardData.rewardTitle;
+        progressSlider.maxValue = challengeData.GetGoal();
+        progressSlider.value = challengeData.GetProgress();
 
         SetProgress();
     }
@@ -33,6 +38,7 @@ public class UIChallengeRow : MonoBehaviour
     public void ClaimRewardBtn()
     {
         challengeData.CollectReward();
+        UIManager.instance.uiChallengeManager.RemoveUnclaimedChallenge();
         SetProgress();
     }
 
@@ -45,23 +51,37 @@ public class UIChallengeRow : MonoBehaviour
             {
                 claimBtn.interactable = false;
                 claimBtn.GetComponentInChildren<Text>().text = "CLAIMED";
+                gameObject.transform.SetAsLastSibling();
+                status = ChallengeStatus.Claimed;
             }
             else
             {
                 claimBtn.interactable = true;
-                claimBtn.GetComponentInChildren<Text>().text = "CLAIM REWARD";
+                claimBtn.GetComponentInChildren<Text>().text = "CLAIM";
+                UIManager.instance.uiChallengeManager.AddUnclaimedChallenge();
+                gameObject.transform.SetAsFirstSibling();
+                status = ChallengeStatus.Claim;
             }
         }
         else
         {
-            claimBtn.gameObject.SetActive(false);
+            claimBtn.interactable = false;
+            claimBtn.GetComponentInChildren<Text>().text = "IN PROGRESS";
+            status = ChallengeStatus.InProgress;
         }
-        progressText.text = challengeData.GetProgress();
+
+        progressSlider.value = challengeData.GetProgress();
+        progressText.text = challengeData.GetProgress().ToString() + "/" + challengeData.GetGoal().ToString();
     }
 
     public void AddProgress(int progressNum)
     {
         challengeData.AddProgress(progressNum);
         SetProgress();
+    }
+
+    public ChallengeStatus GetStatus()
+    {
+        return status;
     }
 }

@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedAppIndex: 0
   clientTokens:
-  - 54137db8211402c9bf8da33ec71e50c3
+  - 2f3fc77f36896dc95d423d3ddd9bb9c0
   appIds:
-  - 571643584261015
+  - 381286387026967
   appLabels:
   - Idle Pinball Arcade
   cookie: 1

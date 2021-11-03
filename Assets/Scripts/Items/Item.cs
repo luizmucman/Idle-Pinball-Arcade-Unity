@@ -33,6 +33,17 @@ public abstract class Item : MonoBehaviour
     {
         itemData.LoadItemData();
     }
+
+    public virtual string GetCurrentRankDesc()
+    {
+        return "N/A";
+
+    }
+
+    public virtual string GetNextRankDesc()
+    {
+        return "N/A";
+    }
 }
 
 public enum ItemType

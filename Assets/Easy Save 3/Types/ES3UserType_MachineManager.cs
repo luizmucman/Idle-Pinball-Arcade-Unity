@@ -4,7 +4,7 @@ using UnityEngine;
 namespace ES3Types
 {
 	[UnityEngine.Scripting.Preserve]
-	[ES3PropertiesAttribute("equippedBallCount", "maxEquippedBalls")]
+	[ES3PropertiesAttribute()]
 	public class ES3UserType_MachineManager : ES3ComponentType
 	{
 		public static ES3Type Instance = null;
@@ -16,8 +16,6 @@ namespace ES3Types
 		{
 			var instance = (MachineManager)obj;
 			
-			writer.WriteProperty("equippedBallCount", instance.equippedBallCount);
-			writer.WriteProperty("maxEquippedBalls", instance.maxEquippedBalls, ES3Type_int.Instance);
 		}
 
 		protected override void ReadComponent<T>(ES3Reader reader, object obj)
@@ -28,12 +26,6 @@ namespace ES3Types
 				switch(propertyName)
 				{
 					
-					case "equippedBallCount":
-						instance.equippedBallCount = reader.Read<System.Collections.Generic.List<System.Int32>>();
-						break;
-					case "maxEquippedBalls":
-						instance.maxEquippedBalls = reader.Read<System.Int32>(ES3Type_int.Instance);
-						break;
 					default:
 						reader.Skip();
 						break;
