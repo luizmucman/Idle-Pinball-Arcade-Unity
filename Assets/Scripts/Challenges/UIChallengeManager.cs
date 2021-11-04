@@ -10,13 +10,27 @@ public class UIChallengeManager : MonoBehaviour
     [SerializeField] private ChallengeDatabaseSO dailyChallenges;
 
     [SerializeField] private UIChallengeRow challengeRowPrefab;
+
+    // Global
     [SerializeField] private GameObject globalContainer;
+    [SerializeField] private GameObject globalClaimContainer;
+    [SerializeField] private GameObject globalInProgressContainer;
+    [SerializeField] private GameObject globalClaimedContainer;
+
+    // Daily
     [SerializeField] private GameObject dailyContainer;
+    [SerializeField] private GameObject dailyClaimContainer;
+    [SerializeField] private GameObject dailyInProgressContainer;
+    [SerializeField] private GameObject dailyClaimedContainer;
+
+
     [SerializeField] private GameObject rewardNotification;
 
     public List<UIChallengeRow> bumperChallenges;
     public List<UIChallengeRow> rampChallenges;
     public List<UIChallengeRow> paddleChallenges;
+    public List<UIChallengeRow> targetChallenges;
+    public List<UIChallengeRow> ballHitChallenges;
 
     public Text dailyChallengeCountdown;
 
@@ -51,8 +65,8 @@ public class UIChallengeManager : MonoBehaviour
         foreach (ChallengeData data in globalChallenges.GetChallengeData())
         {
             UIChallengeRow currChallengeRow = Instantiate(challengeRowPrefab, globalContainer.transform);
-            //Instantiate(challengeRowPrefab, globalContainer.transform);
-            currChallengeRow.SetChallengeRow(data);
+
+            currChallengeRow.SetChallengeRow(data, globalClaimContainer, globalInProgressContainer, globalClaimedContainer);
             ChallengeType currType = data.GetChallengeType();
             ClassifyChallengeRow(currChallengeRow, currType);
         }
@@ -98,7 +112,6 @@ public class UIChallengeManager : MonoBehaviour
 
     public void ChooseNewDailyChallenges()
     {
-
         lastRecordedDay = DateTime.Now;
         dailyChallenges.ResetChallenges();
         List<ChallengeData> dailyChallengeList = dailyChallenges.GetChallengeData();
@@ -118,7 +131,7 @@ public class UIChallengeManager : MonoBehaviour
                 {
                     chosenDailyChallengeIndexs.Add(chosenIndex);
                     ChallengeData data = dailyChallengeList[UnityEngine.Random.Range((int)0, totalChallenges)];
-                    currChallengeRow.SetChallengeRow(data);
+                    currChallengeRow.SetChallengeRow(data, dailyClaimContainer, dailyInProgressContainer, dailyClaimedContainer);
                     currType = data.GetChallengeType();
                     isDupe = false;
                 }
@@ -136,7 +149,7 @@ public class UIChallengeManager : MonoBehaviour
         {
             ChallengeData data = dailyChallengeList[index];
             UIChallengeRow currChallengeRow = Instantiate(challengeRowPrefab, dailyContainer.transform);
-            currChallengeRow.SetChallengeRow(data);
+            currChallengeRow.SetChallengeRow(data, dailyClaimContainer, dailyInProgressContainer, dailyClaimedContainer);
             ChallengeType currType = data.GetChallengeType();
             ClassifyChallengeRow(currChallengeRow, currType);
         }
@@ -153,19 +166,29 @@ public class UIChallengeManager : MonoBehaviour
         }
         else if (challengeType.Equals(ChallengeType.RampHit))
         {
-            foreach (UIChallengeRow challengeRow in rampChallenges)
-            {
-                challengeRow.AddProgress(hitNum);
-            }
+            ChallengeHitLoop(hitNum, rampChallenges);
         }
         else if (challengeType.Equals(ChallengeType.Paddle))
         {
-            foreach (UIChallengeRow challengeRow in paddleChallenges)
-            {
-                challengeRow.AddProgress(hitNum);
-            }
+            ChallengeHitLoop(hitNum, paddleChallenges);
+        }
+        else if (challengeType.Equals(ChallengeType.BallHit))
+        {
+            ChallengeHitLoop(hitNum, ballHitChallenges);
+        }
+        else if (challengeType.Equals(ChallengeType.TargetHit))
+        {
+            ChallengeHitLoop(hitNum, targetChallenges);
         }
 
+    }
+
+    private void ChallengeHitLoop(int hitNum, List<UIChallengeRow> challengeList)
+    {
+        foreach (UIChallengeRow challengeRow in challengeList)
+        {
+            challengeRow.AddProgress(hitNum);
+        }
     }
 
     private void ClassifyChallengeRow(UIChallengeRow currChallengeRow, ChallengeType currType)
@@ -181,6 +204,14 @@ public class UIChallengeManager : MonoBehaviour
         else if (currType.Equals(ChallengeType.Paddle))
         {
             paddleChallenges.Add(currChallengeRow);
+        }
+        else if (currType.Equals(ChallengeType.TargetHit))
+        {
+            targetChallenges.Add(currChallengeRow);
+        }
+        else if (currType.Equals(ChallengeType.BallHit))
+        {
+            ballHitChallenges.Add(currChallengeRow);
         }
     }
 
@@ -198,6 +229,11 @@ public class UIChallengeManager : MonoBehaviour
         {
             rewardNotification.gameObject.SetActive(false);
         }
+    }
+
+    private void RemoveChallengeRow(UIChallengeRow row, List<UIChallengeRow> challengeList)
+    {
+        challengeList.Remove(row);
     }
 
     public void SaveChallenges()

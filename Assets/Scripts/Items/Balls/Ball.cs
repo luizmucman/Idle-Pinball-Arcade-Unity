@@ -34,7 +34,6 @@ public class Ball : Item
         machine = GetComponentInParent<MachineManager>();
         particle = GetComponentInChildren<ParticleSystem>();
         ballID =  int.Parse(GUID.Substring(3));
-        Debug.Log(GUID + ": " + ballID);
     }
 
     public virtual void Start()

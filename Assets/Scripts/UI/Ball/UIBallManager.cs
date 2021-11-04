@@ -30,7 +30,6 @@ public class UIBallManager : MonoBehaviour
     private void OnEnable()
     {
         ballContainers = new List<UIBallContainer>();
-        ResetBallUI();
     }
 
     private void Update()
@@ -62,7 +61,9 @@ public class UIBallManager : MonoBehaviour
     public void NewMachine() {
         currMachine = PlayerManager.instance.currentMachine;
 
-        foreach(UIBallContainer ballContainer in ballContainers)
+        ResetBallUI();
+
+        foreach (UIBallContainer ballContainer in ballContainers)
         {
             ballContainer.ResetMachine();
         }

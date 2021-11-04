@@ -47,21 +47,21 @@ public class MachineManager : MonoBehaviour
         objectManagers = GetComponentsInChildren<ObjectManager>();
         objectCanvases = GetComponentsInChildren<Canvas>();
         machineSceneName = SceneManager.GetActiveScene().name;
+        ballDatabase = PlayerManager.instance.ballDatabase;
+        PlayerManager.instance.currentMachine = this;
 
+        LoadMachine();
     }
 
     private void Start()
     {
-        ballDatabase = PlayerManager.instance.ballDatabase;
-
-        LoadMachine();
 
         if(testBalance)
         {
             Time.timeScale = 25;
         }
 
-        PlayerManager.instance.currentMachine = this;
+ 
         uiManager = UIManager.instance;
         CheckAutoPaddles();
 
