@@ -11,6 +11,8 @@ public class TargetManager : ObjectManager
     {
         base.Awake();
         targetLights = GetComponentsInChildren<TargetLight>();
+        challengeType = ChallengeType.TargetHit;
+        hasChallenge = true;
         hitCount = 0;
     }
 

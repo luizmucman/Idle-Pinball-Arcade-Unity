@@ -36,14 +36,8 @@ public class ES3Spreadsheet
 			return;
 		}
 
-		var settings = new ES3Settings ();
-		using(var ms = new MemoryStream())
-		{
-			using (var jsonWriter = new ES3JSONWriter (ms, settings, false, false))
-				jsonWriter.Write(value, ES3.ReferenceMode.ByValue);
-
-			SetCellString(col, row, settings.encoding.GetString(ms.ToArray()));
-		}
+        var settings = new ES3Settings();
+        SetCellString(col, row, settings.encoding.GetString(ES3.Serialize(value)));
 
 		// Expand the spreadsheet if necessary.
 		if(col >= cols)
@@ -92,14 +86,7 @@ public class ES3Spreadsheet
         }
 
         var settings = new ES3Settings();
-        using (var ms = new MemoryStream(settings.encoding.GetBytes(value)))
-        {
-            using (var jsonReader = new ES3JSONReader(ms, settings, false))
-            {
-                var obj = ES3TypeMgr.GetOrCreateES3Type(type, true).Read<object>(jsonReader);
-                return obj;
-            }
-        }
+        return ES3.Deserialize(ES3TypeMgr.GetOrCreateES3Type(type, true), settings.encoding.GetBytes(value), settings);
     }
 
     public void Load(string filePath)

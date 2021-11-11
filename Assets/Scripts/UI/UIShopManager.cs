@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Purchasing;
+using AppsFlyerSDK;
+using UnityEngine.Purchasing.Security;
 
 public enum ShopItemType
 {
@@ -38,11 +41,12 @@ public class UIShopManager : MonoBehaviour
     public List<BoostDatabase> mysteryBoostLists;
     public List<BoostDatabase> megaMysteryBoostLists;
 
-
     // Specials Buttons
     public Button adFreeButton;
     public Button incomeBuffButton;
     public Button idleBuffButton;
+
+    [SerializeField] private string googleLicenseKey;
 
     private void Start()
     {
@@ -61,6 +65,35 @@ public class UIShopManager : MonoBehaviour
             idleBuffButton.enabled = false;
             idleBuffButton.GetComponentInChildren<Text>().text = "OWNED";
         }
+
+    }
+
+    public void SendPurchaseToAppsFlyer(Product product)
+    {
+        string price = product.metadata.localizedPrice.ToString();
+        string currency = product.metadata.isoCurrencyCode;
+
+        string receipt = product.receipt;
+
+        var recptToJSON = (Dictionary<string, object>)AFMiniJSON.Json.Deserialize(receipt);
+        var receiptPayload = (Dictionary<string, object>)AFMiniJSON.Json.Deserialize((string)recptToJSON["Payload"]);
+
+        #if UNITY_ANDROID && !UNITY_EDITOR 
+
+        var purchaseData = (string)receiptPayload["json"];
+        var signature = (string)receiptPayload["signature"];
+
+        AppsFlyerAndroid.validateAndSendInAppPurchase(
+        googleLicenseKey,
+        signature,
+        purchaseData,
+        price,
+        currency,
+        null,
+        this);
+
+        #endif
+
     }
 
     // Things that cost money

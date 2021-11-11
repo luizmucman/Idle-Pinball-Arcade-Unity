@@ -32,6 +32,8 @@ public class UIAwayCoinPopupManager : MonoBehaviour
     // Ads Manager
     private AdsManager adsManager;
 
+    private bool currentlyRewarding;
+
 
     private void Start()
     {
@@ -40,34 +42,41 @@ public class UIAwayCoinPopupManager : MonoBehaviour
 
     public void SetMachine(MachineData machine)
     {
-        currMachine = machine;
-        watchAdButton.gameObject.SetActive(true);
-        gemMultiplierButton.gameObject.SetActive(true);
-
-        span =  DateTime.Now - machine.awayCheckPoint;
-        currMultiplier = 1;
-
-        watchAdButton.CheckAdFree();
-
-        if (PlayerManager.instance.maxIdleTime > span.TotalHours)
+        if(!currentlyRewarding)
         {
-            awayTime.text = "Idle For " + span.Hours.ToString() + " Hrs " + span.Minutes.ToString() + " Mins";
-        }
-        else
-        {
-            awayTime.text = "Away Time Maxed Out (" + PlayerManager.instance.maxIdleTime.ToString() + " Hrs)";
-        }
+            currMachine = machine;
+            watchAdButton.gameObject.SetActive(true);
+            gemMultiplierButton.gameObject.SetActive(true);
+            currentlyRewarding = true;
 
-        collectedCoins = machine.accumulatedCoins;
-        coinAmount.text = DoubleFormatter.Format(collectedCoins) + " coins!";
+            span = DateTime.Now - machine.awayCheckPoint;
+            currMultiplier = 1;
+
+            watchAdButton.CheckAdFree();
+
+            if (PlayerManager.instance.maxIdleTime > span.TotalHours)
+            {
+                awayTime.text = "Idle For " + span.Hours.ToString() + " Hrs " + span.Minutes.ToString() + " Mins";
+            }
+            else
+            {
+                awayTime.text = "Away Time Maxed Out (" + PlayerManager.instance.maxIdleTime.ToString() + " Hrs)";
+            }
+
+            collectedCoins = machine.accumulatedCoins;
+            multipliedCoins = collectedCoins * currMultiplier;
+            Debug.Log(currMultiplier);
+            Debug.Log(collectedCoins);
+            coinAmount.text = DoubleFormatter.Format(collectedCoins) + " coins!";
+        }
 
         IdleCollectPopup.SetActive(true);
-        
     }
 
     public void RewardCoins()
     {
-        PlayerManager.instance.AddCoins((double) (currMachine.accumulatedCoins));
+        PlayerManager.instance.AddCoins((double) (multipliedCoins));
+        currentlyRewarding = false;
     }
 
     public void AdButtonClicked()
@@ -85,7 +94,7 @@ public class UIAwayCoinPopupManager : MonoBehaviour
     public void Reward2xAd()
     {
         currMultiplier += 1;
-        multipliedCoins = currMachine.accumulatedCoins * currMultiplier;
+        multipliedCoins = collectedCoins * currMultiplier;
         coinAmount.text = DoubleFormatter.Format(multipliedCoins) + " coins!";
         watchAdButton.gameObject.SetActive(false);
     }
@@ -96,7 +105,7 @@ public class UIAwayCoinPopupManager : MonoBehaviour
         {
             PlayerManager.instance.playerGems -= gemMultiplierCost;
             currMultiplier += 2;
-            multipliedCoins = currMachine.accumulatedCoins * currMultiplier;
+            multipliedCoins = collectedCoins * currMultiplier;
             coinAmount.text = DoubleFormatter.Format(multipliedCoins) + " coins!";
             gemMultiplierButton.gameObject.SetActive(false);
         }

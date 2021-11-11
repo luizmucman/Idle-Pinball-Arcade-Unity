@@ -1,3 +1,14 @@
+3.3.2f7
+- Type data is now stored when using ES3.Serialize<object>.
+- Worked around issue where Unity would return an incorrect number of assemblies.
+
+3.3.2f6
+- ES3Spreadsheet now correctly serializes object types into a CSV file.
+- Resolved issue where an object[] containing primitive types could not be loaded in some situations.
+- Worked around issue where PlayMaker wouldn't initialize variable before it's value was reset.
+- Created a workaround for some situations where Unity creates new instances of ScriptableObjects in Assets at runtime.
+- Resolved issue where Base-64 encoding option would not work with newline option in PlayMaker SaveRaw action.
+
 3.3.2f5
 - Resolved issue where scripts were not overwritten by Asset Store importer, causing Easy Save to be unstable.
 

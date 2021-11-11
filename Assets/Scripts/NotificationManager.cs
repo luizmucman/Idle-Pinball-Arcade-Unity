@@ -19,7 +19,19 @@ public class NotificationManager : MonoBehaviour
             Importance = Importance.Default,
             Description = "Idle Machine notifications",
         };
+
+        var challengeChannel = new AndroidNotificationChannel()
+        {
+            Id = "daily_challenge_channel",
+            Name = "Daily Challenge Channel",
+            Importance = Importance.Default,
+            Description = "Daily Challenge notifications",
+        };
         AndroidNotificationCenter.RegisterNotificationChannel(channel);
+        AndroidNotificationCenter.RegisterNotificationChannel(challengeChannel);
+
+
+        ScheduleDailyChallengeNotification();
     }
 
 
@@ -45,5 +57,24 @@ public class NotificationManager : MonoBehaviour
             }
         }
 
+    }
+
+    private void ScheduleDailyChallengeNotification()
+    {
+        var idleNotificationStatus = AndroidNotificationCenter.CheckScheduledNotificationStatus(dailyChallengeResetId);
+
+        if (idleNotificationStatus != NotificationStatus.Scheduled)
+        {
+            if (idleNotificationStatus == NotificationStatus.Delivered)
+            {
+                AndroidNotificationCenter.CancelNotification(idleTimeReachedId);
+            }
+            var notification = new AndroidNotification();
+            notification.Title = "Daily Challenges Reset";
+            notification.Text = "Complete dailies to earn gems!";
+            notification.FireTime = System.DateTime.Now.AddDays(1).Date;
+
+            AndroidNotificationCenter.SendNotificationWithExplicitID(notification, "daily_challenge_channel", dailyChallengeResetId);
+        }
     }
 }

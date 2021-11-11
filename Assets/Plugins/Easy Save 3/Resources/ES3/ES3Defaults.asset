@@ -32,10 +32,12 @@ MonoBehaviour:
     - Assembly-CSharp
     - Assembly-CSharp-firstpass
     - PlayFab
+    - AppsFlyer
     - Purchasing.Common
     - PsdPlugin
     - PlayFabEditorExtensions
     - PlayFabSDKEditor
+    - AppsFlyer.Editor
     showAdvancedSettings: 1
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1

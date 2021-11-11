@@ -268,7 +268,7 @@ namespace ES3PlayMaker
         public override void Enter()
         {
             if (useBase64Encoding.Value)
-                ES3.SaveRaw(System.Convert.FromBase64String(str.Value) + (appendNewline.Value ? "\n" : ""), GetSettings());
+                ES3.SaveRaw(System.Convert.FromBase64String(str.Value + (appendNewline.Value ? "\n" : "")), GetSettings());
             else
                 ES3.SaveRaw(str.Value + (appendNewline.Value ? "\n" : ""), GetSettings());
         }
@@ -317,7 +317,7 @@ namespace ES3PlayMaker
         {
             imagePath = "image.png";
             texture2D = null;
-            quality.Value = 75;
+            quality = 75;
         }
 
         public override void Enter()

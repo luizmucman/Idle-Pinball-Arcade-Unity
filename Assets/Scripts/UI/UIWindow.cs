@@ -11,6 +11,7 @@ public class UIWindow : MonoBehaviour
     {
         gameObject.SetActive(true);
         theAnim.Play("open");
+
     }
 
     public void CloseAnim()

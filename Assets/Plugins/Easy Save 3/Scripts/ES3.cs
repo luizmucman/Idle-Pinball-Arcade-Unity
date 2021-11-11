@@ -774,8 +774,8 @@ public static class ES3
                 using (var baseWriter = ES3Writer.Create(stream, settings, false, false))
                 {
                     // If T is object, use the value to get it's type. Otherwise, use T so that it works with inheritence.
-                    var type = typeof(T) != typeof(object) ? typeof(T) : (value == null ? typeof(T) : value.GetType());
-                    baseWriter.Write(value, ES3TypeMgr.GetOrCreateES3Type(type), settings.referenceMode);
+                    //var type = typeof(T) != typeof(object) ? typeof(T) : (value == null ? typeof(T) : value.GetType());
+                    baseWriter.Write(value, ES3TypeMgr.GetOrCreateES3Type(typeof(T)), settings.referenceMode);
                 }
 
                 return ms.ToArray();

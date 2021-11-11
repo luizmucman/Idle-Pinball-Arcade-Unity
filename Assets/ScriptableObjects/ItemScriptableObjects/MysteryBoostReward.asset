@@ -15,7 +15,7 @@ MonoBehaviour:
   rewardTitle: ' Mystery Boost'
   rewardDesc: Receive a mystery boost.
   rewardIcon: {fileID: 21300000, guid: 0ec59583a2ab0ab40a66549cee2c8ae0, type: 3}
-  rewardType: 4
+  rewardType: 5
   gems: 0
   boostData:
     boostID: 

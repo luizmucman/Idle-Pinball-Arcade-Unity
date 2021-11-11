@@ -39,7 +39,7 @@ public class UITicketButton : MonoBehaviour
         {
             lockedOverlay.SetActive(false);
             btn.interactable = true;
-            gameObject.transform.SetSiblingIndex(1);
+            gameObject.transform.SetAsFirstSibling();
         }
         else
         {

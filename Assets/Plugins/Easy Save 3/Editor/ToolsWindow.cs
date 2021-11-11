@@ -35,7 +35,7 @@ namespace ES3Editor
         [MenuItem("Tools/Easy Save 3/Open Persistent Data Path", false, 200)]
         private static void OpenPersistentDataPath()
         {
-            OSFileBrowser.Open(Application.persistentDataPath);
+            EditorUtility.RevealInFinder(Application.persistentDataPath);
         }
 
         [MenuItem("Tools/Easy Save 3/Clear Persistent Data Path", false, 200)]
@@ -60,7 +60,7 @@ namespace ES3Editor
         }
     }
 
-	public static class OSFileBrowser
+	/*public static class OSFileBrowser
 	{
 		public static bool IsInMacOS
 		{
@@ -151,5 +151,5 @@ namespace ES3Editor
 				OpenInMac(path);
 			}
 		}
-	}
+	}*/
 }

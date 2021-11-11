@@ -519,7 +519,7 @@ namespace ES3Internal
                 try
                 {
                     // If it's an array which contains UnityEngine.Objects, add them as dependencies.
-                    if (property.isArray)
+                    if (property.isArray && property.propertyType != UnityEditor.SerializedPropertyType.String)
                     {
                         for (int i = 0; i < property.arraySize; i++)
                         {
@@ -547,7 +547,7 @@ namespace ES3Internal
                     {
                         var propertyValue = property.objectReferenceValue;
                         if (propertyValue == null)
-                            break;
+                            continue;
 
                         // If it's a GameObject, use CollectDependencies so that Components are also added.
                         if (propertyValue.GetType() == typeof(GameObject))

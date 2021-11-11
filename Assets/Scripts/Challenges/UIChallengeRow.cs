@@ -48,6 +48,7 @@ public class UIChallengeRow : MonoBehaviour
         challengeData.CollectReward();
         UIManager.instance.uiChallengeManager.RemoveUnclaimedChallenge();
         SetClaimedStatus();
+        GetComponentInParent<ContentFitterRefresh>().RefreshContentFitters();
     }
 
     public void SetProgress()
@@ -83,15 +84,20 @@ public class UIChallengeRow : MonoBehaviour
 
         progressSlider.value = challengeData.GetProgress();
         progressText.text = challengeData.GetProgress().ToString() + "/" + challengeData.GetGoal().ToString();
+
     }
 
     private void SetClaimedStatus()
     {
+       
+
         claimBtn.interactable = false;
         claimBtn.GetComponentInChildren<Text>().text = "CLAIMED";
         gameObject.transform.SetAsLastSibling();
         status = ChallengeStatus.Claimed;
         gameObject.transform.SetParent(claimedContainer.transform);
+
+        challengeData.SaveData();
     }
 
     public void AddProgress(int progressNum)

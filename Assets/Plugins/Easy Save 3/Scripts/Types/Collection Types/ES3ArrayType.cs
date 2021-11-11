@@ -23,7 +23,7 @@ namespace ES3Types
 			for(int i=0; i<array.Length; i++)
 			{
 				writer.StartWriteCollectionItem(i);
-				writer.Write(array.GetValue(i), elementType, memberReferenceMode);
+                writer.Write(array.GetValue(i), elementType, memberReferenceMode);
 				writer.EndWriteCollectionItem(i);
 			}
 

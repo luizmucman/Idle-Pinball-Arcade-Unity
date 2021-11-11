@@ -13,6 +13,8 @@ public class MultiTargetManager : ObjectManager
         base.Awake();
         multiTargets = GetComponentsInChildren<MultiTarget>();
         targetHP = multiTargets.Length;
+        challengeType = ChallengeType.TargetHit;
+        hasChallenge = true;
     }
 
     public void AddHit(Ball ball)

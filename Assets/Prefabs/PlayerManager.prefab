@@ -273,7 +273,7 @@ MonoBehaviour:
     machineImage: {fileID: 21300000, guid: 2873cf9d4a318ad45bc5fae4eabf942d, type: 3}
   - machineGUID: MA002
     machineName: Under The Sea
-    machineCost: 7.7e+18
+    machineCost: 77000000000000
     isUnlocked: 0
     isPlaying: 0
     isEvent: 0
@@ -284,7 +284,7 @@ MonoBehaviour:
     machineImage: {fileID: 21300000, guid: ffa54b0c53cc18d43a1bb69003ba530a, type: 3}
   - machineGUID: MA003
     machineName: Alien Invasion
-    machineCost: 6.2e+24
+    machineCost: 6.2e+18
     isUnlocked: 0
     isPlaying: 0
     isEvent: 0
@@ -295,7 +295,7 @@ MonoBehaviour:
     machineImage: {fileID: 21300000, guid: 88011c2e97a5f9b4f9a5d07eef397606, type: 3}
   - machineGUID: MA004
     machineName: Classic - 2
-    machineCost: 3.68e+29
+    machineCost: 3.68e+25
     isUnlocked: 0
     isPlaying: 0
     isEvent: 0
@@ -306,7 +306,7 @@ MonoBehaviour:
     machineImage: {fileID: 21300000, guid: 2873cf9d4a318ad45bc5fae4eabf942d, type: 3}
   - machineGUID: MA005
     machineName: Under The Sea - 2
-    machineCost: 4.91e+35
+    machineCost: 4.91e+32
     isUnlocked: 0
     isPlaying: 0
     isEvent: 0

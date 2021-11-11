@@ -153,8 +153,8 @@ public class ES3File
         unencryptedSettings.compressionType = ES3.CompressionType.None;
 
         // If T is object, use the value to get it's type. Otherwise, use T so that it works with inheritence.
-        var type = typeof(T) != typeof(object) ? typeof(T) : (value == null ? typeof(T) : value.GetType());
-        cache[key] = new ES3Data(ES3TypeMgr.GetOrCreateES3Type(type), ES3.Serialize(value, unencryptedSettings));
+
+        cache[key] = new ES3Data(ES3TypeMgr.GetOrCreateES3Type(typeof(T)), ES3.Serialize(value, unencryptedSettings));
     }
 
     /// <summary>Merges the data specified by the bytes parameter into this ES3File.</summary>

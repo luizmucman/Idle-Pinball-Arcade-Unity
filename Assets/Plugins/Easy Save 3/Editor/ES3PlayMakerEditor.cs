@@ -193,6 +193,7 @@ namespace ES3PlayMaker
 		{
 			EditField("imagePath");
 			EditField("texture2D");
+            EditField("quality");
 		}
 	}
 

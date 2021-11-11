@@ -114,10 +114,11 @@ public class ES3Postprocessor : UnityEditor.AssetModificationProcessor
         // Only update if the list has changed.
         for (int i = 0; i < currentAssemblyNames.Length; i++)
         {
-            if (currentAssemblyNames[i] != assemblyNames[i])
+            if (currentAssemblyNames.Length != assemblyNames.Count || currentAssemblyNames[i] != assemblyNames[i])
             {
                 defaults.settings.assemblyNames = assemblyNames.ToArray();
                 EditorUtility.SetDirty(defaults);
+                break;
             }
         }
 #endif

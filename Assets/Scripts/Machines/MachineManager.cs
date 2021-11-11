@@ -251,7 +251,7 @@ public class MachineManager : MonoBehaviour
     {
         TimeSpan span = DateTime.Now - machineData.awayCheckPoint;
 
-        if (machineData.accumulatedCoins > 0 && span.TotalMinutes > 1)
+        if (machineData.accumulatedCoins > 0 && span.TotalMinutes > 3)
         {
             uiManager.uiAwayPopupManager.SetMachine(machineData);
         }

@@ -139,6 +139,11 @@ public class UIChallengeManager : MonoBehaviour
 
             ClassifyChallengeRow(currChallengeRow, currType);
         }
+
+        foreach(int index in chosenDailyChallengeIndexs)
+        {
+            Debug.Log("Challenge Index: " + index);
+        }
     }
 
     public void PopulateSavedDailyChallenges()

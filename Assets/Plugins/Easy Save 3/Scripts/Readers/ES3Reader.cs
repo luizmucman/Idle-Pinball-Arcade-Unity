@@ -266,16 +266,16 @@ public abstract class ES3Reader : System.IDisposable
 	[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
 	public virtual T Read<T>(ES3Type type)
 	{
-		if(type == null || type.isUnsupported)
-			throw new NotSupportedException("Type of "+type+" is not currently supported, and could not be loaded using reflection.");
-		else if(type.isPrimitive)
-			return (T)type.Read<T>(this);
-		else if(type.isCollection)
-			return (T)((ES3CollectionType)type).Read(this);
-		else if(type.isDictionary)
-			return (T)((ES3DictionaryType)type).Read(this);
-		else
-			return ReadObject<T>(type);
+        if (type == null || type.isUnsupported)
+            throw new NotSupportedException("Type of " + type + " is not currently supported, and could not be loaded using reflection.");
+        else if (type.isPrimitive)
+            return (T)type.Read<T>(this);
+        else if (type.isCollection)
+            return (T)((ES3CollectionType)type).Read(this);
+        else if (type.isDictionary)
+            return (T)((ES3DictionaryType)type).Read(this);
+        else
+            return ReadObject<T>(type);
 	}
 
 	[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]

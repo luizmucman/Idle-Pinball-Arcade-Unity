@@ -181,7 +181,7 @@ public abstract class ES3Writer : IDisposable
             if(type == null)
                 throw new NotSupportedException("Types of " + valueType + " are not supported.");
 
-            if (!type.isCollection && !type.isDictionary && !type.isPrimitive)
+            if (!type.isCollection && !type.isDictionary)
             {
                 StartWriteObject(null);
                 WriteType(valueType);
