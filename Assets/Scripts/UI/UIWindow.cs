@@ -7,7 +7,7 @@ public class UIWindow : MonoBehaviour
 {
     [SerializeField]  private Animator theAnim;
 
-    public void OpenAnim()
+    public virtual void OpenAnim()
     {
         gameObject.SetActive(true);
         theAnim.Play("open");

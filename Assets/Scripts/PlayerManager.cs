@@ -68,7 +68,7 @@ public class PlayerManager : MonoBehaviour
     // Machine Data
     public List<MachineData> mainMachines;
     public List<MachineData> eventMachines;
-    [HideInInspector] public MachineData currentEventMachineData;
+    public MachineData currentEventMachineData;
     private float cpsSecondCounter;
 
     [Header("Away Data")]
@@ -112,6 +112,8 @@ public class PlayerManager : MonoBehaviour
             {
                 _AuthService.Authenticate();
             }
+
+            AssignCurrentEventMachineData();
 
             DontDestroyOnLoad(this);
         }
@@ -270,6 +272,17 @@ public class PlayerManager : MonoBehaviour
                 {
                     machineData.accumulatedCoins = (double)(machineData.coinsPerSecond * idleLimitCheck.TotalSeconds * playerTicketBuffs.idleCoinBuff);
                 }
+            }
+        }
+    }
+
+    private void AssignCurrentEventMachineData()
+    {
+        foreach(MachineData data in eventMachines)
+        {
+            if(data.isCurrentEvent)
+            {
+                currentEventMachineData = data;
             }
         }
     }

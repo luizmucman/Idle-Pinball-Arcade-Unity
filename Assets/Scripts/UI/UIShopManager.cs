@@ -50,21 +50,21 @@ public class UIShopManager : MonoBehaviour
 
     private void Start()
     {
-        if (PlayerManager.instance.isAdFree)
-        {
-            adFreeButton.enabled = false;
-            adFreeButton.GetComponentInChildren<Text>().text = "OWNED";
-        }
-        if (PlayerManager.instance.is2xAllIncome)
-        {
-            incomeBuffButton.enabled = false;
-            incomeBuffButton.GetComponentInChildren<Text>().text = "OWNED";
-        }
-        if (PlayerManager.instance.is2xIdleIncome)
-        {
-            idleBuffButton.enabled = false;
-            idleBuffButton.GetComponentInChildren<Text>().text = "OWNED";
-        }
+        //if (PlayerManager.instance.isAdFree)
+        //{
+        //    adFreeButton.enabled = false;
+        //    adFreeButton.GetComponentInChildren<Text>().text = "OWNED";
+        //}
+        //if (PlayerManager.instance.is2xAllIncome)
+        //{
+        //    incomeBuffButton.enabled = false;
+        //    incomeBuffButton.GetComponentInChildren<Text>().text = "OWNED";
+        //}
+        //if (PlayerManager.instance.is2xIdleIncome)
+        //{
+        //    idleBuffButton.enabled = false;
+        //    idleBuffButton.GetComponentInChildren<Text>().text = "OWNED";
+        //}
 
     }
 

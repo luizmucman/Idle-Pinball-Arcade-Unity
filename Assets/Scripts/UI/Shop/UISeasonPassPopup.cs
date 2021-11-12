@@ -16,11 +16,8 @@ public class UISeasonPassPopup : MonoBehaviour
     public Sprite machineSprite;
     public string machineDesc;
 
+    [SerializeField] private UIWindow uiWindow;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     public void PurchaseSeasonPass()
     {
@@ -29,11 +26,11 @@ public class UISeasonPassPopup : MonoBehaviour
 
     public void OpenWindow()
     {
-        gameObject.SetActive(true);
+        uiWindow.OpenAnim();
     }
 
     public void CloseWindow()
     {
-        gameObject.SetActive(false);
+        uiWindow.CloseAnim();
     }
 }

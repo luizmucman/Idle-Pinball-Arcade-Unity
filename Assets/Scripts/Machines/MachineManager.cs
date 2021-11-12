@@ -87,6 +87,11 @@ public class MachineManager : MonoBehaviour
         {
             UIManager.instance.uiSeasonPassManager.ShowSeasonPassButton();
             UIManager.instance.playerCoinText.text = DoubleFormatter.Format(PlayerManager.instance.eventCoins);
+            if(!machineData.isUnlocked)
+            {
+                Debug.Log("Season Pass Popup");
+                UIManager.instance.uiShopManager.seasonPassPopup.OpenWindow();
+            }
         }
         else
         {
