@@ -758,7 +758,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 368.15, y: -104.04001}
+  m_AnchoredPosition: {x: 368.15, y: -104.04}
   m_SizeDelta: {x: 731.52, y: 168.08}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1519841272
@@ -12847,7 +12847,7 @@ GameObject:
   - component: {fileID: 2109661014434002422}
   - component: {fileID: 4528513093377391288}
   m_Layer: 5
-  m_Name: AudioTitleText (1)
+  m_Name: AccountsTitleText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12870,7 +12870,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 302.71994, y: -414.24002}
-  m_SizeDelta: {x: 686.72, y: 115.52}
+  m_SizeDelta: {x: 532.9093, y: 115.52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2109661014434002422
 CanvasRenderer:
@@ -25139,6 +25139,10 @@ MonoBehaviour:
   adFreeButton: {fileID: 7664565058234174167}
   incomeBuffButton: {fileID: 0}
   idleBuffButton: {fileID: 0}
+  eventMachineProductObject: {fileID: 8621885545478347631}
+  adFreeProductObject: {fileID: 5770436491919304118}
+  starterPackObject: {fileID: 2171227389606366305}
+  masterPackObject: {fileID: 1164900942556075465}
   googleLicenseKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAl/C9NJMhZwlcYBl6/egIQ3EApfRfd+DisxhysQAEvht5FqTWfsuD3SJRPVs/VPrYMEEFctt9nLQJ9f+qGJ/plh8VdO+fqzIuTl5jWNcuJXrS/BiXFeLvfk+yCD0Yxba/F/azgs0d+sZAOOeSOxhMVpsrTRe4uTVRM6vEYTJEy9yCdNFX/vrd1ffjTurOy+3pL4zC+HpypEa0iTcLbL+u0Bxj9nOGygAl2/9JjeK23dmqWReiPDNbtUtSSVkBnm7Jy78zdVfunil8K+FT1YBBtz3D39qEICUWOnDmCMRqix886pvNaIehql8hcTcfMmKYu3RQNaoZoLIt2xGzgPjh/wIDAQAB
 --- !u!114 &7504023142865246143
 MonoBehaviour:

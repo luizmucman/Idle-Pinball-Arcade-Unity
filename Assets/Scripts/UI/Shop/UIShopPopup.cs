@@ -180,6 +180,19 @@ public class UIShopPopup : MonoBehaviour
         theAnim.Play("open");
     }
 
+    public void SetSeasonPassPopup()
+    {
+        itemIcon.sprite = PlayerManager.instance.currentEventMachineData.machineImage;
+        itemTitle.text = PlayerManager.instance.currentEventMachineData.machineName + " Season Pass";
+        itemDesc.text = "You have unlocked the premium pass for the current event! Enjoy your rewards.";
+
+        starContainer.SetActive(false);
+
+        itemIcon.SetNativeSize();
+        gameObject.SetActive(true);
+        theAnim.Play("open");
+    }
+
     public void CloseAnimation()
     {
         theAnim.Play("close");

@@ -45,6 +45,10 @@ public class UIShopManager : MonoBehaviour
     public Button adFreeButton;
     public Button incomeBuffButton;
     public Button idleBuffButton;
+    [SerializeField] private GameObject eventMachineProductObject;
+    [SerializeField] private GameObject adFreeProductObject;
+    [SerializeField] private GameObject starterPackObject;
+    [SerializeField] private GameObject masterPackObject;
 
     [SerializeField] private string googleLicenseKey;
 
@@ -106,6 +110,7 @@ public class UIShopManager : MonoBehaviour
     public void BuyAdFree()
     {
         PlayerManager.instance.isAdFree = true;
+        adFreeProductObject.SetActive(false);
         buyPopup.SetAdFreePopup();
     }
 
@@ -131,12 +136,14 @@ public class UIShopManager : MonoBehaviour
     {
         Buy2xAllIncome();
         PlayerManager.instance.AddGems(starterPackGems);
+        starterPackObject.SetActive(false);
     }
 
     public void BuyMasterPack()
     {
         Buy4xAllIncome();
         PlayerManager.instance.AddGems(masterPackGems);
+        masterPackObject.SetActive(false);
     }
 
     // Things that cost gems
@@ -351,7 +358,9 @@ public class UIShopManager : MonoBehaviour
 
     public void RewardPremiumSeasonPass()
     {
-
         PlayerManager.instance.seasonPassData.isPremium = true;
+        seasonPassPopup.CloseWindow();
+        eventMachineProductObject.SetActive(false);
+        buyPopup.SetSeasonPassPopup();
     }
 }

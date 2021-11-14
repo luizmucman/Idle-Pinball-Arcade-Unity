@@ -14,7 +14,7 @@ public class UIWindowShop : UIWindow
     public override void OpenAnim()
     {
         base.OpenAnim();
-        if(PlayerManager.instance.currentEventMachineData.isUnlocked)
+        if(PlayerManager.instance.seasonPassData.isPremium)
         {
             EventMachineProduct.SetActive(false);
         }

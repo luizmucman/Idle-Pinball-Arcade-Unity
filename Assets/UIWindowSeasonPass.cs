@@ -9,7 +9,7 @@ public class UIWindowSeasonPass : UIWindow
     public override void OpenAnim()
     {
         base.OpenAnim();
-        if (PlayerManager.instance.currentEventMachineData.isUnlocked)
+        if (PlayerManager.instance.seasonPassData.isPremium)
         {
             unlockSeasonPassBtn.SetActive(false);
         }
