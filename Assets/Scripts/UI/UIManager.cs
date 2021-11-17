@@ -29,7 +29,9 @@ public class UIManager : MonoBehaviour
     public Text playerCoinText;
     public Text playerGemText;
     public Image coinImage;
-    public Vector2 coinPos;
+    [SerializeField] private Button gemRewardBtn;
+    [SerializeField] private float gemRewardMinuteCountdown;
+    [SerializeField] private float gemCountdown;
 
     [Header("Overlay")]
     public GameObject overlay;
@@ -46,7 +48,23 @@ public class UIManager : MonoBehaviour
         cam = Camera.main;
         playerCoinText.text = DoubleFormatter.Format(PlayerManager.instance.playerCoins);
         playerGemText.text = PlayerManager.instance.playerGems.ToString();
-        coinPos = cam.ScreenToWorldPoint(coinImage.rectTransform.position);
+        ResetGemRewardBtn();
+    }
+
+    private void Update()
+    {
+        gemCountdown -= Time.deltaTime;
+
+        if (gemCountdown <= 0)
+        {
+            gemRewardBtn.gameObject.SetActive(true);
+        }
+    }
+
+    public void ResetGemRewardBtn()
+    {
+        gemCountdown = 60 * gemRewardMinuteCountdown;
+        gemRewardBtn.gameObject.SetActive(false);
     }
 
     public void ShowOverlay()

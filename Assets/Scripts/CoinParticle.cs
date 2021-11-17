@@ -11,7 +11,7 @@ public class CoinParticle : MonoBehaviour
 
     void Start()
     {
-        target = UIManager.instance.coinPos;
+
         position = gameObject.transform.position;
 
         cam = Camera.main;
@@ -21,6 +21,6 @@ public class CoinParticle : MonoBehaviour
     {
         float step = speed * Time.deltaTime;
 
-        transform.position = Vector2.MoveTowards(transform.position, target, step);
+
     }
 }

@@ -91,6 +91,7 @@ public class PlayerManager : MonoBehaviour
             instance = this;
 
             GetComponent<SDKInit>().InitSDK();
+            IronSource.Agent.init("1206944e5");
             soundsManager = GetComponent<SoundsManager>();
             PopulateItemLists();
             es3Cache = new ES3Settings(ES3.Location.Cache);
@@ -131,7 +132,8 @@ public class PlayerManager : MonoBehaviour
 
     private void OnApplicationPause(bool pause)
     {
-        if(pause)
+        IronSource.Agent.onApplicationPause(pause);
+        if (pause)
         {
             timeAtPause = DateTime.Now;
             currentMachine.SetAwayTime();

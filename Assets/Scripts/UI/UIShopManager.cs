@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,15 +37,15 @@ public class UIShopManager : MonoBehaviour
     public int mysteryBoostCost;
     public int megaMysteryBoostCost;
 
+    // Rewarded Gem Date;
+    public DateTime lastRecordedDay;
+
     [Header("Boost Database")]
     // Booster Databases
     public List<BoostDatabase> mysteryBoostLists;
     public List<BoostDatabase> megaMysteryBoostLists;
 
     // Specials Buttons
-    public Button adFreeButton;
-    public Button incomeBuffButton;
-    public Button idleBuffButton;
     [SerializeField] private GameObject eventMachineProductObject;
     [SerializeField] private GameObject adFreeProductObject;
     [SerializeField] private GameObject starterPackObject;
@@ -52,24 +53,10 @@ public class UIShopManager : MonoBehaviour
 
     [SerializeField] private string googleLicenseKey;
 
+
     private void Start()
     {
-        //if (PlayerManager.instance.isAdFree)
-        //{
-        //    adFreeButton.enabled = false;
-        //    adFreeButton.GetComponentInChildren<Text>().text = "OWNED";
-        //}
-        //if (PlayerManager.instance.is2xAllIncome)
-        //{
-        //    incomeBuffButton.enabled = false;
-        //    incomeBuffButton.GetComponentInChildren<Text>().text = "OWNED";
-        //}
-        //if (PlayerManager.instance.is2xIdleIncome)
-        //{
-        //    idleBuffButton.enabled = false;
-        //    idleBuffButton.GetComponentInChildren<Text>().text = "OWNED";
-        //}
-
+        lastRecordedDay = ES3.Load("gemDailyNextDate", new DateTime());
     }
 
     public void SendPurchaseToAppsFlyer(Product product)
@@ -205,7 +192,7 @@ public class UIShopManager : MonoBehaviour
     // Rewarding items
     public void RewardMysteryBoost()
     {
-        int rarityCheck = Random.Range(0, 100);
+        int rarityCheck = UnityEngine.Random.Range(0, 100);
         BoostData chosenBoost;
         BoostDatabase chosenDatabase;
 
@@ -223,7 +210,7 @@ public class UIShopManager : MonoBehaviour
         }
 
 
-        chosenBoost = GetBoostData(chosenDatabase.database[Random.Range(0, chosenDatabase.database.Count)]);
+        chosenBoost = GetBoostData(chosenDatabase.database[UnityEngine.Random.Range(0, chosenDatabase.database.Count)]);
         PlayerManager.instance.AddBoost(chosenBoost);
 
         buyPopup.SetPopup(chosenBoost);
@@ -231,7 +218,7 @@ public class UIShopManager : MonoBehaviour
 
     public void RewardMegaMysteryBoost()
     {
-        int rarityCheck = Random.Range(0, 100);
+        int rarityCheck = UnityEngine.Random.Range(0, 100);
         BoostData chosenBoost;
         BoostDatabase chosenDatabase;
 
@@ -248,7 +235,7 @@ public class UIShopManager : MonoBehaviour
             chosenDatabase = megaMysteryBoostLists[2];
         }
 
-        chosenBoost = GetBoostData(chosenDatabase.database[Random.Range(0, chosenDatabase.database.Count)]);
+        chosenBoost = GetBoostData(chosenDatabase.database[UnityEngine.Random.Range(0, chosenDatabase.database.Count)]);
         PlayerManager.instance.AddBoost(chosenBoost);
 
         buyPopup.SetPopup(chosenBoost);
@@ -263,7 +250,7 @@ public class UIShopManager : MonoBehaviour
         int expAdded = 0;
 
         // Choosing the rank
-        int randomRank = Random.Range(0, 100);
+        int randomRank = UnityEngine.Random.Range(0, 100);
         if (randomRank <= 20)
         {
             expAdded = 3;
@@ -276,7 +263,7 @@ public class UIShopManager : MonoBehaviour
         if (itemType == ShopItemType.Ball)
         {
             playerInventory = PlayerManager.instance.ballDatabase.database;
-            chosenIndex = Random.Range(1, PlayerManager.instance.ballDatabase.database.Count - 1);
+            chosenIndex = UnityEngine.Random.Range(1, PlayerManager.instance.ballDatabase.database.Count - 1);
             chosenItem = (Ball)PlayerManager.instance.ballDatabase.database[chosenIndex];
             PlayerManager.instance.ballDataList.GetItemData(chosenItem.GUID).AddExp(expAdded);
             UIManager.instance.uiBallManager.CheckUnlockedBalls();
@@ -284,7 +271,7 @@ public class UIShopManager : MonoBehaviour
         else if(itemType == ShopItemType.Ticket)
         {
             playerInventory = PlayerManager.instance.ticketDatabase.database;
-            chosenIndex = Random.Range(0, PlayerManager.instance.ticketDatabase.database.Count - 1);
+            chosenIndex = UnityEngine.Random.Range(0, PlayerManager.instance.ticketDatabase.database.Count - 1);
             chosenItem = (Ticket)PlayerManager.instance.ticketDatabase.database[chosenIndex];
             PlayerManager.instance.ticketDataList.GetItemData(chosenItem.GUID).AddExp(expAdded);
             UIManager.instance.uiTicketManager.CheckUnlockedTickets();
@@ -309,7 +296,7 @@ public class UIShopManager : MonoBehaviour
         int expAdded = 0;
 
         // Choosing the rank
-        int randomRank = Random.Range(0, 100);
+        int randomRank = UnityEngine.Random.Range(0, 100);
         if (randomRank <= legendaryChestEpicChance)
         {
             expAdded = 9;
@@ -326,14 +313,14 @@ public class UIShopManager : MonoBehaviour
         if (itemType == ShopItemType.Ball)
         {
             playerInventory = PlayerManager.instance.ballDatabase.database;
-            chosenIndex = Random.Range(1, PlayerManager.instance.ballDatabase.database.Count - 1);
+            chosenIndex = UnityEngine.Random.Range(1, PlayerManager.instance.ballDatabase.database.Count - 1);
             chosenItem = (Ball)PlayerManager.instance.ballDatabase.database[chosenIndex];
             PlayerManager.instance.ballDataList.GetItemData(chosenItem.GUID).AddExp(expAdded);
         }
         else if (itemType == ShopItemType.Ticket)
         {
             playerInventory = PlayerManager.instance.ticketDatabase.database;
-            chosenIndex = Random.Range(0, PlayerManager.instance.ticketDatabase.database.Count - 1);
+            chosenIndex = UnityEngine.Random.Range(0, PlayerManager.instance.ticketDatabase.database.Count - 1);
             chosenItem = (Ticket)PlayerManager.instance.ticketDatabase.database[chosenIndex];
             PlayerManager.instance.ticketDataList.GetItemData(chosenItem.GUID).AddExp(expAdded);
         }
@@ -344,6 +331,12 @@ public class UIShopManager : MonoBehaviour
 
         chosenItem.itemData.AddExp(expAdded);
         buyPopup.SetPopup(chosenItem);
+    }
+
+    public void RewardSpecificBoost(BoostData boostData)
+    {
+        PlayerManager.instance.AddBoost(boostData);
+        buyPopup.SetPopup(boostData);
     }
 
     private BoostData GetBoostData(BoostData data)

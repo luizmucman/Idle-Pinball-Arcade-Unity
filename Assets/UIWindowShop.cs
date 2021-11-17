@@ -14,7 +14,7 @@ public class UIWindowShop : UIWindow
     public override void OpenAnim()
     {
         base.OpenAnim();
-        if(PlayerManager.instance.seasonPassData.isPremium)
+        if (PlayerManager.instance.seasonPassData.isPremium)
         {
             EventMachineProduct.SetActive(false);
         }
@@ -27,15 +27,27 @@ public class UIWindowShop : UIWindow
         {
             StarterPackProduct.SetActive(false);
         }
+        else
+        {
+            StarterPackProduct.SetActive(true);
+        }
 
         if (PlayerManager.instance.is4xAllIncome)
         {
             MasterPackProduct.SetActive(false);
         }
+        else
+        {
+            MasterPackProduct.SetActive(true);
+        }
 
-        if(PlayerManager.instance.isAdFree)
+        if (PlayerManager.instance.isAdFree)
         {
             AdFreeProduct.SetActive(false);
+        }
+        else
+        {
+            AdFreeProduct.SetActive(true);
         }
 
         specialsContentFitter.RefreshContentFitters();

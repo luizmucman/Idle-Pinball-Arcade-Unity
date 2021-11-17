@@ -43,7 +43,7 @@ public class SeasonPassItemSO : ScriptableObject
                 shopManager.BuyGems(gems);
                 break;
             case RewardType.Boost:
-                RewardSpecificBoost();
+                shopManager.RewardSpecificBoost(boostData);
                 break;
         }
 
@@ -52,11 +52,6 @@ public class SeasonPassItemSO : ScriptableObject
     private void UnlockEventMachine()
     {
         PlayerManager.instance.currentEventMachineData.isUnlocked = true;
-    }
-
-    private void RewardSpecificBoost()
-    {
-        PlayerManager.instance.AddBoost(boostData);
     }
 }
 

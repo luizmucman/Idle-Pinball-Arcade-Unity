@@ -1,0 +1,42 @@
+<dependencies>
+  <unityversion>7.1.12.1</unityversion>
+      <androidPackages>
+        <androidPackage spec="com.ironsource.sdk:mediationsdk:7.1.12.1">
+          <repositories>
+        	<repository>https://android-sdk.is.com/</repository>
+          </repositories>
+        </androidPackage>
+      </androidPackages>
+
+      <androidPackages>
+        <androidPackage spec="com.google.android.gms:play-services-ads-identifier:17.0.0">
+          <repositories>
+            <repository>https://maven.google.com/</repository>
+          </repositories>
+        </androidPackage>
+      </androidPackages>
+
+      <androidPackages>
+          <androidPackage spec="com.google.android.gms:play-services-appset:16.0.0">
+              <repositories>
+                  <repository>https://maven.google.com/</repository>
+              </repositories>
+          </androidPackage>
+      </androidPackages>
+      
+      <androidPackages>
+        <androidPackage spec="com.google.android.gms:play-services-basement:17.2.1">
+          <repositories>
+            <repository>https://maven.google.com/</repository>
+          </repositories>
+        </androidPackage>
+      </androidPackages>
+
+      <iosPods>
+        <iosPod name="IronSourceSDK" version="7.1.12">
+          <sources>
+            <source>https://github.com/CocoaPods/Specs</source>
+          </sources>
+        </iosPod>
+      </iosPods>
+</dependencies>

@@ -38,7 +38,7 @@ public class BoostForAdButton : MonoBehaviour
         }
         else
         {
-            adsManager.PlayRewardedAd(RewardAdBoost);
+            adsManager.PlayRewardedAd(RewardAdBoost, "2xTemporaryBoost");
         }
     }
 

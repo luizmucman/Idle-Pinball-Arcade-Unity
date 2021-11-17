@@ -87,7 +87,7 @@ public class UIAwayCoinPopupManager : MonoBehaviour
         }
         else
         {
-            adsManager.PlayRewardedAd(Reward2xAd);
+            adsManager.PlayRewardedAd(Reward2xAd, "2xIdleCoins");
         }
     }
 
