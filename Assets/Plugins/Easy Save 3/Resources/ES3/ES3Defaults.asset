@@ -32,10 +32,14 @@ MonoBehaviour:
     - Assembly-CSharp
     - Assembly-CSharp-firstpass
     - PlayFab
+    - StompyRobot.SRF
+    - StompyRobot.SRDebugger
     - AppsFlyer
     - Purchasing.Common
     - PsdPlugin
     - PlayFabEditorExtensions
+    - StompyRobot.SRF.Editor
+    - StompyRobot.SRDebugger.Editor
     - PlayFabSDKEditor
     - AppsFlyer.Editor
     showAdvancedSettings: 1

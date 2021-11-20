@@ -88,9 +88,9 @@ public abstract class ObjectManager : MonoBehaviour
         }
 
         coinGain = PlayerManager.instance.AddCoins((double)(upgradeData.currentCoinProduction));
-        PlayerManager.instance.currentMachine.coinsPerSecondCounter += (double)(upgradeData.currentCoinProduction);
+        PlayerManager.instance.currentMachine.coinsPerSecondCounter += (double)(coinGain);
         PlayerManager.instance.currentMachine.machineData.totalCoinsGained += coinGain;
-        ball.accumulatedCoins += upgradeData.currentCoinProduction;
+        ball.accumulatedCoins += coinGain;
     }
 
     public virtual void Payout(float multiplier)

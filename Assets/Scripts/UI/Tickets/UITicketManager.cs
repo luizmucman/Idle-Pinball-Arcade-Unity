@@ -43,6 +43,7 @@ public class UITicketManager : MonoBehaviour
                 currTicket.SetTicket(ticket);
                 currTicket.ticket.EquipTicket();
                 currTicket.CheckUnlocked();
+
                 ticketsEquipped++;
             }
             else
@@ -109,6 +110,7 @@ public class UITicketManager : MonoBehaviour
         ticketButton.ticket.EquipTicket();
         ticketButton.ticket.itemData.isEquipped = true;
         ticketButton.transform.SetParent(equippedList.transform);
+        ticketButton.gameObject.transform.SetSiblingIndex(1);
 
         ticketDiff = playerManager.ticketSlotCount - playerManager.equippedTickets.Count;
         Invoke(nameof(RefreshUI), 0.1f);

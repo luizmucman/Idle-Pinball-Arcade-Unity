@@ -46,15 +46,17 @@ public class UIShopGemAdBtn : MonoBehaviour
             PlayerManager.instance.GetComponent<AdsManager>().PlayRewardedAd(RewardGems, "ShopGemGift");
         }
 
+
+    }
+
+    public void RewardGems()
+    {
+        UIManager.instance.uiShopManager.BuyGems(gemReward);
+
         DateTime nextReset = DateTime.Now.AddDays(1.0).Date.AddHours(8);
 
         UIManager.instance.uiShopManager.lastRecordedDay = nextReset;
 
         ES3.Save("gemDailyNextDate", UIManager.instance.uiShopManager.lastRecordedDay);
-    }
-
-    public void RewardGems()
-    {
-        PlayerManager.instance.AddGems(gemReward);
     }
 }

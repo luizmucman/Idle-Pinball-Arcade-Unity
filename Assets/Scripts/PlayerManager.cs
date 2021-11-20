@@ -157,7 +157,6 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
-        soundsManager.PlayMusic("bgmMain");
         Application.targetFrameRate = 60;
     }
 
@@ -222,6 +221,7 @@ public class PlayerManager : MonoBehaviour
         {
             boost.qtyOwned = 1;
             boostInventory.Add(boost);
+            UIManager.instance.uiBoostsManager.AddNewOwnedBoostContainer(boost);
         }
     }
 
@@ -418,6 +418,7 @@ public class PlayerManager : MonoBehaviour
                 }
             }
             SceneManager.LoadScene("MA001");
+
             finishedLoadMethod = true;
         }
 
@@ -478,6 +479,7 @@ public class PlayerManager : MonoBehaviour
         ES3.Save("playerIsAdFree", isAdFree);
         ES3.Save("playerHas2xIncome", is2xAllIncome);
         ES3.Save("playerHas2xIdleIncome", is2xIdleIncome);
+        ES3.Save("playerHasMasterPack", is4xAllIncome);
 
         ES3.Save("playerGlobalCoinMultiplier", globalCoinMultiplier);
         boostDatabase.SaveBoostDatabase();
@@ -500,6 +502,7 @@ public class PlayerManager : MonoBehaviour
         isAdFree = ES3.Load("playerIsAdFree", isAdFree);
         is2xAllIncome = ES3.Load("playerHas2xIncome", is2xAllIncome);
         is2xIdleIncome = ES3.Load("playerHas2xIdleIncome", is2xIdleIncome);
+        is4xAllIncome = ES3.Load("playerHasMasterPack", is4xAllIncome);
 
         globalCoinMultiplier = ES3.Load("playerGlobalCoinMultiplier", globalCoinMultiplier);
         boostDatabase.LoadBoostDatabase();

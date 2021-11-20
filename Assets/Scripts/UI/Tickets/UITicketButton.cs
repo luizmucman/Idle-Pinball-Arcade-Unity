@@ -39,7 +39,16 @@ public class UITicketButton : MonoBehaviour
         {
             lockedOverlay.SetActive(false);
             btn.interactable = true;
-            gameObject.transform.SetAsFirstSibling();
+
+            if(ticketData.isEquipped)
+            {
+                gameObject.transform.SetSiblingIndex(1);
+            }
+            else
+            {
+                gameObject.transform.SetAsFirstSibling();
+            }
+
         }
         else
         {

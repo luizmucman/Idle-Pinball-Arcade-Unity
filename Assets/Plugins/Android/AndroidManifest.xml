@@ -25,5 +25,6 @@
     <meta-data android:name="com.facebook.sdk.AutoLogAppEventsEnabled" android:value="false" />
     <meta-data android:name="com.facebook.sdk.AdvertiserIDCollectionEnabled" android:value="true" />
     <provider android:name="com.facebook.FacebookContentProvider" android:authorities="com.facebook.app.FacebookContentProvider381286387026967" android:exported="true" />
+    <meta-data android:name="com.tapjoy.appstore" android:value="Google" />
   </application>
 </manifest>

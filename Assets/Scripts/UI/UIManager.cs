@@ -26,6 +26,7 @@ public class UIManager : MonoBehaviour
 
     [Header("Top Bar UI")]
     // Top Bar
+    [SerializeField] Text playerCPSText;
     public Text playerCoinText;
     public Text playerGemText;
     public Image coinImage;
@@ -35,6 +36,10 @@ public class UIManager : MonoBehaviour
 
     [Header("Overlay")]
     public GameObject overlay;
+
+    [Header("Windows")]
+    [SerializeField] private UIBottomRow bottomRow;
+    [SerializeField] private List<UIWindow> windows;
 
     private void Awake()
     {
@@ -67,6 +72,11 @@ public class UIManager : MonoBehaviour
         gemRewardBtn.gameObject.SetActive(false);
     }
 
+    public void SetCPSText(double cps)
+    {
+        playerCPSText.text = DoubleFormatter.Format(cps) + "/S" ;
+    }
+
     public void ShowOverlay()
     {
         overlay.SetActive(true);
@@ -75,5 +85,17 @@ public class UIManager : MonoBehaviour
     public void HideOverlay()
     {
         overlay.SetActive(false);
+    }
+
+    public void ResetWindows()
+    {
+        bottomRow.ResetButtonState();
+        foreach(UIWindow window in windows)
+        {
+            if(window.gameObject.activeInHierarchy)
+            {
+                window.CloseAnim();
+            }
+        }
     }
 }

@@ -12,6 +12,7 @@ public class UISeasonPassManager : MonoBehaviour
     [HideInInspector] public SeasonPassData currSeasonData;
     [HideInInspector] public List<UISeasonPassRewardRow> rewardRows;
 
+    [Header("Window UI Elements")]
     // UI Elements
     public GameObject uiRewardsContainer;
     public Slider expSlider;
@@ -19,6 +20,13 @@ public class UISeasonPassManager : MonoBehaviour
     public Text currLevelText;
     public Text nextLevelText;
 
+    [Header("Button UI Elements")]
+    public Slider btnExpSlider;
+    public Text btnExpText;
+    public Text btnCurrLevelText;
+    public Text btnNextLevelText;
+
+    [Header("Reward Row Prefab")]
     // Prefabs
     public UISeasonPassRewardRow rewardRowPrefab;
 
@@ -55,6 +63,9 @@ public class UISeasonPassManager : MonoBehaviour
     {
         currLevelText.text = currSeasonData.seasonPassLvl.ToString();
         nextLevelText.text = (currSeasonData.seasonPassLvl + 1).ToString();
+
+        btnCurrLevelText.text = currSeasonData.seasonPassLvl.ToString();
+        btnNextLevelText.text = (currSeasonData.seasonPassLvl + 1).ToString();
     }
 
     public void SetLevelReached(int level)
@@ -71,12 +82,20 @@ public class UISeasonPassManager : MonoBehaviour
             expSlider.maxValue = (float) maxValue;
             expSlider.value = (float) currValue;
             expText.text = DoubleFormatter.Format(currValue) + " / " + DoubleFormatter.Format(maxValue);
+
+            btnExpSlider.maxValue = (float)maxValue;
+            btnExpSlider.value = (float)currValue;
+            btnExpText.text = DoubleFormatter.Format(currValue) + " / " + DoubleFormatter.Format(maxValue);
         }
         else
         {
             expSlider.maxValue = 1;
             expSlider.value = 1;
             expText.text = "MAXED";
+
+            btnExpSlider.maxValue = 1;
+            btnExpSlider.value = 1;
+            btnExpText.text = "MAXED";
         }
 
     }

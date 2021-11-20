@@ -69,7 +69,7 @@ public class UIShopPopup : MonoBehaviour
                 stars[i].sprite = unlitStar;
             }
         }
-
+        starContainer.SetActive(true);
         gameObject.SetActive(true);
 
         theAnim.Play("open");
@@ -141,8 +141,8 @@ public class UIShopPopup : MonoBehaviour
     public void SetIncomeBuffPopup()
     {
         itemIcon.sprite = incomeBuffSprite;
-        itemTitle.text = "2X All Income";
-        itemDesc.text = "You will now permanently gain 2x coins from all sources!";
+        itemTitle.text = "Starter Pack";
+        itemDesc.text = "A boost into the pinball world. You will gain 2x coins from all sources! Have fun with the bonus gems.";
 
         starContainer.SetActive(false);
 
@@ -155,8 +155,8 @@ public class UIShopPopup : MonoBehaviour
     public void SetTripleIncomeBuffPopup()
     {
         itemIcon.sprite = tripleIncomeBuffSprite;
-        itemTitle.text = "3X All Income";
-        itemDesc.text = "You will now permanently gain 3x coins from all sources!";
+        itemTitle.text = "Master Pack";
+        itemDesc.text = "A true pinball master! You will gain 3x coins from all sources! Have fun with the bonus gems.";
 
         starContainer.SetActive(false);
 
@@ -184,7 +184,7 @@ public class UIShopPopup : MonoBehaviour
     {
         itemIcon.sprite = PlayerManager.instance.currentEventMachineData.machineImage;
         itemTitle.text = PlayerManager.instance.currentEventMachineData.machineName + " Season Pass";
-        itemDesc.text = "You have unlocked the premium pass for the current event! Enjoy your rewards.";
+        itemDesc.text = "You have unlocked the premium pass for the current event! Unlock premium rewards by playing the machine.";
 
         starContainer.SetActive(false);
 

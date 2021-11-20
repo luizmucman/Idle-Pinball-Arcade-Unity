@@ -109,11 +109,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4144273721896514402}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.0000019073486, y: -95}
+  m_AnchoredPosition: {x: 0, y: -95}
   m_SizeDelta: {x: 172.2611, y: 171.57489}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4004028477106637478
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a44f7634106746d40a73226335de1be3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c65e11a2d1ac6734681bb722bb805c64, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -182,8 +182,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 534137011863492040}
   - {fileID: 830150352707727587}
+  - {fileID: 534137011863492040}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -210,9 +210,9 @@ MonoBehaviour:
     boostID: 
     boostImg: {fileID: 0}
     boostAmt: 0
-    boostLength: 0
     inUse: 0
     qtyOwned: 0
+    boostLength: 0
 --- !u!1 &6862144396392615983
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,7 +244,7 @@ RectTransform:
   m_Children:
   - {fileID: 8650534355913870782}
   m_Father: {fileID: 4144273721896514402}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}

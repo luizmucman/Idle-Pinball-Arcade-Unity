@@ -41,8 +41,7 @@ public class UIBoostsManager : MonoBehaviour
 
         foreach (BoostData data in PlayerManager.instance.boostInventory)
         {
-            BoostOwnedContainer ownedContainer = Instantiate(ownedBoostContainerPrefab, ownedBoostContentContainer.transform);
-            ownedContainer.SetBoostData(data);
+            AddNewOwnedBoostContainer(data);
         }
     }
 
@@ -55,6 +54,12 @@ public class UIBoostsManager : MonoBehaviour
             GetBoostAmt();
             checkBoostsTimer = 0f;
         }
+    }
+
+    public void AddNewOwnedBoostContainer(BoostData data)
+    {
+        BoostOwnedContainer ownedContainer = Instantiate(ownedBoostContainerPrefab, ownedBoostContentContainer.transform);
+        ownedContainer.SetBoostData(data);
     }
 
     private void GetBoostAmt()

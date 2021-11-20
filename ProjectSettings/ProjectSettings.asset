@@ -129,7 +129,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.3.91
+  bundleVersion: 0.4.033
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -149,14 +149,14 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.HappyHedgehog.IdlePinballArcade
-    Standalone: com.HappyHedgehog.IdlePinballTycoon
-    iPhone: com.HappyHedgehog.IdlePinballTycoon
+    Standalone: com.HappyHedgehog.IdlePinballArcade
+    iPhone: com.HappyHedgehog.IdlePinballArcade
   buildNumber:
     Standalone: 0
     iPhone: 0
     tvOS: 0
   overrideDefaultApplicationIdentifier: 0
-  AndroidBundleVersionCode: 44
+  AndroidBundleVersionCode: 59
   AndroidMinSdkVersion: 19
   AndroidTargetSdkVersion: 30
   AndroidPreferredInstallLocation: 1
@@ -233,8 +233,8 @@ PlayerSettings:
   templatePackageId: com.unity.template.2d@5.0.0
   templateDefaultScene: Assets/Scenes/SampleScene.unity
   useCustomMainManifest: 1
-  useCustomLauncherManifest: 0
-  useCustomMainGradleTemplate: 0
+  useCustomLauncherManifest: 1
+  useCustomMainGradleTemplate: 1
   useCustomLauncherGradleManifest: 0
   useCustomBaseGradleTemplate: 1
   useCustomGradlePropertiesTemplate: 1

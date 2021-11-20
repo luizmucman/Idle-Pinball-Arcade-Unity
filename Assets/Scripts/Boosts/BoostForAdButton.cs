@@ -7,7 +7,7 @@ public class BoostForAdButton : MonoBehaviour
 {
     private AdsManager adsManager;
 
-    private Button btn;
+    [SerializeField] private Button btn;
 
     [SerializeField] private Sprite adSprite;
     [SerializeField] private Sprite noAdSprite;

@@ -35,7 +35,9 @@ public class UIBottomRow : MonoBehaviour
     {
         if(!button.isClicked)
         {
+            UIManager.instance.ResetWindows();
             ResetButtonState();
+
             UIManager.instance.ShowOverlay();
             windows[button.windowID].OpenAnim();
             button.isClicked = true;

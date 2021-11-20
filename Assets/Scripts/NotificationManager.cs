@@ -51,6 +51,8 @@ public class NotificationManager : MonoBehaviour
         {
             var idleNotificationStatus = AndroidNotificationCenter.CheckScheduledNotificationStatus(idleTimeReachedId);
 
+            Debug.Log(idleNotificationStatus);
+
             if (idleNotificationStatus != NotificationStatus.Unavailable)
             {
                 AndroidNotificationCenter.CancelNotification(idleTimeReachedId);

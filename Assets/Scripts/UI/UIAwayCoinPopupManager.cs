@@ -65,8 +65,6 @@ public class UIAwayCoinPopupManager : MonoBehaviour
 
             collectedCoins = machine.accumulatedCoins;
             multipliedCoins = collectedCoins * currMultiplier;
-            Debug.Log(currMultiplier);
-            Debug.Log(collectedCoins);
             coinAmount.text = DoubleFormatter.Format(collectedCoins) + " coins!";
         }
 

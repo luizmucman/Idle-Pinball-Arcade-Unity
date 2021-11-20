@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class SoundsManager : MonoBehaviour
 {
+    // Audio Sources
     public AudioMixerGroup sfxMixerGroup;
     public AudioMixerGroup bgmMixerGroup;
+
+    // Sounds
     public Sound[] sfxSounds;
     public Sound[] bgmSounds;
 
@@ -36,6 +39,30 @@ public class SoundsManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+
+        if (ES3.Load("bgmMuted", false))
+        {
+            bgmMixerGroup.audioMixer.SetFloat("BGMVolume", -80f);
+        }
+        else
+        {
+            bgmMixerGroup.audioMixer.SetFloat("BGMVolume", 0f);
+        }
+
+        if (ES3.Load("sfxMuted", false))
+        {
+            sfxMixerGroup.audioMixer.SetFloat("SFXVolume", -80f);
+        }
+        else
+        {
+            sfxMixerGroup.audioMixer.SetFloat("SFXVolume", 0f);
+        }
+
+        PlayerManager.instance.soundsManager.PlayMusic("bgmMain");
+    }
+
     public void PlaySound(string name)
     {
         Sound s = Array.Find(sfxSounds, sound => sound.name == name);
@@ -48,6 +75,36 @@ public class SoundsManager : MonoBehaviour
     {
         Sound s = Array.Find(bgmSounds, sound => sound.name == name);
 
-        s.source.Play();
+        if (!s.source.isPlaying)
+        {
+            s.source.Play();
+        }
+
+    }
+
+    public void MuteMusic()
+    {
+        PlayerManager.instance.playerSettingsData.bgmMuted = true;
+        bgmMixerGroup.audioMixer.SetFloat("BGMVolume", -80f);
+    }
+
+    public void UnmuteMusic()
+    {
+        PlayerManager.instance.playerSettingsData.bgmMuted = false;
+        bgmMixerGroup.audioMixer.SetFloat("BGMVolume", 0f);
+    }
+
+    public void MuteSfx()
+    {
+        PlayerManager.instance.playerSettingsData.sfxMuted = true;
+
+        bgmMixerGroup.audioMixer.SetFloat("SFXVolume", -80f);
+    }
+
+    public void UnmuteSfx()
+    {
+        PlayerManager.instance.playerSettingsData.sfxMuted = false;
+
+        bgmMixerGroup.audioMixer.SetFloat("SFXVolume", 0f);
     }
 }

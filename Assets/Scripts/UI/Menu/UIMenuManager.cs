@@ -8,6 +8,8 @@ public class UIMenuManager : MonoBehaviour
 {
     public UIWindow settingsWindow;
 
+    private SoundsManager soundsManager;
+
     private PlayFabAuthService _AuthService = PlayFabAuthService.Instance;
 
     // Audio Sources
@@ -28,27 +30,29 @@ public class UIMenuManager : MonoBehaviour
 
     private void Start()
     {
+        soundsManager = PlayerManager.instance.soundsManager;
+
         if (PlayerManager.instance.playerSettingsData.bgmMuted)
         {
-            bgmSource.audioMixer.SetFloat("BGMVolume", -80f);
             bgmButton.image.sprite = audioButtonMuted;
+
         }
-        else 
+        else
         {
-            bgmSource.audioMixer.SetFloat("BGMVolume", 0f);
             bgmButton.image.sprite = audioButtonUnmuted;
+
         }
 
         if (PlayerManager.instance.playerSettingsData.sfxMuted)
         {
-            sfxSource.audioMixer.SetFloat("SFXVolume", -80f);
             sfxButton.image.sprite = audioButtonMuted;
         }
         else
         {
-            sfxSource.audioMixer.SetFloat("SFXVolume", 0f);
             sfxButton.image.sprite = audioButtonUnmuted;
         }
+
+
 
         playerId.text = "Player Id: " + PlayerManager.instance.playFabID;
         versionNum.text = "v" + Application.version;
@@ -58,15 +62,15 @@ public class UIMenuManager : MonoBehaviour
     {
         if (PlayerManager.instance.playerSettingsData.sfxMuted)
         {
-            sfxSource.audioMixer.SetFloat("SFXVolume", 0f);
+
+            soundsManager.UnmuteSfx();
             sfxButton.image.sprite = audioButtonUnmuted;
-            PlayerManager.instance.playerSettingsData.sfxMuted = false;
+            
         }
         else
         {
-            sfxSource.audioMixer.SetFloat("SFXVolume", -80f);
             sfxButton.image.sprite = audioButtonMuted;
-            PlayerManager.instance.playerSettingsData.sfxMuted = true;
+            soundsManager.MuteSfx();
         }
     }
 
@@ -74,15 +78,13 @@ public class UIMenuManager : MonoBehaviour
     {
         if (PlayerManager.instance.playerSettingsData.bgmMuted)
         {
-            bgmSource.audioMixer.SetFloat("BGMVolume", 0f);
             bgmButton.image.sprite = audioButtonUnmuted;
-            PlayerManager.instance.playerSettingsData.bgmMuted = false;
+            soundsManager.UnmuteMusic();
         }
         else
         {
-            bgmSource.audioMixer.SetFloat("BGMVolume", -80f);
             bgmButton.image.sprite = audioButtonMuted;
-            PlayerManager.instance.playerSettingsData.bgmMuted = true;
+            soundsManager.MuteMusic();
         }
     }
 

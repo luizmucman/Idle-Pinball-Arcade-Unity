@@ -45,6 +45,12 @@ public class SeasonPassItemSO : ScriptableObject
             case RewardType.Boost:
                 shopManager.RewardSpecificBoost(boostData);
                 break;
+            case RewardType.MysteryBoost:
+                shopManager.RewardMysteryBoost();
+                break;
+            case RewardType.MegaMysteryBoost:
+                shopManager.RewardMegaMysteryBoost();
+                break;
         }
 
     }

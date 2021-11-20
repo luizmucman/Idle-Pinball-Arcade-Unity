@@ -20,7 +20,7 @@ public class WatchAdButtonFreeGems : WatchAdButton
 
     public void RewardGems()
     {
-        PlayerManager.instance.AddGems(25);
+        UIManager.instance.uiShopManager.BuyGems(25);
         UIManager.instance.ResetGemRewardBtn();
         window.CloseAnim();
     }

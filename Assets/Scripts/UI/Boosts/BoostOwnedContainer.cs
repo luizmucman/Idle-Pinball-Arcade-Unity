@@ -23,10 +23,16 @@ public class BoostOwnedContainer : MonoBehaviour
         {
             boostLengthText.text = duration.ToString("dd' day(s)'");
         }
-        else
+        else if(duration.Hours > 0)
         {
             boostLengthText.text = duration.ToString("hh'hr(s) 'mm'min(s)'");
         }
+        else if(duration.Minutes > 0)
+        {
+            boostLengthText.text = duration.ToString("mm'min(s)'");
+        }
+
+
 
         boostImage.sprite = PlayerManager.instance.boostDatabase.GetBoost(boostData.boostID).boostImg;
     }

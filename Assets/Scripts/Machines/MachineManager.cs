@@ -103,6 +103,9 @@ public class MachineManager : MonoBehaviour
             UIManager.instance.uiUpgradeManager.AddUpgradeRow(manager);
         }
 
+        UIManager.instance.SetCPSText(machineData.coinsPerSecond);
+
+
         RewardAway();
     }
 
@@ -110,7 +113,7 @@ public class MachineManager : MonoBehaviour
     {
         cpsMinuteCounter += Time.deltaTime;
 
-        if(cpsMinuteCounter >= 60)
+        if(cpsMinuteCounter >= 10)
         {
             SetCPS();
         }
@@ -131,12 +134,12 @@ public class MachineManager : MonoBehaviour
 
     private void SetCPS()
     {
-        if(coinsPerSecondCounter > machineData.coinsPerSecond)
-        {
-            machineData.coinsPerSecond = (double) (coinsPerSecondCounter / 60 * PlayerManager.instance.playerTicketBuffs.cpsBuff);
-            coinsPerSecondCounter = 0;
-            cpsMinuteCounter = 0;
-        }
+
+        machineData.coinsPerSecond = (double) (coinsPerSecondCounter / 10 * PlayerManager.instance.playerTicketBuffs.cpsBuff);
+        coinsPerSecondCounter = 0;
+        cpsMinuteCounter = 0;
+        UIManager.instance.SetCPSText(machineData.coinsPerSecond);
+
     }
 
     // Makes sure balls don't collide with each other.

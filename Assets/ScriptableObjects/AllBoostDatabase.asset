@@ -13,6 +13,18 @@ MonoBehaviour:
   m_Name: AllBoostDatabase
   m_EditorClassIdentifier: 
   database:
+  - boostID: BOOSP
+    boostImg: {fileID: 21300000, guid: c65e11a2d1ac6734681bb722bb805c64, type: 3}
+    boostAmt: 2
+    inUse: 0
+    qtyOwned: 0
+    boostLength: 0
+  - boostID: BOOMP
+    boostImg: {fileID: 21300000, guid: 39009ff878892b846bdb472c046615f6, type: 3}
+    boostAmt: 3
+    inUse: 0
+    qtyOwned: 0
+    boostLength: 0
   - boostID: BOOAD
     boostImg: {fileID: 21300000, guid: 91b6e03af44eb414db6c6942b6939547, type: 3}
     boostAmt: 2

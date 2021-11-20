@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.Purchasing;
 using AppsFlyerSDK;
 using UnityEngine.Purchasing.Security;
+using TapjoyUnity;
 
 public enum ShopItemType
 {
@@ -53,10 +54,11 @@ public class UIShopManager : MonoBehaviour
 
     [SerializeField] private string googleLicenseKey;
 
-
     private void Start()
     {
+
         lastRecordedDay = ES3.Load("gemDailyNextDate", new DateTime());
+
     }
 
     public void SendPurchaseToAppsFlyer(Product product)
@@ -356,4 +358,5 @@ public class UIShopManager : MonoBehaviour
         eventMachineProductObject.SetActive(false);
         buyPopup.SetSeasonPassPopup();
     }
+
 }
