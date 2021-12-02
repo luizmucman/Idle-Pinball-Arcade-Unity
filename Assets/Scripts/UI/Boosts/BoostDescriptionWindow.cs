@@ -36,6 +36,7 @@ public class BoostDescriptionWindow : MonoBehaviour
             PlayerManager.instance.boostInventory.Remove(boostContainer.boostData);
             Destroy(boostContainer.gameObject);
         }
+        ES3.Save("playerBoostInventory", PlayerManager.instance.boostInventory);
         gameObject.SetActive(false);
     }
 

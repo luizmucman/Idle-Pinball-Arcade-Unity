@@ -4,6 +4,7 @@ using UnityEngine;
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
 using Facebook.Unity;
+using TapjoyUnity;
 
 public class SDKInit : MonoBehaviour
 {

@@ -19,6 +19,23 @@ public class ItemDataList
         return null;
     }
 
+    public ItemData GetRandomItem(ShopItemType itemType)
+    {
+        int randomIndex = 0;
+        if (itemType ==  ShopItemType.Ball)
+        {
+            randomIndex = UnityEngine.Random.Range(1, PlayerManager.instance.ballDatabase.database.Count - 1);
+
+        }
+        else if (itemType == ShopItemType.Ticket)
+        {
+            randomIndex = UnityEngine.Random.Range(0, PlayerManager.instance.ticketDatabase.database.Count - 1);
+        }
+
+        return itemList[randomIndex];
+
+    }
+
     public void AddNewItemData(string GUID)
     {
         ItemData newData = new ItemData();

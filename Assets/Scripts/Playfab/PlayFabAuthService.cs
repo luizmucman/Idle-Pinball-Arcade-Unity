@@ -35,6 +35,8 @@ public class PlayFabAuthService
 
     public delegate void LoginSuccessEvent(LoginResult success);
     public static event LoginSuccessEvent OnLoginSuccess;
+    public static event LoginSuccessEvent OnGoogleLoginSuccess;
+    public static event LoginSuccessEvent OnFacebookLoginSuccess;
 
     public delegate void LinkGoogleSuccessEvent(LinkGoogleAccountResult success);
     public static event LinkGoogleSuccessEvent OnGoogleLink;
@@ -44,6 +46,8 @@ public class PlayFabAuthService
 
     public delegate void PlayFabErrorEvent(PlayFabError error);
     public static event PlayFabErrorEvent OnPlayFabError;
+    public static event PlayFabErrorEvent OnPlayFabGoogleLoginError;
+    public static event PlayFabErrorEvent OnPlayFabFacebookLoginError;
 
     //These are fields that we set when we are using the service.
     public string Email;
@@ -363,18 +367,18 @@ public class PlayFabAuthService
                 _sessionTicket = result.SessionTicket;
 
                 //check if we want to get this callback directly or send to event subscribers.
-                if (OnLoginSuccess != null)
+                if (OnFacebookLoginSuccess != null)
                 {
                     //report login result back to the subscriber
-                    OnLoginSuccess.Invoke(result);
+                    OnFacebookLoginSuccess.Invoke(result);
                 }
             }, (error) =>
             {
 
                 //report errro back to the subscriber
-                if (OnPlayFabError != null)
+                if (OnPlayFabFacebookLoginError != null)
                 {
-                    OnPlayFabError.Invoke(error);
+                    OnPlayFabFacebookLoginError.Invoke(error);
                 }
             });
         }
@@ -430,18 +434,17 @@ public class PlayFabAuthService
             _sessionTicket = result.SessionTicket;
 
             //check if we want to get this callback directly or send to event subscribers.
-            if (OnLoginSuccess != null)
+            if (OnGoogleLoginSuccess != null)
             {
                 //report login result back to the subscriber
-                OnLoginSuccess.Invoke(result);
+                OnGoogleLoginSuccess.Invoke(result);
             }
         }, (error) =>
         {
-
             //report errro back to the subscriber
-            if (OnPlayFabError != null)
+            if (OnPlayFabGoogleLoginError != null)
             {
-                OnPlayFabError.Invoke(error);
+                OnPlayFabGoogleLoginError.Invoke(error);
             }
         });
     }

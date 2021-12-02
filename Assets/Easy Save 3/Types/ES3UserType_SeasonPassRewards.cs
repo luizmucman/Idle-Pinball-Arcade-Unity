@@ -4,7 +4,7 @@ using UnityEngine;
 namespace ES3Types
 {
 	[UnityEngine.Scripting.Preserve]
-	[ES3PropertiesAttribute("isClaimed")]
+	[ES3PropertiesAttribute("isClaimed", "rewardItem")]
 	public class ES3UserType_SeasonPassRewards : ES3ObjectType
 	{
 		public static ES3Type Instance = null;
@@ -17,6 +17,7 @@ namespace ES3Types
 			var instance = (SeasonPassRewards)obj;
 			
 			writer.WriteProperty("isClaimed", instance.isClaimed, ES3Type_bool.Instance);
+			writer.WritePropertyByRef("rewardItem", instance.rewardItem);
 		}
 
 		protected override void ReadObject<T>(ES3Reader reader, object obj)
@@ -29,6 +30,9 @@ namespace ES3Types
 					
 					case "isClaimed":
 						instance.isClaimed = reader.Read<System.Boolean>(ES3Type_bool.Instance);
+						break;
+					case "rewardItem":
+						instance.rewardItem = reader.Read<SeasonPassItemSO>();
 						break;
 					default:
 						reader.Skip();

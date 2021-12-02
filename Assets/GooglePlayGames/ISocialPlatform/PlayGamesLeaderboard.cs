@@ -130,7 +130,7 @@ namespace GooglePlayGames
             return data.Valid;
         }
 
-        internal void SetMaxRange(double val)
+        internal void SetMaxRange(ulong val)
         {
             mMaxRange = (uint) val;
         }
@@ -157,11 +157,10 @@ namespace GooglePlayGames
                 {
                     if (fid.Equals(score.userID))
                     {
-                        return mScoreList.Count;
+                        mScoreList.Add(score);
+                        break;
                     }
                 }
-
-                mScoreList.Add(score);
             }
 
             return mScoreList.Count;

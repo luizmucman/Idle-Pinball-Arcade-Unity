@@ -58,10 +58,11 @@ public class BoostData
         {
             endTime = DateTime.Now;
             inUse = true;
-        }
 
+        }
         endTime = endTime.AddHours(hours);
 
+        SaveBoostDatabase();
     }
 
     public double CheckBoost()
@@ -72,6 +73,7 @@ public class BoostData
             if(timeDiff.Ticks <= 0)
             {
                 inUse = false;
+                SaveBoostDatabase();
             }
             return boostAmt;
         }
@@ -92,15 +94,15 @@ public class BoostData
         }
         else if (duration.Hours > 0)
         {
-            boostLengthText = duration.ToString("hh' hr(s)'");
+            boostLengthText = duration.ToString("hh' hr'");
             if (duration.Minutes > 0)
             {
-                boostLengthText += duration.ToString(" mm' min(s)'");
+                boostLengthText += duration.ToString(" mm' min'");
             }
         }
         else
         {
-            boostLengthText = duration.ToString("mm' min(s)'");
+            boostLengthText = duration.ToString("mm' min'");
         }
         return boostLengthText;
     }

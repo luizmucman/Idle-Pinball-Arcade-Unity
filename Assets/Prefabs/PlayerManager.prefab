@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1049378522110880348}
   - component: {fileID: 1049378522110880351}
+  - component: {fileID: 4557849310893746398}
   - component: {fileID: 1232679007}
   - component: {fileID: 1232679008}
   - component: {fileID: 1232679009}
@@ -50,20 +51,8 @@ MonoBehaviour:
   playFabID: 
   facebookAccLinked: 0
   googleAccLinked: 0
-  currMachineData:
-    machineGUID: 
-    machineName: 
-    machineCost: 0
-    isUnlocked: 0
-    isPlaying: 0
-    isEvent: 0
-    isCurrentEvent: 0
-    totalCoinsGained: 0
-    coinsPerSecond: 0
-    accumulatedCoins: 0
-    machineImage: {fileID: 0}
-  currentMachine: {fileID: 0}
-  soundsManager: {fileID: 0}
+  playerMachineData: {fileID: 4557849310893746398}
+  soundsManager: {fileID: 1232679008}
   playerSettingsData:
     bgmMuted: 0
     sfxMuted: 0
@@ -259,8 +248,27 @@ MonoBehaviour:
     cpsBuff: 1
   ballDatabase: {fileID: 11400000, guid: 7c075cdf5d043ca4f9c9657e663ee725, type: 2}
   ticketDatabase: {fileID: 11400000, guid: d2691e477f5353747bb165413ec1814c, type: 2}
+  ballDataList:
+    itemList: []
+  ticketDataList:
+    itemList: []
+--- !u!114 &4557849310893746398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049378522110880350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8415de29b64d9224c82b206ac02a95ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerManager: {fileID: 1049378522110880351}
+  totalPlayerCoins: 0
   mainMachines:
-  - machineGUID: MA001
+  - machineCoins: 600
+    machineGUID: MA001
     machineName: Classic
     machineCost: 0
     isUnlocked: 1
@@ -271,9 +279,11 @@ MonoBehaviour:
     coinsPerSecond: 0
     accumulatedCoins: 0
     machineImage: {fileID: 21300000, guid: 2873cf9d4a318ad45bc5fae4eabf942d, type: 3}
-  - machineGUID: MA002
+    machineCoinImage: {fileID: 21300000, guid: bde1e6e9302d4124a98c82dc455b87cc, type: 3}
+  - machineCoins: 0
+    machineGUID: MA002
     machineName: Under The Sea
-    machineCost: 77000000000000
+    machineCost: 76999997521920000
     isUnlocked: 0
     isPlaying: 0
     isEvent: 0
@@ -282,9 +292,11 @@ MonoBehaviour:
     coinsPerSecond: 0
     accumulatedCoins: 0
     machineImage: {fileID: 21300000, guid: ffa54b0c53cc18d43a1bb69003ba530a, type: 3}
-  - machineGUID: MA003
+    machineCoinImage: {fileID: 21300000, guid: 9a49bc8b6baf9b4419d0d3391a3eb617, type: 3}
+  - machineCoins: 0
+    machineGUID: MA003
     machineName: Alien Invasion
-    machineCost: 6.2e+18
+    machineCost: 6.19999983398237e+22
     isUnlocked: 0
     isPlaying: 0
     isEvent: 0
@@ -293,9 +305,11 @@ MonoBehaviour:
     coinsPerSecond: 0
     accumulatedCoins: 0
     machineImage: {fileID: 21300000, guid: 88011c2e97a5f9b4f9a5d07eef397606, type: 3}
-  - machineGUID: MA004
+    machineCoinImage: {fileID: 21300000, guid: 24bc4f6614c286346b1fb2cc328abd32, type: 3}
+  - machineCoins: 0
+    machineGUID: MA004
     machineName: Classic - 2
-    machineCost: 3.68e+25
+    machineCost: 3.68000000484535e+28
     isUnlocked: 0
     isPlaying: 0
     isEvent: 0
@@ -304,9 +318,11 @@ MonoBehaviour:
     coinsPerSecond: 0
     accumulatedCoins: 0
     machineImage: {fileID: 21300000, guid: 2873cf9d4a318ad45bc5fae4eabf942d, type: 3}
-  - machineGUID: MA005
+    machineCoinImage: {fileID: 21300000, guid: 4b2526aed9316f8408db8ea48b809b37, type: 3}
+  - machineCoins: 0
+    machineGUID: MA005
     machineName: Under The Sea - 2
-    machineCost: 4.91e+32
+    machineCost: 4.91000018419754e+34
     isUnlocked: 0
     isPlaying: 0
     isEvent: 0
@@ -315,8 +331,10 @@ MonoBehaviour:
     coinsPerSecond: 0
     accumulatedCoins: 0
     machineImage: {fileID: 21300000, guid: ffa54b0c53cc18d43a1bb69003ba530a, type: 3}
+    machineCoinImage: {fileID: 21300000, guid: 6b07dfe6e0c79cc42bfe020ab190026a, type: 3}
   eventMachines:
-  - machineGUID: EV001
+  - machineCoins: 0
+    machineGUID: EV001
     machineName: All Natural
     machineCost: 1000
     isUnlocked: 0
@@ -327,7 +345,9 @@ MonoBehaviour:
     coinsPerSecond: 0
     accumulatedCoins: 0
     machineImage: {fileID: 21300000, guid: 0fc4d60fd21897048afbdfd792d2fcd6, type: 3}
-  - machineGUID: EV002
+    machineCoinImage: {fileID: 21300000, guid: e305c39ea395ab44795488f1dd4d50e3, type: 3}
+  - machineCoins: 0
+    machineGUID: EV002
     machineName: Sweet Treats
     machineCost: 1000
     isUnlocked: 0
@@ -338,7 +358,9 @@ MonoBehaviour:
     coinsPerSecond: 0
     accumulatedCoins: 0
     machineImage: {fileID: 21300000, guid: b7bf5230b6424a44bb9564ea108b25ff, type: 3}
+    machineCoinImage: {fileID: 21300000, guid: 87a1dd6c520ed5e45a48f6063553a45e, type: 3}
   currentEventMachineData:
+    machineCoins: 0
     machineGUID: 
     machineName: 
     machineCost: 0
@@ -350,11 +372,26 @@ MonoBehaviour:
     coinsPerSecond: 0
     accumulatedCoins: 0
     machineImage: {fileID: 0}
+    machineCoinImage: {fileID: 0}
+  ownedMachines: []
+  cpsSecondCounter: 0
+  currMachineData:
+    machineCoins: 0
+    machineGUID: 
+    machineName: 
+    machineCost: 0
+    isUnlocked: 0
+    isPlaying: 0
+    isEvent: 0
+    isCurrentEvent: 0
+    totalCoinsGained: 0
+    coinsPerSecond: 0
+    accumulatedCoins: 0
+    machineImage: {fileID: 0}
+    machineCoinImage: {fileID: 0}
+  currMachine: {fileID: 0}
   maxIdleTime: 2
-  ballDataList:
-    itemList: []
-  ticketDataList:
-    itemList: []
+  awayCoinMultiplier: 0.2
 --- !u!114 &1232679007
 MonoBehaviour:
   m_ObjectHideFlags: 0

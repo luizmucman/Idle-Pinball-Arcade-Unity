@@ -23,6 +23,7 @@ public class TutorialObject : MonoBehaviour
         else
         {
             PlayerManager.instance.tutorialFinished = true;
+            ES3.Save("playerTutorialFinished", true);
         }
     }
 

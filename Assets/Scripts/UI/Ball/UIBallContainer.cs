@@ -18,8 +18,11 @@ public class UIBallContainer : MonoBehaviour
     public Text ballDesc;
     public Text outOfText;
     public Text maxEquipped;
-    public Text cooldown;
+    [SerializeField] private Text rankText;
+    [SerializeField] private Text expText;
+    [SerializeField] private Slider expSlider;
     public GameObject lockedOverlay;
+    [SerializeField] private GameObject rankContainer;
 
     // Bottom Row
     [SerializeField] private GameObject btnContainer;
@@ -39,6 +42,7 @@ public class UIBallContainer : MonoBehaviour
             outOfText.gameObject.SetActive(false);
             maxEquipped.gameObject.SetActive(false);
             btnContainer.gameObject.SetActive(false);
+            rankContainer.gameObject.SetActive(false);
             ballDesc.text = ball.itemDescription;
         }
         else
@@ -48,6 +52,7 @@ public class UIBallContainer : MonoBehaviour
             ball.SetBallStats();
             maxEquipped.text = ball.ballStats[ball.rank].maxBallCount.ToString();
             ballDesc.text = ball.currRankDescription;
+            
 
             CheckUnlocked();
         }
@@ -56,7 +61,7 @@ public class UIBallContainer : MonoBehaviour
     public void UpdateCount()
     {
         equippedCount.text = ball.currMachineBallCount.ToString();
-        CheckIfLimitReached();
+        UIManager.instance.uiBallManager.CheckUnlockedBalls();
     }
 
     public void ResetMachine()
@@ -67,7 +72,7 @@ public class UIBallContainer : MonoBehaviour
             int ballCount = ball.currMachineBallCount;
             for (int i = 0; i < ballCount; i++)
             {
-                instantiatedBalls.Add(PlayerManager.instance.currentMachine.AddResetBall(ball));
+                instantiatedBalls.Add(PlayerManager.instance.playerMachineData.currMachine.AddResetBall(ball));
             }
             UpdateCount();
             gameObject.transform.SetAsFirstSibling();
@@ -81,16 +86,34 @@ public class UIBallContainer : MonoBehaviour
         CheckUnlocked();
     }
 
+    private void UpdateExpInfo()
+    {
+        rankText.text = itemData.rank.ToString();
+        expText.text = itemData.exp.ToString() + "/" + itemData.expReqs[itemData.rank].ToString();
+        expSlider.maxValue = itemData.expReqs[itemData.rank];
+        expSlider.value = itemData.exp;
+    }
+
     public void CheckIfLimitReached()
     {
-        MachineManager currMachine = PlayerManager.instance.currentMachine;
+        MachineManager currMachine = PlayerManager.instance.playerMachineData.currMachine;
         if (ball.currMachineBallCount >= ball.ballStats[itemData.rank].maxBallCount || currMachine.currentBallCount >= currMachine.maxEquippedBalls)
         {
             plusButton.interactable = false;
+
+            if (ball.currMachineBallCount > 0)
+            {
+                minusButton.interactable = true;
+            }
         }
         else if (ball.currMachineBallCount <= 0)
         {
             minusButton.interactable = false;
+
+            if (ball.currMachineBallCount < ball.ballStats[itemData.rank].maxBallCount && currMachine.currentBallCount < currMachine.maxEquippedBalls)
+            {
+                plusButton.interactable = true;
+            }
         }
         else
         {
@@ -105,12 +128,14 @@ public class UIBallContainer : MonoBehaviour
         {
             ball.SetItemData(itemData);
         }
-        if (ball.currMachineBallCount < ball.ballStats[itemData.rank].maxBallCount && PlayerManager.instance.currentMachine.currentBallCount < PlayerManager.instance.currentMachine.maxEquippedBalls)
+        if (ball.currMachineBallCount < ball.ballStats[itemData.rank].maxBallCount && PlayerManager.instance.playerMachineData.currMachine.currentBallCount < PlayerManager.instance.playerMachineData.currMachine.maxEquippedBalls)
         {
-            Debug.Log("Adding Ball");
             // Adds instantiated ball to list
-            instantiatedBalls.Add(PlayerManager.instance.currentMachine.AddBall(ball));
+            instantiatedBalls.Add(PlayerManager.instance.playerMachineData.currMachine.AddBall(ball));
+
             UpdateCount();
+
+            ES3.Save(PlayerManager.instance.playerMachineData.currMachine.machineSceneName + ball.GUID + "equipped-count", ball.currMachineBallCount);
         }
     }
 
@@ -118,11 +143,11 @@ public class UIBallContainer : MonoBehaviour
     {
         if (ball.currMachineBallCount > 0)
         {
-            Debug.Log("Removing Ball");
             Ball currBall = instantiatedBalls[0];
             instantiatedBalls.Remove(currBall);
-            PlayerManager.instance.currentMachine.RemoveBall(currBall);
+            PlayerManager.instance.playerMachineData.currMachine.RemoveBall(currBall);
             UpdateCount();
+            ES3.Save(PlayerManager.instance.playerMachineData.currMachine.machineSceneName + ball.GUID + "equipped-count", ball.currMachineBallCount);
         }
     }
 
@@ -135,20 +160,31 @@ public class UIBallContainer : MonoBehaviour
     {
         if(!ball.GUID.Equals("BA000"))
         {
+            ball.SetItemData(itemData);
+            
             if (itemData.isUnlocked)
             {
+                UpdateExpInfo();
                 gameObject.transform.SetSiblingIndex(1);
                 lockedOverlay.SetActive(false);
+                rankText.gameObject.SetActive(true);
+                expText.gameObject.SetActive(true);
+                CheckIfLimitReached();
             }
             else
             {
                 equippedCount.text = "0";
                 lockedOverlay.SetActive(true);
+                rankText.gameObject.SetActive(false);
+                expText.gameObject.SetActive(false);
             }
         }
         else
         {
             gameObject.transform.SetAsFirstSibling();
+            rankText.gameObject.SetActive(false);
+            expText.gameObject.SetActive(false);
+            rankContainer.gameObject.SetActive(false);
             lockedOverlay.SetActive(false);
         }
 

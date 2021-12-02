@@ -9,6 +9,7 @@ public class ItemData
     // Item Data
     public string GUID;
     public int rank;
+    public List<int> expReqs = new List<int>() {0, 3, 9, 27, 81};
     public int exp;
     public bool isUnlocked;
 
@@ -17,17 +18,37 @@ public class ItemData
 
     public void AddExp(int addedExp)
     {
-        isUnlocked = true;
-        for(int i = 0; i < addedExp; i++)
+        if(rank == 0 && addedExp == 1)
         {
-            exp++;
+            isUnlocked = true;
+            rank++;
+        }
+        else
+        {
+            isUnlocked = true;
+            int totalExp = addedExp + exp;
 
-            if(exp == (Mathf.Pow(3, rank + 1) / 3))
+            while (totalExp > 0 && rank < 5)
             {
-                rank++;
-                exp = 0;
+                if (totalExp >= expReqs[rank])
+                {
+                    totalExp -= expReqs[rank];
+                    rank++;
+                }
+                else
+                {
+                    exp = totalExp;
+                    totalExp = 0;
+                }
+            }
+
+            if (totalExp > 0)
+            {
+                PlayerManager.instance.AddGems(totalExp * 18);
             }
         }
+
+        SaveItemData();
     }
 
     public void SaveItemData()

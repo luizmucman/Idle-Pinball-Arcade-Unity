@@ -1,7 +1,7 @@
 <dependencies>
-  <unityversion>7.1.12.1</unityversion>
+  <unityversion>7.1.12.2</unityversion>
       <androidPackages>
-        <androidPackage spec="com.ironsource.sdk:mediationsdk:7.1.12.1">
+        <androidPackage spec="com.ironsource.sdk:mediationsdk:7.1.12.2">
           <repositories>
         	<repository>https://android-sdk.is.com/</repository>
           </repositories>

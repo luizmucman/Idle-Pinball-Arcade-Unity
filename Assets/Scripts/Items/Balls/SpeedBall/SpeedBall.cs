@@ -21,8 +21,8 @@ public class SpeedBall : Ball
     {
         base.SetBallStats();
 
-        currRankDescription = itemDescription.Replace("{Value}", speedBoost[rank].ToString());
-        nextRankDescription = itemDescription.Replace("{Value}", speedBoost[rank + 1].ToString());
+        currRankDescription = itemDescription.Replace("{Value}", (speedBoost[rank] * 100).ToString());
+        nextRankDescription = itemDescription.Replace("{Value}", (speedBoost[rank + 1] * 100).ToString());
     }
 
     public override string GetCurrentRankDesc()

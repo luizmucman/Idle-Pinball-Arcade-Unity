@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,7 +33,7 @@ public class UIManager : MonoBehaviour
     public Image coinImage;
     [SerializeField] private Button gemRewardBtn;
     [SerializeField] private float gemRewardMinuteCountdown;
-    [SerializeField] private float gemCountdown;
+    [SerializeField] private DateTime gemPopupLastRewarded;
 
     [Header("Overlay")]
     public GameObject overlay;
@@ -51,16 +52,18 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         cam = Camera.main;
-        playerCoinText.text = DoubleFormatter.Format(PlayerManager.instance.playerCoins);
+        playerCoinText.text = DoubleFormatter.Format(PlayerManager.instance.playerMachineData.currMachineData.GetCoinCount());
         playerGemText.text = PlayerManager.instance.playerGems.ToString();
-        ResetGemRewardBtn();
+        gemRewardBtn.gameObject.SetActive(false);
+        gemPopupLastRewarded = ES3.Load("gemPopupLastRewarded", DateTime.Now);
+        ES3.Save("gemPopupLastRewarded", gemPopupLastRewarded);
     }
 
     private void Update()
     {
-        gemCountdown -= Time.deltaTime;
+        TimeSpan gemRewardTimeDiff = DateTime.Now - gemPopupLastRewarded;
 
-        if (gemCountdown <= 0)
+        if (gemRewardTimeDiff.TotalMinutes > 4)
         {
             gemRewardBtn.gameObject.SetActive(true);
         }
@@ -68,7 +71,8 @@ public class UIManager : MonoBehaviour
 
     public void ResetGemRewardBtn()
     {
-        gemCountdown = 60 * gemRewardMinuteCountdown;
+        gemPopupLastRewarded = DateTime.Now;
+        ES3.Save("gemPopupLastRewarded", gemPopupLastRewarded);
         gemRewardBtn.gameObject.SetActive(false);
     }
 
@@ -98,4 +102,6 @@ public class UIManager : MonoBehaviour
             }
         }
     }
+
+
 }

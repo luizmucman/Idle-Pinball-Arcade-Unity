@@ -9,9 +9,11 @@ public class UIBallPopup : MonoBehaviour
     public Image ballIcon;
     public Text ballTitle;
     public Text ballDesc;
-    public Image[] stars;
-    public Text currRankHits;
-    public Text nextRankHits;
+    [SerializeField] private Text currRankText;
+    [SerializeField] private Text nextRankText;
+    [SerializeField] private Text expText;
+    [SerializeField] private Slider expSlider;
+    public Text nextRankBallDesc;
 
     [Header("Stars")]
     public Sprite litStar;
@@ -25,19 +27,12 @@ public class UIBallPopup : MonoBehaviour
         ballIcon.sprite = ball.ballIcon;
         ballTitle.text = ball.itemName;
         ballDesc.text = ball.currRankDescription;
-        for (int i = 0; i < 5; i++)
-        {
-            if (i <= ball.rank)
-            {
-                stars[i].sprite = litStar;
-            }
-            else
-            {
-                stars[i].sprite = unlitStar;
-            }
-        }
-        currRankHits.text = ball.GetCurrentRankDesc();
-        nextRankHits.text = ball.GetNextRankDesc();
+        currRankText.text = ball.itemData.rank.ToString();
+        nextRankText.text = (ball.itemData.rank + 1).ToString();
+        expText.text = ball.itemData.exp.ToString() + "/" + ball.itemData.expReqs[ball.itemData.rank].ToString();
+        expSlider.maxValue = ball.itemData.expReqs[ball.itemData.rank];
+        expSlider.value = ball.itemData.exp;
+        nextRankBallDesc.text = ball.GetNextRankDesc();
     }
 
     public void ClosePopup()

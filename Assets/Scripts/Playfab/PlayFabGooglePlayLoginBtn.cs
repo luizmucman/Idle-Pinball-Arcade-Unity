@@ -18,8 +18,6 @@ public class PlayFabGooglePlayLoginBtn : MonoBehaviour
     private void Awake()
     {
         btn = GetComponent<Button>();
-
-
     }
 
     private void Start()
@@ -34,40 +32,29 @@ public class PlayFabGooglePlayLoginBtn : MonoBehaviour
         }
     }
 
-    private void OnPlayFabError(PlayFabError error)
+    private void OnPlayFabGoogleLoginError(PlayFabError error)
     {
-        Debug.Log("Google Login Error Entered");
-
         if (error.HttpCode == 400)
         {
-            Debug.Log("Google Link Code 400 Entered");
             PlayGamesPlatform.Instance.GetAnotherServerAuthCode(true, (authenticationCode) =>
             {
-                Debug.Log("Google play authentication executed");
                 if (authenticationCode != null)
                 {
                     var serverAuthCode = authenticationCode;
                     _AuthService.AuthTicket = serverAuthCode;
                     _AuthService.LinkGooglePlayGames();
                 }
+                else
+                {
+                    UnsubscribeEvents();
+                }
             });
-            //Social.localUser.Authenticate((success) =>
-            //{
-            //    if (success)
-            //    {
-            //        Debug.Log("Google Link Auth Success");
-            //        var serverAuthCode = PlayGamesPlatform.Instance.GetServerAuthCode();
-            //        _AuthService.AuthTicket = serverAuthCode;
-            //        _AuthService.LinkGooglePlayGames();
-            //    }
-            //});
         }
         else
         {
             UIManager.instance.uiErrorWindow.SetErrorDesc(error.HttpCode + ": " + error.ErrorMessage);
+            UnsubscribeEvents();
         }
-
-
     }
 
     private void OnLoginSuccess(LoginResult success)
@@ -97,7 +84,7 @@ public class PlayFabGooglePlayLoginBtn : MonoBehaviour
         }
         else
         {
-            
+
         }
     }
 
@@ -132,22 +119,21 @@ public class PlayFabGooglePlayLoginBtn : MonoBehaviour
 
     private void OnGoogleLink(LinkGoogleAccountResult success)
     {
-        Debug.Log("Google Link Success");
         ShowConnected();
         UnsubscribeEvents();
     }
 
     private void SubscribeEvents()
     {
-        PlayFabAuthService.OnLoginSuccess += OnLoginSuccess;
-        PlayFabAuthService.OnPlayFabError += OnPlayFabError;
+        PlayFabAuthService.OnGoogleLoginSuccess += OnLoginSuccess;
+        PlayFabAuthService.OnPlayFabGoogleLoginError += OnPlayFabGoogleLoginError;
         PlayFabAuthService.OnGoogleLink += OnGoogleLink;
     }
 
     private void UnsubscribeEvents()
     {
-        PlayFabAuthService.OnLoginSuccess -= OnLoginSuccess;
-        PlayFabAuthService.OnPlayFabError -= OnPlayFabError;
+        PlayFabAuthService.OnGoogleLoginSuccess -= OnLoginSuccess;
+        PlayFabAuthService.OnPlayFabGoogleLoginError -= OnPlayFabGoogleLoginError;
         PlayFabAuthService.OnGoogleLink -= OnGoogleLink;
     }
 }

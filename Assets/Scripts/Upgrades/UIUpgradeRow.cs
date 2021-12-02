@@ -33,54 +33,27 @@ public class UIUpgradeRow : MonoBehaviour
         if (selectedUpgrade.level > 0)
         {
             HideLock();
-            if (PlayerManager.instance.currentMachine.machineData.isCurrentEvent)
+
+            if (PlayerManager.instance.playerMachineData.currMachineData.GetCoinCount() < currentCost)
             {
-                if (PlayerManager.instance.eventCoins < currentCost)
-                {
-                    upgradeButton.interactable = false;
-                }
-                else
-                {
-                    upgradeButton.interactable = true;
-                }
+                upgradeButton.interactable = false;
             }
             else
             {
-                if (PlayerManager.instance.playerCoins < currentCost)
-                {
-                    upgradeButton.interactable = false;
-                }
-                else
-                {
-                    upgradeButton.interactable = true;
-                }
+                upgradeButton.interactable = true;
             }
         }
         else
         {
             ShowLock();
 
-            if (PlayerManager.instance.currentMachine.machineData.isCurrentEvent)
+            if (PlayerManager.instance.playerMachineData.currMachineData.GetCoinCount() < selectedUpgrade.baseCost)
             {
-                if (PlayerManager.instance.eventCoins < selectedUpgrade.baseCost)
-                {
-                    unlockButton.interactable = false;
-                }
-                else
-                {
-                    unlockButton.interactable = true;
-                }
+                unlockButton.interactable = false;
             }
             else
             {
-                if (PlayerManager.instance.playerCoins < selectedUpgrade.baseCost)
-                {
-                    unlockButton.interactable = false;
-                }
-                else
-                {
-                    unlockButton.interactable = true;
-                }
+                unlockButton.interactable = true;
             }
         }
     }
@@ -101,29 +74,6 @@ public class UIUpgradeRow : MonoBehaviour
         currCPH.text = DoubleFormatter.Format(selectedUpgrade.GetProductionValue(selectedUpgrade.level));
 
         SetCostByAmount(1);
-
-        if (PlayerManager.instance.currentMachine.machineData.isCurrentEvent)
-        {
-            if (PlayerManager.instance.eventCoins < currentCost)
-            {
-                upgradeButton.interactable = false;
-            }
-            else
-            {
-                upgradeButton.interactable = true;
-            }
-        }
-        else
-        {
-            if (PlayerManager.instance.playerCoins < currentCost)
-            {
-                upgradeButton.interactable = false;
-            }
-            else
-            {
-                upgradeButton.interactable = true;
-            }
-        }
     }
 
     public void SetCostByAmount(int amount)

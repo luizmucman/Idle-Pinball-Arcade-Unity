@@ -23,6 +23,7 @@ public class UIBallManager : MonoBehaviour
     public double ballBaseCost;
     public float costMultiplier;
     public double currentCost;
+    private float maxBallCheckCounter;
 
     // Ball Popup
     public UIBallPopup ballPopup;
@@ -34,20 +35,11 @@ public class UIBallManager : MonoBehaviour
 
     private void Update()
     {
-        if (PlayerManager.instance.currentMachine.machineData.isCurrentEvent)
+        maxBallCheckCounter += Time.deltaTime;
+
+        if (maxBallCheckCounter >= 1)
         {
-            if (PlayerManager.instance.eventCoins < currentCost)
-            {
-                maxBallUpgradeButton.interactable = false;
-            }
-            else
-            {
-                maxBallUpgradeButton.interactable = true;
-            }
-        }
-        else
-        {
-            if (PlayerManager.instance.playerCoins < currentCost)
+            if (currMachine.machineData.GetCoinCount() < currentCost)
             {
                 maxBallUpgradeButton.interactable = false;
             }
@@ -59,7 +51,7 @@ public class UIBallManager : MonoBehaviour
     }
 
     public void NewMachine() {
-        currMachine = PlayerManager.instance.currentMachine;
+        currMachine = PlayerManager.instance.playerMachineData.currMachine;
 
         ResetBallUI();
 
@@ -74,28 +66,16 @@ public class UIBallManager : MonoBehaviour
 
     public void IncreaseMaxBalls()
     {
-        if (PlayerManager.instance.currentMachine.machineData.isCurrentEvent)
+
+        if (currMachine.machineData.GetCoinCount() >= currentCost && currMachine.maxEquippedBalls < 50)
         {
-            if (PlayerManager.instance.eventCoins >= currentCost && currMachine.maxEquippedBalls < 50)
-            {
-                PlayerManager.instance.RemoveCoins(currentCost);
-                currMachine.maxEquippedBalls++;
-                currMachine.ShootNormalBall();
-                SetBallUpgradeCost();
-                maxBallValueText.text = currMachine.maxEquippedBalls.ToString();
-            }
+            PlayerManager.instance.RemoveCoins(currentCost);
+            currMachine.IncreaseMaxBalls();
+            currMachine.ShootNormalBall();
+            SetBallUpgradeCost();
+            maxBallValueText.text = currMachine.maxEquippedBalls.ToString();
         }
-        else
-        {
-            if (PlayerManager.instance.playerCoins >= currentCost && currMachine.maxEquippedBalls < 50)
-            {
-                PlayerManager.instance.RemoveCoins(currentCost);
-                currMachine.maxEquippedBalls++;
-                currMachine.ShootNormalBall();
-                SetBallUpgradeCost();
-                maxBallValueText.text = currMachine.maxEquippedBalls.ToString();
-            }
-        }
+
 
         foreach(UIBallContainer ballContainer in ballContainers)
         {
@@ -149,4 +129,6 @@ public class UIBallManager : MonoBehaviour
             ballContainer.CheckUnlocked();
         }
     }
+
+
 }

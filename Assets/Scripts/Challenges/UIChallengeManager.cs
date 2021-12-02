@@ -240,15 +240,20 @@ public class UIChallengeManager : MonoBehaviour
     {
         ES3.Save("challenges-recorded-day", lastRecordedDay);
         ES3.Save("chosen-daily-indexs", chosenDailyChallengeIndexs);
-        globalChallenges.SaveDatabase();
-        dailyChallenges.SaveDatabase();
+        ES3.Save("global-challenges", globalChallenges);
+        ES3.Save("daily-challenges", dailyChallenges);
+        //globalChallenges.SaveDatabase();
+        //dailyChallenges.SaveDatabase();
     }
 
     public void LoadChallenges()
     {
         lastRecordedDay = ES3.Load("challenges-recorded-day", new DateTime());
         chosenDailyChallengeIndexs = ES3.Load("chosen-daily-indexs", chosenDailyChallengeIndexs);
-        globalChallenges.LoadDatabase();
-        dailyChallenges.LoadDatabase();
+        globalChallenges = ES3.Load("global-challenges", globalChallenges);
+        dailyChallenges = ES3.Load("daily-challenges", dailyChallenges);
+
+        //globalChallenges.LoadDatabase();
+        //dailyChallenges.LoadDatabase();
     }
 }

@@ -48,7 +48,7 @@ public class MachineManager : MonoBehaviour
         objectCanvases = GetComponentsInChildren<Canvas>();
         machineSceneName = SceneManager.GetActiveScene().name;
         ballDatabase = PlayerManager.instance.ballDatabase;
-        PlayerManager.instance.currentMachine = this;
+        PlayerManager.instance.playerMachineData.currMachine = this;
 
         LoadMachine();
     }
@@ -56,17 +56,58 @@ public class MachineManager : MonoBehaviour
     private void Start()
     {
 
-        if(testBalance)
+        if (testBalance)
         {
             Time.timeScale = 25;
         }
-
- 
         uiManager = UIManager.instance;
+
+        machineData = PlayerManager.instance.playerMachineData.currMachineData;
+
+        machineData.isPlaying = true;
+        ES3.Save(machineData.machineGUID + "-isPlaying", true);
+
         CheckAutoPaddles();
 
         DisableUpgradeWindow();
 
+        LaunchNewBalls();
+        CheckIfCurrEventMachine();
+
+        UIManager.instance.playerCoinText.text = DoubleFormatter.Format(machineData.GetCoinCount());
+        UIManager.instance.coinImage.sprite = machineData.machineCoinImage;
+        UIManager.instance.coinImage.SetNativeSize();
+
+        foreach (ObjectManager manager in objectManagers)
+        {
+            UIManager.instance.uiUpgradeManager.AddUpgradeRow(manager);
+        }
+
+        UIManager.instance.SetCPSText(machineData.coinsPerSecond);
+
+
+        RewardAway();
+    }
+
+    private void CheckIfCurrEventMachine()
+    {
+        if (machineData.isCurrentEvent)
+        {
+            UIManager.instance.uiSeasonPassManager.ShowSeasonPassButton();
+            
+            if (!PlayerManager.instance.seasonPassData.isPremium)
+            {
+                UIManager.instance.uiShopManager.seasonPassPopup.OpenWindow();
+            }
+        }
+        else
+        {
+            UIManager.instance.uiSeasonPassManager.HideSeasonPassButton();
+        }
+    }
+
+    private void LaunchNewBalls()
+    {
         instantiatedNormalBalls = new List<Ball>();
 
         currentBallCount = 0;
@@ -79,34 +120,6 @@ public class MachineManager : MonoBehaviour
         {
             ShootNormalBall();
         }
-
-        machineData = PlayerManager.instance.currMachineData;
-
-        machineData.isPlaying = true;
-        if (machineData.isCurrentEvent)
-        {
-            UIManager.instance.uiSeasonPassManager.ShowSeasonPassButton();
-            UIManager.instance.playerCoinText.text = DoubleFormatter.Format(PlayerManager.instance.eventCoins);
-            if(!PlayerManager.instance.seasonPassData.isPremium)
-            {
-                UIManager.instance.uiShopManager.seasonPassPopup.OpenWindow();
-            }
-        }
-        else
-        {
-            UIManager.instance.uiSeasonPassManager.HideSeasonPassButton();
-            UIManager.instance.playerCoinText.text = DoubleFormatter.Format(PlayerManager.instance.playerCoins);
-        }
-
-        foreach(ObjectManager manager in objectManagers)
-        {
-            UIManager.instance.uiUpgradeManager.AddUpgradeRow(manager);
-        }
-
-        UIManager.instance.SetCPSText(machineData.coinsPerSecond);
-
-
-        RewardAway();
     }
 
     private void Update()
@@ -123,14 +136,10 @@ public class MachineManager : MonoBehaviour
     {
         if(pause)
         {
-            SaveMachine();
+            //SaveMachine();
         }
     }
 
-    private void OnApplicationQuit()
-    {
-        SaveMachine();
-    }
 
     private void SetCPS()
     {
@@ -239,26 +248,24 @@ public class MachineManager : MonoBehaviour
         }
     }
 
-    public void ExitMachine()
-    {
-        machineData.isPlaying = false;
-        SetAwayTime();
-        SaveMachine();
-    }
+    //public void ExitMachine()
+    //{
+    //    machineData.isPlaying = false;
+    //    SetAwayTime();
+    //    SaveMachine();
+    //}
 
     public void SetAwayTime()
     {
-        if (machineData.accumulatedCoins == 0 && machineData.awayCheckPoint != null)
-        {
-            machineData.awayCheckPoint = DateTime.Now;
-        }
+        machineData.SetAwayCheckpoint();
+
     }
 
     public void RewardAway()
     {
         TimeSpan span = DateTime.Now - machineData.awayCheckPoint;
 
-        if (machineData.accumulatedCoins > 0 && span.TotalMinutes > 3)
+        if (machineData.coinsPerSecond > 0 && span.TotalMinutes > 3)
         {
             uiManager.uiAwayPopupManager.SetMachine(machineData);
         }
@@ -280,20 +287,26 @@ public class MachineManager : MonoBehaviour
         }
     }
 
+    public void IncreaseMaxBalls()
+    {
+        maxEquippedBalls++;
+        ES3.Save(machineSceneName + "-maxEquippedBalls", maxEquippedBalls);
+    }
+
     public void SaveMachine()
     {
-        machineData.SetAwayCheckpoint();
-        for (int i = 0; i < objectManagers.Length; i++)
-        {
-            objectManagers[i].SaveManager(machineSceneName);
-        }
+        //for (int i = 0; i < objectManagers.Length; i++)
+        //{
+        //    objectManagers[i].SaveManager(machineSceneName);
+        //}
+        //ES3.Save(machineSceneName + "-maxEquippedBalls", maxEquippedBalls);
 
-        ES3.Save(machineSceneName + "-maxEquippedBalls", maxEquippedBalls);
+        machineData.SaveMachine();
 
-        foreach (Ball currBall in ballDatabase.database)
-        {
-            ES3.Save(machineSceneName + currBall.GUID + "equipped-count", currBall.currMachineBallCount);
-        }
+        //foreach (Ball currBall in ballDatabase.database)
+        //{
+        //    ES3.Save(machineSceneName + currBall.GUID + "equipped-count", currBall.currMachineBallCount);
+        //}
     }
 
     public void LoadMachine()

@@ -28,16 +28,16 @@ public class SeasonPassItemSO : ScriptableObject
                 UnlockEventMachine();
                 break;
             case RewardType.CommonBallChest:
-                shopManager.RewardCommonChest(ShopItemType.Ball);
+                shopManager.Reward1Pull(ShopItemType.Ball);
                 break;
             case RewardType.EpicBallChest:
-                shopManager.RewardEpicChest(ShopItemType.Ball);
+                shopManager.Reward10Pulls(ShopItemType.Ball);
                 break;
             case RewardType.CommonTicketChest:
-                shopManager.RewardCommonChest(ShopItemType.Ticket);
+                shopManager.Reward1Pull(ShopItemType.Ticket);
                 break;
             case RewardType.EpicTicketChest:
-                shopManager.RewardEpicChest(ShopItemType.Ticket);
+                shopManager.Reward10Pulls(ShopItemType.Ticket);
                 break;
             case RewardType.Gems:
                 shopManager.BuyGems(gems);
@@ -57,7 +57,7 @@ public class SeasonPassItemSO : ScriptableObject
 
     private void UnlockEventMachine()
     {
-        PlayerManager.instance.currentEventMachineData.isUnlocked = true;
+        PlayerManager.instance.playerMachineData.currentEventMachineData.isUnlocked = true;
     }
 }
 

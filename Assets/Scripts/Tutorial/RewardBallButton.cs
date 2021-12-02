@@ -12,6 +12,6 @@ public class RewardBallButton : TutorialObject
         PlayerManager.instance.ballDataList.GetItemData(rewardedBall.GUID).AddExp(1);
 
         UIManager.instance.uiBallManager.CheckUnlockedBalls();
-        UIManager.instance.uiShopManager.buyPopup.SetPopup(rewardedBall);
+        UIManager.instance.uiShopManager.ballGatchaPopup.SetPopup(PlayerManager.instance.ballDataList.GetItemData(rewardedBall.GUID));
     }
 }

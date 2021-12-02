@@ -79,6 +79,8 @@ public class UITicketManager : MonoBehaviour
         {
             EquipTicket(ticketButton);
         }
+
+        ES3.Save("playerEquippedTickets", PlayerManager.instance.equippedTickets);
     }
 
     public void BuyTicketSlot()
@@ -86,7 +88,7 @@ public class UITicketManager : MonoBehaviour
         if(playerManager.playerGems >= playerManager.ticketSlotCount * ticketSlotBaseCost)
         {
             playerManager.RemoveGems(playerManager.ticketSlotCount * ticketSlotBaseCost);
-            playerManager.ticketSlotCount++;
+            playerManager.AddTicketSlot();
             AddEmptyTicket();
             ticketSlotCostText.text = (playerManager.ticketSlotCount * ticketSlotBaseCost).ToString();
             Invoke(nameof(RefreshUI), 0.1f);
@@ -100,6 +102,7 @@ public class UITicketManager : MonoBehaviour
         ticketButton.transform.SetParent(ownedList.transform);
         ticketButton.transform.SetAsFirstSibling();
         AddEmptyTicket();
+        ticketButton.ticket.itemData.SaveItemData();
         ticketDiff = playerManager.ticketSlotCount - playerManager.equippedTickets.Count;
         Invoke(nameof(RefreshUI), 0.1f);
     }
@@ -111,7 +114,7 @@ public class UITicketManager : MonoBehaviour
         ticketButton.ticket.itemData.isEquipped = true;
         ticketButton.transform.SetParent(equippedList.transform);
         ticketButton.gameObject.transform.SetSiblingIndex(1);
-
+        ticketButton.ticket.itemData.SaveItemData();
         ticketDiff = playerManager.ticketSlotCount - playerManager.equippedTickets.Count;
         Invoke(nameof(RefreshUI), 0.1f);
     }

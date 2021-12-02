@@ -31,7 +31,7 @@ namespace GooglePlayGames.BasicApi
     {
         private string mId;
         private ResponseStatus mStatus;
-        private double mApproxCount;
+        private ulong mApproxCount;
         private string mTitle;
         private IScore mPlayerScore;
         private ScorePageToken mPrevPage;
@@ -65,7 +65,7 @@ namespace GooglePlayGames.BasicApi
             internal set { mStatus = value; }
         }
 
-        public double ApproximateCount
+        public ulong ApproximateCount
         {
             get { return mApproxCount; }
 

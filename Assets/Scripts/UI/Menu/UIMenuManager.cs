@@ -72,6 +72,8 @@ public class UIMenuManager : MonoBehaviour
             sfxButton.image.sprite = audioButtonMuted;
             soundsManager.MuteSfx();
         }
+
+        PlayerManager.instance.playerSettingsData.Save();
     }
 
     public void ToggleBgm()
@@ -86,6 +88,8 @@ public class UIMenuManager : MonoBehaviour
             bgmButton.image.sprite = audioButtonMuted;
             soundsManager.MuteMusic();
         }
+
+        PlayerManager.instance.playerSettingsData.Save();
     }
 
     public void OpenSettingsWindow()

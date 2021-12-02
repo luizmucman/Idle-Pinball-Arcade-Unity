@@ -2321,12 +2321,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ticketImage: {fileID: 2307980566062204342}
   title: {fileID: 8079958261374329681}
-  stars:
-  - {fileID: 7043534073097105261}
-  - {fileID: 6441275117734975568}
-  - {fileID: 76703646185444351}
-  - {fileID: 5964176293243201527}
-  - {fileID: 6272166614245065729}
+  currRankText: {fileID: 0}
+  nextRankText: {fileID: 0}
+  expText: {fileID: 0}
+  expSlider: {fileID: 0}
   currRankDescription: {fileID: 1130861107946626124}
   nextRankDescription: {fileID: 1123570363442796870}
   interactButton: {fileID: 0}

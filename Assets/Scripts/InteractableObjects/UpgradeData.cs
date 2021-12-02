@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class UpgradeData
@@ -53,6 +54,8 @@ public class UpgradeData
             currentUnlockStage++;
         }
         SetData();
+
+        SaveData(SceneManager.GetActiveScene().name);
     }
 
     public void SaveData(string machineSceneName)

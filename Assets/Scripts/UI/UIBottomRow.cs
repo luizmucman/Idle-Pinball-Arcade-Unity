@@ -13,7 +13,7 @@ public class UIBottomRow : MonoBehaviour
 
     public void ResetButtonState() 
     {
-        PlayerManager.instance.currentMachine.DisableUpgradeWindow();
+        PlayerManager.instance.playerMachineData.currMachine.DisableUpgradeWindow();
         UIManager.instance.uiMenuManager.CloseSettingsWindow();
         UIManager.instance.HideOverlay();
         foreach(UIWindow window in windows)

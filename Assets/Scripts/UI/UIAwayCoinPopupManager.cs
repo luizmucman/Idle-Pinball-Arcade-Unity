@@ -49,21 +49,33 @@ public class UIAwayCoinPopupManager : MonoBehaviour
             gemMultiplierButton.gameObject.SetActive(true);
             currentlyRewarding = true;
 
+            TimeSpan idleLimitCheck = DateTime.Now - currMachine.awayCheckPoint;
+            double accumulatedCoins;
+
+            if (idleLimitCheck.TotalHours > 2)
+            {
+                accumulatedCoins = (double)((currMachine.coinsPerSecond * (3600 * (2 + PlayerManager.instance.playerTicketBuffs.maxIdleTimeLength)) * PlayerManager.instance.playerTicketBuffs.idleCoinBuff) * 0.20);
+            }
+            else
+            {
+                accumulatedCoins = (double)((currMachine.coinsPerSecond * idleLimitCheck.TotalSeconds * PlayerManager.instance.playerTicketBuffs.idleCoinBuff) * 0.20);
+            }
+
             span = DateTime.Now - machine.awayCheckPoint;
             currMultiplier = 1;
 
             watchAdButton.CheckAdFree();
 
-            if (PlayerManager.instance.maxIdleTime > span.TotalHours)
+            if (PlayerManager.instance.playerMachineData.maxIdleTime > span.TotalHours)
             {
                 awayTime.text = "Idle For " + span.Hours.ToString() + " Hrs " + span.Minutes.ToString() + " Mins";
             }
             else
             {
-                awayTime.text = "Away Time Maxed Out (" + PlayerManager.instance.maxIdleTime.ToString() + " Hrs)";
+                awayTime.text = "Away Time Maxed Out (" + PlayerManager.instance.playerMachineData.maxIdleTime.ToString() + " Hrs)";
             }
 
-            collectedCoins = machine.accumulatedCoins;
+            collectedCoins = accumulatedCoins;
             multipliedCoins = collectedCoins * currMultiplier;
             coinAmount.text = DoubleFormatter.Format(collectedCoins) + " coins!";
         }
@@ -74,6 +86,8 @@ public class UIAwayCoinPopupManager : MonoBehaviour
     public void RewardCoins()
     {
         PlayerManager.instance.AddCoins((double) (multipliedCoins));
+
+        currMachine.SaveMachine();
         currentlyRewarding = false;
     }
 
@@ -123,7 +137,7 @@ public class UIAwayCoinPopupManager : MonoBehaviour
     public void ClosePopup()
     {
         IdleCollectPopup.SetActive(false);
-        currMachine.accumulatedCoins = 0;
+        currMachine.SetAwayCheckpoint();
         currMultiplier = 1;
     }
 }

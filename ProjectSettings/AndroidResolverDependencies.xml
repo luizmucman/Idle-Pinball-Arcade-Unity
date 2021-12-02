@@ -17,18 +17,18 @@
     <package>com.google.android.gms:play-services-ads-identifier:17.0.0</package>
     <package>com.google.android.gms:play-services-appset:16.0.0</package>
     <package>com.google.android.gms:play-services-basement:17.2.1</package>
-    <package>com.google.games:gpgs-plugin-support:0.10.12</package>
+    <package>com.google.games:gpgs-plugin-support:0.10.13</package>
     <package>com.ironsource.adapters:admobadapter:4.3.23</package>
     <package>com.ironsource.adapters:facebookadapter:4.3.33</package>
-    <package>com.ironsource.adapters:unityadsadapter:4.3.14</package>
-    <package>com.ironsource.sdk:mediationsdk:7.1.12.1</package>
+    <package>com.ironsource.adapters:unityadsadapter:4.3.16</package>
+    <package>com.ironsource.sdk:mediationsdk:7.1.12.2</package>
     <package>com.parse.bolts:bolts-android:1.4.0</package>
     <package>com.tapjoy:tapjoy-android-unitybridge:12.8.1</package>
     <package>com.unity3d.ads:unity-ads:3.7.5</package>
   </packages>
   <files>
-    <file>Assets/GeneratedLocalRepo/GooglePlayGames/Editor/m2repository/com/google/games/gpgs-plugin-support/0.10.12/gpgs-plugin-support-0.10.12.aar</file>
-    <file>Assets/GeneratedLocalRepo/GooglePlayGames/Editor/m2repository/com/google/games/gpgs-plugin-support/0.10.12/gpgs-plugin-support-0.10.12.pom</file>
+    <file>Assets/GeneratedLocalRepo/GooglePlayGames/Editor/m2repository/com/google/games/gpgs-plugin-support/0.10.13/gpgs-plugin-support-0.10.13.aar</file>
+    <file>Assets/GeneratedLocalRepo/GooglePlayGames/Editor/m2repository/com/google/games/gpgs-plugin-support/0.10.13/gpgs-plugin-support-0.10.13.pom</file>
   </files>
   <settings>
     <setting name="androidAbis" value="arm64-v8a,armeabi-v7a" />

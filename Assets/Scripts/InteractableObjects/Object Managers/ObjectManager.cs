@@ -88,8 +88,8 @@ public abstract class ObjectManager : MonoBehaviour
         }
 
         coinGain = PlayerManager.instance.AddCoins((double)(upgradeData.currentCoinProduction));
-        PlayerManager.instance.currentMachine.coinsPerSecondCounter += (double)(coinGain);
-        PlayerManager.instance.currentMachine.machineData.totalCoinsGained += coinGain;
+        PlayerManager.instance.playerMachineData.currMachine.coinsPerSecondCounter += (double)(coinGain);
+        PlayerManager.instance.playerMachineData.currMachine.machineData.totalCoinsGained += coinGain;
         ball.accumulatedCoins += coinGain;
     }
 
@@ -113,8 +113,8 @@ public abstract class ObjectManager : MonoBehaviour
             }
         }
         coinGain = PlayerManager.instance.AddCoins((double)(upgradeData.currentCoinProduction));
-        PlayerManager.instance.currentMachine.coinsPerSecondCounter += (double)(upgradeData.currentCoinProduction);
-        PlayerManager.instance.currentMachine.machineData.totalCoinsGained += coinGain;
+        PlayerManager.instance.playerMachineData.currMachine.coinsPerSecondCounter += (double)(upgradeData.currentCoinProduction);
+        PlayerManager.instance.playerMachineData.currMachine.machineData.totalCoinsGained += coinGain;
     }
 
     public void EnableUpgradeCanvas()

@@ -19,7 +19,7 @@ public class SeasonPassTier
 
     public void LoadSeasonPassTiers(int i)
     {
-        premiumReward.isClaimed = ES3.Load("SeasonPassTierPremium-" + i, false);
-        freeReward.isClaimed = ES3.Load("SeasonPassTierFree-" + i, false);
+        premiumReward.isClaimed = ES3.Load("SeasonPassTierPremium-" + i, premiumReward.isClaimed);
+        freeReward.isClaimed = ES3.Load("SeasonPassTierFree-" + i, freeReward.isClaimed);
     }
 }

@@ -8,16 +8,32 @@ public class UIMachineButton : MonoBehaviour
 {
     public MachineData machineData;
 
+    [Header("Component References")]
     public Text machineName;
+    public Text machineCoins;
+    public Image machineCoinsImage;
     public Button machineButton;
     public Button costButton;
     public Image costIcon;
+    [SerializeField] private GameObject ownedCoinContainer;
+
+
+    [Header("Asset References")]
     public Sprite coinIcon;
     public Sprite gemIcon;
+    
+
+    private float checkAffordCounter;
 
     private void Update()
     {
-        CheckAfford();
+        checkAffordCounter += Time.deltaTime;
+
+        if (checkAffordCounter >= 1f)
+        {
+            CheckAfford();
+        }
+
     }
 
     public void SetMachine(MachineData data)
@@ -26,18 +42,20 @@ public class UIMachineButton : MonoBehaviour
         machineName.text = data.machineName;
         costButton.GetComponentInChildren<Text>().text = DoubleFormatter.Format(machineData.machineCost);
         machineButton.image.sprite = machineData.machineImage;
-
+        machineCoinsImage.sprite = machineData.machineCoinImage;
 
         if (data.isUnlocked || data.isCurrentEvent)
         {
             machineButton.interactable = true;
             costButton.gameObject.SetActive(false);
-
+            ownedCoinContainer.SetActive(true);
+            machineCoins.text = DoubleFormatter.Format(data.GetCoinCount());
         }
         else
         {
             machineButton.interactable = false;
             costButton.gameObject.SetActive(true);
+            ownedCoinContainer.SetActive(false);
         }
 
         if(machineData.isEvent)
@@ -54,9 +72,12 @@ public class UIMachineButton : MonoBehaviour
     {
         if(SceneManager.GetSceneByName(machineData.machineGUID) != null)
         {
-            PlayerManager.instance.currentMachine.SaveMachine();
-            PlayerManager.instance.currentMachine.machineData.isPlaying = false;
-            PlayerManager.instance.currMachineData = machineData;
+            MachineManager currMachine = PlayerManager.instance.playerMachineData.currMachine;
+            currMachine.machineData.isPlaying = false;
+            ES3.Save(currMachine.machineData.machineGUID + "-isPlaying", false);
+            currMachine.SaveMachine();
+            currMachine.SetAwayTime();
+            PlayerManager.instance.playerMachineData.currMachineData = machineData;
             SceneManager.LoadScene(machineData.machineGUID);
         }
 
@@ -70,7 +91,7 @@ public class UIMachineButton : MonoBehaviour
         }
         else
         {
-            PlayerManager.instance.RemoveCoins(machineData.machineCost);
+            PlayerManager.instance.playerMachineData.SpendTotalPlayerCoins(machineData.machineCost);
         }
 
         UnlockMachine();
@@ -79,6 +100,7 @@ public class UIMachineButton : MonoBehaviour
     public void UnlockMachine()
     {
         machineData.isUnlocked = true;
+        ES3.Save(machineData.machineGUID + "-isUnlocked", true);
         SetMachine(machineData);
     }
 
@@ -100,7 +122,7 @@ public class UIMachineButton : MonoBehaviour
             }
             else
             {
-                if (PlayerManager.instance.playerCoins >= machineData.machineCost)
+                if (PlayerManager.instance.playerMachineData.GetTotalPlayerCoins() >= machineData.machineCost)
                 {
                     costButton.interactable = true;
                 }
@@ -109,6 +131,10 @@ public class UIMachineButton : MonoBehaviour
                     costButton.interactable = false;
                 }
             }
+        }
+        else
+        {
+            machineCoins.text = DoubleFormatter.Format(machineData.GetCoinCount());
         }
     }
 }

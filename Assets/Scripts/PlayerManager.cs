@@ -13,16 +13,17 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField] private bool finishedLoadMethod;
 
-    // PlayFab
+    // PlayFab Saves
     private PlayFabAuthService _AuthService = PlayFabAuthService.Instance;
     public string playFabID;
     public bool facebookAccLinked;
     public bool googleAccLinked;
+    //public ES3Settings es3Cache;
 
-    public ES3Settings es3Cache;
+    // Current Machine
+    public PlayerMachineData playerMachineData;
 
-    public MachineData currMachineData;
-    public MachineManager currentMachine;
+    // Connected Components
     public SoundsManager soundsManager;
 
     // Player Settings
@@ -40,9 +41,6 @@ public class PlayerManager : MonoBehaviour
     [Header("SeasonPassData")]
     public double eventCoins;
     public SeasonPassData seasonPassData;
-
-    [Header("Global Stats")]
-    public float globalCoinMultiplier;
 
     [Header("Boost Data")]
     public BoostDatabase boostDatabase;
@@ -64,18 +62,6 @@ public class PlayerManager : MonoBehaviour
     public ItemDatabase ballDatabase;
     public ItemDatabase ticketDatabase;
 
-    [Header("Machine Data")]
-    // Machine Data
-    public List<MachineData> mainMachines;
-    public List<MachineData> eventMachines;
-    public MachineData currentEventMachineData;
-    private float cpsSecondCounter;
-
-    [Header("Away Data")]
-    // Away Data
-    public double maxIdleTime;
-    private DateTime timeAtPause;
-
     // Item Data
     public ItemDataList ballDataList;
     public ItemDataList ticketDataList;
@@ -92,41 +78,21 @@ public class PlayerManager : MonoBehaviour
 
             GetComponent<SDKInit>().InitSDK();
             IronSource.Agent.init("1206944e5");
-            soundsManager = GetComponent<SoundsManager>();
             PopulateItemLists();
-            es3Cache = new ES3Settings(ES3.Location.Cache);
+            //es3Cache = new ES3Settings(ES3.Location.Cache);
 
-            if (ES3.FileExists("SaveFile.es3"))
-            {
-                ES3.CacheFile("SaveFile.es3");
-            }
+            //if (ES3.FileExists("SaveFile.es3"))
+            //{
+            //    ES3.CacheFile("SaveFile.es3");
+            //}
 
             PlayFabAuthService.OnLoginSuccess += OnLoginSuccess;
             PlayFabAuthService.OnPlayFabError += OnPlayFabError;
-            
 
-            if (_AuthService.AuthType == 0)
-            {
-                _AuthService.Authenticate(Authtypes.Silent);
-            }
-            else
-            {
-                _AuthService.Authenticate();
-            }
+            _AuthService.Authenticate(Authtypes.Silent);
 
-            AssignCurrentEventMachineData();
 
             DontDestroyOnLoad(this);
-        }
-    }
-
-    private void Update()
-    {
-        cpsSecondCounter += Time.deltaTime;
-
-        if(cpsSecondCounter >= 1)
-        {
-            AddMachineIdleCoins();
         }
     }
 
@@ -135,18 +101,12 @@ public class PlayerManager : MonoBehaviour
         IronSource.Agent.onApplicationPause(pause);
         if (pause)
         {
-            timeAtPause = DateTime.Now;
-            currentMachine.SetAwayTime();
-            currentMachine.SaveMachine();
+            Debug.Log("Pausing");
             SavePlayerData();
         }
         else
         {
-            if(currentMachine != null)
-            {
-                AddMachineAwayCoins();
-                currentMachine.RewardAway();
-            }
+
         }
     }
 
@@ -163,44 +123,56 @@ public class PlayerManager : MonoBehaviour
     public double AddCoins(double coins)
     {
         double coinGain = (double)(coins * playerTicketBuffs.coinBuff * UIManager.instance.uiBoostsManager.totalBoostAmt);
-        if (currentMachine.machineData.isCurrentEvent)
-        {
-            eventCoins += coinGain;
-            UIManager.instance.playerCoinText.text = DoubleFormatter.Format(eventCoins);
-        }
-        else
-        {
-            playerCoins += coinGain;
-            UIManager.instance.playerCoinText.text = DoubleFormatter.Format(playerCoins);
-        }
+        //if (currentMachine.machineData.isCurrentEvent)
+        //{
+        //    eventCoins += coinGain;
+        //    UIManager.instance.playerCoinText.text = DoubleFormatter.Format(eventCoins);
+        //}
+        //else
+        //{
+        //    playerCoins += coinGain;
+        //    UIManager.instance.playerCoinText.text = DoubleFormatter.Format(playerCoins);
+        //}
 
+        playerMachineData.AddCoinsToCurrentMachine(coinGain);
+        UIManager.instance.playerCoinText.text = DoubleFormatter.Format(playerMachineData.currMachineData.GetCoinCount());
         return coinGain;
     }
 
     public void RemoveCoins(double coins)
     {
-        if (currentMachine.machineData.isCurrentEvent)
-        {
-            eventCoins -= (double)(coins);
-            UIManager.instance.playerCoinText.text = DoubleFormatter.Format(eventCoins);
-        }
-        else
-        {
-            playerCoins -= (double)(coins);
-            UIManager.instance.playerCoinText.text = DoubleFormatter.Format(playerCoins);
-        }
+        //if (currentMachine.machineData.isCurrentEvent)
+        //{
+        //    eventCoins -= (double)(coins);
+        //    UIManager.instance.playerCoinText.text = DoubleFormatter.Format(eventCoins);
+        //}
+        //else
+        //{
+        //    playerCoins -= (double)(coins);
+        //    UIManager.instance.playerCoinText.text = DoubleFormatter.Format(playerCoins);
+        //}
+
+        playerMachineData.RemoveCoinsFromCurrentMachine(coins);
     }
 
     public void AddGems(int gems)
     {
         playerGems += gems;
         UIManager.instance.playerGemText.text = playerGems.ToString();
+        ES3.Save("playerGems", playerGems);
     }
 
     public void RemoveGems(int gems)
     {
         playerGems -= gems;
         UIManager.instance.playerGemText.text = playerGems.ToString();
+        ES3.Save("playerGems", playerGems);
+    }
+
+    public void AddTicketSlot()
+    {
+        ticketSlotCount++;
+        ES3.Save("playerTicketSlotCount", ticketSlotCount);
     }
 
     public void AddBoost(BoostData boost)
@@ -232,75 +204,6 @@ public class PlayerManager : MonoBehaviour
         boostRef.AddTime(boost.boostLength);
     }
 
-    private void AddMachineIdleCoins()
-    {
-        ChooseMachineListIdleCoins(mainMachines);
-        ChooseMachineListIdleCoins(eventMachines);
-    }
-
-    private void ChooseMachineListIdleCoins(List<MachineData> machines)
-    {
-        foreach (MachineData machineData in machines)
-        {
-            if (machineData.isUnlocked && !machineData.isPlaying)
-            {
-                TimeSpan difference = DateTime.Now - machineData.awayCheckPoint;
-                if (difference.TotalHours < maxIdleTime)
-                {
-                    machineData.accumulatedCoins += (double) (machineData.coinsPerSecond * playerTicketBuffs.idleCoinBuff);
-                } 
-            }
-        }
-    }
-
-    private void AddMachineAwayCoins()
-    {
-        ChooseMachineListAwayCoins(mainMachines);
-        ChooseMachineListAwayCoins(eventMachines);
-    }
-
-    private void ChooseMachineListAwayCoins(List<MachineData> machines)
-    {
-        foreach (MachineData machineData in machines)
-        {
-            if (machineData.isUnlocked)
-            {
-                TimeSpan idleLimitCheck = DateTime.Now - machineData.awayCheckPoint;
-                if (idleLimitCheck.TotalHours > maxIdleTime)
-                {
-                    machineData.accumulatedCoins = (double)(machineData.coinsPerSecond * (3600 * (maxIdleTime + playerTicketBuffs.maxIdleTimeLength)) * playerTicketBuffs.idleCoinBuff);
-                }
-                else
-                {
-                    machineData.accumulatedCoins = (double)(machineData.coinsPerSecond * idleLimitCheck.TotalSeconds * playerTicketBuffs.idleCoinBuff);
-                }
-            }
-        }
-    }
-
-    private void AssignCurrentEventMachineData()
-    {
-        foreach(MachineData data in eventMachines)
-        {
-            if(data.isCurrentEvent)
-            {
-                currentEventMachineData = data;
-            }
-        }
-    }
-
-    public MachineData GetEventMachineData(string machineGUID)
-    {
-        foreach (MachineData data in eventMachines)
-        {
-            if (data.machineGUID.Equals(machineGUID))
-            {
-                return data;
-            }
-        }
-        return null;
-    }
-
     public void SetTicketBuffs()
     {
         foreach(ItemData ticketData in equippedTickets)
@@ -311,30 +214,9 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public void CollectAllIdleCoins(double multiplier)
-    {
-        foreach (MachineData machineData in mainMachines)
-        {
-            if (machineData.isUnlocked && !machineData.isPlaying)
-            {
-                AddCoins((double) (machineData.accumulatedCoins * multiplier));
-                machineData.accumulatedCoins = 0;
-            }
-        }
-
-        foreach (MachineData machineData in eventMachines)
-        {
-            if (machineData.isUnlocked && !machineData.isPlaying)
-            {
-                AddCoins((double) (machineData.accumulatedCoins * multiplier));
-                machineData.accumulatedCoins = 0;
-            }
-        }
-    }
-
     public void AddSeasonPassHit()
     {
-        if (currentMachine.machineData.isCurrentEvent)
+        if (playerMachineData.IsPlayingEvent())
         {
             seasonPassData.CheckSeasonPassProgress();
         }
@@ -359,15 +241,15 @@ public class PlayerManager : MonoBehaviour
     {
         if (finishedLoadMethod)
         {
-            SavePlayerManager();
-            playerSettingsData.Save();
-            SaveMachineData();
+            //SavePlayerManager();
+            //playerSettingsData.Save();
+            //playerMachineData.SaveMachineData();
+
 
             seasonPassData.SaveSeasonPassData();
-            currentMachine.SaveMachine();
             UIManager.instance.uiChallengeManager.SaveChallenges();
 
-            ES3.StoreCachedFile();
+            //ES3.StoreCachedFile();
             SaveToPlayFab();
         }
 
@@ -375,125 +257,59 @@ public class PlayerManager : MonoBehaviour
 
     private void SaveToPlayFab()
     {
-        string rawSave = ES3.LoadRawString(es3Cache);
+        //string rawSave = ES3.LoadRawString(es3Cache);
+
+        string str = ES3.LoadRawString("SaveFile.es3");
+
 
         var request = new UpdateUserDataRequest
         {
             Data = new Dictionary<string, string>
             {
-                {"es3Save", rawSave}
+                {"es3Save", str}
             }
         };
 
         PlayFabClientAPI.UpdateUserData(request, OnDataSend, OnError);
     }
 
-    private void LoadPlayerData()
-    {
-        LoadFromPlayfab();
-
-    }
-
     public void LoadFromCache()
     {
-        if(ES3.KeyExists("playerCoins"))
-        {
-            LoadPlayerManager();
-            LoadMachineData();
-            playerSettingsData.Load();
-            seasonPassData.LoadSeasonPassData();
 
-            AddMachineAwayCoins();
+        LoadPlayerManager();
+        playerSettingsData.Load();
+        playerMachineData.LoadMachineData();
+        seasonPassData.LoadSeasonPassData();
 
-            finishedLoadMethod = true;
-        }
-        else
-        {
-            currMachineData = mainMachines[0];
-            foreach (MachineData machineData in eventMachines)
-            {
-                if (machineData.isCurrentEvent)
-                {
-                    currentEventMachineData = machineData;
-                }
-            }
-            SceneManager.LoadScene("MA001");
+        //playerMachineData.AddMachineAwayCoins();
 
-            finishedLoadMethod = true;
-        }
+        finishedLoadMethod = true;
 
-    }
-
-    private void SaveMachineData()
-    {
-        foreach (MachineData machineData in mainMachines)
-        {
-            machineData.SaveMachine();
-        }
-
-        foreach (MachineData machineData in eventMachines)
-        {
-            machineData.SaveMachine();
-        }
-    }
-
-    private void LoadMachineData()
-    {
-        currMachineData = null;
-        foreach (MachineData machineData in mainMachines)
-        {
-            machineData.LoadMachine();
-            if (machineData.isPlaying)
-            {
-                currMachineData = machineData;
-            }
-        }
-
-        foreach (MachineData machineData in eventMachines)
-        {
-            machineData.LoadMachine();
-            if (machineData.isPlaying)
-            {
-                currMachineData = machineData;
-            }
-
-            if (machineData.isCurrentEvent)
-            {
-                currentEventMachineData = machineData;
-            }
-        }
-
-        if (currMachineData != null)
-        {
-            SceneManager.LoadScene(currMachineData.machineGUID);
-        }
-        else
-        {
-            SceneManager.LoadScene("MA001");
-        }
+        playerMachineData.InitialSceneLoad();
     }
 
     private void SavePlayerManager()
     {
-        ES3.Save("playerTutorialFinished", tutorialFinished);
-        ES3.Save("playerIsAdFree", isAdFree);
-        ES3.Save("playerHas2xIncome", is2xAllIncome);
-        ES3.Save("playerHas2xIdleIncome", is2xIdleIncome);
-        ES3.Save("playerHasMasterPack", is4xAllIncome);
+        //ES3.Save("playerTutorialFinished", tutorialFinished);
+        //ES3.Save("playerIsAdFree", isAdFree);
+        //ES3.Save("playerHas2xIncome", is2xAllIncome);
+        //ES3.Save("playerHas2xIdleIncome", is2xIdleIncome);
+        //ES3.Save("playerHasMasterPack", is4xAllIncome);
+        //boostDatabase.SaveBoostDatabase();
+        //ES3.Save("playerBoostInventory", boostInventory);
+        //ES3.Save("playerGems", playerGems);
+        //ticketDataList.SaveItemList();
+        //ballDataList.SaveItemList();
+        //ES3.Save("playerTicketSlotCount", ticketSlotCount);
 
-        ES3.Save("playerGlobalCoinMultiplier", globalCoinMultiplier);
-        boostDatabase.SaveBoostDatabase();
-        ES3.Save("playerBoostInventory", boostInventory);
+        //ES3.Save("playerEventCoins", eventCoins);
+        //ES3.Save("playerCoins", playerCoins);
 
-        ES3.Save("playerEventCoins", eventCoins);
-        ES3.Save("playerCoins", playerCoins);
-        ES3.Save("playerGems", playerGems);
 
-        ticketDataList.SaveItemList();
-        ballDataList.SaveItemList();
 
-        ES3.Save("playerTicketSlotCount", ticketSlotCount);
-        ES3.Save("playerEquippedTickets", equippedTickets);
+
+
+        //ES3.Save("playerEquippedTickets", equippedTickets);
     }
 
     private void LoadPlayerManager()
@@ -504,7 +320,6 @@ public class PlayerManager : MonoBehaviour
         is2xIdleIncome = ES3.Load("playerHas2xIdleIncome", is2xIdleIncome);
         is4xAllIncome = ES3.Load("playerHasMasterPack", is4xAllIncome);
 
-        globalCoinMultiplier = ES3.Load("playerGlobalCoinMultiplier", globalCoinMultiplier);
         boostDatabase.LoadBoostDatabase();
         boostInventory = ES3.Load("playerBoostInventory", boostInventory);
 
@@ -519,6 +334,20 @@ public class PlayerManager : MonoBehaviour
         equippedTickets = ES3.Load("playerEquippedTickets", equippedTickets);
     }
 
+    public void DividePlayerCoins()
+    {
+        if(playerCoins > 100)
+        {
+            foreach(MachineData machineData in playerMachineData.ownedMachines)
+            {
+                machineData.AddCoins(playerCoins / playerMachineData.ownedMachines.Count);
+            }
+
+            playerCoins = 0;
+
+        }
+    }
+
     // Auth Dependency
 
     private void OnGoogleLink(LinkGoogleAccountResult success)
@@ -529,6 +358,7 @@ public class PlayerManager : MonoBehaviour
     private void OnPlayFabError(PlayFabError error)
     {
         Debug.Log(error);
+        LoadFromCache();
     }
 
     private void OnLoginSuccess(LoginResult success)
@@ -547,6 +377,7 @@ public class PlayerManager : MonoBehaviour
         LoadFromCache();
     }
 
+
     // Loading From Playfab
 
     public void LoadFromPlayfab()
@@ -559,7 +390,11 @@ public class PlayerManager : MonoBehaviour
         if (result.Data != null && result.Data.ContainsKey("es3Save"))
         {
             string rawString = result.Data["es3Save"].Value;
-            ES3.SaveRaw(rawString, es3Cache);
+            ES3.SaveRaw(rawString, "SaveFile.es3");
+            LoadFromCache();
+        }
+        else 
+        {
             LoadFromCache();
         }
     }
@@ -572,5 +407,6 @@ public class PlayerManager : MonoBehaviour
     void OnError(PlayFabError error)
     {
         Debug.Log(error);
+        LoadFromCache();
     }
 }

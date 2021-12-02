@@ -23,7 +23,6 @@ namespace ES3Types
 			writer.WriteProperty("isPlaying", instance.isPlaying, ES3Type_bool.Instance);
 			writer.WriteProperty("isCurrentEvent", instance.isCurrentEvent, ES3Type_bool.Instance);
 			writer.WriteProperty("coinsPerSecond", instance.coinsPerSecond, ES3Type_double.Instance);
-			writer.WriteProperty("accumulatedCoins", instance.accumulatedCoins, ES3Type_double.Instance);
 			writer.WritePropertyByRef("machineImage", instance.machineImage);
 			writer.WriteProperty("awayCheckPoint", instance.awayCheckPoint, ES3Type_DateTime.Instance);
 		}
@@ -56,9 +55,6 @@ namespace ES3Types
 						break;
 					case "coinsPerSecond":
 						instance.coinsPerSecond = reader.Read<System.UInt64>(ES3Type_double.Instance);
-						break;
-					case "accumulatedCoins":
-						instance.accumulatedCoins = reader.Read<System.UInt64>(ES3Type_double.Instance);
 						break;
 					case "machineImage":
 						instance.machineImage = reader.Read<UnityEngine.Sprite>(ES3Type_Sprite.Instance);

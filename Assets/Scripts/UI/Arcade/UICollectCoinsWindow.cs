@@ -38,21 +38,21 @@ public class UICollectCoinsWindow : MonoBehaviour
 
         watchAdButton.CheckAdFree();
 
-        foreach (MachineData data in PlayerManager.instance.mainMachines)
-        {
-            if (data.isUnlocked)
-            {
-                totalCoinsCollected += data.accumulatedCoins;
-            }
-        }
+        //foreach (MachineData data in PlayerManager.instance.playerMachineData.mainMachines)
+        //{
+        //    if (data.isUnlocked)
+        //    {
+        //        totalCoinsCollected += data.accumulatedCoins;
+        //    }
+        //}
 
-        foreach (MachineData data in PlayerManager.instance.eventMachines)
-        {
-            if (data.isUnlocked)
-            {
-                totalCoinsCollected += data.accumulatedCoins;
-            }
-        }
+        //foreach (MachineData data in PlayerManager.instance.playerMachineData.eventMachines)
+        //{
+        //    if (data.isUnlocked)
+        //    {
+        //        totalCoinsCollected += data.accumulatedCoins;
+        //    }
+        //}
 
         multipliedCoinsCollected = totalCoinsCollected;
 
@@ -69,7 +69,7 @@ public class UICollectCoinsWindow : MonoBehaviour
 
     public void CollectIdleCoins()
     {
-        ResetAccumulatedCoins();
+        //ResetAccumulatedCoins();
 
         PlayerManager.instance.AddCoins(multipliedCoinsCollected);
 
@@ -111,24 +111,24 @@ public class UICollectCoinsWindow : MonoBehaviour
 
     }
 
-    private void ResetAccumulatedCoins()
-    {
-        foreach (MachineData data in PlayerManager.instance.mainMachines)
-        {
-            if (data.isUnlocked)
-            {
-                data.accumulatedCoins = 0;
-                data.awayCheckPoint = DateTime.Now;
-            }
-        }
+    //private void ResetAccumulatedCoins()
+    //{
+    //    foreach (MachineData data in PlayerManager.instance.playerMachineData.mainMachines)
+    //    {
+    //        if (data.isUnlocked)
+    //        {
+    //            data.accumulatedCoins = 0;
+    //            data.awayCheckPoint = DateTime.Now;
+    //        }
+    //    }
 
-        foreach (MachineData data in PlayerManager.instance.eventMachines)
-        {
-            if (data.isUnlocked)
-            {
-                data.accumulatedCoins = 0;
-                data.awayCheckPoint = DateTime.Now;
-            }
-        }
-    }
+    //    foreach (MachineData data in PlayerManager.instance.playerMachineData.eventMachines)
+    //    {
+    //        if (data.isUnlocked)
+    //        {
+    //            data.accumulatedCoins = 0;
+    //            data.awayCheckPoint = DateTime.Now;
+    //        }
+    //    }
+    //}
 }

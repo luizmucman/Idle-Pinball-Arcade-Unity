@@ -23,7 +23,6 @@ namespace ES3Types
 			writer.WriteProperty("is2xIdleIncome", instance.is2xIdleIncome, ES3Type_bool.Instance);
 			writer.WriteProperty("is4xAllIncome", instance.is4xAllIncome, ES3Type_bool.Instance);
 			writer.WriteProperty("eventCoins", instance.eventCoins, ES3Type_double.Instance);
-			writer.WriteProperty("globalCoinMultiplier", instance.globalCoinMultiplier, ES3Type_float.Instance);
 			writer.WritePropertyByRef("boostDatabase", instance.boostDatabase);
 			writer.WriteProperty("boostInventory", instance.boostInventory, ES3Internal.ES3TypeMgr.GetES3Type(typeof(System.Collections.Generic.List<BoostData>)));
 			writer.WriteProperty("playerCoins", instance.playerCoins, ES3Type_double.Instance);
@@ -60,9 +59,6 @@ namespace ES3Types
 						break;
 					case "eventCoins":
 						instance.eventCoins = reader.Read<System.Double>(ES3Type_double.Instance);
-						break;
-					case "globalCoinMultiplier":
-						instance.globalCoinMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
 						break;
 					case "boostDatabase":
 						instance.boostDatabase = reader.Read<BoostDatabase>(ES3UserType_BoostDatabase.Instance);

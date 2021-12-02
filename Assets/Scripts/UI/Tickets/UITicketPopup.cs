@@ -8,7 +8,10 @@ public class UITicketPopup : MonoBehaviour
     [Header("UI Elements")]
     public Image ticketImage;
     public Text title;
-    public Image[] stars;
+    [SerializeField] private Text currRankText;
+    [SerializeField] private Text nextRankText;
+    [SerializeField] private Text expText;
+    [SerializeField] private Slider expSlider;
     public Text currRankDescription;
     public Text nextRankDescription;
     public Button interactButton;
@@ -24,19 +27,15 @@ public class UITicketPopup : MonoBehaviour
     {
         ticketImage.sprite = ticketButton.ticketImage.sprite;
         title.text = ticketButton.ticket.itemName;
-        for(int i = 0; i < 5; i++)
-        {
-            if(i <= ticketButton.ticketData.rank)
-            {
-                stars[i].sprite = litStar;
-            }
-            else
-            {
-                stars[i].sprite = unlitStar;
-            }
-        }
+        currRankText.text = ticketButton.ticketData.rank.ToString();
+        nextRankText.text = (ticketButton.ticketData.rank + 1).ToString();
+        expText.text = ticketButton.ticketData.exp.ToString() + "/" + ticketButton.ticketData.expReqs[ticketButton.ticketData.rank].ToString();
+        expSlider.maxValue = ticketButton.ticketData.expReqs[ticketButton.ticketData.rank];
+        expSlider.value = ticketButton.ticketData.exp;
         currRankDescription.text = ticketButton.ticket.currRankDescription;
         nextRankDescription.text = ticketButton.ticket.nextRankDescription;
+
+
 
         if(ticketButton.ticketData.isEquipped)
         {

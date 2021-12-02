@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: PlayFabEditorPrefsSO
   m_EditorClassIdentifier: 
   DevAccountEmail: happyhedgehogstudio@gmail.com
-  DevAccountToken: snpashfojzxyabunrrz7ucjg1zqnqo74ehc98mj5e7mawk77r1jrui8namwgrqmp1pybtif4ogqqopnbzysautzp931fmb8sxamk87nb934uakahh86di4azpu1jzf8f7ahxxdoknigqdn14zyu4x3bjy1y1dar1wggs4dqt1o1goi5pd9dexyq8kcumjop8gmij6kft
+  DevAccountToken: 8f75r5o3xzeauzjbfb53dp9qxg9acioi7ix6c95i76m5ihjz9d8ukztaebf6ti87hq1judm47rsj61q5sray4paj8uhbnowpbqkfisep7fkq835k9rpfk1zx63fa8aj3n7qs4kwgkpu44wpnxpxznc3xjg3jb351iqjdt79bb6jteaf3smz8zm44nja7e8t5msoae6u3
   SelectedStudio: HappyHedgehog
   SdkPath: Assets/PlayFabSDK
   EdExPath: 
   LocalCloudScriptPath: 
   PanelIsShown: 0
-  curMainMenuIdx: 1
+  curMainMenuIdx: 4
   curSubMenuIdx: 0

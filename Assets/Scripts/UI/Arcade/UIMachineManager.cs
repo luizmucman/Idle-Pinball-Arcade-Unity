@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class UIMachineManager : MonoBehaviour
 {
+    [SerializeField] private Text totalCoinText;
+
     // Machine Prefab
     public UIMachineButton machinePrefab;
 
@@ -18,20 +20,26 @@ public class UIMachineManager : MonoBehaviour
     // MachineButton Lists
     public List<UIMachineButton> mainMachineButtons;
     public List<UIMachineButton> eventMachineButtons;
+    public List<UIMachineButton> ownedMachineButtons;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        foreach(MachineData machine in PlayerManager.instance.mainMachines)
+        foreach(MachineData machine in PlayerManager.instance.playerMachineData.mainMachines)
         {
             UIMachineButton currMachine = Instantiate(machinePrefab, mainContainer.transform);
             currMachine.SetMachine(machine);
             mainMachineButtons.Add(currMachine);
+            if (currMachine.machineData.isUnlocked)
+            {
+                ownedMachineButtons.Add(currMachine);
+            }
         }
 
         UIMachineButton currEvent = null;
 
-        foreach (MachineData machine in PlayerManager.instance.eventMachines)
+        foreach (MachineData machine in PlayerManager.instance.playerMachineData.eventMachines)
         {
             UIMachineButton currMachine = Instantiate(machinePrefab, eventContainer.transform);
             currMachine.SetMachine(machine);
@@ -43,6 +51,12 @@ public class UIMachineManager : MonoBehaviour
             if(machine.isCurrentEvent)
             {
                 currEvent = currMachine;
+                ownedMachineButtons.Add(currMachine);
+            }
+
+            if (machine.isUnlocked)
+            {
+                ownedMachineButtons.Add(currMachine);
             }
         }
 
@@ -79,5 +93,10 @@ public class UIMachineManager : MonoBehaviour
                 return;
             }
         }
+    }
+
+    public void SetTotalCoinText(double num)
+    {
+        totalCoinText.text = DoubleFormatter.Format(num);
     }
 }

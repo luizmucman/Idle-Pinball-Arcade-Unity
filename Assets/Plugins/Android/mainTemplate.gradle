@@ -46,11 +46,11 @@ dependencies {
     implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0' // Assets/IronSource/Editor/IronSourceSDKDependencies.xml:16
     implementation 'com.google.android.gms:play-services-appset:16.0.0' // Assets/IronSource/Editor/IronSourceSDKDependencies.xml:24
     implementation 'com.google.android.gms:play-services-basement:17.2.1' // Assets/IronSource/Editor/IronSourceSDKDependencies.xml:32
-    implementation 'com.google.games:gpgs-plugin-support:0.10.12' // Assets/GooglePlayGames/Editor/GooglePlayGamesPluginDependencies.xml:11
+    implementation 'com.google.games:gpgs-plugin-support:0.10.13' // Assets/GooglePlayGames/Editor/GooglePlayGamesPluginDependencies.xml:11
     implementation 'com.ironsource.adapters:admobadapter:4.3.23' // Assets/IronSource/Editor/ISAdMobAdapterDependencies.xml:16
     implementation 'com.ironsource.adapters:facebookadapter:4.3.33' // Assets/IronSource/Editor/ISFacebookAdapterDependencies.xml:16
-    implementation 'com.ironsource.adapters:unityadsadapter:4.3.14' // Assets/IronSource/Editor/ISUnityAdsAdapterDependencies.xml:8
-    implementation 'com.ironsource.sdk:mediationsdk:7.1.12.1' // Assets/IronSource/Editor/IronSourceSDKDependencies.xml:8
+    implementation 'com.ironsource.adapters:unityadsadapter:4.3.16' // Assets/IronSource/Editor/ISUnityAdsAdapterDependencies.xml:8
+    implementation 'com.ironsource.sdk:mediationsdk:7.1.12.2' // Assets/IronSource/Editor/IronSourceSDKDependencies.xml:8
     implementation 'com.parse.bolts:bolts-android:1.4.0' // Assets/FacebookSDK/Plugins/Editor/Dependencies.xml:4
     implementation 'com.tapjoy:tapjoy-android-unitybridge:12.8.1' // Assets/Tapjoy/Editor/TJPluginDependencies.xml:9
     implementation 'com.unity3d.ads:unity-ads:3.7.5' // Assets/IronSource/Editor/ISUnityAdsAdapterDependencies.xml:15
@@ -78,7 +78,8 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion **MINSDKVERSION**
+	multiDexEnabled true
+        minSdkVersion 21
         targetSdkVersion **TARGETSDKVERSION**
         ndk {
             abiFilters **ABIFILTERS**

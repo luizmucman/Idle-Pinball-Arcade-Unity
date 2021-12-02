@@ -19,11 +19,11 @@ public class UILeftPaddleButton : MonoBehaviour, IPointerDownHandler, IPointerUp
     {
         if(isLeft)
         {
-            playerManager.currentMachine.leftPaddle.EnablePaddle();
+            playerManager.playerMachineData.currMachine.leftPaddle.EnablePaddle();
         }
         else
         {
-            playerManager.currentMachine.rightPaddle.EnablePaddle();
+            playerManager.playerMachineData.currMachine.rightPaddle.EnablePaddle();
         }
     }
 
@@ -32,11 +32,11 @@ public class UILeftPaddleButton : MonoBehaviour, IPointerDownHandler, IPointerUp
 
         if (isLeft)
         {
-            playerManager.currentMachine.leftPaddle.DisablePaddle();
+            playerManager.playerMachineData.currMachine.leftPaddle.DisablePaddle();
         }
         else
         {
-            playerManager.currentMachine.rightPaddle.DisablePaddle();
+            playerManager.playerMachineData.currMachine.rightPaddle.DisablePaddle();
         }
     }
 }

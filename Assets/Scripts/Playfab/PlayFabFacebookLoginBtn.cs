@@ -15,6 +15,7 @@ public class PlayFabFacebookLoginBtn : MonoBehaviour
 
     private void Awake()
     {
+        UnsubscribeEvents();
         btn = GetComponent<Button>();
         if (PlayerManager.instance.facebookAccLinked)
         {
@@ -43,10 +44,15 @@ public class PlayFabFacebookLoginBtn : MonoBehaviour
                 _AuthService.AuthTicket = AccessToken.CurrentAccessToken.TokenString;
                 _AuthService.LinkFacebook();
             }
+            else
+            {
+                UnsubscribeEvents();
+            }
         }
         else
         {
             UIManager.instance.uiErrorWindow.SetErrorDesc(error.HttpCode + ": " + error.ErrorMessage);
+            UnsubscribeEvents();
         }
 
     }
@@ -122,15 +128,15 @@ public class PlayFabFacebookLoginBtn : MonoBehaviour
 
     private void SubscribeEvents()
     {
-        PlayFabAuthService.OnLoginSuccess += OnLoginSuccess;
-        PlayFabAuthService.OnPlayFabError += OnPlayFabError;
+        PlayFabAuthService.OnFacebookLoginSuccess += OnLoginSuccess;
+        PlayFabAuthService.OnPlayFabFacebookLoginError += OnPlayFabError;
         PlayFabAuthService.OnFacebookLink += OnLinkSuccess;
     }
 
     private void UnsubscribeEvents()
     {
-        PlayFabAuthService.OnLoginSuccess -= OnLoginSuccess;
-        PlayFabAuthService.OnPlayFabError -= OnPlayFabError;
+        PlayFabAuthService.OnFacebookLoginSuccess -= OnLoginSuccess;
+        PlayFabAuthService.OnPlayFabFacebookLoginError -= OnPlayFabError;
         PlayFabAuthService.OnFacebookLink -= OnLinkSuccess;
     }
 }

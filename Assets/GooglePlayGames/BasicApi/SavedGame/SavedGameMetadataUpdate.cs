@@ -96,9 +96,9 @@ namespace GooglePlayGames.BasicApi.SavedGame
 
             public Builder WithUpdatedPlayedTime(TimeSpan newPlayedTime)
             {
-                if (newPlayedTime.TotalMilliseconds > double.MaxValue)
+                if (newPlayedTime.TotalMilliseconds > ulong.MaxValue)
                 {
-                    throw new InvalidOperationException("Timespans longer than double.MaxValue " +
+                    throw new InvalidOperationException("Timespans longer than ulong.MaxValue " +
                                                         "milliseconds are not allowed");
                 }
 

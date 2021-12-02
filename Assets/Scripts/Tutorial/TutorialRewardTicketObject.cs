@@ -13,6 +13,6 @@ public class TutorialRewardTicketObject : TutorialObject
         PlayerManager.instance.ticketDataList.GetItemData(rewardedTicket.GUID).AddExp(1);
 
         UIManager.instance.uiTicketManager.CheckUnlockedTickets();
-        UIManager.instance.uiShopManager.buyPopup.SetPopup(rewardedTicket);
+        UIManager.instance.uiShopManager.ticketGatchaPopup.SetPopup(PlayerManager.instance.ticketDataList.GetItemData(rewardedTicket.GUID));
     }
 }

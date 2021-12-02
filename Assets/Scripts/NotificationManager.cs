@@ -42,7 +42,7 @@ public class NotificationManager : MonoBehaviour
             var notification = new AndroidNotification();
             notification.Title = "Your Pinball Machines Are Full!";
             notification.Text = "Collect your idle coins so your machines can start collecting again.";
-            notification.FireTime = System.DateTime.Now.AddHours(PlayerManager.instance.maxIdleTime);
+            notification.FireTime = System.DateTime.Now.AddHours(PlayerManager.instance.playerMachineData.maxIdleTime);
 
             AndroidNotificationCenter.SendNotificationWithExplicitID(notification, "idle_machine_channel", idleTimeReachedId);
 

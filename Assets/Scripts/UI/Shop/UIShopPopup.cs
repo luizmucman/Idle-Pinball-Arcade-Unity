@@ -182,8 +182,8 @@ public class UIShopPopup : MonoBehaviour
 
     public void SetSeasonPassPopup()
     {
-        itemIcon.sprite = PlayerManager.instance.currentEventMachineData.machineImage;
-        itemTitle.text = PlayerManager.instance.currentEventMachineData.machineName + " Season Pass";
+        itemIcon.sprite = PlayerManager.instance.playerMachineData.currentEventMachineData.machineImage;
+        itemTitle.text = PlayerManager.instance.playerMachineData.currentEventMachineData.machineName + " Season Pass";
         itemDesc.text = "You have unlocked the premium pass for the current event! Unlock premium rewards by playing the machine.";
 
         starContainer.SetActive(false);
